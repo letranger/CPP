@@ -1,24 +1,87 @@
-#+TITLE: C++ 
-#+AUTHOR: Yen
-#+EMAIL: yen.yungchin@gmail.com
-#+HTML_HEAD: <link rel="stylesheet" href="http://dakrone.github.io/org.css" type="text/css" />
-#+REVEAL_THEME: night
-#+OPTIONS: reveal_center:t reveal_progress:t reveal_history:nil reveal_control:t
-#+OPTIONS: reveal_mathjax:t reveal_rolling_links:t reveal_keyboard:t reveal_overview:t num:nil
-#+OPTIONS: reveal_width:1024 reveal_height:768
-#+OPTIONS: toc:4
-#+REVEAL_MARGIN: 0.1
-#+REVEAL_MIN_SCALE: 1.2  
-#+REVEAL_MAX_SCALE: 1.5
-#+REVEAL_TRANS: cube
-#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Org-Reveal Introduction.">
-#+REVEAL_POSTAMBLE: <p> Created by yjwen. </p>
-#+REVEAL_PLUGINS: (highlight markdown)
-#+STARTUP: indent
-#+STARTUP: hidestars
+#+Title: Basic Materials of C++ Basic
 
-* Instruction to C++
-TNFSH CPP 教材
+#+INCLUDE: ../bigweb.org
+#+LATEX:\newpage
+
+* C++基本架構
+
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream> (ref:header)
+using namespace std;
+
+int main() (ref:main)
+{
+    cout << "Hello world\n"; (ref:cout)
+    return 0;
+}
+#+end_src
+
+#+RESULTS:
+: Hello world
+** main()
+C/C++的程式由許多的 function(函式)組成，function 的基本架構如下：
+#+begin_src cpp -r -n :eval no
+傳回值類型 函式名稱() {
+    函式內容
+    retrun 傳回值
+}
+#+end_src
+上述程式中的第[[(main)]]行開始即為一名為 main 的 function，這也是 C/C++程式最主要的一支 function，程式被執行時，就由整支程式中找出名為 main 的 function 開始執行。之後我們的程式也將依序寫在這組大括號中。
+
+** 標頭檔(Headers)
+上述程式中，第[[(header)]]行為標頭檔(Header)的引入，這裡告訴 Compiler 說我需要用到 iostream 這個 header，原因是程式的第[[(cout)]]行用到 cout 這個指令，而這個指令就被定義在 iostream 這個 header 中，其中的 io 即代表 input/output。
+
+往後如果用到其他函數，也需要 include 相關的 header，例如，如果需要用到數學的開根號函式 sqrt()，就需要 include math.h 這個 header，如下例中的第[[(header)]]行。
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+#include <math.h> (ref:header)
+using namespace std;
+
+int main() (ref:main)
+{
+    cout << sqrt(100) << endl;
+    return 0;
+}
+
+#+end_src
+
+#+RESULTS:
+: 10
+** 命名空間(namespace)
+一支程式往往會用到許多的指令、函式、變數，不同單位所開發的程式也許會用到相同的名稱來為這些函式或變數命名，如此一來就可能導致名稱的衝突。舉個例子，在一年級新生中，有三個班級裡都有個叫*陳宜君*的同學，那麼我們怎麼區分這三位同學呢？一個方式在提及這些同學時在前面加上班級，如：一年三班的陳宜君。
+
+C++就提出這種方式來解決名稱可能衝突的問題，以下面程式為例：
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+int main() {
+    std::cout << "每次用到cout都指定namespace"; (ref:stdcout)
+    return 0;
+}
+#+end_src
+
+#+RESULTS:
+: 每次用到 cout 都指定 namespace
+
+上例的第[[(stdcout)]]中的 std::就是 C++的標準命名空間，用來說明這裡所用的 cout 是 C++預設的指令，但是如果你並沒有命名衝突的問題，其實可以一開始就直接把 namespace 設定為 std，如下面程式中的第[[(namespace)]]行。
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std; (ref:namespace)
+int main() {
+    cout << "用到cout時不用再特別指定namespace"; (ref:stdcout)
+    return 0;
+}
+#+end_src
+
+#+RESULTS:
+: 用到 cout 時不用再特別指定 namespace
+
+有關於 namespace 的詳細說明，可參考[[https://openhome.cc/Gossip/CppGossip/Namespace.html][簡介名稱空間]]這篇文章。
+
+* 輸出
+** cout
+** 跳脫字元
+** printf()
+
 * Variable
 
 #+BEGIN_SRC C++ -n -r :results output :exports both
@@ -81,94 +144,6 @@ int main() {
 
 * while
 
-* Instruction to C++
-
-* Variable
-
-#+BEGIN_SRC C++ -n
-  #include <iostream>
-  using namespace std;
-  int main() {
-      int x;
-      x = 32;
-      cout << "This is demostration of variable declaration of C++";
-  }
-
-#+END_SRC
-
-#+RESULTS:
-: This is demostration of variable declaration of C++
-
-* if-else
-
-** 單一條件
-#+begin_src C++ -n
-  #include <iostream>
-  using namespace std;
-  int main() {
-    int x;
-    x=32;
-    if (x%2==0) {
-      cout << "x為偶數\n";
-    }
-    if (x%2!=0) {
-      cout << "x為奇數\n";
-    }
-  }
-#+end_src
-
-#+RESULTS:
-: x 為偶數
-
-** 雙重條件
-
-** 
-#+BEGIN_SRC C :session two
-#include <stdio.h>
-#include <iostream>
-int x=4;
-if (x%2==0) {
-  cout << "x為偶數\n";
-} else {
-  cout << "x為奇數\n";
-
-}
-#+END_SRC
-
-#+RESULTS:
-
-* for
-
-* nested for
-
-* while
-
-* function
-
-** function declaration
-
-** function define
-
-** compute n!
-#+BEGIN_SRC C
-  #include <stdio.h>
-  int n(int x) {
-      if (x==1) {
-          return 1;
-      } else {
-          return x*n(x-1);
-      }
-  }
-  int main() {
-      int hi = 5;
-      printf("%d\n",n(5));
-  }
-
-#+END_SRC
-
-#+RESULTS:
-: 120
-
 * function
 
 ** function declaration
@@ -177,56 +152,32 @@ if (x%2==0) {
 
 ** compute n!
 #+BEGIN_SRC C++
-  #include <iostream>
-  using namespace std;
-  int n(int x) {
-      if (x==1) {
-          return 1;
-      } else {
-          return x*n(x-1);
-      }
-  }
+#include <iostream>
+using namespace std;
+int n(int x) {
+    if (x==1) {
+        return 1;
+    } else {
+        return x*n(x-1);
+    }
+}
 
-  int main() {
-      int hi = 9;
-      cout << n(8) << endl;
-  }
+int main() {
+    int hi = 9;
+    cout << n(8) << endl;
+}
 
 #+END_SRC
 
 #+RESULTS:
 : 40320
 
-* python
-#+BEGIN_SRC python -n
-def foo(x):
-  if x>0:
-    return x+1
-
-  else:
-    return x-1
-
-return foo(5)
-#+END_SRC
-
-#+RESULTS:
-: 6
-** Python 
-#+BEGIN_SRC python -n
-
-
-print "Hello"
-
-#+END_SRC
-
-#+RESULTS:
-: None
 
 * ditaa
 #+begin_src ditaa :file blue.png :cmdline -r
 +----------+
 | cBLU     |
-| ALL      |
+| ALLAA    |
 |    +-----+
 |    |cPNK |
 |    | sub |
