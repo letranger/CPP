@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-08-19 Wed 19:50 -->
+<!-- 2020-08-20 Thu 08:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Basic Materials of C++ Basic</title>
+<title>Basic Materials of C++</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Yung Chin, Yen" />
 <style type="text/css">
@@ -227,63 +227,135 @@
     /*]]>*///-->
 // @license-end
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
-<h1 class="title">Basic Materials of C++ Basic</h1>
+<h1 class="title">Basic Materials of C++</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org472624a">1. C++基本架構</a>
+<li><a href="#orgc909452">1. 程式的編寫與執行</a>
 <ul>
-<li><a href="#org6b7bb9d">1.1. main()</a></li>
-<li><a href="#org33ca2f7">1.2. 標頭檔(Headers)</a></li>
-<li><a href="#org5ad0d52">1.3. 命名空間(namespace)</a></li>
+<li><a href="#org90a5005">1.1. source code</a></li>
+<li><a href="#org068a46c">1.2. 編寫</a></li>
+<li><a href="#org78ff72c">1.3. 編譯與執行</a></li>
 </ul>
 </li>
-<li><a href="#org3e5a5b1">2. 輸出</a>
+<li><a href="#orgb921941">2. C++基本架構</a>
 <ul>
-<li><a href="#org60006ad">2.1. cout</a></li>
-<li><a href="#org1be4181">2.2. 跳脫字元</a></li>
-<li><a href="#org0b9b2e8">2.3. printf()</a></li>
+<li><a href="#orgff81ba5">2.1. main()</a></li>
+<li><a href="#orgaddc600">2.2. 標頭檔(Headers)</a></li>
+<li><a href="#org90852d6">2.3. 命名空間(namespace)</a></li>
 </ul>
 </li>
-<li><a href="#orgd4ebfb9">3. Variable</a></li>
-<li><a href="#org1375837">4. if-else</a>
+<li><a href="#org995f028">3. 輸出</a>
 <ul>
-<li><a href="#org59a000d">4.1. 單一條件</a></li>
-<li><a href="#org4f2dc63">4.2. 雙重條件</a></li>
-<li><a href="#org045a346">4.3. </a></li>
+<li><a href="#org001e55d">3.1. cout</a></li>
+<li><a href="#orgcd06bfb">3.2. printf()</a></li>
+<li><a href="#orgc56fddc">3.3. 跳脫字元</a></li>
 </ul>
 </li>
-<li><a href="#orgc5409a0">5. for</a></li>
-<li><a href="#orgf2f3470">6. nested for</a></li>
-<li><a href="#org41d197d">7. while</a></li>
-<li><a href="#orgca62df0">8. function</a>
+<li><a href="#org641d1aa">4. Variable</a></li>
+<li><a href="#org69d9c14">5. if-else</a>
 <ul>
-<li><a href="#orgc7be61e">8.1. function declaration</a></li>
-<li><a href="#org6b89411">8.2. function define</a></li>
-<li><a href="#orgd67fa59">8.3. compute n!</a></li>
+<li><a href="#orgc15d1a0">5.1. 單一條件</a></li>
+<li><a href="#org3ccaa4d">5.2. 雙重條件</a></li>
+<li><a href="#org60febde">5.3. </a></li>
 </ul>
 </li>
-<li><a href="#orgbd4f240">9. ditaa</a></li>
+<li><a href="#orgac1c4f1">6. for</a></li>
+<li><a href="#orgc194858">7. nested for</a></li>
+<li><a href="#org7035b26">8. while</a></li>
+<li><a href="#org6139a27">9. function</a>
+<ul>
+<li><a href="#org61f4788">9.1. function declaration</a></li>
+<li><a href="#org23a5925">9.2. function define</a></li>
+<li><a href="#org52eaac7">9.3. compute n!</a></li>
+</ul>
+</li>
+<li><a href="#org628679f">10. ditaa</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org472624a" class="outline-2">
-<h2 id="org472624a"><span class="section-number-2">1</span> C++基本架構</h2>
+<div id="outline-container-orgc909452" class="outline-2">
+<h2 id="orgc909452"><span class="section-number-2">1</span> 程式的編寫與執行</h2>
 <div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org90a5005" class="outline-3">
+<h3 id="org90a5005"><span class="section-number-3">1.1</span> source code</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+所謂的程式碼基本上都只是一些文字檔，只是這些文字的撰寫是依照不同語言(如 C、C++、Python、R&#x2026;)所規定的語法(syntax)來撰寫。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org068a46c" class="outline-3">
+<h3 id="org068a46c"><span class="section-number-3">1.2</span> 編寫</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+既然程式碼只是文字檔，所以，其實我們可以很單純的以 windows 的記事本或是 MacOS 中的 TextEdit 來編寫各種語言的程式碼，只是，使用這些應用程式來編寫程式會相對辛苦，因為相對於一些專用的應用程式如 DevC++、VSCode、PyCharm 等都會提供撰寫者許多的額外功能，例如即時除錯、編譯、執行、除錯..。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org78ff72c" class="outline-3">
+<h3 id="org78ff72c"><span class="section-number-3">1.3</span> 編譯與執行</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+既然寫完的程式碼只是文字檔，那這些文字檔要如何變成可以執行的執行檔呢？如下圖<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>所示：
+</p>
+
+
+<div id="org79845fc" class="figure">
+<p><img src="images/c_compile.jpg" alt="c_compile.jpg" width="400" />
+</p>
+<p><span class="figure-number">Figure 1: </span>Compile and Execution</p>
+</div>
+
+<p>
+程式碼必須先經過 Preprocess、Compile、Assemble、Link 等步驟才能成為一支可以執行的執行檔(如 Windows 下的.exe 或是 MacOS 下的.app)。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb921941" class="outline-2">
+<h2 id="orgb921941"><span class="section-number-2">2</span> C++基本架構</h2>
+<div class="outline-text-2" id="text-2">
 <div class="org-src-container">
-<pre class="src src-cpp"><span id="coderef-header" class="coderef-off"><span class="linenr">1: </span><span style="color: #ff6ac1; font-weight: bold;">#include</span> <span style="color: #57c7ff;">&lt;</span><span style="color: #f3f99d;">iostream</span><span style="color: #57c7ff;">&gt;</span></span>
-<span class="linenr">2: </span><span style="color: #ffb86c;">using</span> <span style="color: #ffb86c;">namespace</span> <span style="color: #5af78e;">std</span>;
+<pre class="src src-cpp"><span id="coderef-header" class="coderef-off"><span class="linenr">1: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #51afef;">&lt;</span><span style="color: #98be65;">iostream</span><span style="color: #51afef;">&gt;</span></span>
+<span class="linenr">2: </span><span style="color: #51afef;">using</span> <span style="color: #51afef;">namespace</span> <span style="color: #a9a1e1;">std</span>;
 <span class="linenr">3: </span>
-<span id="coderef-main" class="coderef-off"><span class="linenr">4: </span><span style="color: #9aedfe;">int</span> <span style="color: #57c7ff;">main</span><span style="color: #57c7ff;">()</span></span>
-<span class="linenr">5: </span><span style="color: #57c7ff;">{</span>
-<span id="coderef-cout" class="coderef-off"><span class="linenr">6: </span>    cout &lt;&lt; <span style="color: #f3f99d;">"Hello world\n"</span>;</span>
-<span class="linenr">7: </span>    <span style="color: #ffb86c;">return</span> <span style="color: #f3f99d; font-weight: bold;">0</span>;
-<span class="linenr">8: </span><span style="color: #57c7ff;">}</span>
+<span id="coderef-main" class="coderef-off"><span class="linenr">4: </span><span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span><span style="color: #51afef;">()</span></span>
+<span class="linenr">5: </span><span style="color: #51afef;">{</span>
+<span id="coderef-cout" class="coderef-off"><span class="linenr">6: </span>    cout &lt;&lt; <span style="color: #98be65;">"Hello world\n"</span>;</span>
+<span class="linenr">7: </span>    <span style="color: #51afef;">return</span> <span style="color: #da8548; font-weight: bold;">0</span>;
+<span class="linenr">8: </span><span style="color: #51afef;">}</span>
 </pre>
 </div>
 
@@ -291,17 +363,17 @@
 Hello world
 </pre>
 </div>
-<div id="outline-container-org6b7bb9d" class="outline-3">
-<h3 id="org6b7bb9d"><span class="section-number-3">1.1</span> main()</h3>
-<div class="outline-text-3" id="text-1-1">
+<div id="outline-container-orgff81ba5" class="outline-3">
+<h3 id="orgff81ba5"><span class="section-number-3">2.1</span> main()</h3>
+<div class="outline-text-3" id="text-2-1">
 <p>
 C/C++的程式由許多的 function(函式)組成，function 的基本架構如下：
 </p>
 <div class="org-src-container">
-<pre class="src src-cpp"><span class="linenr">1: </span><span style="color: #9aedfe;">&#20659;&#22238;&#20540;&#39006;&#22411;</span> <span style="color: #57c7ff;">&#20989;&#24335;&#21517;&#31281;</span><span style="color: #57c7ff;">()</span> <span style="color: #57c7ff;">{</span>
+<pre class="src src-cpp"><span class="linenr">1: </span><span style="color: #ECBE7B;">&#20659;&#22238;&#20540;&#39006;&#22411;</span> <span style="color: #c678dd;">&#20989;&#24335;&#21517;&#31281;</span><span style="color: #51afef;">()</span> <span style="color: #51afef;">{</span>
 <span class="linenr">2: </span>    &#20989;&#24335;&#20839;&#23481;
-<span class="linenr">3: </span>    <span style="color: #9aedfe;">retrun</span> <span style="color: #ff5c57;">&#20659;&#22238;&#20540;</span>
-<span class="linenr">4: </span><span style="color: #57c7ff;">}</span>
+<span class="linenr">3: </span>    <span style="color: #ECBE7B;">retrun</span> <span style="color: #dcaeea;">&#20659;&#22238;&#20540;</span>
+<span class="linenr">4: </span><span style="color: #51afef;">}</span>
 </pre>
 </div>
 <p>
@@ -310,9 +382,9 @@ C/C++的程式由許多的 function(函式)組成，function 的基本架構如�
 </div>
 </div>
 
-<div id="outline-container-org33ca2f7" class="outline-3">
-<h3 id="org33ca2f7"><span class="section-number-3">1.2</span> 標頭檔(Headers)</h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-orgaddc600" class="outline-3">
+<h3 id="orgaddc600"><span class="section-number-3">2.2</span> 標頭檔(Headers)</h3>
+<div class="outline-text-3" id="text-2-2">
 <p>
 上述程式中，第<a href="#coderef-header" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-header');" onmouseout="CodeHighlightOff(this, 'coderef-header');">1</a>行為標頭檔(Header)的引入，這裡告訴 Compiler 說我需要用到 iostream 這個 header，原因是程式的第<a href="#coderef-cout" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-cout');" onmouseout="CodeHighlightOff(this, 'coderef-cout');">6</a>行用到 cout 這個指令，而這個指令就被定義在 iostream 這個 header 中，其中的 io 即代表 input/output。
 </p>
@@ -321,15 +393,15 @@ C/C++的程式由許多的 function(函式)組成，function 的基本架構如�
 往後如果用到其他函數，也需要 include 相關的 header，例如，如果需要用到數學的開根號函式 sqrt()，就需要 include math.h 這個 header，如下例中的第<a href="#coderef-header" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-header');" onmouseout="CodeHighlightOff(this, 'coderef-header');">1</a>行。
 </p>
 <div class="org-src-container">
-<pre class="src src-cpp"><span class="linenr"> 1: </span><span style="color: #ff6ac1; font-weight: bold;">#include</span> <span style="color: #57c7ff;">&lt;</span><span style="color: #f3f99d;">iostream</span><span style="color: #57c7ff;">&gt;</span>
-<span id="coderef-header" class="coderef-off"><span class="linenr"> 2: </span><span style="color: #ff6ac1; font-weight: bold;">#include</span> <span style="color: #57c7ff;">&lt;</span><span style="color: #f3f99d;">math.h</span><span style="color: #57c7ff;">&gt;</span></span>
-<span class="linenr"> 3: </span><span style="color: #ffb86c;">using</span> <span style="color: #ffb86c;">namespace</span> <span style="color: #5af78e;">std</span>;
+<pre class="src src-cpp"><span class="linenr"> 1: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #51afef;">&lt;</span><span style="color: #98be65;">iostream</span><span style="color: #51afef;">&gt;</span>
+<span id="coderef-header" class="coderef-off"><span class="linenr"> 2: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #51afef;">&lt;</span><span style="color: #98be65;">math.h</span><span style="color: #51afef;">&gt;</span></span>
+<span class="linenr"> 3: </span><span style="color: #51afef;">using</span> <span style="color: #51afef;">namespace</span> <span style="color: #a9a1e1;">std</span>;
 <span class="linenr"> 4: </span>
-<span id="coderef-main" class="coderef-off"><span class="linenr"> 5: </span><span style="color: #9aedfe;">int</span> <span style="color: #57c7ff;">main</span><span style="color: #57c7ff;">()</span></span>
-<span class="linenr"> 6: </span><span style="color: #57c7ff;">{</span>
-<span class="linenr"> 7: </span>    cout &lt;&lt; sqrt<span style="color: #ff6ac1;">(</span><span style="color: #f3f99d; font-weight: bold;">100</span><span style="color: #ff6ac1;">)</span> &lt;&lt; endl;
-<span class="linenr"> 8: </span>    <span style="color: #ffb86c;">return</span> <span style="color: #f3f99d; font-weight: bold;">0</span>;
-<span class="linenr"> 9: </span><span style="color: #57c7ff;">}</span>
+<span id="coderef-main" class="coderef-off"><span class="linenr"> 5: </span><span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span><span style="color: #51afef;">()</span></span>
+<span class="linenr"> 6: </span><span style="color: #51afef;">{</span>
+<span class="linenr"> 7: </span>    cout &lt;&lt; sqrt<span style="color: #c678dd;">(</span><span style="color: #da8548; font-weight: bold;">100</span><span style="color: #c678dd;">)</span> &lt;&lt; endl;
+<span class="linenr"> 8: </span>    <span style="color: #51afef;">return</span> <span style="color: #da8548; font-weight: bold;">0</span>;
+<span class="linenr"> 9: </span><span style="color: #51afef;">}</span>
 <span class="linenr">10: </span>
 </pre>
 </div>
@@ -339,9 +411,9 @@ C/C++的程式由許多的 function(函式)組成，function 的基本架構如�
 </pre>
 </div>
 </div>
-<div id="outline-container-org5ad0d52" class="outline-3">
-<h3 id="org5ad0d52"><span class="section-number-3">1.3</span> 命名空間(namespace)</h3>
-<div class="outline-text-3" id="text-1-3">
+<div id="outline-container-org90852d6" class="outline-3">
+<h3 id="org90852d6"><span class="section-number-3">2.3</span> 命名空間(namespace)</h3>
+<div class="outline-text-3" id="text-2-3">
 <p>
 一支程式往往會用到許多的指令、函式、變數，不同單位所開發的程式也許會用到相同的名稱來為這些函式或變數命名，如此一來就可能導致名稱的衝突。舉個例子，在一年級新生中，有三個班級裡都有個叫*陳宜君*的同學，那麼我們怎麼區分這三位同學呢？一個方式在提及這些同學時在前面加上班級，如：一年三班的陳宜君。
 </p>
@@ -350,11 +422,11 @@ C/C++的程式由許多的 function(函式)組成，function 的基本架構如�
 C++就提出這種方式來解決名稱可能衝突的問題，以下面程式為例：
 </p>
 <div class="org-src-container">
-<pre class="src src-cpp"><span class="linenr">1: </span><span style="color: #ff6ac1; font-weight: bold;">#include</span> <span style="color: #57c7ff;">&lt;</span><span style="color: #f3f99d;">iostream</span><span style="color: #57c7ff;">&gt;</span>
-<span class="linenr">2: </span><span style="color: #9aedfe;">int</span> <span style="color: #57c7ff;">main</span><span style="color: #57c7ff;">()</span> <span style="color: #57c7ff;">{</span>
-<span id="coderef-stdcout" class="coderef-off"><span class="linenr">3: </span>    <span style="color: #5af78e;">std</span>::cout &lt;&lt; <span style="color: #f3f99d;">"&#27599;&#27425;&#29992;&#21040;cout&#37117;&#25351;&#23450;namespace"</span>;</span>
-<span class="linenr">4: </span>    <span style="color: #ffb86c;">return</span> <span style="color: #f3f99d; font-weight: bold;">0</span>;
-<span class="linenr">5: </span><span style="color: #57c7ff;">}</span>
+<pre class="src src-cpp"><span class="linenr">1: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #51afef;">&lt;</span><span style="color: #98be65;">iostream</span><span style="color: #51afef;">&gt;</span>
+<span class="linenr">2: </span><span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span><span style="color: #51afef;">()</span> <span style="color: #51afef;">{</span>
+<span id="coderef-stdcout" class="coderef-off"><span class="linenr">3: </span>    <span style="color: #a9a1e1;">std</span>::cout &lt;&lt; <span style="color: #98be65;">"&#27599;&#27425;&#29992;&#21040;cout&#37117;&#25351;&#23450;namespace"</span>;</span>
+<span class="linenr">4: </span>    <span style="color: #51afef;">return</span> <span style="color: #da8548; font-weight: bold;">0</span>;
+<span class="linenr">5: </span><span style="color: #51afef;">}</span>
 </pre>
 </div>
 
@@ -367,12 +439,12 @@ C++就提出這種方式來解決名稱可能衝突的問題，以下面程式�
 上例的第<a href="#coderef-stdcout" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-stdcout');" onmouseout="CodeHighlightOff(this, 'coderef-stdcout');">3</a>中的 std::就是 C++的標準命名空間，用來說明這裡所用的 cout 是 C++預設的指令，但是如果你並沒有命名衝突的問題，其實可以一開始就直接把 namespace 設定為 std，如下面程式中的第<a href="#coderef-namespace" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-namespace');" onmouseout="CodeHighlightOff(this, 'coderef-namespace');">2</a>行。
 </p>
 <div class="org-src-container">
-<pre class="src src-cpp"><span class="linenr">1: </span><span style="color: #ff6ac1; font-weight: bold;">#include</span> <span style="color: #57c7ff;">&lt;</span><span style="color: #f3f99d;">iostream</span><span style="color: #57c7ff;">&gt;</span>
-<span id="coderef-namespace" class="coderef-off"><span class="linenr">2: </span><span style="color: #ffb86c;">using</span> <span style="color: #ffb86c;">namespace</span> <span style="color: #5af78e;">std</span>;</span>
-<span class="linenr">3: </span><span style="color: #9aedfe;">int</span> <span style="color: #57c7ff;">main</span><span style="color: #57c7ff;">()</span> <span style="color: #57c7ff;">{</span>
-<span id="coderef-stdcout" class="coderef-off"><span class="linenr">4: </span>    cout &lt;&lt; <span style="color: #f3f99d;">"&#29992;&#21040;cout&#26178;&#19981;&#29992;&#20877;&#29305;&#21029;&#25351;&#23450;namespace"</span>;</span>
-<span class="linenr">5: </span>    <span style="color: #ffb86c;">return</span> <span style="color: #f3f99d; font-weight: bold;">0</span>;
-<span class="linenr">6: </span><span style="color: #57c7ff;">}</span>
+<pre class="src src-cpp"><span class="linenr">1: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #51afef;">&lt;</span><span style="color: #98be65;">iostream</span><span style="color: #51afef;">&gt;</span>
+<span id="coderef-namespace" class="coderef-off"><span class="linenr">2: </span><span style="color: #51afef;">using</span> <span style="color: #51afef;">namespace</span> <span style="color: #a9a1e1;">std</span>;</span>
+<span class="linenr">3: </span><span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span><span style="color: #51afef;">()</span> <span style="color: #51afef;">{</span>
+<span id="coderef-stdcout" class="coderef-off"><span class="linenr">4: </span>    cout &lt;&lt; <span style="color: #98be65;">"&#29992;&#21040;cout&#26178;&#19981;&#29992;&#20877;&#29305;&#21029;&#25351;&#23450;namespace"</span>;</span>
+<span class="linenr">5: </span>    <span style="color: #51afef;">return</span> <span style="color: #da8548; font-weight: bold;">0</span>;
+<span class="linenr">6: </span><span style="color: #51afef;">}</span>
 </pre>
 </div>
 
@@ -388,33 +460,85 @@ C++就提出這種方式來解決名稱可能衝突的問題，以下面程式�
 </div>
 </div>
 
-<div id="outline-container-org3e5a5b1" class="outline-2">
-<h2 id="org3e5a5b1"><span class="section-number-2">2</span> 輸出</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-org995f028" class="outline-2">
+<h2 id="org995f028"><span class="section-number-2">3</span> 輸出</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+顧名思意，輸出是將資料輸出到某種設備（如螢幕、印表機&#x2026;）, 常見的輸出指令有 cout、printf()、puts()、putchar()等。
+</p>
 </div>
-<div id="outline-container-org60006ad" class="outline-3">
-<h3 id="org60006ad"><span class="section-number-3">2.1</span> cout</h3>
+<div id="outline-container-org001e55d" class="outline-3">
+<h3 id="org001e55d"><span class="section-number-3">3.1</span> cout</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+cout 為 iostream 這個類別(class)的 object<sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>，所以程式中若使用到 cout 就必須 include iostream。cout 可以將文字資料與變數資料列印在螢幕上，在語法上會使用&lt;&lt;作為文字與變數之間的連接工具，若要換行則使用&ldquo;\n&rdquo;或是關鍵字 endl<sup><a id="fnr.3" class="footref" href="#fn.3">3</a></sup>。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span class="linenr">1: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #51afef;">&lt;</span><span style="color: #98be65;">iostream</span><span style="color: #51afef;">&gt;</span>
+<span class="linenr">2: </span><span style="color: #51afef;">using</span> <span style="color: #51afef;">namespace</span> <span style="color: #a9a1e1;">std</span>;
+<span class="linenr">3: </span><span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span><span style="color: #51afef;">()</span> <span style="color: #51afef;">{</span>
+<span class="linenr">4: </span>    cout &lt;&lt; <span style="color: #98be65;">"Hello world\n"</span>;
+<span class="linenr">5: </span>    cout &lt;&lt; <span style="color: #98be65;">"&#21322;&#24465;&#65306;"</span> &lt;&lt; <span style="color: #da8548; font-weight: bold;">3</span> &lt;&lt; endl;
+<span class="linenr">6: </span>    cout &lt;&lt; <span style="color: #98be65;">"&#22291;&#38754;&#31309;&#65306;"</span> &lt;&lt; <span style="color: #da8548; font-weight: bold;">3</span>*<span style="color: #da8548; font-weight: bold;">3</span>*<span style="color: #da8548; font-weight: bold;">3.1416</span> &lt;&lt; <span style="color: #98be65;">"\n"</span>;
+<span class="linenr">7: </span>    <span style="color: #51afef;">return</span> <span style="color: #da8548; font-weight: bold;">0</span>;
+<span class="linenr">8: </span><span style="color: #51afef;">}</span>
+</pre>
 </div>
-<div id="outline-container-org1be4181" class="outline-3">
-<h3 id="org1be4181"><span class="section-number-3">2.2</span> 跳脫字元</h3>
-</div>
-<div id="outline-container-org0b9b2e8" class="outline-3">
-<h3 id="org0b9b2e8"><span class="section-number-3">2.3</span> printf()</h3>
+
+<pre class="example">
+Hello world
+半徑：3
+圓面積：28.2744
+</pre>
 </div>
 </div>
 
-<div id="outline-container-orgd4ebfb9" class="outline-2">
-<h2 id="orgd4ebfb9"><span class="section-number-2">3</span> Variable</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-orgcd06bfb" class="outline-3">
+<h3 id="orgcd06bfb"><span class="section-number-3">3.2</span> printf()</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+printf()為定義在 stdio.h 中的一個 function，所以若用到 printf()就要 include stdio.h。和 cout 一樣，printf()一樣是用來進行資料的輸出，只是在輸出時提供了更多的格式選定選項。基本的應用如下例，更複雜的應用則在介紹完變數(vairalbe)概念後再行說明。
+</p>
 <div class="org-src-container">
-<pre class="src src-C++"><span class="linenr">1: </span><span style="color: #ff6ac1; font-weight: bold;">#include</span> <span style="color: #57c7ff;">&lt;</span><span style="color: #f3f99d;">iostream</span><span style="color: #57c7ff;">&gt;</span>
-<span class="linenr">2: </span><span style="color: #ffb86c;">using</span> <span style="color: #ffb86c;">namespace</span> <span style="color: #5af78e;">std</span>;
-<span class="linenr">3: </span><span style="color: #9aedfe;">int</span> <span style="color: #57c7ff;">main</span><span style="color: #57c7ff;">()</span> <span style="color: #57c7ff;">{</span>
-<span class="linenr">4: </span>    <span style="color: #9aedfe;">int</span> <span style="color: #ff5c57;">x</span>;
-<span class="linenr">5: </span>    x = <span style="color: #f3f99d; font-weight: bold;">32</span>;
-<span class="linenr">6: </span>    cout &lt;&lt; <span style="color: #f3f99d;">"This is demostration of variable declaration of C++.\n"</span>;
-<span class="linenr">7: </span>    cout &lt;&lt; <span style="color: #f3f99d;">"&#35722;&#25976;x&#30340;&#20839;&#23481;&#28858;: "</span> &lt;&lt; x &lt;&lt; endl;
-<span class="linenr">8: </span><span style="color: #57c7ff;">}</span>
+<pre class="src src-cpp"><span class="linenr">1: </span>
+<span class="linenr">2: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #51afef;">&lt;</span><span style="color: #98be65;">stdio.h</span><span style="color: #51afef;">&gt;</span>
+<span class="linenr">3: </span><span style="color: #51afef;">using</span> <span style="color: #51afef;">namespace</span> <span style="color: #a9a1e1;">std</span>;
+<span class="linenr">4: </span><span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span><span style="color: #51afef;">()</span> <span style="color: #51afef;">{</span>
+<span class="linenr">5: </span>    printf<span style="color: #c678dd;">(</span><span style="color: #98be65;">"Hello world\n"</span><span style="color: #c678dd;">)</span>;
+<span class="linenr">6: </span>    printf<span style="color: #c678dd;">(</span><span style="color: #98be65;">"&#21322;&#24465;&#65306;%d\n"</span>, <span style="color: #da8548; font-weight: bold;">3</span><span style="color: #c678dd;">)</span>;
+<span class="linenr">7: </span>    printf<span style="color: #c678dd;">(</span><span style="color: #98be65;">"&#22291;&#38754;&#31309;&#65306;%.2f\n"</span>, <span style="color: #da8548; font-weight: bold;">3</span>*<span style="color: #da8548; font-weight: bold;">3</span>*<span style="color: #da8548; font-weight: bold;">3.1416</span><span style="color: #c678dd;">)</span>;
+<span class="linenr">8: </span>    <span style="color: #51afef;">return</span> <span style="color: #da8548; font-weight: bold;">0</span>;
+<span class="linenr">9: </span><span style="color: #51afef;">}</span>
+</pre>
+</div>
+
+<pre class="example">
+Hello world
+半徑：3
+圓面積：28.27
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgc56fddc" class="outline-3">
+<h3 id="orgc56fddc"><span class="section-number-3">3.3</span> 跳脫字元</h3>
+</div>
+</div>
+
+
+<div id="outline-container-org641d1aa" class="outline-2">
+<h2 id="org641d1aa"><span class="section-number-2">4</span> Variable</h2>
+<div class="outline-text-2" id="text-4">
+<div class="org-src-container">
+<pre class="src src-C++"><span class="linenr">1: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #51afef;">&lt;</span><span style="color: #98be65;">iostream</span><span style="color: #51afef;">&gt;</span>
+<span class="linenr">2: </span><span style="color: #51afef;">using</span> <span style="color: #51afef;">namespace</span> <span style="color: #a9a1e1;">std</span>;
+<span class="linenr">3: </span><span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span><span style="color: #51afef;">()</span> <span style="color: #51afef;">{</span>
+<span class="linenr">4: </span>    <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">x</span>;
+<span class="linenr">5: </span>    x = <span style="color: #da8548; font-weight: bold;">32</span>;
+<span class="linenr">6: </span>    cout &lt;&lt; <span style="color: #98be65;">"This is demostration of variable declaration of C++.\n"</span>;
+<span class="linenr">7: </span>    cout &lt;&lt; <span style="color: #98be65;">"&#35722;&#25976;x&#30340;&#20839;&#23481;&#28858;: "</span> &lt;&lt; x &lt;&lt; endl;
+<span class="linenr">8: </span><span style="color: #51afef;">}</span>
 </pre>
 </div>
 
@@ -425,26 +549,26 @@ This is demostration of variable declaration of C++.
 </div>
 </div>
 
-<div id="outline-container-org1375837" class="outline-2">
-<h2 id="org1375837"><span class="section-number-2">4</span> if-else</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-org69d9c14" class="outline-2">
+<h2 id="org69d9c14"><span class="section-number-2">5</span> if-else</h2>
+<div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-org59a000d" class="outline-3">
-<h3 id="org59a000d"><span class="section-number-3">4.1</span> 單一條件</h3>
-<div class="outline-text-3" id="text-4-1">
+<div id="outline-container-orgc15d1a0" class="outline-3">
+<h3 id="orgc15d1a0"><span class="section-number-3">5.1</span> 單一條件</h3>
+<div class="outline-text-3" id="text-5-1">
 <div class="org-src-container">
-<pre class="src src-cpp"><span class="linenr"> 1: </span><span style="color: #ff6ac1; font-weight: bold;">#include</span> <span style="color: #57c7ff;">&lt;</span><span style="color: #f3f99d;">iostream</span><span style="color: #57c7ff;">&gt;</span>
-<span class="linenr"> 2: </span><span style="color: #ffb86c;">using</span> <span style="color: #ffb86c;">namespace</span> <span style="color: #5af78e;">std</span>;
-<span class="linenr"> 3: </span><span style="color: #9aedfe;">int</span> <span style="color: #57c7ff;">main</span><span style="color: #57c7ff;">()</span> <span style="color: #57c7ff;">{</span>
-<span class="linenr"> 4: </span>  <span style="color: #9aedfe;">int</span> <span style="color: #ff5c57;">x</span>;
-<span class="linenr"> 5: </span>  x=<span style="color: #f3f99d; font-weight: bold;">31</span>;
-<span class="linenr"> 6: </span>  <span style="color: #ffb86c;">if</span> <span style="color: #ff6ac1;">(</span>x%<span style="color: #f3f99d; font-weight: bold;">2</span>==<span style="color: #f3f99d; font-weight: bold;">0</span><span style="color: #ff6ac1;">)</span> <span style="color: #ff6ac1;">{</span>
-<span class="linenr"> 7: </span>    cout &lt;&lt; <span style="color: #f3f99d;">"x&#28858;&#20598;&#25976;\n"</span>;
-<span class="linenr"> 8: </span>  <span style="color: #ff6ac1;">}</span>
-<span class="linenr"> 9: </span>  <span style="color: #ffb86c;">if</span> <span style="color: #ff6ac1;">(</span>x%<span style="color: #f3f99d; font-weight: bold;">2</span>!=<span style="color: #f3f99d; font-weight: bold;">0</span><span style="color: #ff6ac1;">)</span> <span style="color: #ff6ac1;">{</span>
-<span class="linenr">10: </span>    cout &lt;&lt; <span style="color: #f3f99d;">"x&#28858;&#22855;&#25976;\n"</span>;
-<span class="linenr">11: </span>  <span style="color: #ff6ac1;">}</span>
-<span class="linenr">12: </span><span style="color: #57c7ff;">}</span>
+<pre class="src src-cpp"><span class="linenr"> 1: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #51afef;">&lt;</span><span style="color: #98be65;">iostream</span><span style="color: #51afef;">&gt;</span>
+<span class="linenr"> 2: </span><span style="color: #51afef;">using</span> <span style="color: #51afef;">namespace</span> <span style="color: #a9a1e1;">std</span>;
+<span class="linenr"> 3: </span><span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span><span style="color: #51afef;">()</span> <span style="color: #51afef;">{</span>
+<span class="linenr"> 4: </span>  <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">x</span>;
+<span class="linenr"> 5: </span>  x=<span style="color: #da8548; font-weight: bold;">31</span>;
+<span class="linenr"> 6: </span>  <span style="color: #51afef;">if</span> <span style="color: #c678dd;">(</span>x%<span style="color: #da8548; font-weight: bold;">2</span>==<span style="color: #da8548; font-weight: bold;">0</span><span style="color: #c678dd;">)</span> <span style="color: #c678dd;">{</span>
+<span class="linenr"> 7: </span>    cout &lt;&lt; <span style="color: #98be65;">"x&#28858;&#20598;&#25976;\n"</span>;
+<span class="linenr"> 8: </span>  <span style="color: #c678dd;">}</span>
+<span class="linenr"> 9: </span>  <span style="color: #51afef;">if</span> <span style="color: #c678dd;">(</span>x%<span style="color: #da8548; font-weight: bold;">2</span>!=<span style="color: #da8548; font-weight: bold;">0</span><span style="color: #c678dd;">)</span> <span style="color: #c678dd;">{</span>
+<span class="linenr">10: </span>    cout &lt;&lt; <span style="color: #98be65;">"x&#28858;&#22855;&#25976;\n"</span>;
+<span class="linenr">11: </span>  <span style="color: #c678dd;">}</span>
+<span class="linenr">12: </span><span style="color: #51afef;">}</span>
 </pre>
 </div>
 
@@ -454,82 +578,82 @@ x為奇數
 </div>
 </div>
 
-<div id="outline-container-org4f2dc63" class="outline-3">
-<h3 id="org4f2dc63"><span class="section-number-3">4.2</span> 雙重條件</h3>
+<div id="outline-container-org3ccaa4d" class="outline-3">
+<h3 id="org3ccaa4d"><span class="section-number-3">5.2</span> 雙重條件</h3>
 </div>
 
-<div id="outline-container-org045a346" class="outline-3">
-<h3 id="org045a346"><span class="section-number-3">4.3</span> </h3>
-<div class="outline-text-3" id="text-4-3">
+<div id="outline-container-org60febde" class="outline-3">
+<h3 id="org60febde"><span class="section-number-3">5.3</span> </h3>
+<div class="outline-text-3" id="text-5-3">
 <div class="org-src-container">
-<pre class="src src-C"><span style="color: #ff6ac1; font-weight: bold;">  #include</span> <span style="color: #57c7ff;">&lt;</span><span style="color: #f3f99d;">stdio.h</span><span style="color: #57c7ff;">&gt;</span>
-  <span style="color: #9aedfe;">int</span> <span style="color: #57c7ff;">main</span><span style="color: #57c7ff;">()</span> <span style="color: #57c7ff;">{</span>
-      <span style="color: #9aedfe;">int</span> <span style="color: #ff5c57;">x</span>=<span style="color: #f3f99d; font-weight: bold;">4</span>;
-      <span style="color: #ffb86c;">if</span> <span style="color: #ff6ac1;">(</span>x%<span style="color: #f3f99d; font-weight: bold;">2</span>==<span style="color: #f3f99d; font-weight: bold;">0</span><span style="color: #ff6ac1;">)</span> <span style="color: #ff6ac1;">{</span>
-         printf<span style="color: #5af78e;">(</span><span style="color: #f3f99d;">"even\n"</span><span style="color: #5af78e;">)</span>;
-      <span style="color: #ff6ac1;">}</span> <span style="color: #ffb86c;">else</span> <span style="color: #ff6ac1;">{</span>
-         printf<span style="color: #5af78e;">(</span><span style="color: #f3f99d;">"odd\n"</span><span style="color: #5af78e;">)</span>;
-      <span style="color: #ff6ac1;">}</span>
-  <span style="color: #57c7ff;">}</span>
+<pre class="src src-C"><span style="color: #51afef; font-weight: bold;">  #include</span> <span style="color: #51afef;">&lt;</span><span style="color: #98be65;">stdio.h</span><span style="color: #51afef;">&gt;</span>
+  <span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span><span style="color: #51afef;">()</span> <span style="color: #51afef;">{</span>
+      <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">x</span>=<span style="color: #da8548; font-weight: bold;">4</span>;
+      <span style="color: #51afef;">if</span> <span style="color: #c678dd;">(</span>x%<span style="color: #da8548; font-weight: bold;">2</span>==<span style="color: #da8548; font-weight: bold;">0</span><span style="color: #c678dd;">)</span> <span style="color: #c678dd;">{</span>
+         printf<span style="color: #98be65;">(</span><span style="color: #98be65;">"even\n"</span><span style="color: #98be65;">)</span>;
+      <span style="color: #c678dd;">}</span> <span style="color: #51afef;">else</span> <span style="color: #c678dd;">{</span>
+         printf<span style="color: #98be65;">(</span><span style="color: #98be65;">"odd\n"</span><span style="color: #98be65;">)</span>;
+      <span style="color: #c678dd;">}</span>
+  <span style="color: #51afef;">}</span>
 </pre>
 </div>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgc5409a0" class="outline-2">
-<h2 id="orgc5409a0"><span class="section-number-2">5</span> for</h2>
+<div id="outline-container-orgac1c4f1" class="outline-2">
+<h2 id="orgac1c4f1"><span class="section-number-2">6</span> for</h2>
 </div>
 
-<div id="outline-container-orgf2f3470" class="outline-2">
-<h2 id="orgf2f3470"><span class="section-number-2">6</span> nested for</h2>
+<div id="outline-container-orgc194858" class="outline-2">
+<h2 id="orgc194858"><span class="section-number-2">7</span> nested for</h2>
 </div>
 
-<div id="outline-container-org41d197d" class="outline-2">
-<h2 id="org41d197d"><span class="section-number-2">7</span> while</h2>
+<div id="outline-container-org7035b26" class="outline-2">
+<h2 id="org7035b26"><span class="section-number-2">8</span> while</h2>
 </div>
 
-<div id="outline-container-orgca62df0" class="outline-2">
-<h2 id="orgca62df0"><span class="section-number-2">8</span> function</h2>
-<div class="outline-text-2" id="text-8">
-</div>
-<div id="outline-container-orgc7be61e" class="outline-3">
-<h3 id="orgc7be61e"><span class="section-number-3">8.1</span> function declaration</h3>
-</div>
-
-<div id="outline-container-org6b89411" class="outline-3">
-<h3 id="org6b89411"><span class="section-number-3">8.2</span> function define</h3>
-</div>
-
-<div id="outline-container-orgd67fa59" class="outline-3">
-<h3 id="orgd67fa59"><span class="section-number-3">8.3</span> compute n!</h3>
-<div class="outline-text-3" id="text-8-3">
-<div class="org-src-container">
-<pre class="src src-C++"><span style="color: #ff6ac1; font-weight: bold;">#include</span> <span style="color: #57c7ff;">&lt;</span><span style="color: #f3f99d;">iostream</span><span style="color: #57c7ff;">&gt;</span>
-<span style="color: #ffb86c;">using</span> <span style="color: #ffb86c;">namespace</span> <span style="color: #5af78e;">std</span>;
-<span style="color: #9aedfe;">int</span> <span style="color: #57c7ff;">n</span><span style="color: #57c7ff;">(</span><span style="color: #9aedfe;">int</span> <span style="color: #ff5c57;">x</span><span style="color: #57c7ff;">)</span> <span style="color: #57c7ff;">{</span>
-    <span style="color: #ffb86c;">if</span> <span style="color: #ff6ac1;">(</span>x==<span style="color: #f3f99d; font-weight: bold;">1</span><span style="color: #ff6ac1;">)</span> <span style="color: #ff6ac1;">{</span>
-        <span style="color: #ffb86c;">return</span> <span style="color: #f3f99d; font-weight: bold;">1</span>;
-    <span style="color: #ff6ac1;">}</span> <span style="color: #ffb86c;">else</span> <span style="color: #ff6ac1;">{</span>
-        <span style="color: #ffb86c;">return</span> x*n<span style="color: #5af78e;">(</span>x-<span style="color: #f3f99d; font-weight: bold;">1</span><span style="color: #5af78e;">)</span>;
-    <span style="color: #ff6ac1;">}</span>
-<span style="color: #57c7ff;">}</span>
-
-<span style="color: #9aedfe;">int</span> <span style="color: #57c7ff;">main</span><span style="color: #57c7ff;">()</span> <span style="color: #57c7ff;">{</span>
-    <span style="color: #9aedfe;">int</span> <span style="color: #ff5c57;">hi</span> = <span style="color: #f3f99d; font-weight: bold;">9</span>;
-    cout &lt;&lt; n<span style="color: #ff6ac1;">(</span><span style="color: #f3f99d; font-weight: bold;">8</span><span style="color: #ff6ac1;">)</span> &lt;&lt; endl;
-<span style="color: #57c7ff;">}</span>
-
-</pre>
-</div>
-</div>
-</div>
-</div>
-
-
-<div id="outline-container-orgbd4f240" class="outline-2">
-<h2 id="orgbd4f240"><span class="section-number-2">9</span> ditaa</h2>
+<div id="outline-container-org6139a27" class="outline-2">
+<h2 id="org6139a27"><span class="section-number-2">9</span> function</h2>
 <div class="outline-text-2" id="text-9">
+</div>
+<div id="outline-container-org61f4788" class="outline-3">
+<h3 id="org61f4788"><span class="section-number-3">9.1</span> function declaration</h3>
+</div>
+
+<div id="outline-container-org23a5925" class="outline-3">
+<h3 id="org23a5925"><span class="section-number-3">9.2</span> function define</h3>
+</div>
+
+<div id="outline-container-org52eaac7" class="outline-3">
+<h3 id="org52eaac7"><span class="section-number-3">9.3</span> compute n!</h3>
+<div class="outline-text-3" id="text-9-3">
+<div class="org-src-container">
+<pre class="src src-C++"><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #51afef;">&lt;</span><span style="color: #98be65;">iostream</span><span style="color: #51afef;">&gt;</span>
+<span style="color: #51afef;">using</span> <span style="color: #51afef;">namespace</span> <span style="color: #a9a1e1;">std</span>;
+<span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">n</span><span style="color: #51afef;">(</span><span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">x</span><span style="color: #51afef;">)</span> <span style="color: #51afef;">{</span>
+    <span style="color: #51afef;">if</span> <span style="color: #c678dd;">(</span>x==<span style="color: #da8548; font-weight: bold;">1</span><span style="color: #c678dd;">)</span> <span style="color: #c678dd;">{</span>
+        <span style="color: #51afef;">return</span> <span style="color: #da8548; font-weight: bold;">1</span>;
+    <span style="color: #c678dd;">}</span> <span style="color: #51afef;">else</span> <span style="color: #c678dd;">{</span>
+        <span style="color: #51afef;">return</span> x*n<span style="color: #98be65;">(</span>x-<span style="color: #da8548; font-weight: bold;">1</span><span style="color: #98be65;">)</span>;
+    <span style="color: #c678dd;">}</span>
+<span style="color: #51afef;">}</span>
+
+<span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span><span style="color: #51afef;">()</span> <span style="color: #51afef;">{</span>
+    <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">hi</span> = <span style="color: #da8548; font-weight: bold;">9</span>;
+    cout &lt;&lt; n<span style="color: #c678dd;">(</span><span style="color: #da8548; font-weight: bold;">8</span><span style="color: #c678dd;">)</span> &lt;&lt; endl;
+<span style="color: #51afef;">}</span>
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org628679f" class="outline-2">
+<h2 id="org628679f"><span class="section-number-2">10</span> ditaa</h2>
+<div class="outline-text-2" id="text-10">
 
 <div class="figure">
 <p><img src="blue.png" alt="blue.png" />
@@ -537,10 +661,28 @@ x為奇數
 </div>
 </div>
 </div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+<a href="http://www2.lssh.tp.edu.tw/~hlf/class-1/lang-c/compile.htm">程式編譯過程</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara"><p class="footpara">
+<a href="https://www.quora.com/Is-cout-an-object-or-a-function-Why">Is cout an ojbect or a function? Why?</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <div class="footpara"><p class="footpara">
+<a href="http://rs2.ocu.edu.tw/~jengchi/IO_instruction.htm">Dev C++的輸出與輸入方法</a>
+</p></div></div>
+
+
 </div>
+</div></div>
 <div id="postamble" class="status">
 <p class="author">Author: Yung Chin, Yen</p>
-<p class="date">Created: 2020-08-19 Wed 19:50</p>
+<p class="date">Created: 2020-08-20 Thu 08:46</p>
 </div>
 </body>
 </html>

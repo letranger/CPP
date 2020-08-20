@@ -1,7 +1,28 @@
-#+Title: Basic Materials of C++ Basic
+#+Title: Basic Materials of C++
 
 #+INCLUDE: ../bigweb.org
 #+LATEX:\newpage
+
+* 程式的編寫與執行
+** source code
+所謂的程式碼基本上都只是一些文字檔，只是這些文字的撰寫是依照不同語言(如 C、C++、Python、R...)所規定的語法(syntax)來撰寫。
+
+** 編寫
+既然程式碼只是文字檔，所以，其實我們可以很單純的以 windows 的記事本或是 MacOS 中的 TextEdit 來編寫各種語言的程式碼，只是，使用這些應用程式來編寫程式會相對辛苦，因為相對於一些專用的應用程式如 DevC++、VSCode、PyCharm 等都會提供撰寫者許多的額外功能，例如即時除錯、編譯、執行、除錯..。
+
+** 編譯與執行
+既然寫完的程式碼只是文字檔，那這些文字檔要如何變成可以執行的執行檔呢？
+如下圖[fn:1]所示：
+
+#+CAPTION: Compile and Execution
+#+LABEL:fig:CNE
+#+name: fig:CNE
+#+ATTR_LATEX: :width 400
+#+ATTR_ORG: :width 400
+#+ATTR_HTML: :width 400
+[[file:images/c_compile.jpg]]
+
+程式碼必須先經過 Preprocess、Compile、Assemble、Link 等步驟才能成為一支可以執行的執行檔(如 Windows 下的.exe 或是 MacOS 下的.app)。
 
 * C++基本架構
 
@@ -78,9 +99,47 @@ int main() {
 有關於 namespace 的詳細說明，可參考[[https://openhome.cc/Gossip/CppGossip/Namespace.html][簡介名稱空間]]這篇文章。
 
 * 輸出
+顧名思意，輸出是將資料輸出到某種設備（如螢幕、印表機...）, 常見的輸出指令有 cout、printf()、puts()、putchar()等。
 ** cout
-** 跳脫字元
+cout 為 iostream 這個類別(class)的 object[fn:3]，所以程式中若使用到 cout 就必須 include iostream。cout 可以將文字資料與變數資料列印在螢幕上，在語法上會使用<<作為文字與變數之間的連接工具，若要換行則使用"\n"或是關鍵字 endl[fn:2]。
+
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+int main() {
+    cout << "Hello world\n";
+    cout << "半徑：" << 3 << endl;
+    cout << "圓面積：" << 3*3*3.1416 << "\n";
+    return 0;
+}
+#+end_src
+
+#+RESULTS:
+: Hello world
+: 半徑：3
+: 圓面積：28.2744
+
 ** printf()
+printf()為定義在 stdio.h 中的一個 function，所以若用到 printf()就要 include stdio.h。和 cout 一樣，printf()一樣是用來進行資料的輸出，只是在輸出時提供了更多的格式選定選項。基本的應用如下例，更複雜的應用則在介紹完變數(vairalbe)概念後再行說明。
+#+begin_src cpp -r -n :results output :exports both
+
+#include <stdio.h>
+using namespace std;
+int main() {
+    printf("Hello world\n");
+    printf("半徑：%d\n", 3);
+    printf("圓面積：%.2f\n", 3*3*3.1416);
+    return 0;
+}
+#+end_src
+
+#+RESULTS:
+: Hello world
+: 半徑：3
+: 圓面積：28.27
+
+** 跳脫字元
+
 
 * Variable
 
@@ -187,3 +246,10 @@ int main() {
 #+RESULTS:
 [[file:blue.png]]
 
+* Footnotes
+
+[fn:3] [[https://www.quora.com/Is-cout-an-object-or-a-function-Why][Is cout an ojbect or a function? Why?]]
+
+[fn:2] [[http://rs2.ocu.edu.tw/~jengchi/IO_instruction.htm][Dev C++的輸出與輸入方法]]
+
+[fn:1] [[http://www2.lssh.tp.edu.tw/~hlf/class-1/lang-c/compile.htm][程式編譯過程]]
