@@ -5,10 +5,10 @@
 
 * 程式的編寫與執行
 ** source code
-所謂的程式碼基本上都只是一些文字檔，只是這些文字的撰寫是依照不同語言(如 C、C++、Python、R...)所規定的語法(syntax)來撰寫。
+所謂的程式碼基本上都只是一些文字檔，只是這些文字的撰寫是依照不同語言(如 C、C++、Python、R...)所規定的語法(syntax)來撰寫，以達到特定目的。
 
 ** 編寫
-既然程式碼只是文字檔，所以，其實我們可以很單純的以 windows 的記事本或是 MacOS 中的 TextEdit 來編寫各種語言的程式碼，只是，使用這些應用程式來編寫程式會相對辛苦，因為相對於一些專用的應用程式如 DevC++、VSCode、PyCharm 等都會提供撰寫者許多的額外功能，例如即時除錯、編譯、執行、除錯..。
+既然程式碼只是文字檔，所以，其實我們可以很單純的以 windows 的記事本或是 MacOS 中的 TextEdit 來編寫各種語言的程式碼，只是，使用這些應用程式來編寫程式會相對辛苦，因為相對於一些專用的應用程式如 DevC++、VSCode、PyCharm 等都會提供撰寫者許多的額外功能，例如即時除錯、自動縮排、自動補完(auto complete)，甚至是後續的編譯、執行..。
 
 ** 編譯與執行
 既然寫完的程式碼只是文字檔，那這些文字檔要如何變成可以執行的執行檔呢？
@@ -24,6 +24,25 @@
 
 程式碼必須先經過 Preprocess、Compile、Assemble、Link 等步驟才能成為一支可以執行的執行檔(如 Windows 下的.exe 或是 MacOS 下的.app)。
 
+** 幾種寫程式的環境
+*** MacOS
+- [[https://developer.apple.com/xcode/][Xcode]]
+*** Windows
+**** DevC++
+- [[https://progressbar.tw/posts/7][[C語言] 01. Dev C++ 程式編輯器，大一理工學院新生惡夢的開始。]]
+- [[http://selfinquiring.hatenablog.com/entry/2016/03/18/204352][Nova的科學反主流學院　]]
+**** Code::Blocks
+- [[https://blog.csdn.net/DongChengRong/article/details/78624068][安裝BlockCode]]
+- [[https://mks.tw/1053/cc-codeblocks-%E8%BC%95%E5%B7%A7%E7%9A%84%E6%95%B4%E5%90%88%E5%BC%8F%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83][[C/C++] Code::Blocks 輕巧的整合式開發環境]]
+**** Visual Studio Code
+- [[https://blog.csdn.net/HelloZEX/article/details/84029810][【VS】VS Code安装、配置、使用（windows10 64）]]
+- [[https://tw.alphacamp.co/blog/visual-studio-code-editor-tutorial-and-extensions][VSCode快速安裝教學，推薦常用外掛擴充套件]]
+*** 線上 coding 環境
+- [[http://cpp.sh/][cpp.sh]]
+- [[https://www.jdoodle.com/online-compiler-c++/][JDOODLE]]
+- [[https://repl.it/languages/cpp][repl.it]]
+- [[https://code.sololearn.com/#cpp][SOLOLEARN]]
+  
 * C++基本架構
 
 #+begin_src cpp -r -n :results output :exports both
@@ -41,13 +60,13 @@ int main() (ref:main)
 : Hello world
 ** main()
 C/C++的程式由許多的 function(函式)組成，function 的基本架構如下：
-#+begin_src cpp -r -n :eval no
+#+begin_src cpp :eval no
 傳回值類型 函式名稱() {
     函式內容
     retrun 傳回值
 }
 #+end_src
-上述程式中的第[[(main)]]行開始即為一名為 main 的 function，這也是 C/C++程式最主要的一支 function，程式被執行時，就由整支程式中找出名為 main 的 function 開始執行。之後我們的程式也將依序寫在這組大括號中。
+前述程式中的第[[(main)]]行開始即為一名為 main 的 function，這也是 C/C++程式最主要的一支 function，程式被執行時，就由整支程式中找出名為 main 的 function 開始執行。之後我們的程式也將依序寫在這組大括號中。
 
 ** 標頭檔(Headers)
 上述程式中，第[[(header)]]行為標頭檔(Header)的引入，這裡告訴 Compiler 說我需要用到 iostream 這個 header，原因是程式的第[[(cout)]]行用到 cout 這個指令，而這個指令就被定義在 iostream 這個 header 中，其中的 io 即代表 input/output。
@@ -103,11 +122,13 @@ int main() {
 ** cout
 cout 為 iostream 這個類別(class)的 object[fn:3]，所以程式中若使用到 cout 就必須 include iostream。cout 可以將文字資料與變數資料列印在螢幕上，在語法上會使用<<作為文字與變數之間的連接工具，若要換行則使用"\n"或是關鍵字 endl[fn:2]。
 
+如果要輸出的是文字資料，則應該在文字的前後各加上英文的雙引號(")，如下列程式的第[[(helloWorld)]]行，不同類型的數值資料間要以<<間隔。
+
 #+begin_src cpp -r -n :results output :exports both
 #include <iostream>
 using namespace std;
 int main() {
-    cout << "Hello world\n";
+    cout << "Hello world\n"; (ref:helloWorld)
     cout << "半徑：" << 3 << endl;
     cout << "圓面積：" << 3*3*3.1416 << "\n";
     return 0;
@@ -120,15 +141,17 @@ int main() {
 : 圓面積：28.2744
 
 ** printf()
-printf()為定義在 stdio.h 中的一個 function，所以若用到 printf()就要 include stdio.h。和 cout 一樣，printf()一樣是用來進行資料的輸出，只是在輸出時提供了更多的格式選定選項。基本的應用如下例，更複雜的應用則在介紹完變數(vairalbe)概念後再行說明。
+printf()為定義在 stdio.h 中的一個 function，所以若用到 printf()就要 include stdio.h。
+
+和 cout 一樣，printf()一樣是用來進行資料的輸出，只是在輸出時提供了更多的格式選定選項。基本的應用如下例，更複雜的應用則在介紹完變數(vairalbe)概念後再行說明。
 #+begin_src cpp -r -n :results output :exports both
 
 #include <stdio.h>
 using namespace std;
 int main() {
     printf("Hello world\n");
-    printf("半徑：%d\n", 3);
-    printf("圓面積：%.2f\n", 3*3*3.1416);
+    printf("半徑：%d\n", 3);  //%d表示在該處要顯示/輸出一個整數
+    printf("圓面積：%.2f\n", 3*3*3.1416); //%.2f: 表示在該處要顯示/輸出一個小數，精確度達到小點點後第二位
     return 0;
 }
 #+end_src
@@ -139,69 +162,265 @@ int main() {
 : 圓面積：28.27
 
 ** 跳脫字元
-
-
-* Variable
-
-#+BEGIN_SRC C++ -n -r :results output :exports both
-#include <iostream>
-using namespace std;
-int main() {
-    int x;
-    x = 32;
-    cout << "This is demostration of variable declaration of C++.\n";
-    cout << "變數x的內容為: " << x << endl;
-}
-#+END_SRC
-
-#+RESULTS:
-: This is demostration of variable declaration of C++.
-: 變數 x 的內容為: 32
-
-* if-else
-
-** 單一條件
+如果你試過利用 C++來輸出下列這段話：
+#+begin_verse
+他說："好"，然後他就死了。
+#+end_verse
+你會發現這是件困難的事，在前節的 cout 中，我們提及雙引號是用來將文字括起來的符號，若在字串中也出現雙引號，則勢必會打亂雙引號在文字中的規則。要輸出這類特殊字元的問題，有以下兩種方法：
+*** cout + 單引號
+以兩個單引號將雙引號括起來，如下列程式。
 #+begin_src cpp -r -n :results output :exports both
 #include <iostream>
 using namespace std;
 int main() {
-  int x;
-  x=31;
-  if (x%2==0) {
-    cout << "x為偶數\n";
-  }
-  if (x%2!=0) {
-    cout << "x為奇數\n";
+    cout << "他說："<< '"' << "好" << '"' << "，然後他就死了。\n";
+}
+#+end_src
+
+#+RESULTS:
+: 他說："好"，然後他就死了。
+*** 加上跳脫字元
+即，在字串中的雙引號前加上\，變成\"，如下
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+int main() {
+    cout << "他說：\"好\"，然後他就死了。\n";
+}
+#+end_src
+
+#+RESULTS:
+: 他說："好"，然後他就死了。
+
+常用的跳脫字元還有以下幾類：
+| 字元 | 意義            |
+| \'   | 單引號          |
+| \"   | 雙引號          |
+| \\   | 反斜線          |
+| \0   | 空字元(NULL)    |
+| \t   | 定位字元(TAB)   |
+| \n   | 換行字元(ENTER) |
+
+* Variable
+** 關於變數
+A variable is a name given to a memory location. It is the basic unit of storage in a program[fn:4].
+- The value stored in a variable can be changed during program execution.
+- A variable is only a name given to a memory location, all the operations done on the variable effects that memory location.
+- In C++, all the variables must be declared before use.
+
+** 變數的宣告與應用
+變數是資料的標籤，而非資料本身。電腦程式很大一部分是在操作資料，變數在本質上是用來操作資料的一種語法特性。[fn:5]
+#+CAPTION: Variables in C++
+#+LABEL:fig:vic
+#+name: fig:vic
+#+ATTR_LATEX: :width 400
+#+ATTR_ORG: :width 400
+#+ATTR_HTML: :width 400
+[[file:images/Variables-in-C-1.jpg]]
+
+C 語言的變數宣告語法如下：
+#+begin_src  :eval no
+變數類型 變數名稱[=初值];
+#+end_src
+以下列程式為例，第[[(decInt)]]行宣告了一個名為 r 的整數型態(int)變數，這意謂著向記憶體要了塊足以儲存整數資料的空間，並將之命名為 r，並在第[[(assignInt)]]將整數 5 存入這個空間中，爾後只要在程式中提及 r，指的便是 5 這個值。這裡的等號運算子其作用為指定(assign)，即是將等號*右邊*的值存入等號*左邊*的變數(空間)中。
+
+在第[[(decDouble)]]行宣告了一個名為 cirArea 的小數變數，接下來在第[[(assignDouble)]]行先計算出圓面積的值，再把這個值存入這個小數變數空間中。
+#+BEGIN_SRC C++ -n -r :results output :exports both
+#include <iostream>
+using namespace std;
+int main() {
+    int r; (ref:decInt)
+    double cirArea; (ref:decDouble)
+    r = 5; (ref:assignInt)
+    cirArea = r * r * 3.1416; (ref:assignDouble)
+    cout << "圓面積：" << cirArea << endl;
+}
+#+END_SRC
+
+#+RESULTS:
+: 圓面積：78.54
+
+** 變數的命名規則
+1. 可用字母、數字、底線。
+2. 第一個字不可為數字，如 1x, 2x...，可以為 x1, x2...。
+3. 名稱間不可有空白。如 student no，可以 student_Id 或是 studentId 取代。
+4. 大小寫有別(Case-Sensitive): a 與 A 為兩個不同的變數。
+5. 不可使用關鍵字(如 int, double, if, while...)。
+6. 底線開頭接大寫字母應保留給系統使用。
+更詳細的命名規範與建議可參閱：[[https://www.itread01.com/content/1541214186.html][C語言中變數名及函式名的命名規則與駝峰命名法]]。
+
+** 變數類型
+前節介紹了變數的宣告要先說明其類型，根據要儲存的資料種類不同，C++變數有許多型態。以下是一些常用的基本型態[fn:6]：
+型態 	中文意思 	英文字義 |可儲存的資料
+|int |整數 |Integer |100、-5、1246 ...|
+|float |32 bit 單精浮點數(小數) |single precision floating point |3.14159、4.3、-1.1 ...|
+|double |64 bit 倍精浮點數(小數) |double precision floating point |3.14159、4.3、-1.1 ...|
+|char |字元(半形字) |Character |'a'、'R'、'1'、'@'、'*' ...|
+|string |字串(文句) |String |"Hello"、"^_^"、"Rock!" ...|
+|bool |布林(是非) |boolean |true、false|
+關於 float 與 double 的進一步說明，可參閱：[[https://taichunmin.pixnet.net/blog/post/27827769][float跟double小知識]]。
+
+* 運算式
+
+* if 條件判斷
+if 判斷式可用來判斷條件是否成立，並且依照條件之成立與否，來執行不同的程式碼[fn:7]。依照條件的複雜程度可大致分為以下三類：
+
+** 單一條件
+*** 語法
+最簡單型式的條件式如下，即，當條件成立，則執行程式碼。
+#+begin_src cpp :eval no
+if (條件) {
+    程式碼;
+}
+#+end_src
+
+*** 範例
+若分數及格，則輸出 PASS
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+int main() {
+  int score;
+  score = 87;
+  if (score >= 60) {
+      cout << "PASS\n";
   }
 }
 #+end_src
 
 #+RESULTS:
-: x 為奇數
+: PASS
+
+** 條件運算(條件的組合)
+在前節的範例中，我們看到的是最簡單的條件，如
+#+begin_src cpp -r -n :eval no
+if (score >= 60) {
+    ...
+}
+#+end_src
+然而，更多時候我們要處理的是多種條件的組合，例如：輸入一分數，若所輸入的分數不合理(大於 100 或小於 0)，則輸出"請重新輸入"。雖然我們可以利用以下的寫法來解決問題：
+#+begin_src cpp -r -n :eval no
+#include <iostream>
+using namespace std;
+int main() {
+  int score;
+  score = -19;
+  if (score < 0) {
+      cout << "請重新輸入\n";
+  }
+  if (score > 100) {
+      cout << "請重新輸入\n";
+  }
+}
+#+end_src
+但更適合的是利用條件運算來處理問題，如下：
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+int main() {
+  int score;
+  score = -19;
+  if ((score < 0) || (score > 100)) {
+      cout << "請重新輸入\n";
+  }
+}
+#+end_src
+
+#+RESULTS:
+: 請重新輸入
+
+上述的||即為條件運算子，代表 OR。
+
+C++的條件運算子列表如下：
+| 運算子 | 名稱 | 範例              | 說明                           |
+| &&     | AND  | ( 條件 1 && 條件 2) | 當條件 1、2 皆成立時才算成立     |
+| \vert\vert     | OR   | ( 條件 1 \vert\vert 條件 2) | 只要條件 1、2 有一項成立就算成立 |
+| !      | Not  | !（條件 1)         | 當條件 1 不成立時就成立          |
 
 ** 雙重條件
+*** 語法
+若條件的可能性可分為兩類，則可使用如下 if..else..的條件式，即:
+- 當條件成立，則執行程式碼一，
+- 否則(若條件不成立)，則執行程式碼二。
+#+begin_src cpp :eval no
+if (條件) {
+    程式碼一;
+} else {
+    程式碼二;
+}
+#+end_src
 
-** 
-#+BEGIN_SRC C 
-  #include <stdio.h>
-  int main() {
-      int x=4;
-      if (x%2==0) {
-         printf("even\n");
-      } else {
-	     printf("odd\n");
-      }
+*** 範例
+若分數及格，則輸出 PASS，否則輸出 FAIL
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+int main() {
+  int score;
+  score = 57;
+  if (score >= 60) {
+      cout << "PASS\n";
+  } else {
+      cout << "FAIL\n";
   }
+}
+#+end_src
+
+#+RESULTS:
+: FAIL
+*** 練習
+1. 輸入一分數，若該分數合理(介於 0~100 間`)，則繼續判斷是否及格，若及格則輸出 PASS，若不及格則輸出 FAIL；若該分數不合理，則輸出: 請重新輪入。
+1. 輸入一元二次方程式 ax^2+bx+c=0 中的 a,b,c 三參數，判斷此方程式是否有實數解，若有，則輸出 x 的兩個解；若無實數解，則輸出 QQ。
+** 多重條件
+*** 語法
+- 當要判斷的條件可能性超過兩種，則可以用如下的 if..else if..條件式，即，
+- 當條件一成立，則執行程式碼一；
+- 若條件一不成立，則繼續判斷條件二，若條件二成立，則執行程式碼二；
+- 若條件二也不成立，則繼續判斷條件三...依此類推。
+- 最後的 else(第[[(else)]]行則可有可無，若有，則表示如果以上所有條件皆不成立，則執行程式碼 N。
+#+begin_src cpp :eval no
+if (條件一) {
+    程式碼一;
+} else if (條件二) {
+    程式碼二;
+} else if (條件三) {
+    程式碼三;
+} ... {
+
+} else { (ref:else)
+    程式碼N
+}
+#+end_src
+
+*** 範例
+將分數轉成等第(A, B, C...)
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+int main() {
+    int score = 79;
+    if (score >= 90) {
+        cout << "A\n";
+    } else if (score >= 80) {
+        cout << "B\n";
+    } else if (score >= 70) {
+        cout << "C\n";
+    } else if (score >= 60) {
+        cout << "D\n";
+    } else {
+        cout << "F\n";
+    }
+}
 #+END_SRC
 
 #+RESULTS:
-: even
+: C
 
-* for
+* For Loops
 
 * nested for
 
-* while
+* While
 
 * function
 
@@ -247,6 +466,14 @@ int main() {
 [[file:blue.png]]
 
 * Footnotes
+
+[fn:7] [[https://crmne0707.pixnet.net/blog/post/285395384-c%2B%2B%E5%9F%BA%E7%A4%8E%E6%95%99%E5%AD%B8%E8%88%87%E7%AF%84%E4%BE%8B--https://crmne0707.pixnet.net/blog/post/285395384-c%2B%2B%E5%9F%BA%E7%A4%8E%E6%95%99%E5%AD%B8%E8%88%87%E7%AF%84%E4%BE%8B--%283%29if%E5%88%A4%E6%96%B7%E5%BC%8F%E8%88%87%E9%82%8F%E8%BC%AF%E9%81%8B%E7%AE%97%E5%AD%90][C++基礎教學與範例--(3)if判斷式與邏輯運算子]]
+
+[fn:6] [[https://www.csie.ntu.edu.tw/~b98902112/cpp_and_algo/cpp/variable_type_and_declare.html][變數型態]]
+
+[fn:5] [[https://michaelchen.tech/c-programming/variable/][宣告和使用變數 (Variable)]]
+
+[fn:4] [[https://www.geeksforgeeks.org/variables-in-c/][Variables in C++]]
 
 [fn:3] [[https://www.quora.com/Is-cout-an-object-or-a-function-Why][Is cout an ojbect or a function? Why?]]
 
