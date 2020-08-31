@@ -208,7 +208,7 @@ A variable is a name given to a memory location. It is the basic unit of storage
 - A variable is only a name given to a memory location, all the operations done on the variable effects that memory location.
 - In C++, all the variables must be declared before use.
 
-** 變數的宣告與應用
+** <<VarDec>>變數的宣告與應用
 變數是資料的標籤，而非資料本身。電腦程式很大一部分是在操作資料，變數在本質上是用來操作資料的一種語法特性。[fn:5]
 #+CAPTION: Variables in C++
 #+LABEL:fig:vic
@@ -300,6 +300,158 @@ cin >> x >> y >> z;
 #+end_src
 
 * 運算式
+** 指定運算
+最基本的運算子為=(assign)，即，將資料(數值、字元或字串)存入某變數空間中，如:
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+int main() {
+    int x, y, z;
+    x = 3;
+    y = 4;
+    z = x + y; (ref:zxy1)
+    cout << z << endl;
+    x = 10;
+    z = x + y; (ref:zxy2)
+    cout << z << endl;
+}
+
+#+end_src
+
+#+RESULTS:
+: 7
+: 14
+
+指定運算除了可以將其他變數的計算結果存入變數中(如上述程式中的第[[(zxy1)]]、[[(zxy2)]]行)外，也可以將變數本身的值再運算後存回來，如：
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+int main() {
+    int x;
+    x = 3;
+    cout << x << endl;
+    x = x + 1; (ref:xx1)
+    cout << x << endl;
+    x++; // 同x = x + 1 (ref:xpp)
+    cout << x << endl;
+    x = x * 3; (ref:xx3)
+    cout << x << endl;
+}
+
+#+end_src
+
+#+RESULTS:
+: 3
+: 4
+: 5
+: 15
+
+如同[[VarDec]]所述:
+#+begin_verse
+等號運算子其作用為指定(assign)，即是將等號*右邊*的值存入等號*左邊*的變數(空間)中
+#+end_verse
+，上述程式中的第[[(xx1)]]行是先求出 x+1 的值(4)，再將這個值存回變數 x 中，這個運算也可以第[[(xpp)]]取代；同理，程式中的第[[(xx3)]]行是先將 x 的值乘以 3，再把結果存回變數 x 中。
+
+** 數值運算
+C/C++的基本數值運算有+、-、*、/、%，最後的%為取餘數。
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+int main() {
+    int x = 10, y = 3;
+    cout << x + y << endl;
+    cout << x - y << endl;
+    cout << x * y << endl;
+    cout << x / y << endl; (ref:xdy)
+    cout << x % y << endl; (ref:xmy)
+}
+#+end_src
+
+#+RESULTS:
+: 13
+: 7
+: 30
+: 3
+: 1
+
+此處須留意的是第[[(xdy)]]行的值為整除的結果(得到商)，因為 x 與 y 均為整數，故此處的/為整除；此外，第[[(xmy)]]的%運算僅能用於 x 與 y 均為整數的狀況，在 C/C++中，小數不允許有取餘數的運算(python 可以)。
+
+數除運算也可以結合小括號來進行更複雜的運算，如：
+#+begin_src cpp -r -n :eval no
+//...
+int t = 10;
+double up = 10.3;
+double bt = 20.4;
+double height = 15;
+double area;
+area = ((up + bt) * height / 2) * 10;
+// ...
+#+end_src
+
+此處須留意，小刮號可以層層相叠，但不能像數學式那樣最內層為小括號、然後是中刮號、大刮號...
+
+** 關係運算
+即，比較兩個值(或運算式)的結果，可的關係運算子如下：
+| 關係運算子 | 意義     | 使用範例 | 範例運算結果 |
+| ==         | 等於     | 1+1 == 2 |            1 |
+| !=         | 不等於   | 3 != 4   |            1 |
+| >          | 大於     | 5 > 7    |            0 |
+| >=         | 大於等於 | 3 >= 5   |            0 |
+| <          | 小於     | 2 < 6    |            1 |
+| <=         | 小於等於 | 8 <= 8   |            1 |
+
+** 條件運算
+上述關係運算所得的條件值(true/false)也可以再進行運算，而運算的結果也只有兩類: true/false。最基本的條件運算有以下三項：
+*** &&, and
+且，只有在兩項條件均成立時其運算結果才是 true，否則其結果為 false，如
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+int main() {
+    int x = 3;
+    int y = 4;
+    cout << (x >= 3 && y >= 0) << endl;
+    cout << (x == 3 && y > 4) << endl;
+}
+#+end_src
+
+#+RESULTS:
+: 1
+: 0
+
+*** ||, or
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+int main() {
+    int x = 3;
+    int y = 4;
+    cout << (x >= 3 || y < 0) << endl;
+    cout << (x != 3 && y > 14) << endl;
+}
+#+end_src
+
+#+RESULTS:
+: 1
+: 0
+
+*** !, not
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+int main() {
+    int x = 3;
+    int y = 4;
+    cout << !(x >= 3) << endl;
+    cout << !(x == 3 && y > 4) << endl;
+}
+#+end_src
+
+#+RESULTS:
+: 0
+: 1
+
+如果數值運算，條件運算也結合小刮號進行更複雜的計算。
 
 * if 條件判斷
 if 判斷式可用來判斷條件是否成立，並且依照條件之成立與否，來執行不同的程式碼[fn:7]。依照條件的複雜程度可大致分為以下三類：
