@@ -120,7 +120,7 @@ int main() {
 * 輸出
 顧名思意，輸出是將資料輸出到某種設備（如螢幕、印表機...）, 常見的輸出指令有 cout、printf()、puts()、putchar()等。
 ** cout
-cout 為 iostream 這個類別(class)的 object[fn:3]，所以程式中若使用到 cout 就必須 include iostream。cout 可以將文字資料與變數資料列印在螢幕上，在語法上會使用<<作為文字與變數之間的連接工具，若要換行則使用"\n"或是關鍵字 endl[fn:2]。
+cout 為 iostream 這個類別(class)的 object[fn:2]，所以程式中若使用到 cout 就必須 include iostream。cout 可以將文字資料與變數資料列印在螢幕上，在語法上會使用<<作為文字與變數之間的連接工具，若要換行則使用"\n"或是關鍵字 endl[fn:3]。
 
 如果要輸出的是文字資料，則應該在文字的前後各加上英文的雙引號(")，如下列程式的第[[(helloWorld)]]行，不同類型的數值資料間要以<<間隔。
 
@@ -259,6 +259,45 @@ int main() {
 |string |字串(文句) |String |"Hello"、"^_^"、"Rock!" ...|
 |bool |布林(是非) |boolean |true、false|
 關於 float 與 double 的進一步說明，可參閱：[[https://taichunmin.pixnet.net/blog/post/27827769][float跟double小知識]]。
+
+* 輸入
+
+** 變數的輪入
+前節提及變數的宣告、指定內容以及輸出變數，然而在程式內容中指定變數值實在很沒有彈性，我們可以透過輸入(cin)的方式將指定變數值的時機延後到程式執行時，由使用者來指定，例如：
+
+#+begin_src cpp -r -n :eval no
+#include <iostream>
+using namespace std;
+int main() {
+    double r;
+    double area;
+    cin >> r; (ref:cinr)
+    area = r * r * 3.14; (ref:carea)
+    cout << "半徑 " << r << "的圓，其面積為: " << area << "\n";
+}
+#+end_src
+
+程式在執行至第[[(cinr)]]行中的 cin 時會暫停，等待使用者自鍵盤輸入一數值，並將該數值存入變數 r 中，接下來再以這個 r 來計算圓面積(第[[(carea)]]行)，最後輸出其面積。
+
+** 一個以上的變數輸入
+如果要輸入多個變數，可以採以下兩種方式(類似 cout 的做法)
+*** 分開 cin
+#+begin_src cpp -r -n :eval no
+//...
+int x, y, z;
+cin >> x;
+cin >> y;
+cin >> z;
+//...
+#+end_src
+
+*** 以>>串接
+#+begin_src cpp -r -n :eval no
+//...
+int x, y, z;
+cin >> x >> y >> z;
+//...
+#+end_src
 
 * 運算式
 
@@ -450,6 +489,31 @@ int main() {
 #+RESULTS:
 : 40320
 
+* Struct
+結構 (structure) 是一種複合型別 (derived data type)，用來表達由多個屬性組成的型別，而這些屬性可以是基本型別或是另一個複合型別所組成。[fn:8] [fn:9]
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+#include <string.h>
+using namespace std;
+
+struct student{ //名稱為student的結構
+    int id; //學號為整數型
+    char name[20]; //姓名為字元陣列
+    char sex; //性別為字元型
+    float score; //成績為浮點型
+};
+
+int main() {
+    student s1, s2, s3;
+    s1.id = 90001;
+    strcpy(s1.name, "James, Yen");
+    s1.sex = 'F';
+    s1.score = 88.88;
+}
+
+#+end_src
+
+#+RESULTS:
 
 * ditaa
 #+begin_src ditaa :file blue.png :cmdline -r
@@ -467,16 +531,20 @@ int main() {
 
 * Footnotes
 
-[fn:7] [[https://crmne0707.pixnet.net/blog/post/285395384-c%2B%2B%E5%9F%BA%E7%A4%8E%E6%95%99%E5%AD%B8%E8%88%87%E7%AF%84%E4%BE%8B--https://crmne0707.pixnet.net/blog/post/285395384-c%2B%2B%E5%9F%BA%E7%A4%8E%E6%95%99%E5%AD%B8%E8%88%87%E7%AF%84%E4%BE%8B--%283%29if%E5%88%A4%E6%96%B7%E5%BC%8F%E8%88%87%E9%82%8F%E8%BC%AF%E9%81%8B%E7%AE%97%E5%AD%90][C++基礎教學與範例--(3)if判斷式與邏輯運算子]]
+[fn:1] [[http://www2.lssh.tp.edu.tw/~hlf/class-1/lang-c/compile.htm][程式編譯過程]]
 
-[fn:6] [[https://www.csie.ntu.edu.tw/~b98902112/cpp_and_algo/cpp/variable_type_and_declare.html][變數型態]]
+[fn:2] [[https://www.quora.com/Is-cout-an-object-or-a-function-Why][Is cout an ojbect or a function? Why?]]
 
-[fn:5] [[https://michaelchen.tech/c-programming/variable/][宣告和使用變數 (Variable)]]
+[fn:3] [[http://rs2.ocu.edu.tw/~jengchi/IO_instruction.htm][Dev C++的輸出與輸入方法]]
 
 [fn:4] [[https://www.geeksforgeeks.org/variables-in-c/][Variables in C++]]
 
-[fn:3] [[https://www.quora.com/Is-cout-an-object-or-a-function-Why][Is cout an ojbect or a function? Why?]]
+[fn:5] [[https://michaelchen.tech/c-programming/variable/][宣告和使用變數 (Variable)]]
 
-[fn:2] [[http://rs2.ocu.edu.tw/~jengchi/IO_instruction.htm][Dev C++的輸出與輸入方法]]
+[fn:6] [[https://www.csie.ntu.edu.tw/~b98902112/cpp_and_algo/cpp/variable_type_and_declare.html][變數型態]]
 
-[fn:1] [[http://www2.lssh.tp.edu.tw/~hlf/class-1/lang-c/compile.htm][程式編譯過程]]
+[fn:7] [[https://crmne0707.pixnet.net/blog/post/285395384-c%2B%2B%E5%9F%BA%E7%A4%8E%E6%95%99%E5%AD%B8%E8%88%87%E7%AF%84%E4%BE%8B--https://crmne0707.pixnet.net/blog/post/285395384-c%2B%2B%E5%9F%BA%E7%A4%8E%E6%95%99%E5%AD%B8%E8%88%87%E7%AF%84%E4%BE%8B--%283%29if%E5%88%A4%E6%96%B7%E5%BC%8F%E8%88%87%E9%82%8F%E8%BC%AF%E9%81%8B%E7%AE%97%E5%AD%90][C++基礎教學與範例--(3)if判斷式與邏輯運算子]]
+
+[fn:8] [[https://michaelchen.tech/c-programming/struct/][如何使用結構 (Struct)]]
+
+[fn:9] [[https://kopu.chat/2017/05/30/c-%E8%AA%9E%E8%A8%80%EF%BC%9A%E7%B5%90%E6%A7%8B%EF%BC%88struct%EF%BC%89%E8%87%AA%E8%A8%82%E4%B8%8D%E5%90%8C%E8%B3%87%E6%96%99%E5%9E%8B%E6%85%8B%E7%B6%81%E4%B8%80%E8%B5%B7/][C 語言：結構（struct）自訂不同資料型態綁一起]]
