@@ -4,6 +4,9 @@
 #+LATEX:\newpage
 
 * 程式的編寫與執行
+:PROPERTIES:
+:CUSTOM_ID: cpp_execution
+:END:
 ** source code
 所謂的程式碼基本上都只是一些文字檔，只是這些文字的撰寫是依照不同語言(如 C、C++、Python、R...)所規定的語法(syntax)來撰寫，以達到特定目的。
 
@@ -44,6 +47,9 @@
 - [[https://code.sololearn.com/#cpp][SOLOLEARN]]
   
 * C++基本架構
+:PROPERTIES:
+:CUSTOM_ID: cpp_arch
+:END:
 
 #+begin_src cpp -r -n :results output :exports both
 #include <iostream> (ref:header)
@@ -118,6 +124,9 @@ int main() {
 有關於 namespace 的詳細說明，可參考[[https://openhome.cc/Gossip/CppGossip/Namespace.html][簡介名稱空間]]這篇文章。
 
 * 輸出
+:PROPERTIES:
+:CUSTOM_ID: cpp_output
+:END:
 顧名思意，輸出是將資料輸出到某種設備（如螢幕、印表機...）, 常見的輸出指令有 cout、printf()、puts()、putchar()等。
 ** cout
 cout 為 iostream 這個類別(class)的 object[fn:2]，所以程式中若使用到 cout 就必須 include iostream。cout 可以將文字資料與變數資料列印在螢幕上，在語法上會使用<<作為文字與變數之間的連接工具，若要換行則使用"\n"或是關鍵字 endl[fn:3]。
@@ -202,6 +211,9 @@ int main() {
 | \n   | 換行字元(ENTER) |
 
 * Variable
+:PROPERTIES:
+:CUSTOM_ID: cpp_variables
+:END:
 ** 關於變數
 A variable is a name given to a memory location. It is the basic unit of storage in a program[fn:4].
 - The value stored in a variable can be changed during program execution.
@@ -261,6 +273,9 @@ int main() {
 關於 float 與 double 的進一步說明，可參閱：[[https://taichunmin.pixnet.net/blog/post/27827769][float跟double小知識]]。
 
 * 輸入
+:PROPERTIES:
+:CUSTOM_ID: cpp_input
+:END:
 
 ** 變數的輪入
 前節提及變數的宣告、指定內容以及輸出變數，然而在程式內容中指定變數值實在很沒有彈性，我們可以透過輸入(cin)的方式將指定變數值的時機延後到程式執行時，由使用者來指定，例如：
@@ -300,6 +315,9 @@ cin >> x >> y >> z;
 #+end_src
 
 * 運算式
+:PROPERTIES:
+:CUSTOM_ID: cpp_operation
+:END:
 ** 指定運算
 最基本的運算子為=(assign)，即，將資料(數值、字元或字串)存入某變數空間中，如:
 #+begin_src cpp -r -n :results output :exports both
@@ -454,6 +472,9 @@ int main() {
 如果數值運算，條件運算也結合小刮號進行更複雜的計算。
 
 * if 條件判斷
+:PROPERTIES:
+:CUSTOM_ID: cpp_ifelse
+:END:
 if 判斷式可用來判斷條件是否成立，並且依照條件之成立與否，來執行不同的程式碼[fn:7]。依照條件的複雜程度可大致分為以下三類：
 
 ** 單一條件
