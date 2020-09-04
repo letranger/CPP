@@ -262,6 +262,9 @@ int main() {
 更詳細的命名規範與建議可參閱：[[https://www.itread01.com/content/1541214186.html][C語言中變數名及函式名的命名規則與駝峰命名法]]。
 
 ** 變數類型
+:PROPERTIES:
+:CUSTOM_ID: cpp_variable_types
+:END:
 前節介紹了變數的宣告要先說明其類型，根據要儲存的資料種類不同，C++變數有許多型態。以下是一些常用的基本型態[fn:6]：
 型態 	中文意思 	英文字義 |可儲存的資料
 |int |整數 |Integer |100、-5、1246 ...|
