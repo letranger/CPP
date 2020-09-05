@@ -150,6 +150,9 @@ int main() {
 : 圓面積：28.2744
 
 ** printf()
+:PROPERTIES:
+:CUSTOM_ID: cpp_printf
+:END:
 printf()為定義在 stdio.h 中的一個 function，所以若用到 printf()就要 include stdio.h。
 
 和 cout 一樣，printf()一樣是用來進行資料的輸出，只是在輸出時提供了更多的格式選定選項。基本的應用如下例，更複雜的應用則在介紹完變數(vairalbe)概念後再行說明。
@@ -412,6 +415,9 @@ area = ((up + bt) * height / 2) * 10;
 此處須留意，小刮號可以層層相叠，但不能像數學式那樣最內層為小括號、然後是中刮號、大刮號...
 
 ** 關係運算
+:PROPERTIES:
+:CUSTOM_ID: cpp_cond_operation
+:END:
 即，比較兩個值(或運算式)的結果，可的關係運算子如下：
 | 關係運算子 | 意義     | 使用範例 | 範例運算結果 |
 | ==         | 等於     | 1+1 == 2 |            1 |
@@ -587,6 +593,9 @@ int main() {
 1. 輸入一分數，若該分數合理(介於 0~100 間`)，則繼續判斷是否及格，若及格則輸出 PASS，若不及格則輸出 FAIL；若該分數不合理，則輸出: 請重新輪入。
 1. 輸入一元二次方程式 ax^2+bx+c=0 中的 a,b,c 三參數，判斷此方程式是否有實數解，若有，則輸出 x 的兩個解；若無實數解，則輸出 QQ。
 ** 多重條件
+:PROPERTIES:
+:CUSTOM_ID: cpp_multi_conditions
+:END:
 *** 語法
 - 當要判斷的條件可能性超過兩種，則可以用如下的 if..else if..條件式，即，
 - 當條件一成立，則執行程式碼一；
@@ -632,12 +641,74 @@ int main() {
 : C
 
 * For Loops
+:PROPERTIES:
+:CUSTOM_ID: cpp_for_loop
+:END:
+計算機的優勢除了運算速度之快，更重要的是它十分適合拿來做一些重複性極高的工作，例如，幫所有同學計算月考平均、幫全國所有家庭計算須繳所得稅....，For 迴圈即是許多語言用來執行重複工作的指令。
+** 語法 1 (要重複的程式碼只有一行時)
+#+begin_src cpp -r -n :eval no
+for(初始值; 條件式; 更新值) 程式碼;
+#+end_src
+** 語法 2 (要重複一行以上程式碼時)
+#+begin_src cpp -r -n :eval no
+for(初始值; 條件式; 更新值){
+    程式碼一;
+    程式碼二;
+    ...
+}
+#+end_src
+
+初始值是進入迴圈一開始會執行的動作，而更新值則是執行完每次的迴圈要執行的動作，至於重複的次數則取決於條件式是否成立，只要條件式一直成立(其計算結果為 true)，則持續重複執行程式碼；所以要利用*更新值*來逐步修正，讓條件值有機會傳回 false。
+** 範例
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+
+int main() {
+    for(int i = 1; i < 10; i++) { (ref:fori1)
+        cout << "3 * " << i << " = " << 3*i << endl;  (ref:fori2)
+    }
+    return 0; (ref:return)
+}
+#+end_src
+
+#+RESULTS:
+: 3 * 1 = 3
+: 3 * 2 = 6
+: 3 * 3 = 9
+: 3 * 4 = 12
+: 3 * 5 = 15
+: 3 * 6 = 18
+: 3 * 7 = 21
+: 3 * 8 = 24
+: 3 * 9 = 27
+
+以上述程式為例，其程式執行的步驟如下：
+1) 令迴圈變數 i=1，這個*初始值*只會執行一次(第[[(fori1)]]行)
+2) 檢查*條件式* i<10 是否成立，若不成立則跳出迴圈 ( 即跳至第[[(return)]]行 )
+3) 若*條作式*成立，則執行第[[(fori2)]]行，輸出一行結果
+4) 執行*更新值* i++; ( 即 i=i+1; )將迴圈變數的值逐步加大，使其有機會違反*條件式*(即結束迴圈)
+5) 跳至 2) 的位置重複本步
 
 * nested for
+:PROPERTIES:
+:CUSTOM_ID: cpp_nested_for
+:END:
 
 * While
+:PROPERTIES:
+:CUSTOM_ID: cpp_while
+:END:
+
+* Array
+:PROPERTIES:
+:CUSTOM_ID: cpp_arrays
+:END:
 
 * function
+:PROPERTIES:
+:CUSTOM_ID: cpp_functions
+:END:
 
 ** function declaration
 
@@ -666,6 +737,9 @@ int main() {
 : 40320
 
 * Struct
+:PROPERTIES:
+:CUSTOM_ID: cpp_struct
+:END:
 結構 (structure) 是一種複合型別 (derived data type)，用來表達由多個屬性組成的型別，而這些屬性可以是基本型別或是另一個複合型別所組成。[fn:8] [fn:9]
 #+begin_src cpp -r -n :results output :exports both
 #include <iostream>
