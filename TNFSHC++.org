@@ -121,7 +121,7 @@ int main() {
 #+RESULTS:
 : 用到 cout 時不用再特別指定 namespace
 
-有關於 namespace 的詳細說明，可參考[[https://openhome.cc/Gossip/CppGossip/Namespace.html][簡介名稱空間]]這篇文章。
+有關於 namespace 的詳細說明，可參考[[https://openhome.cc/Gossip/CppGossip/Namespace.html][簡介名稱空間]]以及[[https://stackoverflow.com/questions/37693999/use-a-function-in-different-file-and-different-namespace-in-visual-c][Use a function in different file and different namespace in Visual C++]]這兩篇文章。
 
 * 輸出
 :PROPERTIES:
@@ -512,6 +512,22 @@ int main() {
 #+RESULTS:
 : PASS
 
+*** 課堂練習
+**** A: 輸入一整數，判斷正負，輸出結果。
+***** 測資 1
+- 輸入: 3
+- 輸出: 3>0
+***** 測資 2
+- 輸入: -4
+- 輸出: -4<0
+**** B: 輸入一整數，判斷奇偶，輸出結果。
+***** 測資 1
+- 輸入: 3
+- 輸出: The number 3 is odd.
+***** 測資 2
+- 輸入: -4
+- 輸出: Th number -4 is even.
+
 ** 條件運算(條件的組合)
 在前節的範例中，我們看到的是最簡單的條件，如
 #+begin_src cpp -r -n :eval no
@@ -592,6 +608,7 @@ int main() {
 *** 練習
 1. 輸入一分數，若該分數合理(介於 0~100 間`)，則繼續判斷是否及格，若及格則輸出 PASS，若不及格則輸出 FAIL；若該分數不合理，則輸出: 請重新輪入。
 1. 輸入一元二次方程式 ax^2+bx+c=0 中的 a,b,c 三參數，判斷此方程式是否有實數解，若有，則輸出 x 的兩個解；若無實數解，則輸出 QQ。
+
 ** 多重條件
 :PROPERTIES:
 :CUSTOM_ID: cpp_multi_conditions
