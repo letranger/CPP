@@ -1,4 +1,4 @@
-% Created 2020-09-07 Mon 10:48
+% Created 2020-09-08 Tue 13:31
 % Intended LaTeX compiler: pdflatex
 
 \documentclass[12pt,a4paper]{article}
@@ -34,15 +34,15 @@
 \section{程式的編寫與執行}
 \label{cpp_execution}
 \subsection{source code}
-\label{sec:orgd318b72}
+\label{sec:org1eedfc2}
 所謂的程式碼基本上都只是一些文字檔，只是這些文字的撰寫是依照不同語言(如 C、C++、Python、R\ldots{})所規定的語法(syntax)來撰寫，以達到特定目的。
 
 \subsection{編寫}
-\label{sec:org138a558}
+\label{sec:org216aff5}
 既然程式碼只是文字檔，所以，其實我們可以很單純的以 windows 的記事本或是 MacOS 中的 TextEdit 來編寫各種語言的程式碼，只是，使用這些應用程式來編寫程式會相對辛苦，因為相對於一些專用的應用程式如 DevC++、VSCode、PyCharm 等都會提供撰寫者許多的額外功能，例如即時除錯、自動縮排、自動補完(auto complete)，甚至是後續的編譯、執行..。
 
 \subsection{編譯與執行}
-\label{sec:org6c3b6b3}
+\label{sec:org90bdd14}
 既然寫完的程式碼只是文字檔，那這些文字檔要如何變成可以執行的執行檔呢？
 如下圖\footnote{\href{http://www2.lssh.tp.edu.tw/\~hlf/class-1/lang-c/compile.htm}{程式編譯過程}}所示：
 
@@ -55,36 +55,36 @@
 程式碼必須先經過 Preprocess、Compile、Assemble、Link 等步驟才能成為一支可以執行的執行檔(如 Windows 下的.exe 或是 MacOS 下的.app)。
 
 \subsection{幾種寫程式的環境}
-\label{sec:orgf2b9ba5}
+\label{sec:org690b25e}
 \subsubsection{MacOS}
-\label{sec:orgad5e66d}
+\label{sec:org29383e6}
 \begin{itemize}
 \item \href{https://developer.apple.com/xcode/}{Xcode}
 \end{itemize}
 \subsubsection{Windows}
-\label{sec:org13c8e6c}
+\label{sec:orgc97e2e6}
 \begin{enumerate}
 \item DevC++
-\label{sec:orgcff28bb}
+\label{sec:org38b5eb9}
 \begin{itemize}
 \item \href{https://progressbar.tw/posts/7}{[C語言] 01. Dev C++ 程式編輯器，大一理工學院新生惡夢的開始。}
 \item \href{http://selfinquiring.hatenablog.com/entry/2016/03/18/204352}{Nova的科學反主流學院　}
 \end{itemize}
 \item Code::Blocks
-\label{sec:orgf6d3f4f}
+\label{sec:org59458ba}
 \begin{itemize}
 \item \href{https://blog.csdn.net/DongChengRong/article/details/78624068}{安裝BlockCode}
 \item \href{https://mks.tw/1053/cc-codeblocks-\%E8\%BC\%95\%E5\%B7\%A7\%E7\%9A\%84\%E6\%95\%B4\%E5\%90\%88\%E5\%BC\%8F\%E9\%96\%8B\%E7\%99\%BC\%E7\%92\%B0\%E5\%A2\%83}{[C/C++] Code::Blocks 輕巧的整合式開發環境}
 \end{itemize}
 \item Visual Studio Code
-\label{sec:orgb927c5d}
+\label{sec:orgcc2d69a}
 \begin{itemize}
 \item \href{https://blog.csdn.net/HelloZEX/article/details/84029810}{【VS】VS Code安装、配置、使用（windows10 64）}
 \item \href{https://tw.alphacamp.co/blog/visual-studio-code-editor-tutorial-and-extensions}{VSCode快速安裝教學，推薦常用外掛擴充套件}
 \end{itemize}
 \end{enumerate}
 \subsubsection{線上 coding 環境}
-\label{sec:org6cbe1b0}
+\label{sec:org4309eb3}
 \begin{itemize}
 \item \href{http://cpp.sh/}{cpp.sh}
 \item \href{https://www.jdoodle.com/online-compiler-c++/}{JDOODLE}
@@ -110,7 +110,7 @@ int main()
 Hello world
 \end{verbatim}
 \subsection{main()}
-\label{sec:org7314424}
+\label{sec:orgc69b111}
 C/C++的程式由許多的 function(函式)組成，function 的基本架構如下：
 \lstset{breaklines=true,language=cpp,label= ,caption= ,captionpos=b,numbers=none}
 \begin{lstlisting}
@@ -122,7 +122,7 @@ C/C++的程式由許多的 function(函式)組成，function 的基本架構如�
 前述程式中的第4行開始即為一名為 main 的 function，這也是 C/C++程式最主要的一支 function，程式被執行時，就由整支程式中找出名為 main 的 function 開始執行。之後我們的程式也將依序寫在這組大括號中。
 
 \subsection{標頭檔(Headers)}
-\label{sec:orgb3ade35}
+\label{sec:orgca71d68}
 上述程式中，第1行為標頭檔(Header)的引入，這裡告訴 Compiler 說我需要用到 iostream 這個 header，原因是程式的第6行用到 cout 這個指令，而這個指令就被定義在 iostream 這個 header 中，其中的 io 即代表 input/output。
 
 往後如果用到其他函數，也需要 include 相關的 header，例如，如果需要用到數學的開根號函式 sqrt()，就需要 include math.h 這個 header，如下例中的第1行。
@@ -144,7 +144,7 @@ int main()
 10
 \end{verbatim}
 \subsection{命名空間(namespace)}
-\label{sec:org8e91787}
+\label{sec:org524da2e}
 一支程式往往會用到許多的指令、函式、變數，不同單位所開發的程式也許會用到相同的名稱來為這些函式或變數命名，如此一來就可能導致名稱的衝突。舉個例子，在一年級新生中，有三個班級裡都有個叫*陳宜君*的同學，那麼我們怎麼區分這三位同學呢？一個方式在提及這些同學時在前面加上班級，如：一年三班的陳宜君。
 
 C++就提出這種方式來解決名稱可能衝突的問題，以下面程式為例：
@@ -184,7 +184,7 @@ int main() {
 \label{cpp_output}
 顧名思意，輸出是將資料輸出到某種設備（如螢幕、印表機\ldots{}）, 常見的輸出指令有 cout、printf()、puts()、putchar()等。
 \subsection{cout}
-\label{sec:org6234130}
+\label{sec:org3526fc2}
 cout 為 iostream 這個類別(class)的 object\footnote{\href{https://www.quora.com/Is-cout-an-object-or-a-function-Why}{Is cout an ojbect or a function? Why?}}，所以程式中若使用到 cout 就必須 include iostream。cout 可以將文字資料與變數資料列印在螢幕上，在語法上會使用<<作為文字與變數之間的連接工具，若要換行則使用``\n''或是關鍵字 endl\footnote{\href{http://rs2.ocu.edu.tw/\~jengchi/IO\_instruction.htm}{Dev C++的輸出與輸入方法}}。
 
 如果要輸出的是文字資料，則應該在文字的前後各加上英文的雙引號(``)，如下列程式的第4行，不同類型的數值資料間要以<<間隔。
@@ -232,14 +232,14 @@ Hello world
 \end{verbatim}
 
 \subsection{跳脫字元}
-\label{sec:org19f68bc}
+\label{sec:orgf2b3b71}
 如果你試過利用 C++來輸出下列這段話：
 \begin{verse}
 他說：``好''，然後他就死了。\\
 \end{verse}
 你會發現這是件困難的事，在前節的 cout 中，我們提及雙引號是用來將文字括起來的符號，若在字串中也出現雙引號，則勢必會打亂雙引號在文字中的規則。要輸出這類特殊字元的問題，有以下兩種方法：
 \subsubsection{cout + 單引號}
-\label{sec:orgd402165}
+\label{sec:orgfea44a5}
 以兩個單引號將雙引號括起來，如下列程式。
 \lstset{breaklines=true,language=cpp,label= ,caption= ,captionpos=b,firstnumber=1,numbers=left}
 \begin{lstlisting}
@@ -254,7 +254,7 @@ int main() {
 他說："好"，然後他就死了。
 \end{verbatim}
 \subsubsection{加上跳脫字元}
-\label{sec:org3fc4b4a}
+\label{sec:orgbbc3c56}
 即，在字串中的雙引號前加上$\backslash$，變成$\backslash$``，如下
 \lstset{breaklines=true,language=cpp,label= ,caption= ,captionpos=b,firstnumber=1,numbers=left}
 \begin{lstlisting}
@@ -286,7 +286,7 @@ $\backslash$0 & 空字元(NULL)\\
 \section{Variable}
 \label{cpp_variables}
 \subsection{關於變數}
-\label{sec:orga184442}
+\label{sec:orgdd59134}
 A variable is a name given to a memory location. It is the basic unit of storage in a program\footnote{\href{https://www.geeksforgeeks.org/variables-in-c/}{Variables in C++}}.
 \begin{itemize}
 \item The value stored in a variable can be changed during program execution.
@@ -295,7 +295,7 @@ A variable is a name given to a memory location. It is the basic unit of storage
 \end{itemize}
 
 \subsection{\label{VarDec}變數的宣告與應用}
-\label{sec:orgbc0f4b8}
+\label{sec:orgf96ea5b}
 變數是資料的標籤，而非資料本身。電腦程式很大一部分是在操作資料，變數在本質上是用來操作資料的一種語法特性。\footnote{\href{https://michaelchen.tech/c-programming/variable/}{宣告和使用變數 (Variable)}}
 \begin{figure}[htbp]
 \centering
@@ -329,7 +329,7 @@ int main() {
 \end{verbatim}
 
 \subsection{變數的命名規則}
-\label{sec:org145a7bc}
+\label{sec:org0fd607b}
 \begin{enumerate}
 \item 可用字母、數字、底線。
 \item 第一個字不可為數字，如 1x, 2x\ldots{}，可以為 x1, x2\ldots{}。
@@ -359,7 +359,7 @@ bool & 布林(是非) & boolean & true、false\\
 \section{輸入}
 \label{cpp_input}
 \subsection{變數的輪入}
-\label{sec:org9c38ac1}
+\label{sec:orgc55f45a}
 前節提及變數的宣告、指定內容以及輸出變數，然而在程式內容中指定變數值實在很沒有彈性，我們可以透過輸入(cin)的方式將指定變數值的時機延後到程式執行時，由使用者來指定，例如：
 
 \lstset{breaklines=true,language=cpp,label= ,caption= ,captionpos=b,firstnumber=1,numbers=left}
@@ -378,10 +378,10 @@ int main() {
 程式在執行至第6行中的 cin 時會暫停，等待使用者自鍵盤輸入一數值，並將該數值存入變數 r 中，接下來再以這個 r 來計算圓面積(第7行)，最後輸出其面積。
 
 \subsection{一個以上的變數輸入}
-\label{sec:orgb7f3fd5}
+\label{sec:org97f6cf8}
 如果要輸入多個變數，可以採以下兩種方式(類似 cout 的做法)
 \subsubsection{分開 cin}
-\label{sec:org5663205}
+\label{sec:org641caca}
 \lstset{breaklines=true,language=cpp,label= ,caption= ,captionpos=b,firstnumber=1,numbers=left}
 \begin{lstlisting}
 //...
@@ -393,7 +393,7 @@ cin >> z;
 \end{lstlisting}
 
 \subsubsection{以>>串接}
-\label{sec:orgbea621d}
+\label{sec:orgf1c9ee1}
 \lstset{breaklines=true,language=cpp,label= ,caption= ,captionpos=b,firstnumber=1,numbers=left}
 \begin{lstlisting}
 //...
@@ -405,7 +405,7 @@ cin >> x >> y >> z;
 \section{運算式}
 \label{cpp_operation}
 \subsection{指定運算}
-\label{sec:orgd510017}
+\label{sec:org6f7c5e0}
 最基本的運算子為=(assign)，即，將資料(數值、字元或字串)存入某變數空間中，如:
 \lstset{breaklines=true,language=cpp,label= ,caption= ,captionpos=b,firstnumber=1,numbers=left}
 \begin{lstlisting}
@@ -464,7 +464,7 @@ int main() {
 ，上述程式中的第7行是先求出 x+1 的值(4)，再將這個值存回變數 x 中，這個運算也可以第9取代；同理，程式中的第11行是先將 x 的值乘以 3，再把結果存回變數 x 中。
 
 \subsection{數值運算}
-\label{sec:orge575b33}
+\label{sec:org0ed53bb}
 C/C++的基本數值運算有+、-、*、/、\%，最後的\%為取餘數。
 \lstset{breaklines=true,language=cpp,label= ,caption= ,captionpos=b,firstnumber=1,numbers=left}
 \begin{lstlisting}
@@ -522,10 +522,10 @@ area = ((up + bt) * height / 2) * 10;
 \end{center}
 
 \subsection{條件運算}
-\label{sec:org121f49b}
+\label{sec:orgd21a317}
 上述關係運算所得的條件值(true/false)也可以再進行運算，而運算的結果也只有兩類: true/false。最基本的條件運算有以下三項：
 \subsubsection{\&\&, and}
-\label{sec:org4be4141}
+\label{sec:org4405b6d}
 且，只有在兩項條件均成立時其運算結果才是 true，否則其結果為 false，如
 \lstset{breaklines=true,language=cpp,label= ,caption= ,captionpos=b,firstnumber=1,numbers=left}
 \begin{lstlisting}
@@ -545,7 +545,7 @@ int main() {
 \end{verbatim}
 
 \subsubsection{||, or}
-\label{sec:org71f3cbf}
+\label{sec:orgd99e69a}
 \lstset{breaklines=true,language=cpp,label= ,caption= ,captionpos=b,firstnumber=1,numbers=left}
 \begin{lstlisting}
 #include <iostream>
@@ -564,7 +564,7 @@ int main() {
 \end{verbatim}
 
 \subsubsection{!, not}
-\label{sec:org64de5ba}
+\label{sec:orgaefce76}
 \lstset{breaklines=true,language=cpp,label= ,caption= ,captionpos=b,firstnumber=1,numbers=left}
 \begin{lstlisting}
 #include <iostream>
@@ -590,9 +590,9 @@ int main() {
 if 判斷式可用來判斷條件是否成立，並且依照條件之成立與否，來執行不同的程式碼\footnote{\href{https://crmne0707.pixnet.net/blog/post/285395384-c\%2B\%2B\%E5\%9F\%BA\%E7\%A4\%8E\%E6\%95\%99\%E5\%AD\%B8\%E8\%88\%87\%E7\%AF\%84\%E4\%BE\%8B--https://crmne0707.pixnet.net/blog/post/285395384-c\%2B\%2B\%E5\%9F\%BA\%E7\%A4\%8E\%E6\%95\%99\%E5\%AD\%B8\%E8\%88\%87\%E7\%AF\%84\%E4\%BE\%8B--\%283\%29if\%E5\%88\%A4\%E6\%96\%B7\%E5\%BC\%8F\%E8\%88\%87\%E9\%82\%8F\%E8\%BC\%AF\%E9\%81\%8B\%E7\%AE\%97\%E5\%AD\%90}{C++基礎教學與範例--(3)if判斷式與邏輯運算子}}。依照條件的複雜程度可大致分為以下三類：
 
 \subsection{單一條件}
-\label{sec:orgf738252}
+\label{sec:org6db8e12}
 \subsubsection{語法}
-\label{sec:org4909736}
+\label{sec:orgf0e56fe}
 最簡單型式的條件式如下，即，當條件成立，則執行程式碼。
 \lstset{breaklines=true,language=cpp,label= ,caption= ,captionpos=b,numbers=none}
 \begin{lstlisting}
@@ -602,7 +602,7 @@ if (條件) {
 \end{lstlisting}
 
 \subsubsection{範例}
-\label{sec:orgfca760c}
+\label{sec:org4f3e54e}
 若分數及格，則輸出 PASS
 \lstset{breaklines=true,language=cpp,label= ,caption= ,captionpos=b,firstnumber=1,numbers=left}
 \begin{lstlisting}
@@ -621,8 +621,45 @@ int main() {
 PASS
 \end{verbatim}
 
+\subsubsection{課堂練習}
+\label{sec:org1991e74}
+\begin{enumerate}
+\item A: 輸入一整數，判斷正負，輸出結果。
+\label{sec:orgbdc59c0}
+\begin{enumerate}
+\item 測資 1
+\label{sec:org42e6e4a}
+\begin{itemize}
+\item 輸入: 3
+\item 輸出: 3>0
+\end{itemize}
+\item 測資 2
+\label{sec:org84cbf87}
+\begin{itemize}
+\item 輸入: -4
+\item 輸出: -4<0
+\end{itemize}
+\end{enumerate}
+\item B: 輸入一整數，判斷奇偶，輸出結果。
+\label{sec:orgd2cadd7}
+\begin{enumerate}
+\item 測資 1
+\label{sec:orgaeda786}
+\begin{itemize}
+\item 輸入: 3
+\item 輸出: The number 3 is odd.
+\end{itemize}
+\item 測資 2
+\label{sec:orgd920c03}
+\begin{itemize}
+\item 輸入: -4
+\item 輸出: Th number -4 is even.
+\end{itemize}
+\end{enumerate}
+\end{enumerate}
+
 \subsection{條件運算(條件的組合)}
-\label{sec:org8963049}
+\label{sec:orge3aee2e}
 在前節的範例中，我們看到的是最簡單的條件，如
 \lstset{breaklines=true,language=cpp,label= ,caption= ,captionpos=b,firstnumber=1,numbers=left}
 \begin{lstlisting}
@@ -678,9 +715,9 @@ C++的條件運算子列表如下：
 \end{center}
 
 \subsection{雙重條件}
-\label{sec:orgbeee903}
+\label{sec:org6849257}
 \subsubsection{語法}
-\label{sec:org3f600dd}
+\label{sec:orgddf2546}
 若條件的可能性可分為兩類，則可使用如下 if..else..的條件式，即:
 \begin{itemize}
 \item 當條件成立，則執行程式碼一，
@@ -696,7 +733,7 @@ if (條件) {
 \end{lstlisting}
 
 \subsubsection{範例}
-\label{sec:org0fb44df}
+\label{sec:org1f757eb}
 若分數及格，則輸出 PASS，否則輸出 FAIL
 \lstset{breaklines=true,language=cpp,label= ,caption= ,captionpos=b,firstnumber=1,numbers=left}
 \begin{lstlisting}
@@ -717,15 +754,16 @@ int main() {
 FAIL
 \end{verbatim}
 \subsubsection{練習}
-\label{sec:orga201c97}
+\label{sec:orgf8aa5e2}
 \begin{enumerate}
 \item 輸入一分數，若該分數合理(介於 0\textasciitilde{}100 間`)，則繼續判斷是否及格，若及格則輸出 PASS，若不及格則輸出 FAIL；若該分數不合理，則輸出: 請重新輪入。
 \item 輸入一元二次方程式 ax\textsuperscript{2}+bx+c=0 中的 a,b,c 三參數，判斷此方程式是否有實數解，若有，則輸出 x 的兩個解；若無實數解，則輸出 QQ。
 \end{enumerate}
+
 \subsection{多重條件}
 \label{cpp_multi_conditions}
 \subsubsection{語法}
-\label{sec:orgdad6d83}
+\label{sec:org3e99e7e}
 \begin{itemize}
 \item 當要判斷的條件可能性超過兩種，則可以用如下的 if..else if..條件式，即，
 \item 當條件一成立，則執行程式碼一；
@@ -749,7 +787,7 @@ if (條件一) {
 \end{lstlisting}
 
 \subsubsection{範例}
-\label{sec:org256d859}
+\label{sec:orge5cbdb2}
 將分數轉成等第(A, B, C\ldots{})
 \lstset{breaklines=true,language=cpp,label= ,caption= ,captionpos=b,firstnumber=1,numbers=left}
 \begin{lstlisting}
@@ -776,10 +814,10 @@ C
 \end{verbatim}
 
 \subsection{巢狀條件}
-\label{sec:org09f64fb}
+\label{sec:org4168ef5}
 上節中提及若 if 後的件條成立，則執行大括號中的程式碼，此段程式碼也可以是 if 條件本身，如：
 \subsubsection{語法}
-\label{sec:orgc254843}
+\label{sec:org37303e0}
 \lstset{breaklines=true,language=cpp,label= ,caption= ,captionpos=b,numbers=none}
 \begin{lstlisting}
 if (條件1) {
@@ -793,7 +831,7 @@ if (條件1) {
 }
 \end{lstlisting}
 \subsubsection{範例}
-\label{sec:org4167f4f}
+\label{sec:org3dbc6a9}
 \lstset{breaklines=true,language=cpp,label= ,caption= ,captionpos=b,firstnumber=1,numbers=left}
 \begin{lstlisting}
 #include <iostream>
@@ -822,13 +860,13 @@ int main() {
 \label{cpp_for_loop}
 計算機的優勢除了運算速度之快，更重要的是它十分適合拿來做一些重複性極高的工作，例如，幫所有同學計算月考平均、幫全國所有家庭計算須繳所得稅\ldots{}.，For 迴圈即是許多語言用來執行重複工作的指令。
 \subsection{語法 1 (要重複的程式碼只有一行時)}
-\label{sec:orgd01db5f}
+\label{sec:orge834a32}
 \lstset{breaklines=true,language=cpp,label= ,caption= ,captionpos=b,firstnumber=1,numbers=left}
 \begin{lstlisting}
 for (初始值; 條件式; 更新值) 程式碼;
 \end{lstlisting}
 \subsection{語法 2 (要重複一行以上程式碼時)}
-\label{sec:orgc0b41c1}
+\label{sec:org5be9f7e}
 \lstset{breaklines=true,language=cpp,label= ,caption= ,captionpos=b,firstnumber=1,numbers=left}
 \begin{lstlisting}
 for (初始值; 條件式; 更新值){
@@ -840,7 +878,7 @@ for (初始值; 條件式; 更新值){
 
 \textbf{初始值} 是進入迴圈一開始會執行的動作，而 \textbf{更新值} 則是執行完每次的迴圈要執行的動作，至於重複的次數則取決於 \textbf{條件式} 是否成立，只要 \textbf{條件式} 一直成立(其計算結果為 true)，則持續重複執行程式碼；所以要利用 \textbf{更新值} 來逐步修正，讓條件值有機會傳回 false。
 \subsection{範例}
-\label{sec:org0c37b0b}
+\label{sec:org18b9502}
 \lstset{breaklines=true,language=cpp,label= ,caption= ,captionpos=b,firstnumber=1,numbers=left}
 \begin{lstlisting}
 #include <iostream>
@@ -879,7 +917,7 @@ int main() {
 \section{Nested For Loop}
 \label{cpp_nested_for}
 \subsection{語法}
-\label{sec:org3e4456d}
+\label{sec:org8a8c433}
 \lstset{breaklines=true,language=cpp,label= ,caption= ,captionpos=b,firstnumber=1,numbers=left}
 \begin{lstlisting}
 for (初始值1; 條件式1; 更新值1) {
@@ -891,7 +929,7 @@ for (初始值1; 條件式1; 更新值1) {
 }
 \end{lstlisting}
 \subsection{範例}
-\label{sec:org5c90212}
+\label{sec:org251efd1}
 \lstset{breaklines=true,language=cpp,label= ,caption= ,captionpos=b,firstnumber=1,numbers=left}
 \begin{lstlisting}
 #include <iostream>
@@ -920,9 +958,9 @@ int main() {
 \section{While}
 \label{cpp_while}
 \subsection{While}
-\label{sec:org4fddc11}
+\label{sec:orgbc54fe0}
 \subsubsection{語法}
-\label{sec:org1c1bcd5}
+\label{sec:orge1cce0d}
 \lstset{breaklines=true,language=cpp,label= ,caption= ,captionpos=b,firstnumber=1,numbers=left}
 \begin{lstlisting}
 while( 條件式1 ) {
@@ -937,7 +975,7 @@ while 與 for 均為重複結構，比較起來，while 的語法結構更為簡
 \end{enumerate}
 由上述結構也可以看出，我們必須想辦法讓 \textbf{條件 1} 有機會不成立，否則這個 while 迴圈就會一直重複下去。
 \subsubsection{範例}
-\label{sec:orgf5da40f}
+\label{sec:org2a12ebb}
 \lstset{breaklines=true,language=cpp,label= ,caption= ,captionpos=b,firstnumber=1,numbers=left}
 \begin{lstlisting}
 #include <iostream>
@@ -966,7 +1004,7 @@ int main() {
 \end{verbatim}
 
 \subsection{Do \ldots{} while}
-\label{sec:org3686525}
+\label{sec:org83b7f35}
 
 \section{Array}
 \label{cpp_arrays}
@@ -974,13 +1012,13 @@ int main() {
 \section{function}
 \label{cpp_functions}
 \subsection{function declaration}
-\label{sec:orgfcf33d5}
+\label{sec:orgb78cd4a}
 
 \subsection{function define}
-\label{sec:orgf578774}
+\label{sec:org691a6bc}
 
 \subsection{compute n!}
-\label{sec:org8e08856}
+\label{sec:org45c44fc}
 \lstset{breaklines=true,language=C++,label= ,caption= ,captionpos=b,numbers=none}
 \begin{lstlisting}
 #include <iostream>
@@ -1027,7 +1065,7 @@ int main() {
 \end{lstlisting}
 
 \section{ditaa}
-\label{sec:orgcbcfc63}
+\label{sec:org96b4c24}
 \begin{center}
 \includegraphics[width=.9\linewidth]{blue.png}
 \end{center}
