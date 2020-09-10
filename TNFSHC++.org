@@ -513,6 +513,9 @@ int main() {
 : PASS
 
 *** 課堂練習
+:PROPERTIES:
+:CUSTOM_ID: CPP_ifelse_practice1
+:END:
 **** A: 輸入一整數，判斷正負，輸出結果。
 ***** 測資 1
 - 輸入: 3
@@ -605,57 +608,14 @@ int main() {
 
 #+RESULTS:
 : FAIL
-*** 練習
-1. 輸入一分數，若該分數合理(介於 0~100 間`)，則繼續判斷是否及格，若及格則輸出 PASS，若不及格則輸出 FAIL；若該分數不合理，則輸出: 請重新輪入。
-1. 輸入一元二次方程式 ax^2+bx+c=0 中的 a,b,c 三參數，判斷此方程式是否有實數解，若有，則輸出 x 的兩個解；若無實數解，則輸出 QQ。
-
-** 多重條件
-:PROPERTIES:
-:CUSTOM_ID: cpp_multi_conditions
-:END:
-*** 語法
-- 當要判斷的條件可能性超過兩種，則可以用如下的 if..else if..條件式，即，
-- 當條件一成立，則執行程式碼一；
-- 若條件一不成立，則繼續判斷條件二，若條件二成立，則執行程式碼二；
-- 若條件二也不成立，則繼續判斷條件三...依此類推。
-- 最後的 else(第[[(else)]]行則可有可無，若有，則表示如果以上所有條件皆不成立，則執行程式碼 N。
-#+begin_src cpp :eval no
-if (條件一) {
-    程式碼一;
-} else if (條件二) {
-    程式碼二;
-} else if (條件三) {
-    程式碼三;
-} ... {
-
-} else { (ref:else)
-    程式碼N
-}
-#+end_src
-
-*** 範例
-將分數轉成等第(A, B, C...)
-#+begin_src cpp -r -n :results output :exports both
-#include <iostream>
-using namespace std;
-int main() {
-    int score = 79;
-    if (score >= 90) {
-        cout << "A\n";
-    } else if (score >= 80) {
-        cout << "B\n";
-    } else if (score >= 70) {
-        cout << "C\n";
-    } else if (score >= 60) {
-        cout << "D\n";
-    } else {
-        cout << "F\n";
-    }
-}
-#+END_SRC
-
-#+RESULTS:
-: C
+*** 課堂練習
+**** A: 輸入一元二次方程式 $$ax^2+bx+c=0$$ 中的 a,b,c 三參數，判斷此方程式是否有實數解，若有，則輸出 X exists.；若無實數解，則輸出 X does not exist.
+***** 測資 1
+- 輸入: 1 3 -10
+- 輸出: X exists.
+***** 測資 2
+- 輸入: 1 2 3
+- 輸出: X does not exist.
 
 ** 巢狀條件
 上節中提及若 if 後的件條成立，則執行大括號中的程式碼，此段程式碼也可以是 if 條件本身，如：
@@ -690,6 +650,64 @@ int main() {
     }
 }
 #+end_src
+*** 課堂練習
+**** A: 輸入一分數，若該分數合理(介於 0~100 間`)，則繼續判斷是否及格，若及格則輸出 PASS，若不及格則輸出 FAIL；若該分數不合理，則輸出: Invalid score。
+***** 測資 1
+- 輸入: 30
+- 輸出: FAIL
+***** 測資 2
+- 輸入: 300
+- 輸出: Invalid score
+***** 測資 3
+- 輸入: 99
+- 輸出: PASS
+
+** 多重條件
+:PROPERTIES:
+:CUSTOM_ID: cpp_multi_conditions
+:END:
+*** 語法
+- 當要判斷的條件可能性超過兩種，則可以用如下的 if..else if..條件式，即，
+- 當條件一成立，則執行程式碼一；
+- 若條件一不成立，則繼續判斷條件二，若條件二成立，則執行程式碼二；
+- 若條件二也不成立，則繼續判斷條件三...依此類推。
+- 最後的 else(第[[(else)]]行則可有可無，若有，則表示如果以上所有條件皆不成立，則執行程式碼 N。
+#+begin_src cpp :eval no
+if (條件一) {
+    程式碼一;
+} else if (條件二) {
+    程式碼二;
+} else if (條件三) {
+    程式碼三;
+} ... {
+
+} else { (ref:else)
+    程式碼N
+}
+#+end_src
+*** 範例
+將分數轉成等第(A, B, C...)
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+int main() {
+    int score = 79;
+    if (score >= 90) {
+        cout << "A\n";
+    } else if (score >= 80) {
+        cout << "B\n";
+    } else if (score >= 70) {
+        cout << "C\n";
+    } else if (score >= 60) {
+        cout << "D\n";
+    } else {
+        cout << "F\n";
+    }
+}
+#+END_SRC
+
+#+RESULTS:
+: C
 
 * For Loops
 :PROPERTIES:
@@ -887,7 +905,7 @@ int main() {
 
 #+RESULTS:
 
-* ditaa
+* STL
 #+begin_src ditaa :file blue.png :cmdline -r
 +----------+
 | cBLU     |
