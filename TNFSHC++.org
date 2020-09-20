@@ -278,6 +278,33 @@ int main() {
 |bool |布林(是非) |boolean |true、false|
 關於 float 與 double 的進一步說明，可參閱：[[https://taichunmin.pixnet.net/blog/post/27827769][float跟double小知識]]。
 
+** 變數的極限
+*** 範例
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+#include <float.h>
+using namespace std;
+int main() {
+    cout << INT_MIN << endl;
+    cout << INT_MAX << endl;
+    cout << LONG_MIN << endl;
+    cout << LONG_MAX << endl;
+    cout << DBL_MIN << endl;
+    cout << DBL_MAX << endl;
+}
+#+end_src
+
+#+RESULTS:
+: -2147483648
+: 2147483647
+: -9223372036854775808
+: 9223372036854775807
+: 2.22507e-308
+: 1.79769e+308
+
+*** 詳細內容：
+[[https://en.cppreference.com/w/c/types/limits]]
+
 * 輸入
 :PROPERTIES:
 :CUSTOM_ID: cpp_input
