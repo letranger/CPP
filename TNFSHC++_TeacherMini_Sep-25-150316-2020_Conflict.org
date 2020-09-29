@@ -1,12 +1,9 @@
 #+Title: Basic Materials of C++
-#+OPTION: num:2
+
 #+INCLUDE: ../bigweb.org
 #+LATEX:\newpage
 
 * 程式的編寫與執行
-:PROPERTIES:
-:CUSTOM_ID: cpp_execution
-:END:
 ** source code
 所謂的程式碼基本上都只是一些文字檔，只是這些文字的撰寫是依照不同語言(如 C、C++、Python、R...)所規定的語法(syntax)來撰寫，以達到特定目的。
 
@@ -47,9 +44,6 @@
 - [[https://code.sololearn.com/#cpp][SOLOLEARN]]
   
 * C++基本架構
-:PROPERTIES:
-:CUSTOM_ID: cpp_arch
-:END:
 
 #+begin_src cpp -r -n :results output :exports both
 #include <iostream> (ref:header)
@@ -121,12 +115,9 @@ int main() {
 #+RESULTS:
 : 用到 cout 時不用再特別指定 namespace
 
-有關於 namespace 的詳細說明，可參考[[https://openhome.cc/Gossip/CppGossip/Namespace.html][簡介名稱空間]]以及[[https://stackoverflow.com/questions/37693999/use-a-function-in-different-file-and-different-namespace-in-visual-c][Use a function in different file and different namespace in Visual C++]]這兩篇文章。
+有關於 namespace 的詳細說明，可參考[[https://openhome.cc/Gossip/CppGossip/Namespace.html][簡介名稱空間]]這篇文章。
 
 * 輸出
-:PROPERTIES:
-:CUSTOM_ID: cpp_output
-:END:
 顧名思意，輸出是將資料輸出到某種設備（如螢幕、印表機...）, 常見的輸出指令有 cout、printf()、puts()、putchar()等。
 ** cout
 cout 為 iostream 這個類別(class)的 object[fn:2]，所以程式中若使用到 cout 就必須 include iostream。cout 可以將文字資料與變數資料列印在螢幕上，在語法上會使用<<作為文字與變數之間的連接工具，若要換行則使用"\n"或是關鍵字 endl[fn:3]。
@@ -150,9 +141,6 @@ int main() {
 : 圓面積：28.2744
 
 ** printf()
-:PROPERTIES:
-:CUSTOM_ID: cpp_printf
-:END:
 printf()為定義在 stdio.h 中的一個 function，所以若用到 printf()就要 include stdio.h。
 
 和 cout 一樣，printf()一樣是用來進行資料的輸出，只是在輸出時提供了更多的格式選定選項。基本的應用如下例，更複雜的應用則在介紹完變數(vairalbe)概念後再行說明。
@@ -214,16 +202,13 @@ int main() {
 | \n   | 換行字元(ENTER) |
 
 * Variable
-:PROPERTIES:
-:CUSTOM_ID: cpp_variables
-:END:
 ** 關於變數
 A variable is a name given to a memory location. It is the basic unit of storage in a program[fn:4].
 - The value stored in a variable can be changed during program execution.
 - A variable is only a name given to a memory location, all the operations done on the variable effects that memory location.
 - In C++, all the variables must be declared before use.
 
-** <<VarDec>>變數的宣告與應用
+** 變數的宣告與應用
 變數是資料的標籤，而非資料本身。電腦程式很大一部分是在操作資料，變數在本質上是用來操作資料的一種語法特性。[fn:5]
 #+CAPTION: Variables in C++
 #+LABEL:fig:vic
@@ -265,9 +250,6 @@ int main() {
 更詳細的命名規範與建議可參閱：[[https://www.itread01.com/content/1541214186.html][C語言中變數名及函式名的命名規則與駝峰命名法]]。
 
 ** 變數類型
-:PROPERTIES:
-:CUSTOM_ID: cpp_variable_types
-:END:
 前節介紹了變數的宣告要先說明其類型，根據要儲存的資料種類不同，C++變數有許多型態。以下是一些常用的基本型態[fn:6]：
 型態 	中文意思 	英文字義 |可儲存的資料
 |int |整數 |Integer |100、-5、1246 ...|
@@ -278,239 +260,9 @@ int main() {
 |bool |布林(是非) |boolean |true、false|
 關於 float 與 double 的進一步說明，可參閱：[[https://taichunmin.pixnet.net/blog/post/27827769][float跟double小知識]]。
 
-** 變數的極限
-*** 範例
-#+begin_src cpp -r -n :results output :exports both
-#include <iostream>
-#include <float.h>
-using namespace std;
-int main() {
-    cout << INT_MIN << endl;
-    cout << INT_MAX << endl;
-    cout << LONG_MIN << endl;
-    cout << LONG_MAX << endl;
-    cout << DBL_MIN << endl;
-    cout << DBL_MAX << endl;
-}
-#+end_src
-
-#+RESULTS:
-: -2147483648
-: 2147483647
-: -9223372036854775808
-: 9223372036854775807
-: 2.22507e-308
-: 1.79769e+308
-
-*** 詳細內容：
-[[https://en.cppreference.com/w/c/types/limits]]
-
-* 輸入
-:PROPERTIES:
-:CUSTOM_ID: cpp_input
-:END:
-
-** 變數的輪入
-前節提及變數的宣告、指定內容以及輸出變數，然而在程式內容中指定變數值實在很沒有彈性，我們可以透過輸入(cin)的方式將指定變數值的時機延後到程式執行時，由使用者來指定，例如：
-
-#+begin_src cpp -r -n :eval no
-#include <iostream>
-using namespace std;
-int main() {
-    double r;
-    double area;
-    cin >> r; (ref:cinr)
-    area = r * r * 3.14; (ref:carea)
-    cout << "半徑 " << r << "的圓，其面積為: " << area << "\n";
-}
-#+end_src
-
-程式在執行至第[[(cinr)]]行中的 cin 時會暫停，等待使用者自鍵盤輸入一數值，並將該數值存入變數 r 中，接下來再以這個 r 來計算圓面積(第[[(carea)]]行)，最後輸出其面積。
-
-** 一個以上的變數輸入
-如果要輸入多個變數，可以採以下兩種方式(類似 cout 的做法)
-*** 分開 cin
-#+begin_src cpp -r -n :eval no
-//...
-int x, y, z;
-cin >> x;
-cin >> y;
-cin >> z;
-//...
-#+end_src
-
-*** 以>>串接
-#+begin_src cpp -r -n :eval no
-//...
-int x, y, z;
-cin >> x >> y >> z;
-//...
-#+end_src
-
 * 運算式
-:PROPERTIES:
-:CUSTOM_ID: cpp_operation
-:END:
-** 指定運算
-最基本的運算子為=(assign)，即，將資料(數值、字元或字串)存入某變數空間中，如:
-#+begin_src cpp -r -n :results output :exports both
-#include <iostream>
-using namespace std;
-int main() {
-    int x, y, z;
-    x = 3;
-    y = 4;
-    z = x + y; (ref:zxy1)
-    cout << z << endl;
-    x = 10;
-    z = x + y; (ref:zxy2)
-    cout << z << endl;
-}
-
-#+end_src
-
-#+RESULTS:
-: 7
-: 14
-
-指定運算除了可以將其他變數的計算結果存入變數中(如上述程式中的第[[(zxy1)]]、[[(zxy2)]]行)外，也可以將變數本身的值再運算後存回來，如：
-#+begin_src cpp -r -n :results output :exports both
-#include <iostream>
-using namespace std;
-int main() {
-    int x;
-    x = 3;
-    cout << x << endl;
-    x = x + 1; (ref:xx1)
-    cout << x << endl;
-    x++; // 同x = x + 1 (ref:xpp)
-    cout << x << endl;
-    x = x * 3; (ref:xx3)
-    cout << x << endl;
-}
-
-#+end_src
-
-#+RESULTS:
-: 3
-: 4
-: 5
-: 15
-
-如同[[VarDec]]所述:
-#+begin_verse
-等號運算子其作用為指定(assign)，即是將等號*右邊*的值存入等號*左邊*的變數(空間)中
-#+end_verse
-，上述程式中的第[[(xx1)]]行是先求出 x+1 的值(4)，再將這個值存回變數 x 中，這個運算也可以第[[(xpp)]]取代；同理，程式中的第[[(xx3)]]行是先將 x 的值乘以 3，再把結果存回變數 x 中。
-
-** 數值運算
-C/C++的基本數值運算有+、-、*、/、%，最後的%為取餘數。
-#+begin_src cpp -r -n :results output :exports both
-#include <iostream>
-using namespace std;
-int main() {
-    int x = 10, y = 3;
-    cout << x + y << endl;
-    cout << x - y << endl;
-    cout << x * y << endl;
-    cout << x / y << endl; (ref:xdy)
-    cout << x % y << endl; (ref:xmy)
-}
-#+end_src
-
-#+RESULTS:
-: 13
-: 7
-: 30
-: 3
-: 1
-
-此處須留意的是第[[(xdy)]]行的值為整除的結果(得到商)，因為 x 與 y 均為整數，故此處的/為整除；此外，第[[(xmy)]]的%運算僅能用於 x 與 y 均為整數的狀況，在 C/C++中，小數不允許有取餘數的運算(python 可以)。
-
-數除運算也可以結合小括號來進行更複雜的運算，如：
-#+begin_src cpp -r -n :eval no
-//...
-int t = 10;
-double up = 10.3;
-double bt = 20.4;
-double height = 15;
-double area;
-area = ((up + bt) * height / 2) * 10;
-// ...
-#+end_src
-
-此處須留意，小刮號可以層層相叠，但不能像數學式那樣最內層為小括號、然後是中刮號、大刮號...
-
-** 關係運算
-:PROPERTIES:
-:CUSTOM_ID: cpp_cond_operation
-:END:
-即，比較兩個值(或運算式)的結果，可的關係運算子如下：
-| 關係運算子 | 意義     | 使用範例 | 範例運算結果 |
-| ==         | 等於     | 1+1 == 2 |            1 |
-| !=         | 不等於   | 3 != 4   |            1 |
-| >          | 大於     | 5 > 7    |            0 |
-| >=         | 大於等於 | 3 >= 5   |            0 |
-| <          | 小於     | 2 < 6    |            1 |
-| <=         | 小於等於 | 8 <= 8   |            1 |
-
-** 條件運算
-上述關係運算所得的條件值(true/false)也可以再進行運算，而運算的結果也只有兩類: true/false。最基本的條件運算有以下三項：
-*** &&, and
-且，只有在兩項條件均成立時其運算結果才是 true，否則其結果為 false，如
-#+begin_src cpp -r -n :results output :exports both
-#include <iostream>
-using namespace std;
-int main() {
-    int x = 3;
-    int y = 4;
-    cout << (x >= 3 && y >= 0) << endl;
-    cout << (x == 3 && y > 4) << endl;
-}
-#+end_src
-
-#+RESULTS:
-: 1
-: 0
-
-*** ||, or
-#+begin_src cpp -r -n :results output :exports both
-#include <iostream>
-using namespace std;
-int main() {
-    int x = 3;
-    int y = 4;
-    cout << (x >= 3 || y < 0) << endl;
-    cout << (x != 3 && y > 14) << endl;
-}
-#+end_src
-
-#+RESULTS:
-: 1
-: 0
-
-*** !, not
-#+begin_src cpp -r -n :results output :exports both
-#include <iostream>
-using namespace std;
-int main() {
-    int x = 3;
-    int y = 4;
-    cout << !(x >= 3) << endl;
-    cout << !(x == 3 && y > 4) << endl;
-}
-#+end_src
-
-#+RESULTS:
-: 0
-: 1
-
-如果數值運算，條件運算也結合小刮號進行更複雜的計算。
 
 * if 條件判斷
-:PROPERTIES:
-:CUSTOM_ID: cpp_ifelse
-:END:
 if 判斷式可用來判斷條件是否成立，並且依照條件之成立與否，來執行不同的程式碼[fn:7]。依照條件的複雜程度可大致分為以下三類：
 
 ** 單一條件
@@ -538,25 +290,6 @@ int main() {
 
 #+RESULTS:
 : PASS
-
-*** 課堂練習
-:PROPERTIES:
-:CUSTOM_ID: CPP_ifelse_practice1
-:END:
-**** A: 輸入一整數，判斷正負，輸出結果。
-***** 測資 1
-- 輸入: 3
-- 輸出: 3>0
-***** 測資 2
-- 輸入: -4
-- 輸出: -4<0
-**** B: 輸入一整數，判斷奇偶，輸出結果。
-***** 測資 1
-- 輸入: 3
-- 輸出: The number 3 is odd.
-***** 測資 2
-- 輸入: -4
-- 輸出: Th number -4 is even.
 
 ** 條件運算(條件的組合)
 在前節的範例中，我們看到的是最簡單的條件，如
@@ -635,64 +368,10 @@ int main() {
 
 #+RESULTS:
 : FAIL
-*** 課堂練習
-**** A: 輸入一元二次方程式 $$ax^2+bx+c=0$$ 中的 a,b,c 三參數，判斷此方程式是否有實數解，若有，則輸出 X exists.；若無實數解，則輸出 X does not exist.
-***** 測資 1
-- 輸入: 1 3 -10
-- 輸出: X exists.
-***** 測資 2
-- 輸入: 1 2 3
-- 輸出: X does not exist.
-
-** 巢狀條件
-上節中提及若 if 後的件條成立，則執行大括號中的程式碼，此段程式碼也可以是 if 條件本身，如：
-*** 語法
-#+begin_src cpp :eval no
-if (條件1) {
-    程式碼...;
-    if (條件2) {
-        程式碼...;
-    }
-    程式碼...;
-} else {
-    程式碼...;
-}
-#+end_src
-*** 範例
-#+begin_src cpp -r -n :results output :exports both
-#include <iostream>
-using namespace std;
-int main() {
-    int pass;
-    cin >> pass;
-    bool userIsAdmin = true;
-    if (pass == 1234) {
-        if (userIsAdmin == true) {
-            cout << "管理者，有root權限";
-        } else {
-            cout << "為一般使用者，權限有限";
-        }
-    } else {
-        cout << "輸入密碼錯誤";
-    }
-}
-#+end_src
-*** 課堂練習
-**** A: 輸入一分數，若該分數合理(介於 0~100 間`)，則繼續判斷是否及格，若及格則輸出 PASS，若不及格則輸出 FAIL；若該分數不合理，則輸出: Invalid score。
-***** 測資 1
-- 輸入: 30
-- 輸出: FAIL
-***** 測資 2
-- 輸入: 300
-- 輸出: Invalid score
-***** 測資 3
-- 輸入: 99
-- 輸出: PASS
-
+*** 練習
+1. 輸入一分數，若該分數合理(介於 0~100 間`)，則繼續判斷是否及格，若及格則輸出 PASS，若不及格則輸出 FAIL；若該分數不合理，則輸出: 請重新輪入。
+1. 輸入一元二次方程式 ax^2+bx+c=0 中的 a,b,c 三參數，判斷此方程式是否有實數解，若有，則輸出 x 的兩個解；若無實數解，則輸出 QQ。
 ** 多重條件
-:PROPERTIES:
-:CUSTOM_ID: cpp_multi_conditions
-:END:
 *** 語法
 - 當要判斷的條件可能性超過兩種，則可以用如下的 if..else if..條件式，即，
 - 當條件一成立，則執行程式碼一；
@@ -712,6 +391,7 @@ if (條件一) {
     程式碼N
 }
 #+end_src
+
 *** 範例
 將分數轉成等第(A, B, C...)
 #+begin_src cpp -r -n :results output :exports both
@@ -737,196 +417,12 @@ int main() {
 : C
 
 * For Loops
-:PROPERTIES:
-:CUSTOM_ID: cpp_for_loop
-:END:
-計算機的優勢除了運算速度之快，更重要的是它十分適合拿來做一些重複性極高的工作，例如，幫所有同學計算月考平均、幫全國所有家庭計算須繳所得稅....，For 迴圈即是許多語言用來執行重複工作的指令。
-** 語法 1 (要重複的程式碼只有一行時)
-#+begin_src cpp -r -n :eval no
-for (初始值; 條件式; 更新值) 程式碼;
-#+end_src
-** 語法 2 (要重複一行以上程式碼時)
-#+begin_src cpp -r -n :eval no
-for (初始值; 條件式; 更新值){
-    程式碼一;
-    程式碼二;
-    ...
-}
-#+end_src
 
-*初始值* 是進入迴圈一開始會執行的動作，而 *更新值* 則是執行完每次的迴圈要執行的動作，至於重複的次數則取決於 *條件式* 是否成立，只要 *條件式* 一直成立(其計算結果為 true)，則持續重複執行程式碼；所以要利用 *更新值* 來逐步修正，讓條件值有機會傳回 false。
-** 範例
-#+begin_src cpp -r -n :results output :exports both
-#include <iostream>
-using namespace std;
-
-int main() {
-    for (int i = 1; i < 10; i++) { (ref:fori1)
-        cout << "3 * " << i << " =  << 3*i << "endl;  (ref:fori2)
-    }
-    return 0; (ref:return)
-}
-    #+end_src
-
-#+RESULTS:
-: 3 * 1 = 3
-: 3 * 2 = 6
-: 3 * 3 = 9
-: 3 * 4 = 12
-: 3 * 5 = 15
-: 3 * 6 = 18
-: 3 * 7 = 21
-: 3 * 8 = 24
-: 3 * 9 = 27
-
-以上述程式為例，其程式執行的步驟如下：
-1. 令迴圈變數 i=1，這個 *初始值* 只會執行一次(第[[(fori1)]]行)
-2. 檢查 *條件式* i<10 是否成立，若不成立則跳出迴圈 ( 即跳至第[[(return)]]行 )
-3. 若 *條作式* 成立，則執行第[[(fori2)]]行，輸出一行結果
-4. 執行 *更新值* i++; ( 即 i=i+1; )將迴圈變數的值逐步加大，使其有機會違反 *條件式* (即結束迴圈)
-5. 跳至 2. 的位置重複本步
-
-** 練習
-1) 輸入 n，輸出所有小於 n 的偶數．
-2) 輸入 n，輸出所有小於 n 且可被 17 整除的數．
-3) 輸入一數 N，輸出 1+2..+N
-
-** 作業 :noexport:
-*** 鞭在手，問天下誰是英雄？
-**** 應俱備能力
-基本迴圈結構
-**** 程式要求說明
-- 鞭有單、雙、軟、硬之分，其質有銅、鐵、鐵木、純木之別
-- 閃電五連鞕：源自金龍鞭法，而金龍鞭法原為為江南七怪中的老三、「馬王神」韓寶駒的成名絕技。其鞭法招式注重巧勁，練習時若用錯勁力，反而先傷己身。然江山代有才人出，金龍鞭法經揚名中國傳統武術圈的「渾元形意太極拳掌門人」馬保國改造後，化有形為無形，以人為鞭，達到「人即鞭、鞭即人、人鞭一體」之境，江湖人稱人鞭宗師。
-- 自從 5 月 17 日在一場名為「演武堂之江湖十六」的比賽中遭 50 歲的搏擊愛好者王慶民 3 次 KO 後，馬保國痛定思痛，閉關三日苦思五連鞕心法，出關後再創進階版的閃電 N 連鞭，此鞭法精妙之處在於可以連續叠加 N 層，猶如大海浪潮一波又一波，練至化境，龍吟之聲不斷，頗有與金龍之名相互呼應之勢。
-- 此鞭法所能造成之殺傷力與使鞭之人功力有關，若使鞭人功力值為 m，則：
-  + 第 1 鞭所能造成之殺傷力點數為 m*(1*m)^2 點；
-  + 第 2 鞭所能造成之殺傷力點數為 m*(2*m)^2 點；
-  + 第 3 鞭所能造成之殺傷力點數為 m*(3*m)^2 點；
-  + 依此類推
-- 輸入：讀入使鞭者功力 m 以及連使之鞭數 n
-- 輸出：第 1 至 n 鞭所造成之傷害值
-**** 輸入/輸出範例
-- 輸入 1
-  10
-  190800
-- 輸出 1
-  1: 190801
-  2: 190802
-  3: 190803
-  4: 190804
-  5: 190805
-  6: 190806
-  7: 190807
-  8: 190808
-
-* Nested For Loop
-:PROPERTIES:
-:CUSTOM_ID: cpp_nested_for
-:END:
-** 語法
-#+begin_src cpp -r -n :eval no
-for (初始值1; 條件式1; 更新值1) {
-    for (初始值2; 條件式2; 更新值2) {
-        程式碼一;
-        程式碼二;
-        ...
-    }
-}
-#+end_src
-** 範例
-#+begin_src cpp -r -n :results output :exports both
-#include <iostream>
-using namespace std;
-
-int main() {
-    int i, j;
-    for (i = 0; i < 3; i++) { (ref:outer-for11)
-        for (j = 1; j <= 5; j++) { (ref:iner-for21)
-            cout << "*";
-        } (ref:iner-for22)
-        cout << endl;
-    } (ref:outer-for12)
-}
-#+end_src
-
-#+RESULTS:
-: *****
-: *****
-: *****
-
-如同 if 可以有巢狀結構，for 的重複程式碼中也可以有 for 結構，上述的外層 for 迴圈(第[[(outer-for11)]]行到第[[(outer-for12)]]行)每重複一次，內層 for 迴圈(第[[(iner-for21)]]行到第[[(iner-for22)]]行)就會重複 5 次。
-** 練習
-*** 輸入 x,y，輸出一由*構成、長為 x、寛為 y 的長方形，若 x=3, y=5，則輸出：
-#+BEGIN_EXAMPLE
-***
-***
-***
-***
-***
-#+END_EXAMPLE
-*** 輸入 n，若 n=5，輸出如下三角形:
-#+BEGIN_EXAMPLE
-*
-**
-***
-****
-****
-#+END_EXAMPLE
+* nested for
 
 * While
-:PROPERTIES:
-:CUSTOM_ID: cpp_while
-:END:
-** While
-*** 語法
-#+begin_src cpp -r -n :eval no
-while( 條件式1 ) {
-    程式碼1;
-    程式碼2;
-}
-#+end_src
-while 與 for 均為重複結構，比較起來，while 的語法結構更為簡單，但撰寫者要自行處理的事也更多一些。上述語法的執行流程為:
-1. 若 while 後的 *條件 1* 成立，則執行一次大括號內的所有程式碼
-2. 回到 1.
-由上述結構也可以看出，我們必須想辦法讓 *條件 1* 有機會不成立，否則這個 while 迴圈就會一直重複下去。
-*** 範例
-#+begin_src cpp -r -n :results output :exports both
-#include <iostream>
-using namespace std;
 
-int main() {
-    int i = 9;
-    while (i > 0) {
-        cout << "3 * " << i << " = " << 3*i << endl;
-        i--;
-    }
-    return 0;
-}
-#+end_src
-
-#+RESULTS:
-: 3 * 9 = 27
-: 3 * 8 = 24
-: 3 * 7 = 21
-: 3 * 6 = 18
-: 3 * 5 = 15
-: 3 * 4 = 12
-: 3 * 3 = 9
-: 3 * 2 = 6
-: 3 * 1 = 3
-
-** Do ... while
-
-* TODO Array
-:PROPERTIES:
-:CUSTOM_ID: cpp_arrays
-:END:
-
-* TODO function
-:PROPERTIES:
-:CUSTOM_ID: cpp_functions
-:END:
+* function
 
 ** function declaration
 
@@ -954,10 +450,7 @@ int main() {
 #+RESULTS:
 : 40320
 
-* TODO Struct
-:PROPERTIES:
-:CUSTOM_ID: cpp_struct
-:END:
+* Struct
 結構 (structure) 是一種複合型別 (derived data type)，用來表達由多個屬性組成的型別，而這些屬性可以是基本型別或是另一個複合型別所組成。[fn:8] [fn:9]
 #+begin_src cpp -r -n :results output :exports both
 #include <iostream>
@@ -983,7 +476,19 @@ int main() {
 
 #+RESULTS:
 
-* TODO STL
+* ditaa
+#+begin_src ditaa :file blue.png :cmdline -r
++----------+
+| cBLU     |
+| ALLAA    |
+|    +-----+
+|    |cPNK |
+|    | sub |
++----+-----+
+#+end_src
+
+#+RESULTS:
+[[file:blue.png]]
 
 * Footnotes
 
