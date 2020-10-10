@@ -827,11 +827,13 @@ int main() {
 ** 語法
 #+begin_src cpp -r -n :eval no
 for (初始值1; 條件式1; 更新值1) {
+    ...
     for (初始值2; 條件式2; 更新值2) {
         程式碼一;
         程式碼二;
         ...
     }
+    ...
 }
 #+end_src
 ** 範例
@@ -871,7 +873,7 @@ int main() {
 **
 ***
 ****
-****
+*****
 #+END_EXAMPLE
 
 * While
