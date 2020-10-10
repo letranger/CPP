@@ -636,7 +636,7 @@ int main() {
 #+RESULTS:
 : FAIL
 *** 課堂練習
-**** A: 輸入一元二次方程式 $$ax^2+bx+c=0$$ 中的 a,b,c 三參數，判斷此方程式是否有實數解，若有，則輸出 X exists.；若無實數解，則輸出 X does not exist.
+**** A: 輸入一元二次方程式 \(ax^2+bx+c=0\) 中的 a,b,c 三參數，判斷此方程式是否有實數解，若有，則輸出 X exists.；若無實數解，則輸出 X does not exist.
 ***** 測資 1
 - 輸入: 1 3 -10
 - 輸出: X exists.
@@ -858,7 +858,7 @@ int main() {
 : *****
 
 如同 if 可以有巢狀結構，for 的重複程式碼中也可以有 for 結構，上述的外層 for 迴圈(第[[(outer-for11)]]行到第[[(outer-for12)]]行)每重複一次，內層 for 迴圈(第[[(iner-for21)]]行到第[[(iner-for22)]]行)就會重複 5 次。
-** 練習
+** 課堂練習
 *** 輸入 x,y，輸出一由*構成、長為 x、寛為 y 的長方形，若 x=3, y=5，則輸出：
 #+BEGIN_EXAMPLE
 ***
@@ -874,6 +874,22 @@ int main() {
 ***
 ****
 *****
+#+END_EXAMPLE
+*** 輸入 n，若 n=5，輸出如下三角形:
+#+BEGIN_EXAMPLE
+*****
+****
+***
+**
+*
+#+END_EXAMPLE
+*** 輸入 n，若 n=5，輸出如下三角形:
+#+BEGIN_EXAMPLE
+1
+22
+333
+4444
+55555
 #+END_EXAMPLE
 
 * While
@@ -892,7 +908,24 @@ while 與 for 均為重複結構，比較起來，while 的語法結構更為簡
 1. 若 while 後的 *條件 1* 成立，則執行一次大括號內的所有程式碼
 2. 回到 1.
 由上述結構也可以看出，我們必須想辦法讓 *條件 1* 有機會不成立，否則這個 while 迴圈就會一直重複下去。
-*** 範例
+*** 範例 1
+以 while 模擬 for loop
+#+begin_src cpp -r -n :results output :exports both
+##include <iostream>
+using namespace std;
+int main(int argc, char *argv[]) {
+    int i;
+
+    while (i<= 5) {
+        cout << "This is a while test\n;"
+        i++;
+    }
+
+    return 0;
+}
+#+end_src
+*** 範例 2
+九九乘法表
 #+begin_src cpp -r -n :results output :exports both
 #include <iostream>
 using namespace std;
@@ -917,8 +950,29 @@ int main() {
 : 3 * 3 = 9
 : 3 * 2 = 6
 : 3 * 1 = 3
+*** 課堂練習
+- 輸入一整數 n，輸出\(\)\(\sum{n}\)，以 while 完成。
+** 不固定次數的重複
+有些時候你想重覆執行某些動作，但是你又不確定會重覆多少次，典型的例子是輸入密碼，輸入錯誤後就應該重新輸入，作為系統設計者，你不會知道使用者會在第幾次輸入正確密碼，這就是 while 適合上場的時機....，例如:
+#+begin_src cpp -r -n :results output :exports both
+輸入密碼;
+while(密碼錯誤)
+{
+    輸入密碼;
+}
+#+end_src
+*** 課堂練習
+- 系統登入檢查:模擬作業系統登入畫面，進行使用者密碼檢查，當輸入輸入正確密碼後秀出畫面，否則持續要求輸入密碼
+- \(n!\)的值為 1*2*3*....*n，請問 n 最大到多少時，\(n!\)的人值才會開始超過 200000 ？
 
 ** Do ... while
+有些狀況下，重複的次數 *至少* 要發生一次才行，例如前節中的密碼檢查，使用者至少要先輸入一次密碼，接下來系統才能針對密碼進行驗證，此時，do..while 會是一個比較理想的重複架構，其語法如下：
+#+begin_src cpp -r -n :results output :exports both
+do {
+    輸入密碼
+} while (密碼錯誤);
+#+end_src
+比起前一節的 while，是不是更為精簡了呢....
 
 * TODO Array
 :PROPERTIES:
