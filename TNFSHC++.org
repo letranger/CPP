@@ -1,6 +1,6 @@
 #+Title: Basic Materials of C++
 #+OPTION: num:2
-#+INCLUDE: ../bigweb.org
+#+INCLUDE: ../web.org
 #+LATEX:\newpage
 
 * 程式的編寫與執行
@@ -20,7 +20,7 @@
 #+CAPTION: Compile and Execution
 #+LABEL:fig:CNE
 #+name: fig:CNE
-#+ATTR_LATEX: :width 400
+#+ATTR_LATEX: :width 300
 #+ATTR_ORG: :width 400
 #+ATTR_HTML: :width 400
 [[file:images/c_compile.jpg]]
@@ -45,7 +45,9 @@
 - [[https://www.jdoodle.com/online-compiler-c++/][JDOODLE]]
 - [[https://repl.it/languages/cpp][repl.it]]
 - [[https://code.sololearn.com/#cpp][SOLOLEARN]]
-  
+
+#+LATEX:\newpage
+
 * C++基本架構
 :PROPERTIES:
 :CUSTOM_ID: cpp_arch
@@ -122,6 +124,7 @@ int main() {
 : 用到 cout 時不用再特別指定 namespace
 
 有關於 namespace 的詳細說明，可參考[[https://openhome.cc/Gossip/CppGossip/Namespace.html][簡介名稱空間]]以及[[https://stackoverflow.com/questions/37693999/use-a-function-in-different-file-and-different-namespace-in-visual-c][Use a function in different file and different namespace in Visual C++]]這兩篇文章。
+#+LATEX:\newpage
 
 * 輸出
 :PROPERTIES:
@@ -1058,6 +1061,10 @@ for (i = 0; i < 5; i++) {
     cin >> sc[i];
 }
 #+end_src
+** 課堂練習
+- 先輸入全班人數 N，接下來輸入 N 位學生的成績，存入一維陣列中，計算總分、平均。已知學生人數不超過 50 人。執行畫面需如下所示：
+[[file:images/array-3.jpg]]
+- 輸出上例中全班人數最高分之分數。
 
 ** 其他類型的陣列
 #+begin_src cpp -r -n :results output :exports both
