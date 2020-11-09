@@ -23,7 +23,7 @@
 #+ATTR_LATEX: :width 300
 #+ATTR_ORG: :width 400
 #+ATTR_HTML: :width 400
-[[file:images/c_compile.jpg]]
+[[file:images/c_compile.gif]]
 
 程式碼必須先經過 Preprocess、Compile、Assemble、Link 等步驟才能成為一支可以執行的執行檔(如 Windows 下的.exe 或是 MacOS 下的.app)。
 
