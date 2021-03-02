@@ -1,6 +1,6 @@
 #+Title: Basic Materials of C++
 #+OPTION: num:2
-#+INCLUDE: ../orig-web.org
+#+INCLUDE: ../web.org
 #+LATEX:\newpage
 
 * 程式的編寫與執行
@@ -272,13 +272,13 @@ int main() {
 :CUSTOM_ID: cpp_variable_types
 :END:
 前節介紹了變數的宣告要先說明其類型，根據要儲存的資料種類不同，C++變數有許多型態。以下是一些常用的基本型態[fn:6]：
-型態 	中文意思 	英文字義 |可儲存的資料
-|int |整數 |Integer |100、-5、1246 ...|
-|float |32 bit 單精浮點數(小數) |single precision floating point |3.14159、4.3、-1.1 ...|
-|double |64 bit 倍精浮點數(小數) |double precision floating point |3.14159、4.3、-1.1 ...|
-|char |字元(半形字) |Character |'a'、'R'、'1'、'@'、'*' ...|
-|string |字串(文句) |String |"Hello"、"^_^"、"Rock!" ...|
-|bool |布林(是非) |boolean |true、false|
+| 型態   | 中文意思                | 英文字義                        | 可儲存的資料                |
+| int    | 整數                    | Integer                         | 100、-5、1246 ...           |
+| float  | 32 bit 單精浮點數(小數) | single precision floating point | 3.14159、4.3、-1.1 ...      |
+| double | 64 bit 倍精浮點數(小數) | double precision floating point | 3.14159、4.3、-1.1 ...      |
+| char   | 字元(半形字)            | Character                       | 'a'、'R'、'1'、'@'、'*' ... |
+| string | 字串(文句)              | String                          | "Hello"、"^_^"、"Rock!" ... |
+| bool   | 布林(是非)              | boolean                         | true、false                 |
 關於 float 與 double 的進一步說明，可參閱：[[https://taichunmin.pixnet.net/blog/post/27827769][float跟double小知識]]。
 
 ** 變數的極限
