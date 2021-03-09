@@ -582,7 +582,7 @@ int main() {
 - 輸出: The number 3 is odd.
 ***** 測資 2
 - 輸入: -4
-- 輸出: Th number -4 is even.
+- 輸出: The number -4 is even.
 
 ** 條件運算(條件的組合)
 在前節的範例中，我們看到的是最簡單的條件，如
