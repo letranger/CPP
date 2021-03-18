@@ -1,6 +1,6 @@
 #+Title: Basic Materials of C++
 #+OPTION: num:2
-#+INCLUDE: ../web.org
+#+INCLUDE: ../purpleweb.org
 #+LATEX:\newpage
 
 * 程式的編寫與執行
