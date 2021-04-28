@@ -771,6 +771,7 @@ int main() {
 #+begin_src cpp -r -n :eval no
 for (初始值; 條件式; 更新值) 程式碼;
 #+end_src
+
 ** 語法 2 (要重複一行以上程式碼時)
 #+begin_src cpp -r -n :eval no
 for (初始值; 條件式; 更新值){
@@ -781,6 +782,7 @@ for (初始值; 條件式; 更新值){
 #+end_src
 
 *初始值* 是進入迴圈一開始會執行的動作，而 *更新值* 則是執行完每次的迴圈要執行的動作，至於重複的次數則取決於 *條件式* 是否成立，只要 *條件式* 一直成立(其計算結果為 true)，則持續重複執行程式碼；所以要利用 *更新值* 來逐步修正，讓條件值有機會傳回 false。
+
 ** 範例
 #+begin_src cpp -r -n :results output :exports both
 #include <iostream>
@@ -817,6 +819,91 @@ int main() {
 2) 輸入 n，輸出所有小於 n 且可被 17 整除的數．
 3) 輸入一數 N，輸出 1+2..+N
 
+** 旗標變數
+有時我們希望能在迴圈的過程中判斷「某事是否曾發生過」，例如，「是否曾發現某數的因數？」、「連續輸入N個分數，判斷這N個分數中是否至少有一科不及格？」這是我們的思考方式就要稍做轉變。
+*** 例題
+小明買了N張單碼彩卷，問是否全部摃龜，若這N張彩卷中至少有一張中奬(號碼=77)，則輸出"NOT BAD"，否則輸出"QQ"。
+*** 想法1
+面上述要求，for迴圈的初學者可能會想在for中直接判斷中奬與否，如下:
+#+begin_src cpp -r -n :results output :exports both :cmdline < for-in.txt
+#include <iostream>
+using namespace std;
+int main() {
+    int n;
+    cin >> n;
+    int x;
+    for (int i = 1; i <= n; i++) {
+        cin >> x;
+        if (x == 77) {
+            cout << "NOT BAD\n";
+        } else {
+            cout << "QQ\n";
+        }
+    }
+}
+#+end_src
+
+#+RESULTS:
+: QQ
+: NOT BAD
+: QQ
+由上述結果可以發現，這並不是正確答案，很顯然應該把輸出判斷放在for的後面，那，要如何做到這點呢？
+*** 想法2
+另一種做法是，我們可以在for裡去計算中奬的次數，等到全部輸入完畢後，最後再統計一共有幾張中奬，這樣就可以解決上述問題：
+#+begin_src cpp -r -n :results output :exports both :cmdline < for-in.txt
+#include <iostream>
+using namespace std;
+int main() {
+    int n;
+    cin >> n;
+    int x;
+    int numOfWins = 0;
+    for (int i = 1; i <= n; i++) {
+        cin >> x;
+        if (x == 77) {
+            numOfWins++;
+        }
+    }
+    if (numOfWins > 0) {
+        cout << "NOT BAD\n";
+    } else {
+        cout << "QQ\n";
+    }
+}
+#+end_src
+
+#+RESULTS:
+: NOT BAD
+回顧一下這個做法，其實我們會發現我們到最後根本不在乎有幾張彩卷中奬，我們只在乎有沒有中過奬，即，對我們而言，numOfWins其實只有兩種值:
+- 0
+- 大於0
+既然如此，其實以boolean變數來表示它會更為恰當。
+*** 想法3
+#+begin_src cpp -r -n :results output :exports both :cmdline < for-in.txt
+#include <iostream>
+using namespace std;
+int main() {
+    int n;
+    cin >> n;
+    int x;
+    bool iWin = false;
+    for (int i = 1; i <= n; i++) {
+        cin >> x;
+        if (x == 77) {
+            iWin = true;
+        }
+    }
+    if (iWin) {
+        cout << "NOT BAD\n";
+    } else {
+        cout << "QQ\n";
+    }
+}
+#+end_src
+
+#+RESULTS:
+: NOT BAD
+這裡的iWin就是典型的Flag variable。
 ** 作業 :noexport:
 *** 鞭在手，問天下誰是英雄？
 **** 應俱備能力
