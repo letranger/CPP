@@ -14,6 +14,7 @@
 #+ATTR_ORG: :width 500
 #+ATTR_HTML: :width 700
 [[file:images/vpl-error-1.jpg]]
+
 或是根本連上述畫面都沒有，直接被瀏覽器無視，原因有可能是因為你的瀏覽器不信任學校的評分伺服器....
 
 * 解決方法
