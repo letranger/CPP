@@ -38,32 +38,6 @@
    #+ATTR_HTML: :width 700
    [[file:images/2021-05-19_20-25-47.jpg]]
 
-** 如果你用的瀏覽器是Microsoft Edge
-1. 你大概會看到這個
-   #+CAPTION: Microsoft Edge error
-   #+LABEL:fig:Labl
-   #+name: fig:Name
-   #+ATTR_LATEX: :width 500
-   #+ATTR_ORG: :width 500
-   #+ATTR_HTML: :width 700
-   [[file:images/2021-05-19_20-40-53.jpg]]
-2. 接下來請點選"進階"
-   #+CAPTION: Microsoft Edge Fixing
-   #+LABEL:fig:Labl
-   #+name: fig:Name
-   #+ATTR_LATEX: :width 500
-   #+ATTR_ORG: :width 500
-   #+ATTR_HTML: :width 700
-   [[file:images/2021-05-19_20-40-54.jpg]]
-3. 接下來請點選"繼續前往 vpl.tnfsh.tn.edu.tw (不安全)"
-   #+CAPTION: Microsoft Edge Fixing
-   #+LABEL:fig:Labl
-   #+name: fig:Name
-   #+ATTR_LATEX: :width 500
-   #+ATTR_ORG: :width 500
-   #+ATTR_HTML: :width 700
-   [[file:images/2021-05-19_20-42-40.jpg]]
-
 ** 如果你用的瀏覽器是Chrome
 1. 你大概會看到這個
    #+CAPTION: Chrome-error
@@ -81,7 +55,7 @@
    #+ATTR_ORG: :width 500
    #+ATTR_HTML: :width 700
    [[file:images/2021-05-19_20-46-04.jpg]]
-3. 接下來請點選"繼續前往 vpl.tnfsh.tn.edu.tw (不安全)"
+3. 最後請點選"繼續前往 vpl.tnfsh.tn.edu.tw (不安全)"
    #+CAPTION: Chrome-Fixing
    #+LABEL:fig:Labl
    #+name: fig:Name
@@ -89,6 +63,32 @@
    #+ATTR_ORG: :width 500
    #+ATTR_HTML: :width 700
    [[file:images/2021-05-19_20-47-09.jpg]]
+
+** 如果你用的瀏覽器是Microsoft Edge
+1. 你大概會看到這個
+   #+CAPTION: Microsoft Edge error
+   #+LABEL:fig:Labl
+   #+name: fig:Name
+   #+ATTR_LATEX: :width 500
+   #+ATTR_ORG: :width 500
+   #+ATTR_HTML: :width 700
+   [[file:images/2021-05-19_20-40-53.jpg]]
+2. 接下來請點選"進階"
+   #+CAPTION: Microsoft Edge Fixing
+   #+LABEL:fig:Labl
+   #+name: fig:Name
+   #+ATTR_LATEX: :width 500
+   #+ATTR_ORG: :width 500
+   #+ATTR_HTML: :width 700
+   [[file:images/2021-05-19_20-40-54.jpg]]
+3. 最後點選"繼續前往 vpl.tnfsh.tn.edu.tw (不安全)"
+   #+CAPTION: Microsoft Edge Fixing
+   #+LABEL:fig:Labl
+   #+name: fig:Name
+   #+ATTR_LATEX: :width 500
+   #+ATTR_ORG: :width 500
+   #+ATTR_HTML: :width 700
+   [[file:images/2021-05-19_20-42-40.jpg]]
 
 ** OK
 沒出什麼意外的話，不管你是用什麼鬼瀏覽器，接下來你應該都會看到一個空白網頁，左上角有OK兩個字，代表一切搞定.....
