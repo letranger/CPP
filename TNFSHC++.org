@@ -1,7 +1,7 @@
 #+Title: Basic Materials of C++
 #+OPTION: num:2
-#+INCLUDE: ../purpleweb.org
 #+LATEX:\newpage
+#+SETUPFILE: ../themes/solarized_light/solarized_light.theme
 
 * 程式的編寫與執行
 :PROPERTIES:

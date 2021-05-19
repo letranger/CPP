@@ -1,0 +1,100 @@
+#+TITLE: 教學網作業上傳/評分失效可能解決方案
+#+OPTION: num:2
+#+LATEX:\newpage
+#+SETUPFILE: ../themes/solarized_light/solarized_light.theme
+
+
+
+* 問題
+如果你在教學網上傳作業或評分時出現如下畫面
+#+CAPTION: 評分異常
+#+LABEL:fig:Labl
+#+name: fig:Name
+#+ATTR_LATEX: :width 500
+#+ATTR_ORG: :width 500
+#+ATTR_HTML: :width 700
+[[file:images/vpl-error-1.jpg]]
+或是根本連上述畫面都沒有，直接被瀏覽器無視，原因有可能是因為你的瀏覽器不信任學校的評分伺服器....
+
+* 解決方法
+1. 打開以下這個網站：https://vpl.tnfsh.tn.edu.tw/OK，
+2. 接下來，你的瀏覽器可能會跟你抱怨這個網站不安全、這個連線有問題BALABALA....不同的瀏覽器會出現不同的抱怨文，以下依不同瀏覽器分別說明
+** 如果你用的瀏覽器是Firefix
+1. 你大概會看到這個
+   #+CAPTION: Firefox-error
+   #+LABEL:fig:Labl
+   #+name: fig:Name
+   #+ATTR_LATEX: :width 500
+   #+ATTR_ORG: :width 500
+   #+ATTR_HTML: :width 700
+   [[file:images/2021-05-19_19-27-16.jpg]]
+2. 接下來請點選"進階"、再點選"接受風險並繼續
+   #+CAPTION: Firefox-Fixing
+   #+LABEL:fig:Labl
+   #+name: fig:Name
+   #+ATTR_LATEX: :width 500
+   #+ATTR_ORG: :width 500
+   #+ATTR_HTML: :width 700
+   [[file:images/2021-05-19_20-25-47.jpg]]
+
+** 如果你用的瀏覽器是Microsoft Edge
+1. 你大概會看到這個
+   #+CAPTION: Microsoft Edge error
+   #+LABEL:fig:Labl
+   #+name: fig:Name
+   #+ATTR_LATEX: :width 500
+   #+ATTR_ORG: :width 500
+   #+ATTR_HTML: :width 700
+   [[file:images/2021-05-19_20-40-53.jpg]]
+2. 接下來請點選"進階"
+   #+CAPTION: Microsoft Edge Fixing
+   #+LABEL:fig:Labl
+   #+name: fig:Name
+   #+ATTR_LATEX: :width 500
+   #+ATTR_ORG: :width 500
+   #+ATTR_HTML: :width 700
+   [[file:images/2021-05-19_20-40-54.jpg]]
+3. 接下來請點選"繼續前往 vpl.tnfsh.tn.edu.tw (不安全)"
+   #+CAPTION: Microsoft Edge Fixing
+   #+LABEL:fig:Labl
+   #+name: fig:Name
+   #+ATTR_LATEX: :width 500
+   #+ATTR_ORG: :width 500
+   #+ATTR_HTML: :width 700
+   [[file:images/2021-05-19_20-42-40.jpg]]
+
+** 如果你用的瀏覽器是Chrome
+1. 你大概會看到這個
+   #+CAPTION: Chrome-error
+   #+LABEL:fig:Labl
+   #+name: fig:Name
+   #+ATTR_LATEX: :width 500
+   #+ATTR_ORG: :width 500
+   #+ATTR_HTML: :width 700
+   [[file:images/2021-05-19_20-46-03.jpg]]
+2. 接下來請點選"進階"
+   #+CAPTION: Chrome-Fixing
+   #+LABEL:fig:Labl
+   #+name: fig:Name
+   #+ATTR_LATEX: :width 500
+   #+ATTR_ORG: :width 500
+   #+ATTR_HTML: :width 700
+   [[file:images/2021-05-19_20-46-04.jpg]]
+3. 接下來請點選"繼續前往 vpl.tnfsh.tn.edu.tw (不安全)"
+   #+CAPTION: Chrome-Fixing
+   #+LABEL:fig:Labl
+   #+name: fig:Name
+   #+ATTR_LATEX: :width 500
+   #+ATTR_ORG: :width 500
+   #+ATTR_HTML: :width 700
+   [[file:images/2021-05-19_20-47-09.jpg]]
+
+** OK
+沒出什麼意外的話，不管你是用什麼鬼瀏覽器，接下來你應該都會看到一個空白網頁，左上角有OK兩個字，代表一切搞定.....
+#+CAPTION: OK
+#+LABEL:fig:Labl
+#+name: fig:Name
+#+ATTR_LATEX: :width 500
+#+ATTR_ORG: :width 500
+#+ATTR_HTML: :width 700
+[[file:images/2021-05-19_20-58-29.jpg]]
