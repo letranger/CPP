@@ -1,0 +1,91 @@
+#+TITLE: 線上學習
+
+* For-loop
+** VPL10A: number tree
+*** 程式要求說明
+    輸入n，輸出一個n列的數字樹
+    輸入：讀入x。
+    輸出：請看範例，每行後面都要加上一個跳行符號。
+*** 輸入/輸出範例
+**** 輸入1
+    5
+**** 輸出1
+    5
+    44
+    333
+    2222
+    11111
+*** 想法
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+int main(){
+    //以下的修正都基於一個前提：
+    //n=5
+    for (int i = 1; i <= 5; i++) {
+        // 在不改外層for的前提下，完成.
+        for (int j = 1; j <= 5-i; j++) {
+            cout << "0";
+        }
+        for (int j = 1; j <= i; j++) {
+            cout << 6-i;
+        }
+        cout << endl;
+    }
+}
+#+end_src
+
+#+RESULTS:
+: 00005
+: 00044
+: 00333
+: 02222
+: 11111
+
+
+** VPL10B: Little Star
+*** 程式要求說明
+
+    輸入n，輸出一個n列的三角形星星圖(前面空白補上 . 號)
+    輸出：請看範例，每行後面都要加上一個跳行符號。
+
+*** 輸入/輸出範例
+
+**** 輸入1
+    5
+**** 輸出1
+    ....*  1->4
+    ...**  2->3
+    ..***  3->2
+    .****  4->1
+    *****  5->0
+           i->5-i
+    請問第i列要有幾個?
+** VPL10C: number tree V2.0
+*** 程式要求說明
+
+*** 輸入n，輸出一個n列的數字樹
+
+    輸入：n。
+    輸出：請看範例，每行後面都要加上一個跳行符號。
+
+*** 輸入/輸出範例
+**** 輸入1
+    5
+**** 輸出1
+    00005
+    00044
+    00333
+    02222
+    11111
+*** solution
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+int main() {
+    cout << "test\n";
+}
+#+end_src
+
+#+RESULTS:
+: test
