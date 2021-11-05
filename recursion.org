@@ -1,0 +1,26 @@
+#+TITLE: Recursion
+
+
+* python
+https://www.delftstack.com/zh-tw/tutorial/python-3-basic-tutorial/python-recursive-function/
+
+* web
+- [[https://www.facebook.com/groups/359446638362710/][APCS實作題檢測]]
+- [[https://emanlaicepsa.github.io/][從零開始的演算法競賽入門教學]]
+- [[https://zerojudge.tw/][https://zerojudge.tw/]]
+  
+* VPL
+** cmd
+sudo certbot certonly --standalone --preferred-challenges http -d vpl.tnfsh.tn.edu.tw
+ - Congratulations! Your certificate and chain have been saved at:
+   /etc/letsencrypt/live/vpl.tnfsh.tn.edu.tw/fullchain.pem
+   Your key file has been saved at:
+   /etc/letsencrypt/live/vpl.tnfsh.tn.edu.tw/privkey.pem
+   Your cert will expire on 2022-01-07. To obtain a new or tweaked
+   version of this certificate in the future, simply run certbot
+   again. To non-interactively renew *all* of your certificates, run
+   "certbot renew"
+ - If you like Certbot, please consider supporting our work by:
+
+   Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
+   Donating to EFF:                    https://eff.org/donate-le

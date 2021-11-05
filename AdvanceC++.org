@@ -2,6 +2,8 @@
 
 * Sort
 * String
+** 教學資源
+- [[https://www.itread01.com/content/1550376181.html][如何求C語言字串長度（strlen函式和sizeof關鍵字）]]
 ** 作業
 - [[https://www.youtube.com/watch?v=vCB_0cFQr5o][First Unique Character in a String]]
 * 2D Array

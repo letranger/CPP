@@ -1,5 +1,12 @@
 #+TITLE: 線上學習
 
+
+* TEST
+** 這是一題範例
+#+begin_src cpp -r -n :results output :exports both
+
+#+end_src
+
 * For-loop
 ** VPL10A: number tree
 *** 程式要求說明
@@ -89,3 +96,82 @@ int main() {
 
 #+RESULTS:
 : test
+
+* 14A: 猜數字
+0-100
+| n |   甲 | 乙   |
+|---+------+------|
+| 0 |   37 | 85   |
+| 1 |   60 | 太小 |
+| 2 | 太大 | 40   |
+| 3 |   80 | 太大 |
+|   |      |      |
+
+* 14B: 所有位數和
+** 從第一個位數開始取
+1. 12345 -> 1, 剩下 2345
+2. 2345  -> 2, 剩下 345
+3. ....
+** 從最後一位位數開始取
+1. 12345 -> 5, 剩下 1234
+2. 1234  -> 4, 剩下 123
+
+* 14C: 3n+1
+1. 輸入 n
+2. 印出 n
+3. 如果 n = 1 結束
+4. 如果 n 是奇數 那麼 n=3*n+1
+5. 否則 n=n/2
+6. GOTO step2
+** 例
+22 11 34 17 52 26 13 40 20 10 5 16 8 4 2 1 共有幾個數字(cycle length)
+
+
+
+* 14D
+輸入 1 10
+1 -> cycle length: 1
+2 -> cycle length: 2
+3 -> cycle length: 11
+4 -> cycle length: 3
+5 -> cycle length: 6
+6 -> cycle length: 13
+7 -> cycle length: 20
+8 -> cycle length: 4
+9 -> cycle length: 1
+10 -> cycle length: 10
+
+#+begin_src cpp -r -n :results output :exports both
+int a, b;
+while (cin >> a >> b) {
+    cout << a*b << endl;
+}
+#+end_src
+
+
+
+* test
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+int main() {
+    long long int a, b;
+    a = 2;
+    b = 4;
+    if (a > b) {
+        swap(a, b);
+    }
+    long long int sum = 0;
+    for (int x = a; x <= b; x++) {
+        sum += x;
+        cout << x << endl;
+    }
+    cout << sum << endl;
+}
+#+end_src
+
+#+RESULTS:
+: 2
+: 3
+: 4
+: 9
