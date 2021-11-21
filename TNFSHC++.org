@@ -2,6 +2,7 @@
 #+OPTION: num:2
 #+LATEX:\newpage
 #+SETUPFILE: ../themes/solarized_light/solarized_light.theme
+#+INCLUDE: ../pdf.org
 
 * 程式的編寫與執行
 :PROPERTIES:
@@ -1178,10 +1179,9 @@ for (i = 0; i < 5; i++) {
 - 先輸入全班人數 N，接下來輸入 N 位學生的成績，存入一維陣列中，計算總分、平均。已知學生人數不超過 50 人。執行畫面需如下所示：
 [[file:images/array-3.jpg]]
 - 輸出上例中全班人數最高分之分數。
-
 ** 其他類型的陣列
 #+begin_src cpp -r -n :results output :exports both
-char ascii[5] = {'A', 'B', 'C', 'D', 'E'};
+char ascii[5] = {'A', 'B', 'C', 'D', 'E'}; //字元陣列
 bool flag[5] = {false, true, false, true, false};
 #+end_src
 
@@ -1205,7 +1205,6 @@ int main() {
 
 #+RESULTS:
 : 0 1 2 3 4
-
 ** index 為何由 0 開始?
 陣列索引值由 0 開始不是沒有原因的，陣列名稱儲存了陣列記憶體的首個位置的位址，而索引值表示陣列元素是相對於陣列首個記憶體位址的位移量（offset），位移的量與資料型態長度有關，如果是 int 整數，每次位移時是一個 int 整數的長度，例如在上例中 number[0] 索引值為 0 時，表示位移量為 0，自然就是指第一個元素，而 number[9] 就是指相對於首個元素的位移量為 9。[fn:10]
 
@@ -1255,7 +1254,6 @@ int main() {
 #+ATTR_ORG: :width 300
 #+RESULTS:
 [[file:images/address.png]]
-
 ** what you should not do with array
 對一般變數，我們可以用以下 assign 方式將其值 assign 給其他變數：
 #+begin_src cpp -r -n :results output :exports both
@@ -1277,7 +1275,6 @@ for (i = 0; i < 5; i++) {
     ary2[i] = ary1[i];
 }
 #+end_src
-
 ** what you can do with array:
 *** sort
 #+begin_src cpp -r -n :results output :exports both
@@ -1292,7 +1289,6 @@ int main() {
 #+end_src
 
 #+RESULTS:
-
 *** find
 #+begin_src cpp -r -n :results output :exports both
 #include <algorithm>
@@ -1322,7 +1318,6 @@ int main() {
     reverse(begin(number), end(number));
 }
 #+end_src
-
 ** 2d array
 *** initialization
 #+begin_src cpp -r -n :results output :exports both
@@ -1353,15 +1348,306 @@ int main() {
 : 0, 0, 0, 0, 0,
 : 00000
 
-* TODO function
+* String
+:PROPERTIES:
+:CUSTOM_ID: cpp_string
+:END:
+** 字串與字元陣列
+- 字串(string)由一個一個的字元(char)組成，如"Hello world"、"TNFSH403"
+- 在C++裡，可以用 char[ ] 或 string 儲存字串
+** 儲存結構
+- 在下列程式中，字元陣列name1與字串name2的內容一模一樣，長度均為5個字元，但不管是以字元陣列(name1)或是以字串(name2)來儲存這五個字元，最後都有一個代表字串結尾的隱藏字元'\0'來告訴電腦這個字串到此為止。
+- '\0'的ASCII編號為0，是NULL、空集合的意思
+- 這個'\0'不會被輸出，也不被算在字元陣列或是字串長度裡，所以不論是以strlen()或是length()都只看到長度為5。
+#+begin_src cpp -r -n :results output :exports both
+#include<iostream>
+#include<string>
+using namespace std;
+
+int main()
+{
+    char name1[6] = {'T', 'N', 'F', 'S', 'H', '\0'};
+    string name2 = "TNFSH";
+
+    cout << name1 << ": " << strlen(name1) << endl;
+    cout << name2 << ": " << name2.length() << endl;
+    cout << "name1的第三個字元: " << name1[2] <<endl;
+    cout << "name2的第三個字元: " << name2[2] <<endl;
+    cout << name1[5] << endl;
+    cout << name2[5] << endl;
+    return 0;
+}
+#+end_src
+
+#+RESULTS:
+: TNFSH: 5
+: TNFSH: 5
+: name1的第三個字元: F
+: name2的第三個字元: F
+:  
+:  
+** 宣告
+- 宣告一個空的字元陣列要先告知預計會有幾個字元，字串則不用。
+- 如下例，雖然lastName輸入的字元不到不到20個，但cin會在最後面補上'\0'，所以在cout時就只會輸出到'\0'前面的字元
+#+begin_src cpp -r -n :results output :exports both :cmdline < stringIn.txt
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    char lastName[20];
+    string firstName;
+
+    cin >> lastName >> firstName;
+    cout << "Your name is " << lastName << ", "<< firstName << endl;
+
+    return 0;
+}
+#+end_src
+
+#+RESULTS:
+: Your name is James, Yen
+** 輸入
+*** scanf()
+- C語言的輸入方式，用 scanf 讀取字串時，遇到空白字元便會結束。
+- 需include stdio.h
+#+begin_src C -r -n :results output :exports both :cmdline < stringIn.txt
+#include <stdio.h>
+int main() {
+    char str[10];
+    scanf("%s", str);
+    printf("Your name: %s\n", str);
+}
+#+end_src
+
+#+RESULTS:
+: Your name: James
+*** cin
+既可以讀字元，又可以讀字串。遇到空白字元或Enter便會結束。
+#+begin_src cpp -r -n :results output :exports both :cmdline < stringIn.txt
+#include <iostream>
+using namespace std;
+int main() {
+    string name1, name2;
+    cin >> name1 >> name2;
+    cout << "Welcome, " << name1 <<  ", " << name2 << endl;
+}
+#+end_src
+
+#+RESULTS:
+: Welcome, James, Yen
+*** cin.getline()
+- 可讀入空白，遇到Enter就結束輸入，需要include <string>
+- getline 函式使用兩個用逗號分隔的引數。第一個argument是要儲存字串的陣列的名稱。第二個argument是陣列的大小。當 cin.getline 語句執行時，cin 讀取的字元數將比該數字少一個，為 null 終止符留出空間。
+#+begin_src cpp -r -n :results output :exports both :cmdline < strIn.txt
+#include <iostream>
+#include <string>
+using namespace std;
+int main() {
+    char school[30];
+    cin.getline(school, 30);
+    cout << school << endl;
+}
+
+#+end_src
+
+#+RESULTS:
+: Tainan First Senior High Scho
+
+*** getline(cin, str)
+可以讀入空白，遇到Enter就結束輸入，需要include <string>
+#+begin_src cpp -r -n :results output :exports both :cmdline < strIn.txt
+#include <iostream>
+#include <string>
+using namespace std;
+int main() {
+    string school;
+    getline(cin, school);
+    cout << school << endl;
+}
+#+end_src
+
+#+RESULTS:
+: Tainan First Senior High School
+*** gets(str)
+可以讀入空白，遇到Enter就結束輸入。
+#+begin_src cpp -r -n :results output :exports both :cmdline < strIn.txt
+#include <iostream>
+using namespace std;
+int main() {
+    //string school;
+    char school[30];
+    gets(school);
+    cout << school << endl;
+}
+#+end_src
+
+#+RESULTS:
+: Tainan First Senior High School
+** 輸出
+** 進階閱讀
+- [[https://openhome.cc/Gossip/CppGossip/string1.html][字元陣列與字串]]
+- [[https://www.796t.com/article.php?id=13952][C++ cin.getline及getline()用法詳解]]
+
+* Function
 :PROPERTIES:
 :CUSTOM_ID: cpp_functions
 :END:
-
+將具有特定功能或經常重複使用的程式碼段落包裝成1個小單元，就稱之為function(函式)。使用function的好處：
+1. 分割程式成為1個個的小模組，方便開發分工。
+2. 程式碼可重複使用。
+3. 程式可讀性高，且除錯或修改方便。
 ** function declaration
+*** function的宣告語法
+#+begin_src cpp -r -n :results output :exports both
+傳回值的型態  function的名稱(參數1類別 參數1名稱, 參數2類別 參數2名稱, 參數3類別 參數3名稱, ...) {
+    計算結果
+    return 結果
+}
+#+end_src
+*** function的宣告方式
+**** 方式一:  直接將宣告與function內容一併寫出,置於main之前
+#+begin_src cpp -r -n :results output :exports both
+int add(int m,int n)
+{
+    return m+n;
+}
+void main()
+{
+    int a,b;
+    cin >> a;
+    cin >> b;
+    cout << a << "+" << b << "=" << add(a,b);
+}
 
-** function define
+#+end_src
+**** 方式二: 先在main之前宣告,再將function實際內容置於main後面
+#+begin_src cpp -r -n :results output :exports both
+int add(int, int);
+void main()
+{
+    int a,b;
+    cin >> a;
+    cin >> b;
+    cout << a << "+" << b << "=" << add(a,b);
+}
+int add(int m,int n)
+{
+    return m+n;
+}
+#+end_src
+** 課堂練習
+1. 定義一function max(int a, int b, int c): 該function有三個argument，傳出最大項，例：
+   cout << max(3, 5, 2) << endl;
+2. 定義一function sos(double a, double b): 該參數有兩個argument，輸出其平方和，例：
+   cout << sos(4.5, 5.7) << endl;
+** 引數 (Argument) vs. 參數 (Parameter)
+- argument: 呼叫者傳給function的變數，如下例的a, b
+- parameter: function用來接住呼叫者傳進來的變數，如下例的x, y
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+int mySum(int x, int y) {
+    return x+y;
+}
 
+int main() {
+    int a = 10, b = 20;
+    cout << mySum(a, b) << endl;
+}
+
+#+end_src
+
+#+RESULTS:
+: 30
+** void
+void的字面意思是“無型別”，void* 則為“無型別指標”，void *可以指向任何型別的資料。
+void真正發揮的作用在於：
+- 對函式返回的限定；有些函式並不傳回值，這些函式必須宣告為void函式。
+- 對函式引數的限定。
+*** 不傳回值的function
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+void sayHi(string yourName) {
+    cout << "Hi";
+}
+
+int main() {
+    string name = "TNFSH";
+    sayHi(name);
+}
+#+end_src
+
+#+RESULTS:
+: Hi
+*** 沒有parameter也不傳回值的的function
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+void foo(void) {
+    cout << "我就是閒\n";
+}
+
+int main() {
+    foo();
+}
+#+end_src
+
+#+RESULTS:
+: 我就是閒
+*** 沒有parameter v.s. parameter為void
+- c: parameter為void表示不能有parameter，你硬傳argument進去都會出現error；parameter留空表示可以有很多個也可以沒有
+- c++: parameter為void或沒有都表示不能有，你硬要傳pargument進去都是error
+#+begin_src cpp -r -n :results output :exports both
+#include <stdio.h>
+using namespace std;
+void foo(void) {
+}
+
+void bar() {
+
+}
+
+int main() {
+    foo(1);
+    bar(1);
+}
+#+end_src
+
+* TODO Recursion
+:PROPERTIES:
+:CUSTOM_ID: cpp_functions
+:END:
+當一支function在自己的程式碼中又呼叫自己,會發生什麼事??
+#+begin_src cpp -r -n :results output :exports both
+#include
+#include <iostream>
+using namespace std;
+void selfcall(int n) {
+    cout << n << endl;
+    selfcall( n );
+}
+main () {
+    int x=10;
+    selfcall(x);
+}
+#+end_src
+
+試著執行這支程式,驗證自己的想法,
+#+begin_src cpp -r -n :results output :exports both
+#include
+using namespace std;
+void selfcall(int n) {
+    cout << n << endl;
+    selfcall(n+1);
+}
+main ()
+{
+        int x=1;
+        selfcall(x);
+}
+#+end_src
 ** compute n!
 #+BEGIN_SRC C++
 #include <iostream>
