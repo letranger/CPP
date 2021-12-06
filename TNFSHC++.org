@@ -2,7 +2,6 @@
 #+OPTION: num:2
 #+LATEX:\newpage
 #+SETUPFILE: ../themes/solarized_light/solarized_light.theme
-#+INCLUDE: ../pdf.org
 
 * 程式的編寫與執行
 :PROPERTIES:
