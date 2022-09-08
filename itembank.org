@@ -1,6 +1,7 @@
+#+title: Itembank
+
+#+begin_src cpp -r -n :results output :exports both
 #include <iostream>
-#include <cmath>
-#include <stdio.h>
 using namespace std;
 int main(){
     int x;
@@ -15,6 +16,7 @@ int main(){
             cin>>n[p];
         }
     }
+
     for(int a=0;a<y;a++){
         for(int b=0;b<x;b++){
             q=100*b+a;
@@ -25,9 +27,6 @@ int main(){
         }
         printf("\n");
     }
-    /*
-    ** This is a test
-    ** And that is a test
-     */
     return 0;
 }
+#+end_src

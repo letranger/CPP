@@ -1,9 +1,14 @@
-#+Title: Basic Materials of C++
+# -*- org-export-babel-evaluate: nil -*-
+#+Title: Basic Materials of C++4
 #+OPTIONS: toc:2 ^:nil num:3
 # -*- org-export-babel-evaluate: nil -*-
 #+TAGS: C++
 #+PROPERTY: header-args :eval never-export
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../css/white.css" />
+
+* 學習資源
+- [[https://www.youtube.com/watch?v=pSoDUFdqVOU][2022最適合學的程式語言]]
+- [[https://www.youtube.com/watch?v=I0-izyq6q5s][How Do Computers Remember?]]
 
 * 程式的編寫與執行
 :PROPERTIES:
@@ -30,8 +35,7 @@
 程式碼必須先經過 Preprocess、Compile、Assemble、Link 等步驟才能成為一支可以執行的執行檔(如 Windows 下的.exe 或是 MacOS 下的.app)。
 
 ** 幾種寫程式的環境
-*** MacOS
-- [[https://developer.apple.com/xcode/][Xcode]]
+*** MacOS- [[https://developer.apple.com/xcode/][Xcode]]
 *** Windows
 **** DevC++
 - [[https://progressbar.tw/posts/7][[C語言] 01. Dev C++ 程式編輯器，大一理工學院新生惡夢的開始。]]
@@ -796,7 +800,7 @@ int main() {
     }
     return 0; (ref:return)
 }
-    #+end_src
+#+end_src
 
 #+RESULTS:
 : 3 * 1 = 3
