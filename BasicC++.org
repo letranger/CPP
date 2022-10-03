@@ -1,10 +1,9 @@
-# -*- org-export-babel-evaluate: nil -*-
-#+Title: Basic Materials of C++4
+#+Title: Basic Materials of C++
 #+OPTIONS: toc:2 ^:nil num:3
 # -*- org-export-babel-evaluate: nil -*-
 #+TAGS: C++
 #+PROPERTY: header-args :eval never-export
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../css/white.css" />
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../css/muse.css" />
 
 * 學習資源
 - [[https://www.youtube.com/watch?v=pSoDUFdqVOU][2022最適合學的程式語言]]
@@ -214,13 +213,13 @@ int main() {
 : 他說："好"，然後他就死了。
 
 常用的跳脫字元還有以下幾類：
-| 字元 | 意義            |
-| \'   | 單引號          |
-| \"   | 雙引號          |
-| \\   | 反斜線          |
-| \0   | 空字元(NULL)    |
-| \t   | 定位字元(TAB)   |
-| \n   | 換行字元(ENTER) |
+| 字元 | 意義                                |
+| \'                       | 單引號                    |
+| \"                       | 雙引號                    |
+| \\                       | 反斜線                    |
+| \0                       | 空字元(NULL)              |
+| \t                       | 定位字元(TAB)   |
+| \n                       | 換行字元(ENTER) |
 
 * Variable
 :PROPERTIES:
@@ -278,13 +277,13 @@ int main() {
 :CUSTOM_ID: cpp_variable_types
 :END:
 前節介紹了變數的宣告要先說明其類型，根據要儲存的資料種類不同，C++變數有許多型態。以下是一些常用的基本型態[fn:6]：
-| 型態   | 中文意思                | 英文字義                        | 可儲存的資料                |
-| int    | 整數                    | Integer                         | 100、-5、1246 ...           |
-| float  | 32 bit 單精浮點數(小數) | single precision floating point | 3.14159、4.3、-1.1 ...      |
-| double | 64 bit 倍精浮點數(小數) | double precision floating point | 3.14159、4.3、-1.1 ...      |
-| char   | 字元(半形字)            | Character                       | 'a'、'R'、'1'、'@'、'*' ... |
-| string | 字串(文句)              | String                          | "Hello"、"^_^"、"Rock!" ... |
-| bool   | 布林(是非)              | boolean                         | true、false                 |
+| 型態 | 中文意思                                              | 英文字義 | 可儲存的資料 |
+| int                      | 整數                                                                      | Integer                                          | 100、-5、1246 ...                                    |
+| float                    | 32 bit 單精浮點數(小數) | single precision floating point                  | 3.14159、4.3、-1.1 ...                               |
+| double                   | 64 bit 倍精浮點數(小數) | double precision floating point                  | 3.14159、4.3、-1.1 ...                               |
+| char                     | 字元(半形字)                                | Character                                        | 'a'、'R'、'1'、'@'、'*' ...      |
+| string                   | 字串(文句)                                            | String                                           | "Hello"、"^_^"、"Rock!" ...                          |
+| bool                     | 布林(是非)                                            | boolean                                          | true、false                                                    |
 關於 float 與 double 的進一步說明，可參閱：[[https://taichunmin.pixnet.net/blog/post/27827769][float跟double小知識]]。
 
 ** 變數的極限
@@ -478,13 +477,13 @@ int main() {
 :CUSTOM_ID: cpp_cond_operation
 :END:
 即，比較兩個值(或運算式)的結果，可的關係運算子如下：
-| 關係運算子 | 意義     | 使用範例 | 範例運算結果 |
-| ==         | 等於     | 1+1 == 2 |            1 |
-| !=         | 不等於   | 3 != 4   |            1 |
-| >          | 大於     | 5 > 7    |            0 |
-| >=         | 大於等於 | 3 >= 5   |            0 |
-| <          | 小於     | 2 < 6    |            1 |
-| <=         | 小於等於 | 8 <= 8   |            1 |
+| 關係運算子 | 意義                         | 使用範例 | 範例運算結果 |
+| ==                                                           | 等於                         | 1+1 == 2                                         |                                                                        1 |
+| !=                                                           | 不等於             | 3 != 4                                           |                                                                        1 |
+| >                                                            | 大於                         | 5 > 7                                            |                                                                        0 |
+| >=                                                           | 大於等於 | 3 >= 5                                           |                                                                        0 |
+| <                                                            | 小於                         | 2 < 6                                            |                                                                        1 |
+| <=                                                           | 小於等於 | 8 <= 8                                           |                                                                        1 |
 
 ** 條件運算
 上述關係運算所得的條件值(true/false)也可以再進行運算，而運算的結果也只有兩類: true/false。最基本的條件運算有以下三項：
@@ -631,10 +630,10 @@ int main() {
 上述的||即為條件運算子，代表 OR。
 
 C++的條件運算子列表如下：
-| 運算子 | 名稱 | 範例              | 說明                           |
-| &&     | AND  | ( 條件 1 && 條件 2) | 當條件 1、2 皆成立時才算成立     |
-| \vert\vert     | OR   | ( 條件 1 \vert\vert 條件 2) | 只要條件 1、2 有一項成立就算成立 |
-| !      | Not  | !（條件 1)         | 當條件 1 不成立時就成立          |
+| 運算子 | 名稱 | 範例                                            | 說明                                                                                                                                                     |
+| &&                                   | AND                      | ( 條件 1 && 條件 2)         | 當條件 1、2 皆成立時才算成立                         |
+| \vert\vert                           | OR                       | ( 條件 1 \vert\vert 條件 2) | 只要條件 1、2 有一項成立就算成立 |
+| !                                    | Not                      | !（條件 1)                            | 當條件 1 不成立時就成立                                                  |
 
 ** 雙重條件
 *** 語法
