@@ -1,7 +1,8 @@
 #+TITLE: 教學網作業上傳/評分失效可能解決方案
 #+OPTION: num:2
 #+LATEX:\newpage
-#+SETUPFILE: ../themes/solarized_light/solarized_light.theme
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../css/muse.css" />
+
 
 * 問題
 如果你在教學網上傳作業或評分時出現如下畫面

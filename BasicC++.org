@@ -34,7 +34,9 @@
 程式碼必須先經過 Preprocess、Compile、Assemble、Link 等步驟才能成為一支可以執行的執行檔(如 Windows 下的.exe 或是 MacOS 下的.app)。
 
 ** 幾種寫程式的環境
-*** MacOS- [[https://developer.apple.com/xcode/][Xcode]]
+*** MacOS
+- [[https://developer.apple.com/documentation/xcode][Xcode]]
+- [[https://code.visualstudio.com/docs/setup/mac][Visual Studio Code]]
 *** Windows
 **** DevC++
 - [[https://progressbar.tw/posts/7][[C語言] 01. Dev C++ 程式編輯器，大一理工學院新生惡夢的開始。]]
@@ -1704,6 +1706,9 @@ int main() {
 #+RESULTS:
 
 * TODO STL
+
+* Page Infos
+#+INCLUDE: "../css/footer.html" export html
 
 * Footnotes
 

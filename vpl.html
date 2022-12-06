@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-06-01 Tue 13:38 -->
+<!-- 2022-11-22 Tue 21:35 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>教學網作業上傳/評分失效可能解決方案</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="Yung Chin, Yen" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -40,22 +41,22 @@
   }
   pre.src {
     position: relative;
-    overflow: visible;
-    padding-top: 1.2em;
+    overflow: auto;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
-  pre.src:hover:before { display: inline;}
+  pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -190,65 +191,39 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
-<style type="text/css">
-article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{display:block}audio,canvas,video{display:inline-block}audio:not([controls]){display:none;height:0}[hidden]{display:none}html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}body{margin:0}a:focus{outline:thin dotted}a:active,a:hover{outline:0}h1{font-size:2em}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}dfn{font-style:italic}mark{background:#ff0;color:#000}code,kbd,pre,samp{font-family:monospace,serif;font-size:1em}pre{white-space:pre-wrap;word-wrap:break-word}q{quotes:"\201C" "\201D" "\2018" "\2019"}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:0}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}button,input{line-height:normal}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}button[disabled],input[disabled]{cursor:default}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}textarea{overflow:auto;vertical-align:top}table{border-collapse:collapse;border-spacing:0}html{font-family:'PT Sans',sans-serif}pre,code{font-family:'Inconsolata',sans-serif}h1,h2,h3,h4,h5,h6{font-family:'PT Sans Narrow',sans-serif;font-weight:700}html{background-color:#eee8d5;color:#657b83;margin:1em}body{background-color:#fdf6e3;margin:0 auto;max-width:23cm;border:1pt solid #93a1a1;padding:1em}code{background-color:#eee8d5;padding:2px}a{color:#b58900}a:visited{color:#cb4b16}a:hover{color:#cb4b16}h1{color:#d33682}h2,h3,h4,h5,h6{color:#859900}pre{background-color:#fdf6e3;color:#657b83;border:1pt solid #93a1a1;padding:1em;box-shadow:5pt 5pt 8pt #eee8d5}pre code{background-color:#fdf6e3}h1{font-size:2.8em}h2{font-size:2.4em}h3{font-size:1.8em}h4{font-size:1.4em}h5{font-size:1.3em}h6{font-size:1.15em}.tag{background-color:#eee8d5;color:#d33682;padding:0 .2em}.todo,.next,.done{color:#fdf6e3;background-color:#dc322f;padding:0 .2em}.tag{-webkit-border-radius:.35em;-moz-border-radius:.35em;border-radius:.35em}.TODO{-webkit-border-radius:.2em;-moz-border-radius:.2em;border-radius:.2em;background-color:#2aa198}.NEXT{-webkit-border-radius:.2em;-moz-border-radius:.2em;border-radius:.2em;background-color:#268bd2}.ACTIVE{-webkit-border-radius:.2em;-moz-border-radius:.2em;border-radius:.2em;background-color:#268bd2}.DONE{-webkit-border-radius:.2em;-moz-border-radius:.2em;border-radius:.2em;background-color:#859900}.WAITING{-webkit-border-radius:.2em;-moz-border-radius:.2em;border-radius:.2em;background-color:#cb4b16}.HOLD{-webkit-border-radius:.2em;-moz-border-radius:.2em;border-radius:.2em;background-color:#d33682}.NOTE{-webkit-border-radius:.2em;-moz-border-radius:.2em;border-radius:.2em;background-color:#d33682}.CANCELLED{-webkit-border-radius:.2em;-moz-border-radius:.2em;border-radius:.2em;background-color:#859900}
-</style>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.cacheClassElem = elem.className;
-         elem.cacheClassTarget = target.className;
-         target.className = "code-highlighted";
-         elem.className   = "code-highlighted";
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(elem.cacheClassElem)
-         elem.className = elem.cacheClassElem;
-       if(elem.cacheClassTarget)
-         target.className = elem.cacheClassTarget;
-     }
-    /*]]>*///-->
-// @license-end
-</script>
+<link rel="stylesheet" type="text/css" href="../css/muse.css" />
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">教學網作業上傳/評分失效可能解決方案</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orge6fcba6">1. 問題</a></li>
-<li><a href="#orga574bd5">2. 解決方法</a>
+<li><a href="#org761f877">1. 問題</a></li>
+<li><a href="#orgd2f9125">2. 解決方法</a>
 <ul>
-<li><a href="#orgfa6880e">2.1. 如果你用的瀏覽器是Firefix</a></li>
-<li><a href="#org9b49cda">2.2. 如果你用的瀏覽器是Chrome</a></li>
-<li><a href="#org08a4ed7">2.3. 如果你用的瀏覽器是Microsoft Edge</a></li>
-<li><a href="#org6119330">2.4. OK</a></li>
+<li><a href="#org3502ce6">2.1. 如果你用的瀏覽器是Firefix</a></li>
+<li><a href="#orge6cc46f">2.2. 如果你用的瀏覽器是Chrome</a></li>
+<li><a href="#orgf4e9f49">2.3. 如果你用的瀏覽器是Microsoft Edge</a></li>
+<li><a href="#orgdb4bd5f">2.4. OK</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orge6fcba6" class="outline-2">
-<h2 id="orge6fcba6"><span class="section-number-2">1</span> 問題</h2>
+
+<div id="outline-container-org761f877" class="outline-2">
+<h2 id="org761f877"><span class="section-number-2">1.</span> 問題</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 如果你在教學網上傳作業或評分時出現如下畫面
 </p>
 
-<div id="orge0c6016" class="figure">
+<div id="org673fd93" class="figure">
 <p><img src="images/vpl-error-1.jpg" alt="vpl-error-1.jpg" width="700" />
 </p>
 <p><span class="figure-number">Figure 1: </span>評分異常</p>
@@ -260,23 +235,23 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 </div>
 </div>
 
-<div id="outline-container-orga574bd5" class="outline-2">
-<h2 id="orga574bd5"><span class="section-number-2">2</span> 解決方法</h2>
+<div id="outline-container-orgd2f9125" class="outline-2">
+<h2 id="orgd2f9125"><span class="section-number-2">2.</span> 解決方法</h2>
 <div class="outline-text-2" id="text-2">
 <ol class="org-ol">
 <li>打開以下這個網站：<a href="https://vpl.tnfsh.tn.edu.tw/OK">https://vpl.tnfsh.tn.edu.tw/OK</a>，</li>
 <li>接下來，你的瀏覽器可能會跟你抱怨這個網站不安全、這個連線有問題BALABALA&#x2026;.不同的瀏覽器會出現不同的抱怨文，以下依不同瀏覽器分別說明</li>
 </ol>
 </div>
-<div id="outline-container-orgfa6880e" class="outline-3">
-<h3 id="orgfa6880e"><span class="section-number-3">2.1</span> 如果你用的瀏覽器是Firefix</h3>
+<div id="outline-container-org3502ce6" class="outline-3">
+<h3 id="org3502ce6"><span class="section-number-3">2.1.</span> 如果你用的瀏覽器是Firefix</h3>
 <div class="outline-text-3" id="text-2-1">
 <ol class="org-ol">
 <li><p>
 你大概會看到這個
 </p>
 
-<div id="org35ad60a" class="figure">
+<div id="orgfdc587b" class="figure">
 <p><img src="images/2021-05-19_19-27-16.jpg" alt="2021-05-19_19-27-16.jpg" width="700" />
 </p>
 <p><span class="figure-number">Figure 2: </span>Firefox-error</p>
@@ -285,7 +260,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 接下來請點選&ldquo;進階&rdquo;、再點選&ldquo;接受風險並繼續
 </p>
 
-<div id="org5ed1dd6" class="figure">
+<div id="org1c2a6ae" class="figure">
 <p><img src="images/2021-05-19_20-25-47.jpg" alt="2021-05-19_20-25-47.jpg" width="700" />
 </p>
 <p><span class="figure-number">Figure 3: </span>Firefox-Fixing</p>
@@ -294,15 +269,15 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 </div>
 </div>
 
-<div id="outline-container-org9b49cda" class="outline-3">
-<h3 id="org9b49cda"><span class="section-number-3">2.2</span> 如果你用的瀏覽器是Chrome</h3>
+<div id="outline-container-orge6cc46f" class="outline-3">
+<h3 id="orge6cc46f"><span class="section-number-3">2.2.</span> 如果你用的瀏覽器是Chrome</h3>
 <div class="outline-text-3" id="text-2-2">
 <ol class="org-ol">
 <li><p>
 你大概會看到這個
 </p>
 
-<div id="org50ad82c" class="figure">
+<div id="orge9eb0b4" class="figure">
 <p><img src="images/2021-05-19_20-46-03.jpg" alt="2021-05-19_20-46-03.jpg" width="700" />
 </p>
 <p><span class="figure-number">Figure 4: </span>Chrome-error</p>
@@ -311,7 +286,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 接下來請點選&ldquo;進階&rdquo;
 </p>
 
-<div id="orga050068" class="figure">
+<div id="org31d9e59" class="figure">
 <p><img src="images/2021-05-19_20-46-04.jpg" alt="2021-05-19_20-46-04.jpg" width="700" />
 </p>
 <p><span class="figure-number">Figure 5: </span>Chrome-Fixing</p>
@@ -320,7 +295,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 最後請點選&ldquo;繼續前往 vpl.tnfsh.tn.edu.tw (不安全)&rdquo;
 </p>
 
-<div id="orgb152ef3" class="figure">
+<div id="org5e738b9" class="figure">
 <p><img src="images/2021-05-19_20-47-09.jpg" alt="2021-05-19_20-47-09.jpg" width="700" />
 </p>
 <p><span class="figure-number">Figure 6: </span>Chrome-Fixing</p>
@@ -329,15 +304,15 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 </div>
 </div>
 
-<div id="outline-container-org08a4ed7" class="outline-3">
-<h3 id="org08a4ed7"><span class="section-number-3">2.3</span> 如果你用的瀏覽器是Microsoft Edge</h3>
+<div id="outline-container-orgf4e9f49" class="outline-3">
+<h3 id="orgf4e9f49"><span class="section-number-3">2.3.</span> 如果你用的瀏覽器是Microsoft Edge</h3>
 <div class="outline-text-3" id="text-2-3">
 <ol class="org-ol">
 <li><p>
 你大概會看到這個
 </p>
 
-<div id="org9b2fe55" class="figure">
+<div id="orgd7d8e05" class="figure">
 <p><img src="images/2021-05-19_20-40-53.jpg" alt="2021-05-19_20-40-53.jpg" width="700" />
 </p>
 <p><span class="figure-number">Figure 7: </span>Microsoft Edge error</p>
@@ -346,7 +321,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 接下來請點選&ldquo;進階&rdquo;
 </p>
 
-<div id="orgc74b473" class="figure">
+<div id="orge85200d" class="figure">
 <p><img src="images/2021-05-19_20-40-54.jpg" alt="2021-05-19_20-40-54.jpg" width="700" />
 </p>
 <p><span class="figure-number">Figure 8: </span>Microsoft Edge Fixing</p>
@@ -355,7 +330,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 最後點選&ldquo;繼續前往 vpl.tnfsh.tn.edu.tw (不安全)&rdquo;
 </p>
 
-<div id="org761f045" class="figure">
+<div id="org165870c" class="figure">
 <p><img src="images/2021-05-19_20-42-40.jpg" alt="2021-05-19_20-42-40.jpg" width="700" />
 </p>
 <p><span class="figure-number">Figure 9: </span>Microsoft Edge Fixing</p>
@@ -364,14 +339,14 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 </div>
 </div>
 
-<div id="outline-container-org6119330" class="outline-3">
-<h3 id="org6119330"><span class="section-number-3">2.4</span> OK</h3>
+<div id="outline-container-orgdb4bd5f" class="outline-3">
+<h3 id="orgdb4bd5f"><span class="section-number-3">2.4.</span> OK</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 沒出什麼意外的話，不管你是用什麼鬼瀏覽器，接下來你應該都會看到一個空白網頁，左上角有OK兩個字，代表一切搞定&#x2026;..，接下來就再回到作業繳交的網頁再去評分吧&#x2026;..
 </p>
 
-<div id="orgdd8cfb8" class="figure">
+<div id="orgbfdfcdb" class="figure">
 <p><img src="images/2021-05-19_20-58-29.jpg" alt="2021-05-19_20-58-29.jpg" width="700" />
 </p>
 <p><span class="figure-number">Figure 10: </span>OK</p>
@@ -382,7 +357,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Yung Chin, Yen</p>
-<p class="date">Created: 2021-06-01 Tue 13:38</p>
+<p class="date">Created: 2022-11-22 Tue 21:35</p>
 </div>
 </body>
 </html>

@@ -1,5 +1,6 @@
 #+TITLE: Recursion
-#+INCLUDE: ../purpleweb.org
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../css/muse.css" />
+
 
 * python
 https://www.delftstack.com/zh-tw/tutorial/python-3-basic-tutorial/python-recursive-function/

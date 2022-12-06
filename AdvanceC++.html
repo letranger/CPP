@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-07-04 Mon 00:14 -->
+<!-- 2022-12-06 Tue 21:09 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Advance C</title>
-<meta name="author" content="Yung-Chin Yen" />
+<meta name="author" content="Yung Chin, Yen" />
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -193,7 +193,7 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
-<link rel="stylesheet" type="text/css" href="../css/white.css" />
+<link rel="stylesheet" type="text/css" href="../css/muse.css" />
 </head>
 <body>
 <div id="content" class="content">
@@ -202,71 +202,73 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgd18cbc2">1. Sort</a></li>
-<li><a href="#org73c3fb9">2. String</a>
+<li><a href="#org9d3beca">1. Sort</a></li>
+<li><a href="#org69a112b">2. String</a>
 <ul>
-<li><a href="#org963202e">2.1. 教學資源</a></li>
-<li><a href="#org494b1ee">2.2. 作業</a></li>
+<li><a href="#org916a23b">2.1. 教學資源</a></li>
+<li><a href="#org2cd82d8">2.2. 作業</a></li>
 </ul>
 </li>
-<li><a href="#orga3e795a">3. 2D Array</a>
+<li><a href="#org9254303">3. 2D Array</a>
 <ul>
-<li><a href="#orgf1ea2b0">3.1. Array of string</a></li>
+<li><a href="#org2446ee0">3.1. Array of string</a></li>
 </ul>
 </li>
-<li><a href="#orge9b0240">4. Variable</a>
+<li><a href="#orgf3daf2d">4. Variable</a>
 <ul>
-<li><a href="#org380d12d">4.1. Global v.s. Local</a></li>
+<li><a href="#orgd3743e7">4.1. Global v.s. Local</a></li>
 </ul>
 </li>
-<li><a href="#org5f4d9f1">5. Function</a>
+<li><a href="#org8d874a8">5. Function</a>
 <ul>
-<li><a href="#org3929c9d">5.1. Argument</a></li>
-<li><a href="#org13f6827">5.2. Recursion</a></li>
+<li><a href="#org224eac1">5.1. Argument</a></li>
+<li><a href="#org2991ec0">5.2. Recursion</a></li>
 </ul>
 </li>
-<li><a href="#org92591c9">6. 指標Pointer</a>
+<li><a href="#org750dd1f">6. 指標Pointer</a>
 <ul>
-<li><a href="#org3184bce">6.1. 指標陣列</a></li>
+<li><a href="#orgacf33a6">6.1. 指標陣列</a></li>
 </ul>
 </li>
-<li><a href="#org1a10704">7. 資料結構</a>
+<li><a href="#org9262ef2">7. 資料結構</a>
 <ul>
-<li><a href="#org3e542b9">7.1. Array</a></li>
-<li><a href="#orgfcb7a4d">7.2. Stack</a></li>
-<li><a href="#orge0ed5ef">7.3. Queue</a></li>
-<li><a href="#org0e13e62">7.4. Vector: 強化版的陣列</a></li>
+<li><a href="#org6ff83e0">7.1. Array</a></li>
+<li><a href="#org992a82c">7.2. Stack</a></li>
+<li><a href="#org441f545">7.3. Queue</a></li>
+<li><a href="#orge966fa6">7.4. Vector: 強化版的陣列</a></li>
 </ul>
 </li>
-<li><a href="#org055df27">8. 演算法</a>
+<li><a href="#org46c35ed">8. 演算法</a>
 <ul>
-<li><a href="#org6af8644">8.1. 回溯法(Backtracking)</a></li>
-<li><a href="#org9169c1f">8.2. 隨機演算法</a></li>
+<li><a href="#org847ca8c">8.1. 回溯法(Backtracking)</a></li>
+<li><a href="#orgffcfe01">8.2. 隨機演算法</a></li>
 </ul>
 </li>
-<li><a href="#org24d0a5f">9. LeeCode</a></li>
-<li><a href="#org6039c3c">10. Dynamic programming</a></li>
+<li><a href="#org8de4d78">9. LeeCode</a></li>
+<li><a href="#org3e4f6bb">10. Dynamic programming</a></li>
+<li><a href="#org444f259">11. Page Infos</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgd18cbc2" class="outline-2">
-<h2 id="orgd18cbc2"><span class="section-number-2">1.</span> Sort</h2>
+<div id="outline-container-org9d3beca" class="outline-2">
+<h2 id="org9d3beca"><span class="section-number-2">1.</span> Sort</h2>
 </div>
-<div id="outline-container-org73c3fb9" class="outline-2">
-<h2 id="org73c3fb9"><span class="section-number-2">2.</span> String</h2>
+
+<div id="outline-container-org69a112b" class="outline-2">
+<h2 id="org69a112b"><span class="section-number-2">2.</span> String</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org963202e" class="outline-3">
-<h3 id="org963202e"><span class="section-number-3">2.1.</span> 教學資源</h3>
+<div id="outline-container-org916a23b" class="outline-3">
+<h3 id="org916a23b"><span class="section-number-3">2.1.</span> 教學資源</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li><a href="https://www.itread01.com/content/1550376181.html">如何求C語言字串長度（strlen函式和sizeof關鍵字）</a><br /></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org494b1ee" class="outline-3">
-<h3 id="org494b1ee"><span class="section-number-3">2.2.</span> 作業</h3>
+<div id="outline-container-org2cd82d8" class="outline-3">
+<h3 id="org2cd82d8"><span class="section-number-3">2.2.</span> 作業</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li><a href="https://www.youtube.com/watch?v=vCB_0cFQr5o">First Unique Character in a String</a><br /></li>
@@ -274,23 +276,24 @@
 </div>
 </div>
 </div>
-<div id="outline-container-orga3e795a" class="outline-2">
-<h2 id="orga3e795a"><span class="section-number-2">3.</span> 2D Array</h2>
+
+<div id="outline-container-org9254303" class="outline-2">
+<h2 id="org9254303"><span class="section-number-2">3.</span> 2D Array</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgf1ea2b0" class="outline-3">
-<h3 id="orgf1ea2b0"><span class="section-number-3">3.1.</span> Array of string</h3>
+<div id="outline-container-org2446ee0" class="outline-3">
+<h3 id="org2446ee0"><span class="section-number-3">3.1.</span> Array of string</h3>
 <div class="outline-text-3" id="text-3-1">
 </div>
 <ol class="org-ol">
-<li><a id="org9280180"></a>CPP<br />
+<li><a id="orge52b4a9"></a>CPP<br />
 <div class="outline-text-4" id="text-3-1-1">
 <ul class="org-ul">
 <li><a href="https://www.geeksforgeeks.org/array-strings-c-3-different-ways-create/">Array of Strings in C++ (5 Different Ways to Create)</a><br /></li>
 </ul>
 </div>
 </li>
-<li><a id="org0fb2f83"></a>C<br />
+<li><a id="org360280c"></a>C<br />
 <div class="outline-text-4" id="text-3-1-2">
 <div class="org-src-container">
 <pre class="src src-c"><span class="linenr"> 1: </span>
@@ -325,24 +328,26 @@
 </ol>
 </div>
 </div>
-<div id="outline-container-orge9b0240" class="outline-2">
-<h2 id="orge9b0240"><span class="section-number-2">4.</span> Variable</h2>
+
+<div id="outline-container-orgf3daf2d" class="outline-2">
+<h2 id="orgf3daf2d"><span class="section-number-2">4.</span> Variable</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org380d12d" class="outline-3">
-<h3 id="org380d12d"><span class="section-number-3">4.1.</span> Global v.s. Local</h3>
+<div id="outline-container-orgd3743e7" class="outline-3">
+<h3 id="orgd3743e7"><span class="section-number-3">4.1.</span> Global v.s. Local</h3>
 </div>
 </div>
-<div id="outline-container-org5f4d9f1" class="outline-2">
-<h2 id="org5f4d9f1"><span class="section-number-2">5.</span> Function</h2>
+
+<div id="outline-container-org8d874a8" class="outline-2">
+<h2 id="org8d874a8"><span class="section-number-2">5.</span> Function</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-org3929c9d" class="outline-3">
-<h3 id="org3929c9d"><span class="section-number-3">5.1.</span> Argument</h3>
+<div id="outline-container-org224eac1" class="outline-3">
+<h3 id="org224eac1"><span class="section-number-3">5.1.</span> Argument</h3>
 <div class="outline-text-3" id="text-5-1">
 </div>
 <ol class="org-ol">
-<li><a id="org87b0394"></a>passing array<br />
+<li><a id="org5cfd95a"></a>passing array<br />
 <div class="outline-text-4" id="text-5-1-1">
 <ul class="org-ul">
 <li><a href="https://www.youtube.com/watch?v=BggprNmXZGg">【C 語言入門】19.1 - 在函式間傳遞陣列</a><br /></li>
@@ -351,16 +356,17 @@
 </li>
 </ol>
 </div>
-<div id="outline-container-org13f6827" class="outline-3">
-<h3 id="org13f6827"><span class="section-number-3">5.2.</span> Recursion</h3>
+<div id="outline-container-org2991ec0" class="outline-3">
+<h3 id="org2991ec0"><span class="section-number-3">5.2.</span> Recursion</h3>
 </div>
 </div>
-<div id="outline-container-org92591c9" class="outline-2">
-<h2 id="org92591c9"><span class="section-number-2">6.</span> 指標Pointer</h2>
+
+<div id="outline-container-org750dd1f" class="outline-2">
+<h2 id="org750dd1f"><span class="section-number-2">6.</span> 指標Pointer</h2>
 <div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-org3184bce" class="outline-3">
-<h3 id="org3184bce"><span class="section-number-3">6.1.</span> 指標陣列</h3>
+<div id="outline-container-orgacf33a6" class="outline-3">
+<h3 id="orgacf33a6"><span class="section-number-3">6.1.</span> 指標陣列</h3>
 <div class="outline-text-3" id="text-6-1">
 <ul class="org-ul">
 <li><a href="https://www.youtube.com/watch?v=U2YvpfE58cM">【C 語言入門】23.2 - 指標與陣列</a><br /></li>
@@ -369,12 +375,13 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org1a10704" class="outline-2">
-<h2 id="org1a10704"><span class="section-number-2">7.</span> 資料結構</h2>
+
+<div id="outline-container-org9262ef2" class="outline-2">
+<h2 id="org9262ef2"><span class="section-number-2">7.</span> 資料結構</h2>
 <div class="outline-text-2" id="text-7">
 </div>
-<div id="outline-container-org3e542b9" class="outline-3">
-<h3 id="org3e542b9"><span class="section-number-3">7.1.</span> Array</h3>
+<div id="outline-container-org6ff83e0" class="outline-3">
+<h3 id="org6ff83e0"><span class="section-number-3">7.1.</span> Array</h3>
 <div class="outline-text-3" id="text-7-1">
 <ul class="org-ul">
 <li>Find 2&rsquo;s complement: <a href="https://www.youtube.com/watch?v=cDCWZ-9ugYM">https://www.youtube.com/watch?v=cDCWZ-9ugYM</a><br /></li>
@@ -382,14 +389,14 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgfcb7a4d" class="outline-3">
-<h3 id="orgfcb7a4d"><span class="section-number-3">7.2.</span> Stack</h3>
+<div id="outline-container-org992a82c" class="outline-3">
+<h3 id="org992a82c"><span class="section-number-3">7.2.</span> Stack</h3>
 </div>
-<div id="outline-container-orge0ed5ef" class="outline-3">
-<h3 id="orge0ed5ef"><span class="section-number-3">7.3.</span> Queue</h3>
+<div id="outline-container-org441f545" class="outline-3">
+<h3 id="org441f545"><span class="section-number-3">7.3.</span> Queue</h3>
 </div>
-<div id="outline-container-org0e13e62" class="outline-3">
-<h3 id="org0e13e62"><span class="section-number-3">7.4.</span> Vector: 強化版的陣列</h3>
+<div id="outline-container-orge966fa6" class="outline-3">
+<h3 id="orge966fa6"><span class="section-number-3">7.4.</span> Vector: 強化版的陣列</h3>
 <div class="outline-text-3" id="text-7-4">
 <ul class="org-ul">
 <li><a href="https://mropengate.blogspot.com/2015/07/cc-vector-stl.html"> C/C++ - Vector (STL) 用法與心得完全攻略 </a><br /></li>
@@ -397,20 +404,21 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org055df27" class="outline-2">
-<h2 id="org055df27"><span class="section-number-2">8.</span> 演算法</h2>
+
+<div id="outline-container-org46c35ed" class="outline-2">
+<h2 id="org46c35ed"><span class="section-number-2">8.</span> 演算法</h2>
 <div class="outline-text-2" id="text-8">
 </div>
-<div id="outline-container-org6af8644" class="outline-3">
-<h3 id="org6af8644"><span class="section-number-3">8.1.</span> 回溯法(Backtracking)</h3>
+<div id="outline-container-org847ca8c" class="outline-3">
+<h3 id="org847ca8c"><span class="section-number-3">8.1.</span> 回溯法(Backtracking)</h3>
 <div class="outline-text-3" id="text-8-1">
 <ul class="org-ul">
 <li><a href="https://www.youtube.com/watch?v=nrHTtjkYEyQ">【C++ 資料結構與演算法】回溯法 (backtracking)</a><br /></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org9169c1f" class="outline-3">
-<h3 id="org9169c1f"><span class="section-number-3">8.2.</span> 隨機演算法</h3>
+<div id="outline-container-orgffcfe01" class="outline-3">
+<h3 id="orgffcfe01"><span class="section-number-3">8.2.</span> 隨機演算法</h3>
 <div class="outline-text-3" id="text-8-2">
 <ul class="org-ul">
 <li><a href="https://www.youtube.com/watch?v=vdGqFJWAIMg">Majority Element</a><br /></li>
@@ -418,8 +426,9 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org24d0a5f" class="outline-2">
-<h2 id="org24d0a5f"><span class="section-number-2">9.</span> LeeCode</h2>
+
+<div id="outline-container-org8de4d78" class="outline-2">
+<h2 id="org8de4d78"><span class="section-number-2">9.</span> LeeCode</h2>
 <div class="outline-text-2" id="text-9">
 <ul class="org-ul">
 <li><a href="https://www.youtube.com/watch?v=vdGqFJWAIMg">【C 語言的 LeetCode 五月挑戰】第六天 (Majority Element)</a><br />
@@ -447,18 +456,29 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org6039c3c" class="outline-2">
-<h2 id="org6039c3c"><span class="section-number-2">10.</span> Dynamic programming</h2>
+
+<div id="outline-container-org3e4f6bb" class="outline-2">
+<h2 id="org3e4f6bb"><span class="section-number-2">10.</span> Dynamic programming</h2>
 <div class="outline-text-2" id="text-10">
 <ul class="org-ul">
 <li><a href="https://www.youtube.com/watch?v=oBt53YbR9Kk">Dynamic Programming - Learn to Solve Algorithmic Problems &amp; Coding Challenges</a><br /></li>
 </ul>
 </div>
 </div>
+
+<div id="outline-container-org444f259" class="outline-2">
+<h2 id="org444f259"><span class="section-number-2">11.</span> Page Infos</h2>
+<div class="outline-text-2" id="text-11">
+<footer class="footer">
+    <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+    <div class="elfsight-app-f4822956-5951-490a-a270-07a930f627e5"></div>
+</footer>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: Yung-Chin Yen</p>
-<p class="date">Created: 2022-07-04 Mon 00:14</p>
+<p class="author">Author: Yung Chin, Yen</p>
+<p class="date">Created: 2022-12-06 Tue 21:09</p>
 </div>
 </body>
 </html>

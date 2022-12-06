@@ -3,16 +3,18 @@
 #+TAGS: C++
 #+OPTIONS: toc:2 ^:nil num:5
 #+PROPERTY: header-args :eval never-export
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../css/white.css" />
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../css/muse.css" />
 #+EXCLUDE_TAGS: noexport
 #+latex:\newpage
 
 * Sort
+
 * String
 ** 教學資源
 - [[https://www.itread01.com/content/1550376181.html][如何求C語言字串長度（strlen函式和sizeof關鍵字）]]
 ** 作業
 - [[https://www.youtube.com/watch?v=vCB_0cFQr5o][First Unique Character in a String]]
+
 * 2D Array
 ** Array of string
 *** CPP
@@ -45,17 +47,21 @@ int main(int argc, const char * argv[]) {
 }
 
 #+end_src
+
 * Variable
 ** Global v.s. Local
+
 * Function
 ** Argument
 *** passing array
 - [[https://www.youtube.com/watch?v=BggprNmXZGg][【C 語言入門】19.1 - 在函式間傳遞陣列]]
 ** Recursion
+
 * 指標Pointer
 ** 指標陣列
 - [[https://www.youtube.com/watch?v=U2YvpfE58cM][【C 語言入門】23.2 - 指標與陣列]]
 - [[https://www.youtube.com/watch?v=RDWaVN3yKUA][【C 語言入門】25.1 - 指標陣列]]
+
 * 資料結構
 ** Array
 - Find 2's complement: https://www.youtube.com/watch?v=cDCWZ-9ugYM
@@ -64,11 +70,13 @@ int main(int argc, const char * argv[]) {
 ** Queue
 ** Vector: 強化版的陣列
 - [[https://mropengate.blogspot.com/2015/07/cc-vector-stl.html][ C/C++ - Vector (STL) 用法與心得完全攻略 ]]
+
 * 演算法
 ** 回溯法(Backtracking)
 - [[https://www.youtube.com/watch?v=nrHTtjkYEyQ][【C++ 資料結構與演算法】回溯法 (backtracking)]]
 ** 隨機演算法
 - [[https://www.youtube.com/watch?v=vdGqFJWAIMg][Majority Element]]
+
 * LeeCode
 - [[https://www.youtube.com/watch?v=vdGqFJWAIMg][【C 語言的 LeetCode 五月挑戰】第六天 (Majority Element)]]
   + brute force: for-for
@@ -84,5 +92,9 @@ int main(int argc, const char * argv[]) {
 - [[https://www.youtube.com/watch?v=chNBaZBC2o8&list=PLY_qIufNHc292EYDwe3B6sGYO_vQ7pOLx&index=3][【C 語言的 LeetCode 五月挑戰】第三天 (Ransom Note)]]
   + 1d Array
   + 宇元計數與比對
+
 * Dynamic programming
 - [[https://www.youtube.com/watch?v=oBt53YbR9Kk][Dynamic Programming - Learn to Solve Algorithmic Problems & Coding Challenges]]
+
+* Page Infos
+#+INCLUDE: "../css/footer.html" export html
