@@ -1,4 +1,4 @@
-#+TITLE: Advance C
+#+TITLE: Advance C/C++
 #+INCLUDE: ../pdf.org
 #+TAGS: C++
 #+OPTIONS: toc:2 ^:nil num:5
@@ -6,6 +6,10 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../css/muse.css" />
 #+EXCLUDE_TAGS: noexport
 #+latex:\newpage
+#+begin_export html
+<a href="https://hits.sh/letranger.github.io/CPP/AdvanceC++.html/"><img align="right" oalt="Hits" src="https://hits.sh/letranger.github.io/CPP/AdvanceC++.html.svg?style=plastic"/></a>
+#+end_export
+
 
 * Sort
 

@@ -4,10 +4,9 @@
 #+TAGS: C++
 #+PROPERTY: header-args :eval never-export
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../css/muse.css" />
-
-* 學習資源
-- [[https://www.youtube.com/watch?v=pSoDUFdqVOU][2022最適合學的程式語言]]
-- [[https://www.youtube.com/watch?v=I0-izyq6q5s][How Do Computers Remember?]]
+#+begin_export html
+<a href="https://hits.sh/letranger.github.io/CPP/BasicC++.html/"><img align="right" alt="Hits" src="https://hits.sh/letranger.github.io/CPP/BasicC++.html.svg?style=plastic"/></a>
+#+end_export
 
 * 程式的編寫與執行
 :PROPERTIES:
@@ -1119,7 +1118,8 @@ int main(int argc, char *argv[]) {
 but....如果全班有 50 個人呢？如果是要求全校的成績分佈呢?
 
 各種程式語言為了因應這種大批資料的處理計算，都會有相對應的資料結構，C++的陣列(array)就是用來儲存大量資料的結構。
-** 宣告
+** 基本操作
+*** 宣告
 如果變數一樣，array 也要先宣告才能使用，其宣告方式如下：
 #+begin_src cpp -r -n :results output :exports both
 資料型態 名稱[長度];
@@ -1136,7 +1136,7 @@ int numOfStudent;
 cin >> numOfStudent; //先確認人數
 int score[numOfStudent];
 #+end_src
-** Assign value to Array
+*** Assign value to Array
 *** assign
 #+begin_src cpp -r -n :results output :exports both
 int sc[5];
@@ -1181,7 +1181,7 @@ for (i = 0; i < 5; i++) {
     cin >> sc[i];
 }
 #+end_src
-** 課堂練習
+*** 課堂練習
 - 先輸入全班人數 N，接下來輸入 N 位學生的成績，存入一維陣列中，計算總分、平均。已知學生人數不超過 50 人。執行畫面需如下所示：
 [[file:images/array-3.jpg]]
 - 輸出上例中全班人數最高分之分數。
@@ -1190,7 +1190,6 @@ for (i = 0; i < 5; i++) {
 char ascii[5] = {'A', 'B', 'C', 'D', 'E'}; //字元陣列
 bool flag[5] = {false, true, false, true, false};
 #+end_src
-
 ** 更方便的 for for array
 C++ 11 提供了 for range 語法，可用於循序走訪陣列的任務
 #+begin_src cpp -r -n :results output :exports both
@@ -1260,7 +1259,8 @@ int main() {
 #+ATTR_ORG: :width 300
 #+RESULTS:
 [[file:images/address.png]]
-** what you should not do with array
+** YES/NO for Array
+*** what you should not do with array
 對一般變數，我們可以用以下 assign 方式將其值 assign 給其他變數：
 #+begin_src cpp -r -n :results output :exports both
 int a = 20;
@@ -1281,7 +1281,7 @@ for (i = 0; i < 5; i++) {
     ary2[i] = ary1[i];
 }
 #+end_src
-** what you can do with array:
+*** what you can do with array:
 *** sort
 #+begin_src cpp -r -n :results output :exports both
 #include <algorithm>
@@ -1706,9 +1706,6 @@ int main() {
 #+RESULTS:
 
 * TODO STL
-
-* Page Infos
-#+INCLUDE: "../css/footer.html" export html
 
 * Footnotes
 
