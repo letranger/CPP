@@ -1,13 +1,34 @@
 #+Title: Basic Materials of C++
 #+OPTIONS: toc:2 ^:nil num:3
-# -*- coding: utf-8 -*-
-# -*- org-export-babel-evaluate: nil -*-
 #+TAGS: C++
 #+PROPERTY: header-args :eval never-export
+#+INCLUDE: ../pdf.org
+#+EXCLUDE_TAGS: noexport
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../css/muse.css" />
+
 #+begin_export html
 <a href="https://hits.sh/letranger.github.io/CPP/BasicC++.html/"><img align="right" alt="Hits" src="https://hits.sh/letranger.github.io/CPP/BasicC++.html.svg?style=plastic"/></a>
 #+end_export
+
+* Reasons Why You Should Learn Code in 2023
+1. Helping Others[fn:1]:
+   By learning how to code, you can use your skills to help people in your own unique way.
+   #+CAPTION: 口罩地圖
+   #+LABEL:fig:Labl
+   #+name: fig:Name
+   #+ATTR_LATEX: :width 300
+   #+ATTR_ORG: :width 300
+   #+ATTR_HTML: :width 400
+    [[file:images/Reasons_Why_You_Should_Learn_Code_in_2023/2023-11-26_17-01-05_2023-11-26_16-59-07.png]]
+2. In-Demand Skills
+   Many employers are increasingly looking for skilled coders who can develop software and applications that meet their needs. Not only does this create more job opportunities for coders, but it also gives them more power to negotiate salaries and perks.
+3. Higher Earning Potential
+   Coding skills are becoming more in-demand and sought after by employers, allowing those with coding skills to demand higher wages than those without.
+4. Increased Problem-Solving Skills
+   Learning to code is a great way to increase your problem-solving skills. Computer programming requires you to think logically, develop solutions, and solve complex problems. Plus, coding can help improve your ability to analyze and interpret data. This is useful for any type of work that requires interpreting large amounts of data, such as analytics or machine learning.
+5. Improved Communication Skills
+   Learning to code can drastically improve your communication skills. Being able to explain and communicate complex ideas in an effective and concise manner is a key skill in many industries. Moreover, coding provides you with a mental framework for breaking down and solving problems. This helps you learn how to think critically and analyze situations in order to come up with the best solution.
+資料來源[fn:1]: [[https://devcodecamp.com/2023/02/the-top-5-reasons-why-you-should-learn-code-in-2023/][The Top 5 Reasons Why You Should Learn Code in 2023]]
 
 * 程式的編寫與執行
 :PROPERTIES:
@@ -21,17 +42,17 @@
 
 ** 編譯與執行
 既然寫完的程式碼只是文字檔，那這些文字檔要如何變成可以執行的執行檔呢？
-如下圖[fn:1]所示：
+如下圖[fn:2]所示：
 
-#+CAPTION: Compile and Execution
-#+LABEL:fig:CNE
-#+name: fig:CNE
-#+ATTR_LATEX: :width 300
-#+ATTR_ORG: :width 400
-#+ATTR_HTML: :width 400
-[[file:images/c_compile.gif]]
+#+CAPTION: C++ Build Model
+#+LABEL:fig:Labl
+#+name: fig:Name
+#+ATTR_LATEX: :width 400
+#+ATTR_ORG: :width 300
+#+ATTR_HTML: :width 500
+[[file:images/程式的編寫與執行/2023-11-26_21-53-14_2023-11-26_21-48-06.png]]
 
-程式碼必須先經過 Preprocess、Compile、Assemble、Link 等步驟才能成為一支可以執行的執行檔(如 Windows 下的.exe 或是 MacOS 下的.app)。
+程式碼必須先經過 Preprocessing、Compilation、Linking 等步驟才能成為一支可以執行的執行檔(如 Windows 下的.exe 或是 MacOS 下的.app)。
 
 ** 幾種寫程式的環境
 *** MacOS
@@ -139,7 +160,7 @@ int main() {
 :END:
 顧名思意，輸出是將資料輸出到某種設備（如螢幕、印表機...）, 常見的輸出指令有 cout、printf()、puts()、putchar()等。
 ** cout
-cout 為 iostream 這個類別(class)的 object[fn:2]，所以程式中若使用到 cout 就必須 include iostream。cout 可以將文字資料與變數資料列印在螢幕上，在語法上會使用<<作為文字與變數之間的連接工具，若要換行則使用"\n"或是關鍵字 endl[fn:3]。
+cout 為 iostream 這個類別(class)的 object[fn:3]，所以程式中若使用到 cout 就必須 include iostream。cout 可以將文字資料與變數資料列印在螢幕上，在語法上會使用<<作為文字與變數之間的連接工具，若要換行則使用"\n"或是關鍵字 endl[fn:4]。
 
 如果要輸出的是文字資料，則應該在文字的前後各加上英文的雙引號(")，如下列程式的第[[(helloWorld)]]行，不同類型的數值資料間要以<<間隔。
 
@@ -228,13 +249,13 @@ int main() {
 :CUSTOM_ID: cpp_variables
 :END:
 ** 關於變數
-A variable is a name given to a memory location. It is the basic unit of storage in a program[fn:4].
+A variable is a name given to a memory location. It is the basic unit of storage in a program[fn:5].
 - The value stored in a variable can be changed during program execution.
 - A variable is only a name given to a memory location, all the operations done on the variable effects that memory location.
 - In C++, all the variables must be declared before use.
 
 ** <<VarDec>>變數的宣告與應用
-變數是資料的標籤，而非資料本身。電腦程式很大一部分是在操作資料，變數在本質上是用來操作資料的一種語法特性。[fn:5]
+變數是資料的標籤，而非資料本身。電腦程式很大一部分是在操作資料，變數在本質上是用來操作資料的一種語法特性。[fn:6]
 #+CAPTION: Variables in C++
 #+LABEL:fig:vic
 #+name: fig:vic
@@ -278,7 +299,7 @@ int main() {
 :PROPERTIES:
 :CUSTOM_ID: cpp_variable_types
 :END:
-前節介紹了變數的宣告要先說明其類型，根據要儲存的資料種類不同，C++變數有許多型態。以下是一些常用的基本型態[fn:6]：
+前節介紹了變數的宣告要先說明其類型，根據要儲存的資料種類不同，C++變數有許多型態。以下是一些常用的基本型態[fn:7]：
 | 型態 | 中文意思                                              | 英文字義 | 可儲存的資料 |
 | int                      | 整數                                                                      | Integer                                          | 100、-5、1246 ...                                    |
 | float                    | 32 bit 單精浮點數(小數) | single precision floating point                  | 3.14159、4.3、-1.1 ...                               |
@@ -544,7 +565,7 @@ int main() {
 :PROPERTIES:
 :CUSTOM_ID: cpp_ifelse
 :END:
-if 判斷式可用來判斷條件是否成立，並且依照條件之成立與否，來執行不同的程式碼[fn:7]。依照條件的複雜程度可大致分為以下三類：
+if 判斷式可用來判斷條件是否成立，並且依照條件之成立與否，來執行不同的程式碼[fn:8]。依照條件的複雜程度可大致分為以下三類：
 
 ** 單一條件
 *** 語法
@@ -1212,7 +1233,7 @@ int main() {
 #+RESULTS:
 : 0 1 2 3 4
 ** index 為何由 0 開始?
-陣列索引值由 0 開始不是沒有原因的，陣列名稱儲存了陣列記憶體的首個位置的位址，而索引值表示陣列元素是相對於陣列首個記憶體位址的位移量（offset），位移的量與資料型態長度有關，如果是 int 整數，每次位移時是一個 int 整數的長度，例如在上例中 number[0] 索引值為 0 時，表示位移量為 0，自然就是指第一個元素，而 number[9] 就是指相對於首個元素的位移量為 9。[fn:10]
+陣列索引值由 0 開始不是沒有原因的，陣列名稱儲存了陣列記憶體的首個位置的位址，而索引值表示陣列元素是相對於陣列首個記憶體位址的位移量（offset），位移的量與資料型態長度有關，如果是 int 整數，每次位移時是一個 int 整數的長度，例如在上例中 number[0] 索引值為 0 時，表示位移量為 0，自然就是指第一個元素，而 number[9] 就是指相對於首個元素的位移量為 9。[fn:9]
 
 #+begin_src cpp -r -n :results output :exports both
 #include <iostream>
@@ -1652,6 +1673,7 @@ int main() {
 * TODO Recursion
 :PROPERTIES:
 :CUSTOM_ID: cpp_functions
+:ID:       a7a7bfd1-478a-4da0-b2d7-157bba36933f
 :END:
 當一支function在自己的程式碼中又呼叫自己,會發生什麼事??
 #+begin_src cpp -r -n :results output :exports both
@@ -1707,8 +1729,9 @@ int main() {
 * TODO Struct
 :PROPERTIES:
 :CUSTOM_ID: cpp_struct
+:ID:       f388d8c0-171c-413c-86dc-e05840c0d378
 :END:
-結構 (structure) 是一種複合型別 (derived data type)，用來表達由多個屬性組成的型別，而這些屬性可以是基本型別或是另一個複合型別所組成。[fn:8] [fn:9]
+結構 (structure) 是一種複合型別 (derived data type)，用來表達由多個屬性組成的型別，而這些屬性可以是基本型別或是另一個複合型別所組成。[fn:10] [fn:11]
 #+begin_src cpp -r -n :results output :exports both
 #include <iostream>
 #include <string.h>
@@ -1734,25 +1757,30 @@ int main() {
 #+RESULTS:
 
 * TODO STL
+:PROPERTIES:
+:ID:       ff72b7cb-ab3e-418e-96d1-3bfe628d0868
+:END:
 
 * Footnotes
 
-[fn:10] [[https://openhome.cc/Gossip/CppGossip/OneDimArray.html][陣列]]
+[fn:1] [[https://devcodecamp.com/2023/02/the-top-5-reasons-why-you-should-learn-code-in-2023/][The Top 5 Reasons Why You Should Learn Code in 2023]]
 
-[fn:1] [[http://www2.lssh.tp.edu.tw/~hlf/class-1/lang-c/compile.htm][程式編譯過程]]
+[fn:2] [[https://hackingcpp.com/cpp/lang/separate_compilation.html][hacking C++]]
 
-[fn:2] [[https://www.quora.com/Is-cout-an-object-or-a-function-Why][Is cout an ojbect or a function? Why?]]
+[fn:3] [[https://www.quora.com/Is-cout-an-object-or-a-function-Why][Is cout an ojbect or a function? Why?]]
 
-[fn:3] [[http://rs2.ocu.edu.tw/~jengchi/IO_instruction.htm][Dev C++的輸出與輸入方法]]
+[fn:4] [[http://rs2.ocu.edu.tw/~jengchi/IO_instruction.htm][Dev C++的輸出與輸入方法]]
 
-[fn:4] [[https://www.geeksforgeeks.org/variables-in-c/][Variables in C++]]
+[fn:5] [[https://www.geeksforgeeks.org/variables-in-c/][Variables in C++]]
 
-[fn:5] [[https://michaelchen.tech/c-programming/variable/][宣告和使用變數 (Variable)]]
+[fn:6] [[https://michaelchen.tech/c-programming/variable/][宣告和使用變數 (Variable)]]
 
-[fn:6] [[https://www.csie.ntu.edu.tw/~b98902112/cpp_and_algo/cpp/variable_type_and_declare.html][變數型態]]
+[fn:7] [[https://www.csie.ntu.edu.tw/~b98902112/cpp_and_algo/cpp/variable_type_and_declare.html][變數型態]]
 
-[fn:7] [[https://crmne0707.pixnet.net/blog/post/285395384-c%2B%2B%E5%9F%BA%E7%A4%8E%E6%95%99%E5%AD%B8%E8%88%87%E7%AF%84%E4%BE%8B--https://crmne0707.pixnet.net/blog/post/285395384-c%2B%2B%E5%9F%BA%E7%A4%8E%E6%95%99%E5%AD%B8%E8%88%87%E7%AF%84%E4%BE%8B--%283%29if%E5%88%A4%E6%96%B7%E5%BC%8F%E8%88%87%E9%82%8F%E8%BC%AF%E9%81%8B%E7%AE%97%E5%AD%90][C++基礎教學與範例--(3)if判斷式與邏輯運算子]]
+[fn:8] [[https://crmne0707.pixnet.net/blog/post/285395384-c%2B%2B%E5%9F%BA%E7%A4%8E%E6%95%99%E5%AD%B8%E8%88%87%E7%AF%84%E4%BE%8B--https://crmne0707.pixnet.net/blog/post/285395384-c%2B%2B%E5%9F%BA%E7%A4%8E%E6%95%99%E5%AD%B8%E8%88%87%E7%AF%84%E4%BE%8B--%283%29if%E5%88%A4%E6%96%B7%E5%BC%8F%E8%88%87%E9%82%8F%E8%BC%AF%E9%81%8B%E7%AE%97%E5%AD%90][C++基礎教學與範例--(3)if判斷式與邏輯運算子]]
 
-[fn:8] [[https://michaelchen.tech/c-programming/struct/][如何使用結構 (Struct)]]
+[fn:9] [[https://openhome.cc/Gossip/CppGossip/OneDimArray.html][陣列]]
 
-[fn:9] [[https://kopu.chat/2017/05/30/c-%E8%AA%9E%E8%A8%80%EF%BC%9A%E7%B5%90%E6%A7%8B%EF%BC%88struct%EF%BC%89%E8%87%AA%E8%A8%82%E4%B8%8D%E5%90%8C%E8%B3%87%E6%96%99%E5%9E%8B%E6%85%8B%E7%B6%81%E4%B8%80%E8%B5%B7/][C 語言：結構（struct）自訂不同資料型態綁一起]]
+[fn:10] [[https://michaelchen.tech/c-programming/struct/][如何使用結構 (Struct)]]
+
+[fn:11] [[https://kopu.chat/2017/05/30/c-%E8%AA%9E%E8%A8%80%EF%BC%9A%E7%B5%90%E6%A7%8B%EF%BC%88struct%EF%BC%89%E8%87%AA%E8%A8%82%E4%B8%8D%E5%90%8C%E8%B3%87%E6%96%99%E5%9E%8B%E6%85%8B%E7%B6%81%E4%B8%80%E8%B5%B7/][C 語言：結構（struct）自訂不同資料型態綁一起]]
