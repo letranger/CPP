@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-09-09 Mon 10:08 -->
+<!-- 2024-09-09 Mon 16:48 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Basic Materials of C++</title>
@@ -194,6 +194,7 @@
   .org-svg { }
 </style>
 <link rel="stylesheet" type="text/css" href="../css/muse.css" />
+<script src="../css/copy_code.js"></script>
 <script>
   window.MathJax = {
     tex: {
@@ -234,125 +235,125 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org5ff3ef0">1. Reasons Why You Should Learn Code in 2023</a></li>
+<li><a href="#orgdff81fe">1. Reasons Why You Should Learn Code in 2023</a></li>
 <li><a href="#cpp_execution">2. 程式的編寫與執行</a>
 <ul>
-<li><a href="#org97e44fe">2.1. source code</a></li>
-<li><a href="#org133900b">2.2. 編寫</a></li>
-<li><a href="#org5a39d05">2.3. 編譯與執行</a></li>
-<li><a href="#orgf48fbda">2.4. 幾種寫程式的環境</a></li>
+<li><a href="#org78344f8">2.1. source code</a></li>
+<li><a href="#org448a0ce">2.2. 編寫</a></li>
+<li><a href="#org166f9af">2.3. 編譯與執行</a></li>
+<li><a href="#org847abb5">2.4. 幾種寫程式的環境</a></li>
 </ul>
 </li>
 <li><a href="#cpp_arch">3. C++基本架構</a>
 <ul>
-<li><a href="#org3ccbd8e">3.1. main()</a></li>
-<li><a href="#org1430774">3.2. 標頭檔(Headers)</a></li>
-<li><a href="#orgae3e83a">3.3. 命名空間(namespace)</a></li>
+<li><a href="#org24a451d">3.1. main()</a></li>
+<li><a href="#org40d3a28">3.2. 標頭檔(Headers)</a></li>
+<li><a href="#org8fc3758">3.3. 命名空間(namespace)</a></li>
 </ul>
 </li>
 <li><a href="#cpp_output">4. 輸出</a>
 <ul>
-<li><a href="#orgc2e9b7c">4.1. cout</a></li>
+<li><a href="#org7112c2b">4.1. cout</a></li>
 <li><a href="#cpp_printf">4.2. printf()</a></li>
-<li><a href="#orge2faa84">4.3. 跳脫字元</a></li>
+<li><a href="#org8950a9c">4.3. 跳脫字元</a></li>
 </ul>
 </li>
 <li><a href="#cpp_variables">5. Variable</a>
 <ul>
-<li><a href="#org53c4a77">5.1. 關於變數</a></li>
-<li><a href="#orgf52b406">5.2. 變數的宣告與應用</a></li>
-<li><a href="#org6d29e9c">5.3. 變數的命名規則</a></li>
+<li><a href="#orgb6b4aa3">5.1. 關於變數</a></li>
+<li><a href="#org58a2b0a">5.2. 變數的宣告與應用</a></li>
+<li><a href="#orgacce1aa">5.3. 變數的命名規則</a></li>
 <li><a href="#cpp_variable_types">5.4. 變數類型</a></li>
-<li><a href="#org5de777b">5.5. 變數的極限</a></li>
+<li><a href="#orgd3e5089">5.5. 變數的極限</a></li>
 </ul>
 </li>
 <li><a href="#cpp_input">6. 輸入</a>
 <ul>
-<li><a href="#org5b8d82a">6.1. 變數的輪入</a></li>
-<li><a href="#org2ddc900">6.2. 一個以上的變數輸入</a></li>
+<li><a href="#org2f1c5f5">6.1. 變數的輪入</a></li>
+<li><a href="#org78d2867">6.2. 一個以上的變數輸入</a></li>
 </ul>
 </li>
 <li><a href="#cpp_operation">7. 運算式</a>
 <ul>
-<li><a href="#orgf67944f">7.1. 指定運算</a></li>
-<li><a href="#org3e2a8e5">7.2. 數值運算</a></li>
+<li><a href="#org4ac9ca5">7.1. 指定運算</a></li>
+<li><a href="#org7503636">7.2. 數值運算</a></li>
 <li><a href="#cpp_cond_operation">7.3. 關係運算</a></li>
-<li><a href="#org9a4f6b0">7.4. 條件運算</a></li>
+<li><a href="#org1916b50">7.4. 條件運算</a></li>
 </ul>
 </li>
 <li><a href="#cpp_ifelse">8. if 條件判斷</a>
 <ul>
-<li><a href="#orgb63ba36">8.1. 單一條件</a></li>
-<li><a href="#orgafd4218">8.2. 條件運算(條件的組合)</a></li>
-<li><a href="#orga4f7947">8.3. 雙重條件</a></li>
-<li><a href="#orga65bf04">8.4. 巢狀條件</a></li>
+<li><a href="#org23d1041">8.1. 單一條件</a></li>
+<li><a href="#orgedc22b6">8.2. 條件運算(條件的組合)</a></li>
+<li><a href="#org4d05d71">8.3. 雙重條件</a></li>
+<li><a href="#org050c6e7">8.4. 巢狀條件</a></li>
 <li><a href="#cpp_multi_conditions">8.5. 多重條件</a></li>
 </ul>
 </li>
 <li><a href="#cpp_for_loop">9. For Loops</a>
 <ul>
-<li><a href="#org36047cf">9.1. 語法 1 (要重複的程式碼只有一行時)</a></li>
-<li><a href="#orgf2b484f">9.2. 語法 2 (要重複一行以上程式碼時)</a></li>
-<li><a href="#org088b0d0">9.3. 範例</a></li>
-<li><a href="#orgb1c6351">9.4. 練習</a></li>
+<li><a href="#orgcac75e1">9.1. 語法 1 (要重複的程式碼只有一行時)</a></li>
+<li><a href="#orgbed248f">9.2. 語法 2 (要重複一行以上程式碼時)</a></li>
+<li><a href="#org1cdee0c">9.3. 範例</a></li>
+<li><a href="#orgf141502">9.4. 練習</a></li>
 <li><a href="#flag_variable">9.5. 旗標變數</a></li>
 </ul>
 </li>
 <li><a href="#cpp_nested_for">10. Nested For Loop</a>
 <ul>
-<li><a href="#org5fb31d8">10.1. 語法</a></li>
-<li><a href="#org6340a5b">10.2. 範例</a></li>
-<li><a href="#org9b93b69">10.3. 課堂練習</a></li>
+<li><a href="#orgc247b31">10.1. 語法</a></li>
+<li><a href="#orged90f7e">10.2. 範例</a></li>
+<li><a href="#orgf77c838">10.3. 課堂練習</a></li>
 </ul>
 </li>
 <li><a href="#cpp_while">11. While</a>
 <ul>
-<li><a href="#orgf8dc4b9">11.1. While</a></li>
-<li><a href="#orgd715a9e">11.2. 不固定次數的重複</a></li>
-<li><a href="#org543e628">11.3. Do &#x2026; while</a></li>
+<li><a href="#org1a3c900">11.1. While</a></li>
+<li><a href="#orgd84b554">11.2. 不固定次數的重複</a></li>
+<li><a href="#org42f9675">11.3. Do &#x2026; while</a></li>
 </ul>
 </li>
 <li><a href="#cpp_arrays">12. Array</a>
 <ul>
-<li><a href="#orgedf01c9">12.1. 基本操作</a></li>
-<li><a href="#orga4072e5">12.2. 其他類型的陣列</a></li>
-<li><a href="#org8ca05a8">12.3. 更方便的 for for array</a></li>
-<li><a href="#org7725ba3">12.4. index 為何由 0 開始?</a></li>
-<li><a href="#org9430b2f">12.5. YES/NO for Array</a></li>
-<li><a href="#orgefd450e">12.6. 2d array</a></li>
+<li><a href="#org7a966c5">12.1. 基本操作</a></li>
+<li><a href="#orgda3864b">12.2. 其他類型的陣列</a></li>
+<li><a href="#org730062a">12.3. 更方便的 for for array</a></li>
+<li><a href="#org7426ba7">12.4. index 為何由 0 開始?</a></li>
+<li><a href="#orgd7ede69">12.5. YES/NO for Array</a></li>
+<li><a href="#orgc592d17">12.6. 2d array</a></li>
 </ul>
 </li>
 <li><a href="#cpp_string">13. String</a>
 <ul>
-<li><a href="#orga13fb2c">13.1. 字串與字元陣列</a></li>
-<li><a href="#org56ac6cd">13.2. 儲存結構</a></li>
-<li><a href="#orgf3b3cf7">13.3. 宣告</a></li>
-<li><a href="#org1a45bf8">13.4. 輸入</a></li>
-<li><a href="#org3746873">13.5. 輸出</a></li>
-<li><a href="#org0697073">13.6. 進階閱讀</a></li>
+<li><a href="#orgcc9898f">13.1. 字串與字元陣列</a></li>
+<li><a href="#org38c3854">13.2. 儲存結構</a></li>
+<li><a href="#org3c70497">13.3. 宣告</a></li>
+<li><a href="#org14c96ad">13.4. 輸入</a></li>
+<li><a href="#org9617e3b">13.5. 輸出</a></li>
+<li><a href="#org26b917d">13.6. 進階閱讀</a></li>
 </ul>
 </li>
 <li><a href="#cpp_functions">14. Function</a>
 <ul>
-<li><a href="#orgdd45766">14.1. function declaration</a></li>
-<li><a href="#org6b13e5c">14.2. 課堂練習</a></li>
-<li><a href="#org7c53e82">14.3. 引數 (Argument) vs. 參數 (Parameter)</a></li>
-<li><a href="#orgb5daf38">14.4. void</a></li>
+<li><a href="#orgb3ff214">14.1. function declaration</a></li>
+<li><a href="#org1ecd086">14.2. 課堂練習</a></li>
+<li><a href="#org7bd970c">14.3. 引數 (Argument) vs. 參數 (Parameter)</a></li>
+<li><a href="#org8566bec">14.4. void</a></li>
 </ul>
 </li>
 <li><a href="#cpp_functions">15. <span class="todo TODO">TODO</span> Recursion</a>
 <ul>
-<li><a href="#org45c94a1">15.1. compute n!</a></li>
+<li><a href="#org7b5786b">15.1. compute n!</a></li>
 </ul>
 </li>
 <li><a href="#cpp_struct">16. <span class="todo TODO">TODO</span> Struct</a></li>
-<li><a href="#org8c8b143">17. <span class="todo TODO">TODO</span> STL</a></li>
+<li><a href="#orgf7206c2">17. <span class="todo TODO">TODO</span> STL</a></li>
 </ul>
 </div>
 </div>
 <a href="https://hits.sh/letranger.github.io/CPP/BasicC++.html/"><img align="right" alt="Hits" src="https://hits.sh/letranger.github.io/CPP/BasicC++.html.svg?style=plastic"/></a>
-<div id="outline-container-org5ff3ef0" class="outline-2">
-<h2 id="org5ff3ef0"><span class="section-number-2">1.</span> Reasons Why You Should Learn Code in 2023</h2>
+<div id="outline-container-orgdff81fe" class="outline-2">
+<h2 id="orgdff81fe"><span class="section-number-2">1.</span> Reasons Why You Should Learn Code in 2023</h2>
 <div class="outline-text-2" id="text-1">
 <ol class="org-ol">
 <li><p>
@@ -360,7 +361,7 @@ Helping Others<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink
 By learning how to code, you can use your skills to help people in your own unique way.<br />
 </p>
 
-<div id="orgfd58b35" class="figure">
+<div id="orgf740385" class="figure">
 <p><img src="images/Reasons_Why_You_Should_Learn_Code_in_2023/2023-11-26_17-01-05_2023-11-26_16-59-07.png" alt="2023-11-26_17-01-05_2023-11-26_16-59-07.png" width="400" /><br />
 </p>
 <p><span class="figure-number">Figure 1: </span>口罩地圖</p>
@@ -383,24 +384,24 @@ Learning to code can drastically improve your communication skills. Being able t
 <h2 id="cpp_execution"><span class="section-number-2">2.</span> 程式的編寫與執行</h2>
 <div class="outline-text-2" id="text-cpp_execution">
 </div>
-<div id="outline-container-org97e44fe" class="outline-3">
-<h3 id="org97e44fe"><span class="section-number-3">2.1.</span> source code</h3>
+<div id="outline-container-org78344f8" class="outline-3">
+<h3 id="org78344f8"><span class="section-number-3">2.1.</span> source code</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 所謂的程式碼基本上都只是一些文字檔，只是這些文字的撰寫是依照不同語言(如 C、C++、Python、R&#x2026;)所規定的語法(syntax)來撰寫，以達到特定目的。<br />
 </p>
 </div>
 </div>
-<div id="outline-container-org133900b" class="outline-3">
-<h3 id="org133900b"><span class="section-number-3">2.2.</span> 編寫</h3>
+<div id="outline-container-org448a0ce" class="outline-3">
+<h3 id="org448a0ce"><span class="section-number-3">2.2.</span> 編寫</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 既然程式碼只是文字檔，所以，其實我們可以很單純的以 windows 的記事本或是 MacOS 中的 TextEdit 來編寫各種語言的程式碼，只是，使用這些應用程式來編寫程式會相對辛苦，因為相對於一些專用的應用程式如 DevC++、VSCode、PyCharm 等都會提供撰寫者許多的額外功能，例如即時除錯、自動縮排、自動補完(auto complete)，甚至是後續的編譯、執行..。<br />
 </p>
 </div>
 </div>
-<div id="outline-container-org5a39d05" class="outline-3">
-<h3 id="org5a39d05"><span class="section-number-3">2.3.</span> 編譯與執行</h3>
+<div id="outline-container-org166f9af" class="outline-3">
+<h3 id="org166f9af"><span class="section-number-3">2.3.</span> 編譯與執行</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 既然寫完的程式碼只是文字檔，那這些文字檔要如何變成可以執行的執行檔呢？<br />
@@ -408,7 +409,7 @@ Learning to code can drastically improve your communication skills. Being able t
 </p>
 
 
-<div id="org6cfb13f" class="figure">
+<div id="orgbc2ea9a" class="figure">
 <p><img src="images/程式的編寫與執行/2023-11-26_21-53-14_2023-11-26_21-48-06.png" alt="2023-11-26_21-53-14_2023-11-26_21-48-06.png" width="500" /><br />
 </p>
 <p><span class="figure-number">Figure 2: </span>C++ Build Model</p>
@@ -419,12 +420,12 @@ Learning to code can drastically improve your communication skills. Being able t
 </p>
 </div>
 </div>
-<div id="outline-container-orgf48fbda" class="outline-3">
-<h3 id="orgf48fbda"><span class="section-number-3">2.4.</span> 幾種寫程式的環境</h3>
+<div id="outline-container-org847abb5" class="outline-3">
+<h3 id="org847abb5"><span class="section-number-3">2.4.</span> 幾種寫程式的環境</h3>
 <div class="outline-text-3" id="text-2-4">
 </div>
 <ol class="org-ol">
-<li><a id="org01118cd"></a>MacOS<br />
+<li><a id="orga714d0d"></a>MacOS<br />
 <div class="outline-text-4" id="text-2-4-1">
 <ul class="org-ul">
 <li><a href="https://developer.apple.com/documentation/xcode">Xcode</a><br /></li>
@@ -432,26 +433,26 @@ Learning to code can drastically improve your communication skills. Being able t
 </ul>
 </div>
 </li>
-<li><a id="org1029b5f"></a>Windows<br />
+<li><a id="org0befc32"></a>Windows<br />
 <ul class="org-ul">
-<li><a id="org6acec35"></a>DevC++<br />
-<div class="outline-text-5" id="text-org6acec35">
+<li><a id="org5a4657d"></a>DevC++<br />
+<div class="outline-text-5" id="text-org5a4657d">
 <ul class="org-ul">
 <li><a href="https://progressbar.tw/posts/7">[C語言] 01. Dev C++ 程式編輯器，大一理工學院新生惡夢的開始。</a><br /></li>
 <li><a href="http://selfinquiring.hatenablog.com/entry/2016/03/18/204352">Nova的科學反主流學院　</a><br /></li>
 </ul>
 </div>
 </li>
-<li><a id="orge833d0d"></a>Code::Blocks<br />
-<div class="outline-text-5" id="text-orge833d0d">
+<li><a id="orge71af49"></a>Code::Blocks<br />
+<div class="outline-text-5" id="text-orge71af49">
 <ul class="org-ul">
 <li><a href="https://blog.csdn.net/DongChengRong/article/details/78624068">安裝BlockCode</a><br /></li>
 <li><a href="https://mks.tw/1053/cc-codeblocks-%E8%BC%95%E5%B7%A7%E7%9A%84%E6%95%B4%E5%90%88%E5%BC%8F%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83">[C/C++] Code::Blocks 輕巧的整合式開發環境</a><br /></li>
 </ul>
 </div>
 </li>
-<li><a id="orgd522ec1"></a>Visual Studio Code<br />
-<div class="outline-text-5" id="text-orgd522ec1">
+<li><a id="orge421575"></a>Visual Studio Code<br />
+<div class="outline-text-5" id="text-orge421575">
 <ul class="org-ul">
 <li><a href="https://blog.csdn.net/HelloZEX/article/details/84029810">【VS】VS Code安装、配置、使用（windows10 64）</a><br /></li>
 <li><a href="https://tw.alphacamp.co/blog/visual-studio-code-editor-tutorial-and-extensions">VSCode快速安裝教學，推薦常用外掛擴充套件</a><br /></li>
@@ -460,7 +461,7 @@ Learning to code can drastically improve your communication skills. Being able t
 </li>
 </ul>
 </li>
-<li><a id="orgf7f8269"></a>線上 coding 環境<br />
+<li><a id="org3b6c5f2"></a>線上 coding 環境<br />
 <div class="outline-text-4" id="text-2-4-3">
 <ul class="org-ul">
 <li><a href="http://cpp.sh/">cpp.sh</a><br /></li>
@@ -492,8 +493,8 @@ Learning to code can drastically improve your communication skills. Being able t
 Hello world
 </pre>
 </div>
-<div id="outline-container-org3ccbd8e" class="outline-3">
-<h3 id="org3ccbd8e"><span class="section-number-3">3.1.</span> main()</h3>
+<div id="outline-container-org24a451d" class="outline-3">
+<h3 id="org24a451d"><span class="section-number-3">3.1.</span> main()</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 C/C++的程式由許多的 function(函式)組成，function 的基本架構如下：<br />
@@ -510,8 +511,8 @@ C/C++的程式由許多的 function(函式)組成，function 的基本架構如�
 </p>
 </div>
 </div>
-<div id="outline-container-org1430774" class="outline-3">
-<h3 id="org1430774"><span class="section-number-3">3.2.</span> 標頭檔(Headers)</h3>
+<div id="outline-container-org40d3a28" class="outline-3">
+<h3 id="org40d3a28"><span class="section-number-3">3.2.</span> 標頭檔(Headers)</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 上述程式中，第<a href="#coderef-header" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-header');" onmouseout="CodeHighlightOff(this, 'coderef-header');">1</a>行為標頭檔(Header)的引入，這裡告訴 Compiler 說我需要用到 iostream 這個 header，原因是程式的第<a href="#coderef-cout" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-cout');" onmouseout="CodeHighlightOff(this, 'coderef-cout');">6</a>行用到 cout 這個指令，而這個指令就被定義在 iostream 這個 header 中，其中的 io 即代表 input/output。<br />
@@ -539,8 +540,8 @@ C/C++的程式由許多的 function(函式)組成，function 的基本架構如�
 </pre>
 </div>
 </div>
-<div id="outline-container-orgae3e83a" class="outline-3">
-<h3 id="orgae3e83a"><span class="section-number-3">3.3.</span> 命名空間(namespace)</h3>
+<div id="outline-container-org8fc3758" class="outline-3">
+<h3 id="org8fc3758"><span class="section-number-3">3.3.</span> 命名空間(namespace)</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 一支程式往往會用到許多的指令、函式、變數，不同單位所開發的程式也許會用到相同的名稱來為這些函式或變數命名，如此一來就可能導致名稱的衝突。舉個例子，在一年級新生中，有三個班級裡都有個叫*陳宜君*的同學，那麼我們怎麼區分這三位同學呢？一個方式在提及這些同學時在前面加上班級，如：一年三班的陳宜君。<br />
@@ -594,8 +595,8 @@ C++就提出這種方式來解決名稱可能衝突的問題，以下面程式�
 顧名思意，輸出是將資料輸出到某種設備（如螢幕、印表機&#x2026;）, 常見的輸出指令有 cout、printf()、puts()、putchar()等。<br />
 </p>
 </div>
-<div id="outline-container-orgc2e9b7c" class="outline-3">
-<h3 id="orgc2e9b7c"><span class="section-number-3">4.1.</span> cout</h3>
+<div id="outline-container-org7112c2b" class="outline-3">
+<h3 id="org7112c2b"><span class="section-number-3">4.1.</span> cout</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 cout 為 iostream 這個類別(class)的 object<sup><a id="fnr.3" class="footref" href="#fn.3" role="doc-backlink">3</a></sup>，所以程式中若使用到 cout 就必須 include iostream。cout 可以將文字資料與變數資料列印在螢幕上，在語法上會使用&lt;&lt;作為文字與變數之間的連接工具，若要換行則使用&ldquo;\n&rdquo;或是關鍵字 endl<sup><a id="fnr.4" class="footref" href="#fn.4" role="doc-backlink">4</a></sup>。<br />
@@ -654,7 +655,7 @@ Hello world
 </pre>
 </div>
 <ol class="org-ol">
-<li><a id="org7b22841"></a>float v.s. double<br />
+<li><a id="org36e5592"></a>float v.s. double<br />
 <div class="outline-text-4" id="text-4-2-1">
 <p>
 在 C++ 中，使用 printf() 函數輸出 double 或 float 變數時，可以使用格式化字符串指定輸出的格式。對於 float 和 double 變數，常用的格式化符號是 %f 或 %lf。<br />
@@ -686,8 +687,8 @@ Hello world
 </li>
 </ol>
 </div>
-<div id="outline-container-orge2faa84" class="outline-3">
-<h3 id="orge2faa84"><span class="section-number-3">4.3.</span> 跳脫字元</h3>
+<div id="outline-container-org8950a9c" class="outline-3">
+<h3 id="org8950a9c"><span class="section-number-3">4.3.</span> 跳脫字元</h3>
 <div class="outline-text-3" id="text-4-3">
 <p>
 如果你試過利用 C++來輸出下列這段話：<br />
@@ -700,7 +701,7 @@ Hello world
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org851da35"></a>cout + 單引號<br />
+<li><a id="org2e7fff5"></a>cout + 單引號<br />
 <div class="outline-text-4" id="text-4-3-1">
 <p>
 以兩個單引號將雙引號括起來，如下列程式。<br />
@@ -719,7 +720,7 @@ Hello world
 </pre>
 </div>
 </li>
-<li><a id="org9ba3653"></a>加上跳脫字元<br />
+<li><a id="org7bb13ee"></a>加上跳脫字元<br />
 <div class="outline-text-4" id="text-4-3-2">
 <p>
 即，在字串中的雙引號前加上\，變成\&ldquo;，如下<br />
@@ -795,8 +796,8 @@ Hello world
 <h2 id="cpp_variables"><span class="section-number-2">5.</span> Variable</h2>
 <div class="outline-text-2" id="text-cpp_variables">
 </div>
-<div id="outline-container-org53c4a77" class="outline-3">
-<h3 id="org53c4a77"><span class="section-number-3">5.1.</span> 關於變數</h3>
+<div id="outline-container-orgb6b4aa3" class="outline-3">
+<h3 id="orgb6b4aa3"><span class="section-number-3">5.1.</span> 關於變數</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
 A variable is a name given to a memory location. It is the basic unit of storage in a program<sup><a id="fnr.5" class="footref" href="#fn.5" role="doc-backlink">5</a></sup>.<br />
@@ -808,14 +809,14 @@ A variable is a name given to a memory location. It is the basic unit of storage
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf52b406" class="outline-3">
-<h3 id="orgf52b406"><span class="section-number-3">5.2.</span> <a id="org35790ca"></a>變數的宣告與應用</h3>
+<div id="outline-container-org58a2b0a" class="outline-3">
+<h3 id="org58a2b0a"><span class="section-number-3">5.2.</span> <a id="orgb062f53"></a>變數的宣告與應用</h3>
 <div class="outline-text-3" id="text-5-2">
 <p>
 變數是資料的標籤，而非資料本身。電腦程式很大一部分是在操作資料，變數在本質上是用來操作資料的一種語法特性。<sup><a id="fnr.6" class="footref" href="#fn.6" role="doc-backlink">6</a></sup><br />
 </p>
 
-<div id="orgd2ecc36" class="figure">
+<div id="orgcb10822" class="figure">
 <p><img src="images/Variables-in-C-1.jpg" alt="Variables-in-C-1.jpg" width="400" /><br />
 </p>
 <p><span class="figure-number">Figure 3: </span>Variables in C++</p>
@@ -853,8 +854,8 @@ C 語言的變數宣告語法如下：<br />
 </pre>
 </div>
 </div>
-<div id="outline-container-org6d29e9c" class="outline-3">
-<h3 id="org6d29e9c"><span class="section-number-3">5.3.</span> 變數的命名規則</h3>
+<div id="outline-container-orgacce1aa" class="outline-3">
+<h3 id="orgacce1aa"><span class="section-number-3">5.3.</span> 變數的命名規則</h3>
 <div class="outline-text-3" id="text-5-3">
 <ol class="org-ol">
 <li>可用字母、數字、底線。<br /></li>
@@ -943,12 +944,12 @@ C 語言的變數宣告語法如下：<br />
 </p>
 </div>
 </div>
-<div id="outline-container-org5de777b" class="outline-3">
-<h3 id="org5de777b"><span class="section-number-3">5.5.</span> 變數的極限</h3>
+<div id="outline-container-orgd3e5089" class="outline-3">
+<h3 id="orgd3e5089"><span class="section-number-3">5.5.</span> 變數的極限</h3>
 <div class="outline-text-3" id="text-5-5">
 </div>
 <ol class="org-ol">
-<li><a id="orge9720f1"></a>範例<br />
+<li><a id="org67df4e9"></a>範例<br />
 <div class="outline-text-4" id="text-5-5-1">
 <div class="org-src-container">
 <pre class="src src-cpp"><span class="linenr"> 1: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #51afef;">&lt;</span><span style="color: #98be65;">iostream</span><span style="color: #51afef;">&gt;</span>
@@ -975,7 +976,7 @@ C 語言的變數宣告語法如下：<br />
 </pre>
 </div>
 </li>
-<li><a id="orgcfbaf5d"></a>詳細內容：<br />
+<li><a id="orga32d0e1"></a>詳細內容：<br />
 <div class="outline-text-4" id="text-5-5-2">
 <p>
 <a href="https://en.cppreference.com/w/c/types/limits">https://en.cppreference.com/w/c/types/limits</a><br />
@@ -989,8 +990,8 @@ C 語言的變數宣告語法如下：<br />
 <h2 id="cpp_input"><span class="section-number-2">6.</span> 輸入</h2>
 <div class="outline-text-2" id="text-cpp_input">
 </div>
-<div id="outline-container-org5b8d82a" class="outline-3">
-<h3 id="org5b8d82a"><span class="section-number-3">6.1.</span> 變數的輪入</h3>
+<div id="outline-container-org2f1c5f5" class="outline-3">
+<h3 id="org2f1c5f5"><span class="section-number-3">6.1.</span> 變數的輪入</h3>
 <div class="outline-text-3" id="text-6-1">
 <p>
 前節提及變數的宣告、指定內容以及輸出變數，然而在程式內容中指定變數值實在很沒有彈性，我們可以透過輸入(cin)的方式將指定變數值的時機延後到程式執行時，由使用者來指定，例如：<br />
@@ -1014,15 +1015,15 @@ C 語言的變數宣告語法如下：<br />
 </p>
 </div>
 </div>
-<div id="outline-container-org2ddc900" class="outline-3">
-<h3 id="org2ddc900"><span class="section-number-3">6.2.</span> 一個以上的變數輸入</h3>
+<div id="outline-container-org78d2867" class="outline-3">
+<h3 id="org78d2867"><span class="section-number-3">6.2.</span> 一個以上的變數輸入</h3>
 <div class="outline-text-3" id="text-6-2">
 <p>
 如果要輸入多個變數，可以採以下兩種方式(類似 cout 的做法)<br />
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="orgc3a398b"></a>分開 cin<br />
+<li><a id="org5d6a561"></a>分開 cin<br />
 <div class="outline-text-4" id="text-6-2-1">
 <div class="org-src-container">
 <pre class="src src-cpp"><span class="linenr">1: </span><span style="color: #5B6268;">//</span><span style="color: #5B6268;">...</span>
@@ -1035,7 +1036,7 @@ C 語言的變數宣告語法如下：<br />
 </div>
 </div>
 </li>
-<li><a id="orgdb4bccb"></a>以&gt;&gt;串接<br />
+<li><a id="orgf247cdf"></a>以&gt;&gt;串接<br />
 <div class="outline-text-4" id="text-6-2-2">
 <div class="org-src-container">
 <pre class="src src-cpp"><span class="linenr">1: </span><span style="color: #5B6268;">//</span><span style="color: #5B6268;">...</span>
@@ -1053,8 +1054,8 @@ C 語言的變數宣告語法如下：<br />
 <h2 id="cpp_operation"><span class="section-number-2">7.</span> 運算式</h2>
 <div class="outline-text-2" id="text-cpp_operation">
 </div>
-<div id="outline-container-orgf67944f" class="outline-3">
-<h3 id="orgf67944f"><span class="section-number-3">7.1.</span> 指定運算</h3>
+<div id="outline-container-org4ac9ca5" class="outline-3">
+<h3 id="org4ac9ca5"><span class="section-number-3">7.1.</span> 指定運算</h3>
 <div class="outline-text-3" id="text-7-1">
 <p>
 最基本的運算子為=(assign)，即，將資料(數值、字元或字串)存入某變數空間中，如:<br />
@@ -1112,7 +1113,7 @@ C 語言的變數宣告語法如下：<br />
 
 
 <p>
-如同<a href="#org35790ca">5.2</a>所述:<br />
+如同<a href="#orgb062f53">5.2</a>所述:<br />
 </p>
 <p class="verse">
 等號運算子其作用為指定(assign)，即是將等號*右邊*的值存入等號*左邊*的變數(空間)中<br />
@@ -1122,8 +1123,8 @@ C 語言的變數宣告語法如下：<br />
 </p>
 </div>
 </div>
-<div id="outline-container-org3e2a8e5" class="outline-3">
-<h3 id="org3e2a8e5"><span class="section-number-3">7.2.</span> 數值運算</h3>
+<div id="outline-container-org7503636" class="outline-3">
+<h3 id="org7503636"><span class="section-number-3">7.2.</span> 數值運算</h3>
 <div class="outline-text-3" id="text-7-2">
 <p>
 C/C++的基本數值運算有+、-、*、/、%，最後的%為取餘數。<br />
@@ -1175,7 +1176,7 @@ C/C++的基本數值運算有+、-、*、/、%，最後的%為取餘數。<br />
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org23de197"></a>進階運算<br />
+<li><a id="org157f89d"></a>進階運算<br />
 <div class="outline-text-4" id="text-7-2-1">
 <p>
 C++也提供一些較複雜的數學運算如開根號、log、或是 sin、cos 等，但使用時必須 include 函式庫(math.h)<br />
@@ -1279,15 +1280,15 @@ C++也提供一些較複雜的數學運算如開根號、log、或是 sin、cos 
 </table>
 </div>
 </div>
-<div id="outline-container-org9a4f6b0" class="outline-3">
-<h3 id="org9a4f6b0"><span class="section-number-3">7.4.</span> 條件運算</h3>
+<div id="outline-container-org1916b50" class="outline-3">
+<h3 id="org1916b50"><span class="section-number-3">7.4.</span> 條件運算</h3>
 <div class="outline-text-3" id="text-7-4">
 <p>
 上述關係運算所得的條件值(true/false)也可以再進行運算，而運算的結果也只有兩類: true/false。最基本的條件運算有以下三項：<br />
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org0cdd794"></a>&amp;&amp;, and<br />
+<li><a id="orgeb183df"></a>&amp;&amp;, and<br />
 <div class="outline-text-4" id="text-7-4-1">
 <p>
 且，只有在兩項條件均成立時其運算結果才是 true，否則其結果為 false，如<br />
@@ -1310,7 +1311,7 @@ C++也提供一些較複雜的數學運算如開根號、log、或是 sin、cos 
 </pre>
 </div>
 </li>
-<li><a id="orgb37013e"></a>||, or<br />
+<li><a id="org2a198d4"></a>||, or<br />
 <div class="outline-text-4" id="text-7-4-2">
 <div class="org-src-container">
 <pre class="src src-cpp"><span class="linenr">1: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #51afef;">&lt;</span><span style="color: #98be65;">iostream</span><span style="color: #51afef;">&gt;</span>
@@ -1330,7 +1331,7 @@ C++也提供一些較複雜的數學運算如開根號、log、或是 sin、cos 
 </pre>
 </div>
 </li>
-<li><a id="org751ea03"></a>!, not<br />
+<li><a id="org8814200"></a>!, not<br />
 <div class="outline-text-4" id="text-7-4-3">
 <div class="org-src-container">
 <pre class="src src-cpp"><span class="linenr">1: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #51afef;">&lt;</span><span style="color: #98be65;">iostream</span><span style="color: #51afef;">&gt;</span>
@@ -1365,12 +1366,12 @@ C++也提供一些較複雜的數學運算如開根號、log、或是 sin、cos 
 if 判斷式可用來判斷條件是否成立，並且依照條件之成立與否，來執行不同的程式碼<sup><a id="fnr.8" class="footref" href="#fn.8" role="doc-backlink">8</a></sup>。依照條件的複雜程度可大致分為以下三類：<br />
 </p>
 </div>
-<div id="outline-container-orgb63ba36" class="outline-3">
-<h3 id="orgb63ba36"><span class="section-number-3">8.1.</span> 單一條件</h3>
+<div id="outline-container-org23d1041" class="outline-3">
+<h3 id="org23d1041"><span class="section-number-3">8.1.</span> 單一條件</h3>
 <div class="outline-text-3" id="text-8-1">
 </div>
 <ol class="org-ol">
-<li><a id="org2e50514"></a>語法<br />
+<li><a id="org7881f81"></a>語法<br />
 <div class="outline-text-4" id="text-8-1-1">
 <p>
 最簡單型式的條件式如下，即，當條件成立，則執行程式碼。<br />
@@ -1383,7 +1384,7 @@ if 判斷式可用來判斷條件是否成立，並且依照條件之成立與�
 </div>
 </div>
 </li>
-<li><a id="org8df8c19"></a>範例<br />
+<li><a id="org2a1696a"></a>範例<br />
 <div class="outline-text-4" id="text-8-1-2">
 <p>
 若分數及格，則輸出 PASS<br />
@@ -1410,18 +1411,18 @@ PASS
 <div class="outline-text-4" id="text-CPP_ifelse_practice1">
 </div>
 <ul class="org-ul">
-<li><a id="org257524a"></a>A: 輸入一整數，判斷正負，輸出結果。<br />
+<li><a id="org799a727"></a>A: 輸入一整數，判斷正負，輸出結果。<br />
 <ul class="org-ul">
-<li><a id="org2465ff0"></a>測資 1<br />
-<div class="outline-text-6" id="text-org2465ff0">
+<li><a id="org0aa3388"></a>測資 1<br />
+<div class="outline-text-6" id="text-org0aa3388">
 <ul class="org-ul">
 <li>輸入: 3<br /></li>
 <li>輸出: 3&gt;0<br /></li>
 </ul>
 </div>
 </li>
-<li><a id="orgffa55cc"></a>測資 2<br />
-<div class="outline-text-6" id="text-orgffa55cc">
+<li><a id="org9d8fd25"></a>測資 2<br />
+<div class="outline-text-6" id="text-org9d8fd25">
 <ul class="org-ul">
 <li>輸入: -4<br /></li>
 <li>輸出: -4&lt;0<br /></li>
@@ -1430,18 +1431,18 @@ PASS
 </li>
 </ul>
 </li>
-<li><a id="org56d993e"></a>B: 輸入一整數，判斷奇偶，輸出結果。<br />
+<li><a id="org3cf9c47"></a>B: 輸入一整數，判斷奇偶，輸出結果。<br />
 <ul class="org-ul">
-<li><a id="orga1df178"></a>測資 1<br />
-<div class="outline-text-6" id="text-orga1df178">
+<li><a id="orgb8cbf21"></a>測資 1<br />
+<div class="outline-text-6" id="text-orgb8cbf21">
 <ul class="org-ul">
 <li>輸入: 3<br /></li>
 <li>輸出: The number 3 is odd.<br /></li>
 </ul>
 </div>
 </li>
-<li><a id="org551fd2e"></a>測資 2<br />
-<div class="outline-text-6" id="text-org551fd2e">
+<li><a id="org2b8b843"></a>測資 2<br />
+<div class="outline-text-6" id="text-org2b8b843">
 <ul class="org-ul">
 <li>輸入: -4<br /></li>
 <li>輸出: The number -4 is even.<br /></li>
@@ -1454,8 +1455,8 @@ PASS
 </li>
 </ol>
 </div>
-<div id="outline-container-orgafd4218" class="outline-3">
-<h3 id="orgafd4218"><span class="section-number-3">8.2.</span> 條件運算(條件的組合)</h3>
+<div id="outline-container-orgedc22b6" class="outline-3">
+<h3 id="orgedc22b6"><span class="section-number-3">8.2.</span> 條件運算(條件的組合)</h3>
 <div class="outline-text-3" id="text-8-2">
 <p>
 在前節的範例中，我們看到的是最簡單的條件，如<br />
@@ -1556,12 +1557,12 @@ C++的條件運算子列表如下：<br />
 </table>
 </div>
 </div>
-<div id="outline-container-orga4f7947" class="outline-3">
-<h3 id="orga4f7947"><span class="section-number-3">8.3.</span> 雙重條件</h3>
+<div id="outline-container-org4d05d71" class="outline-3">
+<h3 id="org4d05d71"><span class="section-number-3">8.3.</span> 雙重條件</h3>
 <div class="outline-text-3" id="text-8-3">
 </div>
 <ol class="org-ol">
-<li><a id="org5600315"></a>語法<br />
+<li><a id="orgf7137d5"></a>語法<br />
 <div class="outline-text-4" id="text-8-3-1">
 <p>
 若條件的可能性可分為兩類，則可使用如下 if..else..的條件式，即:<br />
@@ -1580,7 +1581,7 @@ C++的條件運算子列表如下：<br />
 </div>
 </div>
 </li>
-<li><a id="orgee3c548"></a>範例<br />
+<li><a id="org9aa609e"></a>範例<br />
 <div class="outline-text-4" id="text-8-3-2">
 <p>
 若分數及格，則輸出 PASS，否則輸出 FAIL<br />
@@ -1605,20 +1606,20 @@ FAIL
 </pre>
 </div>
 </li>
-<li><a id="org1add2e3"></a>課堂練習<br />
+<li><a id="orgdfb0499"></a>課堂練習<br />
 <ul class="org-ul">
-<li><a id="org3741016"></a>A: 輸入一元二次方程式 \(ax^2+bx+c=0\) 中的 a,b,c 三參數，判斷此方程式是否有實數解，若有，則輸出 X exists.；若無實數解，則輸出 X does not exist.<br />
+<li><a id="org9c26926"></a>A: 輸入一元二次方程式 \(ax^2+bx+c=0\) 中的 a,b,c 三參數，判斷此方程式是否有實數解，若有，則輸出 X exists.；若無實數解，則輸出 X does not exist.<br />
 <ul class="org-ul">
-<li><a id="org793c7e6"></a>測資 1<br />
-<div class="outline-text-6" id="text-org793c7e6">
+<li><a id="orgd917184"></a>測資 1<br />
+<div class="outline-text-6" id="text-orgd917184">
 <ul class="org-ul">
 <li>輸入: 1 3 -10<br /></li>
 <li>輸出: X exists.<br /></li>
 </ul>
 </div>
 </li>
-<li><a id="orgd156a90"></a>測資 2<br />
-<div class="outline-text-6" id="text-orgd156a90">
+<li><a id="orgb56d588"></a>測資 2<br />
+<div class="outline-text-6" id="text-orgb56d588">
 <ul class="org-ul">
 <li>輸入: 1 2 3<br /></li>
 <li>輸出: X does not exist.<br /></li>
@@ -1631,15 +1632,15 @@ FAIL
 </li>
 </ol>
 </div>
-<div id="outline-container-orga65bf04" class="outline-3">
-<h3 id="orga65bf04"><span class="section-number-3">8.4.</span> 巢狀條件</h3>
+<div id="outline-container-org050c6e7" class="outline-3">
+<h3 id="org050c6e7"><span class="section-number-3">8.4.</span> 巢狀條件</h3>
 <div class="outline-text-3" id="text-8-4">
 <p>
 上節中提及若 if 後的件條成立，則執行大括號中的程式碼，此段程式碼也可以是 if 條件本身，如：<br />
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org31482e5"></a>語法<br />
+<li><a id="org17c85f1"></a>語法<br />
 <div class="outline-text-4" id="text-8-4-1">
 <div class="org-src-container">
 <pre class="src src-cpp"><span style="color: #51afef;">if</span> <span style="color: #51afef;">(</span>&#26781;&#20214;1<span style="color: #51afef;">)</span> <span style="color: #51afef;">{</span>
@@ -1655,7 +1656,7 @@ FAIL
 </div>
 </div>
 </li>
-<li><a id="org1d5f244"></a>範例<br />
+<li><a id="org07984c5"></a>範例<br />
 <div class="outline-text-4" id="text-8-4-2">
 <div class="org-src-container">
 <pre class="src src-cpp"><span class="linenr"> 1: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #51afef;">&lt;</span><span style="color: #98be65;">iostream</span><span style="color: #51afef;">&gt;</span>
@@ -1678,28 +1679,28 @@ FAIL
 </div>
 </div>
 </li>
-<li><a id="org27852a5"></a>課堂練習<br />
+<li><a id="orgb10f8d0"></a>課堂練習<br />
 <ul class="org-ul">
-<li><a id="org4a4597f"></a>A: 輸入一分數，若該分數合理(介於 0~100 間`)，則繼續判斷是否及格，若及格則輸出 PASS，若不及格則輸出 FAIL；若該分數不合理，則輸出: Invalid score。<br />
+<li><a id="org2bc3cf9"></a>A: 輸入一分數，若該分數合理(介於 0~100 間`)，則繼續判斷是否及格，若及格則輸出 PASS，若不及格則輸出 FAIL；若該分數不合理，則輸出: Invalid score。<br />
 <ul class="org-ul">
-<li><a id="orgebeeef1"></a>測資 1<br />
-<div class="outline-text-6" id="text-orgebeeef1">
+<li><a id="org5dd2e3d"></a>測資 1<br />
+<div class="outline-text-6" id="text-org5dd2e3d">
 <ul class="org-ul">
 <li>輸入: 30<br /></li>
 <li>輸出: FAIL<br /></li>
 </ul>
 </div>
 </li>
-<li><a id="orga815e11"></a>測資 2<br />
-<div class="outline-text-6" id="text-orga815e11">
+<li><a id="orga9a70a4"></a>測資 2<br />
+<div class="outline-text-6" id="text-orga9a70a4">
 <ul class="org-ul">
 <li>輸入: 300<br /></li>
 <li>輸出: Invalid score<br /></li>
 </ul>
 </div>
 </li>
-<li><a id="orge894d72"></a>測資 3<br />
-<div class="outline-text-6" id="text-orge894d72">
+<li><a id="org5be2ea4"></a>測資 3<br />
+<div class="outline-text-6" id="text-org5be2ea4">
 <ul class="org-ul">
 <li>輸入: 99<br /></li>
 <li>輸出: PASS<br /></li>
@@ -1717,7 +1718,7 @@ FAIL
 <div class="outline-text-3" id="text-cpp_multi_conditions">
 </div>
 <ol class="org-ol">
-<li><a id="org5d35db2"></a>語法<br />
+<li><a id="orgd999670"></a>語法<br />
 <div class="outline-text-4" id="text-8-5-1">
 <ul class="org-ul">
 <li>當要判斷的條件可能性超過兩種，則可以用如下的 if..else if..條件式，即，<br /></li>
@@ -1742,7 +1743,7 @@ FAIL
 </div>
 </div>
 </li>
-<li><a id="orgb4027ea"></a>範例<br />
+<li><a id="org246cf50"></a>範例<br />
 <div class="outline-text-4" id="text-8-5-2">
 <p>
 將分數轉成等第(A, B, C&#x2026;)<br />
@@ -1782,8 +1783,8 @@ C
 計算機的優勢除了運算速度之快，更重要的是它十分適合拿來做一些重複性極高的工作，例如，幫所有同學計算月考平均、幫全國所有家庭計算須繳所得稅&#x2026;.，For 迴圈即是許多語言用來執行重複工作的指令。<br />
 </p>
 </div>
-<div id="outline-container-org36047cf" class="outline-3">
-<h3 id="org36047cf"><span class="section-number-3">9.1.</span> 語法 1 (要重複的程式碼只有一行時)</h3>
+<div id="outline-container-orgcac75e1" class="outline-3">
+<h3 id="orgcac75e1"><span class="section-number-3">9.1.</span> 語法 1 (要重複的程式碼只有一行時)</h3>
 <div class="outline-text-3" id="text-9-1">
 <div class="org-src-container">
 <pre class="src src-cpp"><span class="linenr">1: </span><span style="color: #51afef;">for</span> <span style="color: #51afef;">(</span>&#21021;&#22987;&#20540;; &#26781;&#20214;&#24335;; &#26356;&#26032;&#20540;<span style="color: #51afef;">)</span> &#31243;&#24335;&#30908;;
@@ -1791,8 +1792,8 @@ C
 </div>
 </div>
 </div>
-<div id="outline-container-orgf2b484f" class="outline-3">
-<h3 id="orgf2b484f"><span class="section-number-3">9.2.</span> 語法 2 (要重複一行以上程式碼時)</h3>
+<div id="outline-container-orgbed248f" class="outline-3">
+<h3 id="orgbed248f"><span class="section-number-3">9.2.</span> 語法 2 (要重複一行以上程式碼時)</h3>
 <div class="outline-text-3" id="text-9-2">
 <div class="org-src-container">
 <pre class="src src-cpp"><span class="linenr">1: </span><span style="color: #51afef;">for</span> <span style="color: #51afef;">(</span>&#21021;&#22987;&#20540;; &#26781;&#20214;&#24335;; &#26356;&#26032;&#20540;<span style="color: #51afef;">){</span>
@@ -1808,8 +1809,8 @@ C
 </p>
 </div>
 </div>
-<div id="outline-container-org088b0d0" class="outline-3">
-<h3 id="org088b0d0"><span class="section-number-3">9.3.</span> 範例</h3>
+<div id="outline-container-org1cdee0c" class="outline-3">
+<h3 id="org1cdee0c"><span class="section-number-3">9.3.</span> 範例</h3>
 <div class="outline-text-3" id="text-9-3">
 <div class="org-src-container">
 <pre class="src src-cpp"><span class="linenr">1: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #51afef;">&lt;</span><span style="color: #98be65;">iostream</span><span style="color: #51afef;">&gt;</span>
@@ -1849,8 +1850,8 @@ C
 </ol>
 </div>
 </div>
-<div id="outline-container-orgb1c6351" class="outline-3">
-<h3 id="orgb1c6351"><span class="section-number-3">9.4.</span> 練習</h3>
+<div id="outline-container-orgf141502" class="outline-3">
+<h3 id="orgf141502"><span class="section-number-3">9.4.</span> 練習</h3>
 <div class="outline-text-3" id="text-9-4">
 <ol class="org-ol">
 <li>輸入 n，輸出所有小於 n 的偶數．<br /></li>
@@ -1867,14 +1868,14 @@ C
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org945c2af"></a>例題<br />
+<li><a id="org55f9134"></a>例題<br />
 <div class="outline-text-4" id="text-9-5-1">
 <p>
 小明買了 N 張單碼彩卷，問是否全部摃龜，若這 N 張彩卷中至少有一張中奬(號碼=77)，則輸出&ldquo;NOT BAD&rdquo;，否則輸出&ldquo;QQ&rdquo;。<br />
 </p>
 </div>
 </li>
-<li><a id="org848daae"></a>想法 1<br />
+<li><a id="org09588cf"></a>想法 1<br />
 <div class="outline-text-4" id="text-9-5-2">
 <p>
 面上述要求，for 迴圈的初學者可能會想在 for 中直接判斷中奬與否，如下:<br />
@@ -1909,7 +1910,7 @@ QQ
 </p>
 </div>
 </li>
-<li><a id="org5771d9a"></a>想法 2<br />
+<li><a id="org1506e5a"></a>想法 2<br />
 <div class="outline-text-4" id="text-9-5-3">
 <p>
 另一種做法是，我們可以在 for 裡去計算中奬的次數，等到全部輸入完畢後，最後再統計一共有幾張中奬，這樣就可以解決上述問題：<br />
@@ -1953,7 +1954,7 @@ NOT BAD
 </p>
 </div>
 </li>
-<li><a id="org35245ca"></a>想法 3<br />
+<li><a id="org47bac64"></a>想法 3<br />
 <div class="outline-text-4" id="text-9-5-4">
 <div class="org-src-container">
 <pre class="src src-cpp"><span class="linenr"> 1: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #51afef;">&lt;</span><span style="color: #98be65;">iostream</span><span style="color: #51afef;">&gt;</span>
@@ -1994,8 +1995,8 @@ NOT BAD
 <h2 id="cpp_nested_for"><span class="section-number-2">10.</span> Nested For Loop</h2>
 <div class="outline-text-2" id="text-cpp_nested_for">
 </div>
-<div id="outline-container-org5fb31d8" class="outline-3">
-<h3 id="org5fb31d8"><span class="section-number-3">10.1.</span> 語法</h3>
+<div id="outline-container-orgc247b31" class="outline-3">
+<h3 id="orgc247b31"><span class="section-number-3">10.1.</span> 語法</h3>
 <div class="outline-text-3" id="text-10-1">
 <div class="org-src-container">
 <pre class="src src-cpp"><span class="linenr">1: </span><span style="color: #51afef;">for</span> <span style="color: #51afef;">(</span>&#21021;&#22987;&#20540;1; &#26781;&#20214;&#24335;1; &#26356;&#26032;&#20540;1<span style="color: #51afef;">)</span> <span style="color: #51afef;">{</span>
@@ -2011,8 +2012,8 @@ NOT BAD
 </div>
 </div>
 </div>
-<div id="outline-container-org6340a5b" class="outline-3">
-<h3 id="org6340a5b"><span class="section-number-3">10.2.</span> 範例</h3>
+<div id="outline-container-orged90f7e" class="outline-3">
+<h3 id="orged90f7e"><span class="section-number-3">10.2.</span> 範例</h3>
 <div class="outline-text-3" id="text-10-2">
 <div class="org-src-container">
 <pre class="src src-cpp"><span class="linenr"> 1: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #51afef;">&lt;</span><span style="color: #98be65;">iostream</span><span style="color: #51afef;">&gt;</span>
@@ -2042,14 +2043,14 @@ NOT BAD
 </p>
 </div>
 </div>
-<div id="outline-container-org9b93b69" class="outline-3">
-<h3 id="org9b93b69"><span class="section-number-3">10.3.</span> 課堂練習</h3>
+<div id="outline-container-orgf77c838" class="outline-3">
+<h3 id="orgf77c838"><span class="section-number-3">10.3.</span> 課堂練習</h3>
 <div class="outline-text-3" id="text-10-3">
 </div>
 <ol class="org-ol">
-<li><a id="org39205b5"></a>輸入 x,y，輸出一由*構成、長為 x、寛為 y 的長方形，若 x=3, y=5，則輸出：<br />
+<li><a id="orgf00b371"></a>輸入 x,y，輸出一由*構成、長為 x、寛為 y 的長方形，若 x=3, y=5，則輸出：<br />
 <div class="outline-text-4" id="text-10-3-1">
-<pre class="example" id="orgd27a8d7">
+<pre class="example" id="orgc50471b">
 ***
 ***
 ***
@@ -2058,9 +2059,9 @@ NOT BAD
 </pre>
 </div>
 </li>
-<li><a id="org51e1f66"></a>輸入 n，若 n=5，輸出如下三角形:<br />
+<li><a id="org652fe46"></a>輸入 n，若 n=5，輸出如下三角形:<br />
 <div class="outline-text-4" id="text-10-3-2">
-<pre class="example" id="org9f2c9ff">
+<pre class="example" id="org9d1879f">
 *
 **
 ***
@@ -2069,9 +2070,9 @@ NOT BAD
 </pre>
 </div>
 </li>
-<li><a id="org22d66a9"></a>輸入 n，若 n=5，輸出如下三角形:<br />
+<li><a id="orgfefa541"></a>輸入 n，若 n=5，輸出如下三角形:<br />
 <div class="outline-text-4" id="text-10-3-3">
-<pre class="example" id="org43371dc">
+<pre class="example" id="org2aeeae1">
 *****
 ****
 ***
@@ -2080,9 +2081,9 @@ NOT BAD
 </pre>
 </div>
 </li>
-<li><a id="org271de4b"></a>輸入 n，若 n=5，輸出如下三角形:<br />
+<li><a id="orgdaa6eda"></a>輸入 n，若 n=5，輸出如下三角形:<br />
 <div class="outline-text-4" id="text-10-3-4">
-<pre class="example" id="org78639ce">
+<pre class="example" id="org147ad71">
 1
 22
 333
@@ -2098,12 +2099,12 @@ NOT BAD
 <h2 id="cpp_while"><span class="section-number-2">11.</span> While</h2>
 <div class="outline-text-2" id="text-cpp_while">
 </div>
-<div id="outline-container-orgf8dc4b9" class="outline-3">
-<h3 id="orgf8dc4b9"><span class="section-number-3">11.1.</span> While</h3>
+<div id="outline-container-org1a3c900" class="outline-3">
+<h3 id="org1a3c900"><span class="section-number-3">11.1.</span> While</h3>
 <div class="outline-text-3" id="text-11-1">
 </div>
 <ol class="org-ol">
-<li><a id="org13e1508"></a>語法<br />
+<li><a id="org45c7592"></a>語法<br />
 <div class="outline-text-4" id="text-11-1-1">
 <div class="org-src-container">
 <pre class="src src-cpp"><span class="linenr">1: </span><span style="color: #51afef;">while</span><span style="color: #51afef;">(</span> &#26781;&#20214;&#24335;1 <span style="color: #51afef;">)</span> <span style="color: #51afef;">{</span>
@@ -2124,7 +2125,7 @@ while 與 for 均為重複結構，比較起來，while 的語法結構更為簡
 </p>
 </div>
 </li>
-<li><a id="orgec6c686"></a>範例 1<br />
+<li><a id="orgc43834c"></a>範例 1<br />
 <div class="outline-text-4" id="text-11-1-2">
 <p>
 以 while 模擬 for loop<br />
@@ -2146,7 +2147,7 @@ while 與 for 均為重複結構，比較起來，while 的語法結構更為簡
 </div>
 </div>
 </li>
-<li><a id="org04faf48"></a>範例 2<br />
+<li><a id="org57c0798"></a>範例 2<br />
 <div class="outline-text-4" id="text-11-1-3">
 <p>
 九九乘法表<br />
@@ -2179,7 +2180,7 @@ while 與 for 均為重複結構，比較起來，while 的語法結構更為簡
 </pre>
 </div>
 </li>
-<li><a id="org8b5f0b4"></a>課堂練習<br />
+<li><a id="org3090962"></a>課堂練習<br />
 <div class="outline-text-4" id="text-11-1-4">
 <ul class="org-ul">
 <li>輸入一整數 n，輸出\(\)\(\sum{n}\)，以 while 完成。<br /></li>
@@ -2188,8 +2189,8 @@ while 與 for 均為重複結構，比較起來，while 的語法結構更為簡
 </li>
 </ol>
 </div>
-<div id="outline-container-orgd715a9e" class="outline-3">
-<h3 id="orgd715a9e"><span class="section-number-3">11.2.</span> 不固定次數的重複</h3>
+<div id="outline-container-orgd84b554" class="outline-3">
+<h3 id="orgd84b554"><span class="section-number-3">11.2.</span> 不固定次數的重複</h3>
 <div class="outline-text-3" id="text-11-2">
 <p>
 有些時候你想重覆執行某些動作，但是你又不確定會重覆多少次，典型的例子是輸入密碼，輸入錯誤後就應該重新輸入，作為系統設計者，你不會知道使用者會在第幾次輸入正確密碼，這就是 while 適合上場的時機&#x2026;.，例如:<br />
@@ -2204,7 +2205,7 @@ while 與 for 均為重複結構，比較起來，while 的語法結構更為簡
 </div>
 </div>
 <ol class="org-ol">
-<li><a id="org54ff617"></a>課堂練習<br />
+<li><a id="org7ca8588"></a>課堂練習<br />
 <div class="outline-text-4" id="text-11-2-1">
 <ul class="org-ul">
 <li>系統登入檢查:模擬作業系統登入畫面，進行使用者密碼檢查，當輸入輸入正確密碼後秀出畫面，否則持續要求輸入密碼<br /></li>
@@ -2214,8 +2215,8 @@ while 與 for 均為重複結構，比較起來，while 的語法結構更為簡
 </li>
 </ol>
 </div>
-<div id="outline-container-org543e628" class="outline-3">
-<h3 id="org543e628"><span class="section-number-3">11.3.</span> Do &#x2026; while</h3>
+<div id="outline-container-org42f9675" class="outline-3">
+<h3 id="org42f9675"><span class="section-number-3">11.3.</span> Do &#x2026; while</h3>
 <div class="outline-text-3" id="text-11-3">
 <p>
 有些狀況下，重複的次數 <b>至少</b> 要發生一次才行，例如前節中的密碼檢查，使用者至少要先輸入一次密碼，接下來系統才能針對密碼進行驗證，此時，do..while 會是一個比較理想的重複架構，其語法如下：<br />
@@ -2260,12 +2261,12 @@ but&#x2026;.如果全班有 50 個人呢？如果是要求全校的成績分佈�
 各種程式語言為了因應這種大批資料的處理計算，都會有相對應的資料結構，C++的陣列(array)就是用來儲存大量資料的結構。<br />
 </p>
 </div>
-<div id="outline-container-orgedf01c9" class="outline-3">
-<h3 id="orgedf01c9"><span class="section-number-3">12.1.</span> 基本操作</h3>
+<div id="outline-container-org7a966c5" class="outline-3">
+<h3 id="org7a966c5"><span class="section-number-3">12.1.</span> 基本操作</h3>
 <div class="outline-text-3" id="text-12-1">
 </div>
 <ol class="org-ol">
-<li><a id="orgb7d5353"></a>宣告<br />
+<li><a id="org54059d6"></a>宣告<br />
 <div class="outline-text-4" id="text-12-1-1">
 <p>
 如果變數一樣，array 也要先宣告才能使用，其宣告方式如下：<br />
@@ -2294,8 +2295,8 @@ but&#x2026;.如果全班有 50 個人呢？如果是要求全校的成績分佈�
 </div>
 </div>
 </li>
-<li><a id="org3d99293"></a>Assign value to Array<br /></li>
-<li><a id="org8293058"></a>assign<br />
+<li><a id="org3d0c093"></a>Assign value to Array<br /></li>
+<li><a id="org9b4ed10"></a>assign<br />
 <div class="outline-text-4" id="text-12-1-3">
 <div class="org-src-container">
 <pre class="src src-cpp"><span class="linenr">1: </span><span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">sc</span><span style="color: #51afef;">[</span><span style="color: #da8548; font-weight: bold;">5</span><span style="color: #51afef;">]</span>;
@@ -2310,7 +2311,7 @@ but&#x2026;.如果全班有 50 個人呢？如果是要求全校的成績分佈�
 上述程式的執行結果如下所示：<br />
 </p>
 
-<div id="orge0971ef" class="figure">
+<div id="org9215ad7" class="figure">
 <p><img src="images/array.png" alt="array.png" width="400" /><br />
 </p>
 <p><span class="figure-number">Figure 4: </span>陣列儲存值(value)與 index 的關係</p>
@@ -2327,7 +2328,7 @@ but&#x2026;.如果全班有 50 個人呢？如果是要求全校的成績分佈�
 </div>
 </div>
 </li>
-<li><a id="orge7662a7"></a>宣告時順便指定陣列初值<br />
+<li><a id="org3a1b6e3"></a>宣告時順便指定陣列初值<br />
 <div class="outline-text-4" id="text-12-1-4">
 <div class="org-src-container">
 <pre class="src src-cpp"><span class="linenr">1: </span><span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">score</span><span style="color: #51afef;">[</span><span style="color: #da8548; font-weight: bold;">5</span><span style="color: #51afef;">]</span> = <span style="color: #51afef;">{</span><span style="color: #da8548; font-weight: bold;">51</span>, <span style="color: #da8548; font-weight: bold;">44</span>, <span style="color: #da8548; font-weight: bold;">93</span>, <span style="color: #da8548; font-weight: bold;">20</span>, <span style="color: #da8548; font-weight: bold;">100</span><span style="color: #51afef;">}</span>;
@@ -2335,7 +2336,7 @@ but&#x2026;.如果全班有 50 個人呢？如果是要求全校的成績分佈�
 </div>
 </div>
 </li>
-<li><a id="org8ee9ef7"></a>cin<br />
+<li><a id="org4c50a46"></a>cin<br />
 <div class="outline-text-4" id="text-12-1-5">
 <div class="org-src-container">
 <pre class="src src-cpp"><span class="linenr">1: </span><span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">sc</span><span style="color: #51afef;">[</span><span style="color: #da8548; font-weight: bold;">5</span><span style="color: #51afef;">]</span>;
@@ -2346,13 +2347,13 @@ but&#x2026;.如果全班有 50 個人呢？如果是要求全校的成績分佈�
 </div>
 </div>
 </li>
-<li><a id="org23fc226"></a>課堂練習<br />
+<li><a id="orgbc9c083"></a>課堂練習<br />
 <div class="outline-text-4" id="text-12-1-6">
 <ul class="org-ul">
 <li>先輸入全班人數 N，接下來輸入 N 位學生的成績，存入一維陣列中，計算總分、平均。已知學生人數不超過 50 人。執行畫面需如下所示：<br /></li>
 </ul>
 
-<div id="org040ed5a" class="figure">
+<div id="org7e8fba5" class="figure">
 <p><img src="images/array-3.jpg" alt="array-3.jpg" /><br />
 </p>
 </div>
@@ -2369,8 +2370,8 @@ but&#x2026;.如果全班有 50 個人呢？如果是要求全校的成績分佈�
 </li>
 </ol>
 </div>
-<div id="outline-container-orga4072e5" class="outline-3">
-<h3 id="orga4072e5"><span class="section-number-3">12.2.</span> 其他類型的陣列</h3>
+<div id="outline-container-orgda3864b" class="outline-3">
+<h3 id="orgda3864b"><span class="section-number-3">12.2.</span> 其他類型的陣列</h3>
 <div class="outline-text-3" id="text-12-2">
 <div class="org-src-container">
 <pre class="src src-cpp"><span class="linenr">1: </span><span style="color: #ECBE7B;">char</span> <span style="color: #dcaeea;">ascii</span><span style="color: #51afef;">[</span><span style="color: #da8548; font-weight: bold;">5</span><span style="color: #51afef;">]</span> = <span style="color: #51afef;">{</span><span style="color: #98be65;">'A'</span>, <span style="color: #98be65;">'B'</span>, <span style="color: #98be65;">'C'</span>, <span style="color: #98be65;">'D'</span>, <span style="color: #98be65;">'E'</span><span style="color: #51afef;">}</span>; <span style="color: #5B6268;">//</span><span style="color: #5B6268;">&#23383;&#20803;&#38499;&#21015;</span>
@@ -2379,8 +2380,8 @@ but&#x2026;.如果全班有 50 個人呢？如果是要求全校的成績分佈�
 </div>
 </div>
 </div>
-<div id="outline-container-org8ca05a8" class="outline-3">
-<h3 id="org8ca05a8"><span class="section-number-3">12.3.</span> 更方便的 for for array</h3>
+<div id="outline-container-org730062a" class="outline-3">
+<h3 id="org730062a"><span class="section-number-3">12.3.</span> 更方便的 for for array</h3>
 <div class="outline-text-3" id="text-12-3">
 <p>
 C++ 11 提供了 for range 語法，可用於循序走訪陣列的任務<br />
@@ -2407,8 +2408,8 @@ C++ 11 提供了 for range 語法，可用於循序走訪陣列的任務<br />
 </pre>
 </div>
 </div>
-<div id="outline-container-org7725ba3" class="outline-3">
-<h3 id="org7725ba3"><span class="section-number-3">12.4.</span> index 為何由 0 開始?</h3>
+<div id="outline-container-org7426ba7" class="outline-3">
+<h3 id="org7426ba7"><span class="section-number-3">12.4.</span> index 為何由 0 開始?</h3>
 <div class="outline-text-3" id="text-12-4">
 <p>
 陣列索引值由 0 開始不是沒有原因的，陣列名稱儲存了陣列記憶體的首個位置的位址，而索引值表示陣列元素是相對於陣列首個記憶體位址的位移量（offset），位移的量與資料型態長度有關，如果是 int 整數，每次位移時是一個 int 整數的長度，例如在上例中 number[0] 索引值為 0 時，表示位移量為 0，自然就是指第一個元素，而 number[9] 就是指相對於首個元素的位移量為 9。<sup><a id="fnr.9" class="footref" href="#fn.9" role="doc-backlink">9</a></sup><br />
@@ -2444,19 +2445,19 @@ C++ 11 提供了 for range 語法，可用於循序走訪陣列的任務<br />
 上述程式中的 offset 為指標變數，其型代為 int*，代表記憶體的位址，若要取得該位址中的值，則以*offset 表示。若以圖形表示則為：<br />
 </p>
 
-<div id="org79ccde2" class="figure">
+<div id="org40641f5" class="figure">
 <p><img src="images/address.png" alt="address.png" width="400" /><br />
 </p>
 <p><span class="figure-number">Figure 5: </span>陣列的記憶體位址(address)與儲存值(value)對照圖</p>
 </div>
 </div>
 </div>
-<div id="outline-container-org9430b2f" class="outline-3">
-<h3 id="org9430b2f"><span class="section-number-3">12.5.</span> YES/NO for Array</h3>
+<div id="outline-container-orgd7ede69" class="outline-3">
+<h3 id="orgd7ede69"><span class="section-number-3">12.5.</span> YES/NO for Array</h3>
 <div class="outline-text-3" id="text-12-5">
 </div>
 <ol class="org-ol">
-<li><a id="org2891aff"></a>what you should not do with array<br />
+<li><a id="org3ff1d3e"></a>what you should not do with array<br />
 <div class="outline-text-4" id="text-12-5-1">
 <p>
 對一般變數，我們可以用以下 assign 方式將其值 assign 給其他變數：<br />
@@ -2489,8 +2490,8 @@ C++ 11 提供了 for range 語法，可用於循序走訪陣列的任務<br />
 </div>
 </div>
 </li>
-<li><a id="org73797dd"></a>what you can do with array:<br /></li>
-<li><a id="org67d44fb"></a>sort #1<br />
+<li><a id="org76691d9"></a>what you can do with array:<br /></li>
+<li><a id="orgee80644"></a>sort #1<br />
 <div class="outline-text-4" id="text-12-5-3">
 <div class="org-src-container">
 <pre class="src src-cpp"><span class="linenr"> 1: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #51afef;">&lt;</span><span style="color: #98be65;">algorithm</span><span style="color: #51afef;">&gt;</span>
@@ -2512,7 +2513,7 @@ C++ 11 提供了 for range 語法，可用於循序走訪陣列的任務<br />
 </pre>
 </div>
 </li>
-<li><a id="orgce54e06"></a>sort #2<br />
+<li><a id="org6300e34"></a>sort #2<br />
 <div class="outline-text-4" id="text-12-5-4">
 <div class="org-src-container">
 <pre class="src src-cpp"><span class="linenr"> 1: </span><span style="color: #5B6268;">//</span><span style="color: #5B6268;">&#36664;&#20837;: 30 11 13 100 8</span>
@@ -2539,7 +2540,7 @@ C++ 11 提供了 for range 語法，可用於循序走訪陣列的任務<br />
 </pre>
 </div>
 </li>
-<li><a id="org63ec072"></a>find<br />
+<li><a id="orgdf388e1"></a>find<br />
 <div class="outline-text-4" id="text-12-5-5">
 <div class="org-src-container">
 <pre class="src src-cpp"><span class="linenr"> 1: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #51afef;">&lt;</span><span style="color: #98be65;">algorithm</span><span style="color: #51afef;">&gt;</span>
@@ -2561,7 +2562,7 @@ C++ 11 提供了 for range 語法，可用於循序走訪陣列的任務<br />
 </div>
 </div>
 </li>
-<li><a id="org86d32cb"></a>reverse<br />
+<li><a id="orge512dd1"></a>reverse<br />
 <div class="outline-text-4" id="text-12-5-6">
 <div class="org-src-container">
 <pre class="src src-cpp"><span class="linenr">1: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #51afef;">&lt;</span><span style="color: #98be65;">algorithm</span><span style="color: #51afef;">&gt;</span>
@@ -2578,12 +2579,12 @@ C++ 11 提供了 for range 語法，可用於循序走訪陣列的任務<br />
 </li>
 </ol>
 </div>
-<div id="outline-container-orgefd450e" class="outline-3">
-<h3 id="orgefd450e"><span class="section-number-3">12.6.</span> 2d array</h3>
+<div id="outline-container-orgc592d17" class="outline-3">
+<h3 id="orgc592d17"><span class="section-number-3">12.6.</span> 2d array</h3>
 <div class="outline-text-3" id="text-12-6">
 </div>
 <ol class="org-ol">
-<li><a id="orge0ee197"></a>initialization<br />
+<li><a id="org21c0ff3"></a>initialization<br />
 <div class="outline-text-4" id="text-12-6-1">
 <div class="org-src-container">
 <pre class="src src-cpp"><span class="linenr"> 1: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #51afef;">&lt;</span><span style="color: #98be65;">iostream</span><span style="color: #51afef;">&gt;</span>
@@ -2623,8 +2624,8 @@ C++ 11 提供了 for range 語法，可用於循序走訪陣列的任務<br />
 <h2 id="cpp_string"><span class="section-number-2">13.</span> String</h2>
 <div class="outline-text-2" id="text-cpp_string">
 </div>
-<div id="outline-container-orga13fb2c" class="outline-3">
-<h3 id="orga13fb2c"><span class="section-number-3">13.1.</span> 字串與字元陣列</h3>
+<div id="outline-container-orgcc9898f" class="outline-3">
+<h3 id="orgcc9898f"><span class="section-number-3">13.1.</span> 字串與字元陣列</h3>
 <div class="outline-text-3" id="text-13-1">
 <ul class="org-ul">
 <li>字串(string)由一個一個的字元(char)組成，如&ldquo;Hello world&rdquo;、&ldquo;TNFSH403&rdquo;<br /></li>
@@ -2632,8 +2633,8 @@ C++ 11 提供了 for range 語法，可用於循序走訪陣列的任務<br />
 </ul>
 </div>
 </div>
-<div id="outline-container-org56ac6cd" class="outline-3">
-<h3 id="org56ac6cd"><span class="section-number-3">13.2.</span> 儲存結構</h3>
+<div id="outline-container-org38c3854" class="outline-3">
+<h3 id="org38c3854"><span class="section-number-3">13.2.</span> 儲存結構</h3>
 <div class="outline-text-3" id="text-13-2">
 <ul class="org-ul">
 <li>在下列程式中，字元陣列 name1 與字串 name2 的內容一模一樣，長度均為 5 個字元，但不管是以字元陣列(name1)或是以字串(name2)來儲存這五個字元，最後都有一個代表字串結尾的隱藏字元&rsquo;\0&rsquo;來告訴電腦這個字串到此為止。<br /></li>
@@ -2671,8 +2672,8 @@ name2 的第三個字元: F
 </pre>
 </div>
 </div>
-<div id="outline-container-orgf3b3cf7" class="outline-3">
-<h3 id="orgf3b3cf7"><span class="section-number-3">13.3.</span> 宣告</h3>
+<div id="outline-container-org3c70497" class="outline-3">
+<h3 id="org3c70497"><span class="section-number-3">13.3.</span> 宣告</h3>
 <div class="outline-text-3" id="text-13-3">
 <ul class="org-ul">
 <li>宣告一個空的字元陣列要先告知預計會有幾個字元，字串則不用。<br /></li>
@@ -2700,12 +2701,12 @@ Your name is James, Yen
 </pre>
 </div>
 </div>
-<div id="outline-container-org1a45bf8" class="outline-3">
-<h3 id="org1a45bf8"><span class="section-number-3">13.4.</span> 輸入</h3>
+<div id="outline-container-org14c96ad" class="outline-3">
+<h3 id="org14c96ad"><span class="section-number-3">13.4.</span> 輸入</h3>
 <div class="outline-text-3" id="text-13-4">
 </div>
 <ol class="org-ol">
-<li><a id="org49819c5"></a>scanf()<br />
+<li><a id="org4cfc7a1"></a>scanf()<br />
 <div class="outline-text-4" id="text-13-4-1">
 <ul class="org-ul">
 <li>C 語言的輸入方式，用 scanf 讀取字串時，遇到空白字元便會結束。<br /></li>
@@ -2726,7 +2727,7 @@ Your name: James
 </pre>
 </div>
 </li>
-<li><a id="orgd394e1b"></a>cin<br />
+<li><a id="org73e742d"></a>cin<br />
 <div class="outline-text-4" id="text-13-4-2">
 <p>
 既可以讀字元，又可以讀字串。遇到空白字元或 Enter 便會結束。<br />
@@ -2747,7 +2748,7 @@ Welcome, James, Yen
 </pre>
 </div>
 </li>
-<li><a id="orgcfd14f6"></a>cin.getline()<br />
+<li><a id="org5f23f2b"></a>cin.getline()<br />
 <div class="outline-text-4" id="text-13-4-3">
 <ul class="org-ul">
 <li>可讀入空白，遇到 Enter 就結束輸入，需要 include &lt;string&gt;<br /></li>
@@ -2771,7 +2772,7 @@ Tainan First Senior High Scho
 </pre>
 </div>
 </li>
-<li><a id="orgefe5e3c"></a>getline(cin, str)<br />
+<li><a id="org567e3db"></a>getline(cin, str)<br />
 <div class="outline-text-4" id="text-13-4-4">
 <p>
 可以讀入空白，遇到 Enter 就結束輸入，需要 include &lt;string&gt;<br />
@@ -2793,7 +2794,7 @@ Tainan First Senior High School
 </pre>
 </div>
 </li>
-<li><a id="org28e5ace"></a>gets(str)<br />
+<li><a id="orgff0cc71"></a>gets(str)<br />
 <div class="outline-text-4" id="text-13-4-5">
 <p>
 可以讀入空白，遇到 Enter 就結束輸入。<br />
@@ -2817,11 +2818,11 @@ Tainan First Senior High School
 </li>
 </ol>
 </div>
-<div id="outline-container-org3746873" class="outline-3">
-<h3 id="org3746873"><span class="section-number-3">13.5.</span> 輸出</h3>
+<div id="outline-container-org9617e3b" class="outline-3">
+<h3 id="org9617e3b"><span class="section-number-3">13.5.</span> 輸出</h3>
 </div>
-<div id="outline-container-org0697073" class="outline-3">
-<h3 id="org0697073"><span class="section-number-3">13.6.</span> 進階閱讀</h3>
+<div id="outline-container-org26b917d" class="outline-3">
+<h3 id="org26b917d"><span class="section-number-3">13.6.</span> 進階閱讀</h3>
 <div class="outline-text-3" id="text-13-6">
 <ul class="org-ul">
 <li><a href="https://openhome.cc/Gossip/CppGossip/string1.html">字元陣列與字串</a><br /></li>
@@ -2842,12 +2843,12 @@ Tainan First Senior High School
 <li>程式可讀性高，且除錯或修改方便。<br /></li>
 </ol>
 </div>
-<div id="outline-container-orgdd45766" class="outline-3">
-<h3 id="orgdd45766"><span class="section-number-3">14.1.</span> function declaration</h3>
+<div id="outline-container-orgb3ff214" class="outline-3">
+<h3 id="orgb3ff214"><span class="section-number-3">14.1.</span> function declaration</h3>
 <div class="outline-text-3" id="text-14-1">
 </div>
 <ol class="org-ol">
-<li><a id="orgcf65159"></a>function 的宣告語法<br />
+<li><a id="org459b33a"></a>function 的宣告語法<br />
 <div class="outline-text-4" id="text-14-1-1">
 <div class="org-src-container">
 <pre class="src src-cpp"><span class="linenr">1: </span><span style="color: #ECBE7B;">&#20659;&#22238;&#20540;&#30340;&#22411;&#24907;</span>  <span style="color: #dcaeea;">function&#30340;&#21517;&#31281;</span><span style="color: #51afef;">(</span>&#21443;&#25976;1&#39006;&#21029; &#21443;&#25976;1&#21517;&#31281;, &#21443;&#25976;2&#39006;&#21029; &#21443;&#25976;2&#21517;&#31281;, &#21443;&#25976;3&#39006;&#21029; &#21443;&#25976;3&#21517;&#31281;, <span style="color: #c678dd;">...</span><span style="color: #51afef;">)</span> <span style="color: #51afef;">{</span>
@@ -2858,10 +2859,10 @@ Tainan First Senior High School
 </div>
 </div>
 </li>
-<li><a id="org85e67f1"></a>function 的宣告方式<br />
+<li><a id="org21683df"></a>function 的宣告方式<br />
 <ul class="org-ul">
-<li><a id="org79b37cc"></a>方式一:  直接將宣告與 function 內容一併寫出,置於 main 之前<br />
-<div class="outline-text-5" id="text-org79b37cc">
+<li><a id="org2ba15d0"></a>方式一:  直接將宣告與 function 內容一併寫出,置於 main 之前<br />
+<div class="outline-text-5" id="text-org2ba15d0">
 <div class="org-src-container">
 <pre class="src src-cpp"><span class="linenr"> 1: </span><span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">add</span><span style="color: #51afef;">(</span><span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">m</span>,<span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">n</span><span style="color: #51afef;">)</span>
 <span class="linenr"> 2: </span><span style="color: #51afef;">{</span>
@@ -2879,8 +2880,8 @@ Tainan First Senior High School
 </div>
 </div>
 </li>
-<li><a id="org3fc147a"></a>方式二: 先在 main 之前宣告,再將 function 實際內容置於 main 後面<br />
-<div class="outline-text-5" id="text-org3fc147a">
+<li><a id="org7b50fea"></a>方式二: 先在 main 之前宣告,再將 function 實際內容置於 main 後面<br />
+<div class="outline-text-5" id="text-org7b50fea">
 <div class="org-src-container">
 <pre class="src src-cpp"><span class="linenr"> 1: </span><span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">add</span><span style="color: #51afef;">(</span><span style="color: #ECBE7B;">int</span>, <span style="color: #ECBE7B;">int</span><span style="color: #51afef;">)</span>;
 <span class="linenr"> 2: </span><span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">main</span><span style="color: #51afef;">()</span>
@@ -2902,8 +2903,8 @@ Tainan First Senior High School
 </li>
 </ol>
 </div>
-<div id="outline-container-org6b13e5c" class="outline-3">
-<h3 id="org6b13e5c"><span class="section-number-3">14.2.</span> 課堂練習</h3>
+<div id="outline-container-org1ecd086" class="outline-3">
+<h3 id="org1ecd086"><span class="section-number-3">14.2.</span> 課堂練習</h3>
 <div class="outline-text-3" id="text-14-2">
 <ol class="org-ol">
 <li>定義一 function max(int a, int b, int c): 該 function 有三個 argument，傳出最大項，例：<br />
@@ -2913,8 +2914,8 @@ cout &lt;&lt; sos(4.5, 5.7) &lt;&lt; endl;<br /></li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org7c53e82" class="outline-3">
-<h3 id="org7c53e82"><span class="section-number-3">14.3.</span> 引數 (Argument) vs. 參數 (Parameter)</h3>
+<div id="outline-container-org7bd970c" class="outline-3">
+<h3 id="org7bd970c"><span class="section-number-3">14.3.</span> 引數 (Argument) vs. 參數 (Parameter)</h3>
 <div class="outline-text-3" id="text-14-3">
 <ul class="org-ul">
 <li>argument: 呼叫者傳給 function 的變數，如下例的 a, b<br /></li>
@@ -2940,8 +2941,8 @@ cout &lt;&lt; sos(4.5, 5.7) &lt;&lt; endl;<br /></li>
 </pre>
 </div>
 </div>
-<div id="outline-container-orgb5daf38" class="outline-3">
-<h3 id="orgb5daf38"><span class="section-number-3">14.4.</span> void</h3>
+<div id="outline-container-org8566bec" class="outline-3">
+<h3 id="org8566bec"><span class="section-number-3">14.4.</span> void</h3>
 <div class="outline-text-3" id="text-14-4">
 <p>
 void 的字面意思是“無型別”，void* 則為“無型別指標”，void *可以指向任何型別的資料。<br />
@@ -2953,7 +2954,7 @@ void 真正發揮的作用在於：<br />
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org8dd59b9"></a>不傳回值的 function<br />
+<li><a id="org383d644"></a>不傳回值的 function<br />
 <div class="outline-text-4" id="text-14-4-1">
 <div class="org-src-container">
 <pre class="src src-cpp"><span class="linenr"> 1: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #51afef;">&lt;</span><span style="color: #98be65;">iostream</span><span style="color: #51afef;">&gt;</span>
@@ -2974,7 +2975,7 @@ Hi
 </pre>
 </div>
 </li>
-<li><a id="org58bdd36"></a>沒有 parameter 也不傳回值的的 function<br />
+<li><a id="org1ff2e9d"></a>沒有 parameter 也不傳回值的的 function<br />
 <div class="outline-text-4" id="text-14-4-2">
 <div class="org-src-container">
 <pre class="src src-cpp"><span class="linenr">1: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #51afef;">&lt;</span><span style="color: #98be65;">iostream</span><span style="color: #51afef;">&gt;</span>
@@ -2994,7 +2995,7 @@ Hi
 </pre>
 </div>
 </li>
-<li><a id="org20d62e3"></a>沒有 parameter v.s. parameter 為 void<br />
+<li><a id="org92207a0"></a>沒有 parameter v.s. parameter 為 void<br />
 <div class="outline-text-4" id="text-14-4-3">
 <ul class="org-ul">
 <li>c: parameter 為 void 表示不能有 parameter，你硬傳 argument 進去都會出現 error；parameter 留空表示可以有很多個也可以沒有<br /></li>
@@ -3060,8 +3061,8 @@ Hi
 </pre>
 </div>
 </div>
-<div id="outline-container-org45c94a1" class="outline-3">
-<h3 id="org45c94a1"><span class="section-number-3">15.1.</span> compute n!</h3>
+<div id="outline-container-org7b5786b" class="outline-3">
+<h3 id="org7b5786b"><span class="section-number-3">15.1.</span> compute n!</h3>
 <div class="outline-text-3" id="text-15-1">
 <div class="org-src-container">
 <pre class="src src-C++"><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #51afef;">&lt;</span><span style="color: #98be65;">iostream</span><span style="color: #51afef;">&gt;</span>
@@ -3114,8 +3115,8 @@ Hi
 </div>
 </div>
 </div>
-<div id="outline-container-org8c8b143" class="outline-2">
-<h2 id="org8c8b143"><span class="section-number-2">17.</span> <span class="todo TODO">TODO</span> STL</h2>
+<div id="outline-container-orgf7206c2" class="outline-2">
+<h2 id="orgf7206c2"><span class="section-number-2">17.</span> <span class="todo TODO">TODO</span> STL</h2>
 <div class="outline-text-2" id="text-17">
 </div>
 </div>
@@ -3172,7 +3173,7 @@ Hi
 </div></div>
 <div id="postamble" class="status">
 <p class="author">Author: Yung-Chin Yen</p>
-<p class="date">Created: 2024-09-09 Mon 10:08</p>
+<p class="date">Created: 2024-09-09 Mon 16:48</p>
 </div>
 </body>
 </html>
