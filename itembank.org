@@ -1,5 +1,81 @@
 #+title: Itembank
 
+#+INCLUDE: ../pdf-m1.org
+#+TAGS: C++
+#+OPTIONS: toc:2 ^:nil num:5
+#+PROPERTY: header-args :eval never-export
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../css/muse.css" />
+#+EXCLUDE_TAGS: noexport
+#+latex:\newpage
+
+* Sort
+** Idea :KEYWORKD:
+最簡單的分類方式是在A和B中間直接找條直線(\(w_1x_1+w_2x_2+b=0\))就可以將A和B完整切出兩個區塊，然後再搭配階梯函數(step function)將>0與<=0分別設為1與0，用來代表類別0與1。該直線方程式如下：
+#+NAME: eqn:orRegFn
+\begin{equation}
+y = \begin{cases}
+1, & w_1x_1 + w_2x_2-b>0 \\
+0, & w_1x_1 + w_2x_2-b\leq0 \\
+\end{cases}
+\end{equation}
+
+** TODO Python Solution
+:PROPERTIES:
+:ID:       d769f223-d9b3-499e-b1ab-db7b626836c6
+:END:
+經過無數的嚐試錯誤，也許我們可以矇到一個如下的方程式
+#+begin_src python -r -n :results output :exports both
+print("TEST")
+for i in range(10):
+    print(i)
+#+end_src
+
+#+RESULTS:
+#+begin_example
+TEST
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+#+end_example
+
+** TODO SH
+#+begin_src shell -r -n :results output :exports both
+echo "TETT"
+echo "TETT"
+echo "TETT"
+#+end_src
+
+#+RESULTS:
+: TETT
+: TETT
+: TETT
+
+* String
+** 教學資源
+- [[https://www.itread01.com/content/1550376181.html][如何求C語言字串長度（strlen函式和sizeof關鍵字）]]
+- item 2
+- item 3
+*** number list :Emacs:Letranger:
+1) [[https://www.itread01.com/content/1550376181.html][如何求C語言字串長度（strlen函式和sizeof關鍵字）]]
+2) item 2
+3) item 3
+*** 測試表格
+|-------+-------+-------|
+| 標題1 | 標題2 | 標題3 |
+|-------+-------+-------|
+|    12 |    13 |    14 |
+|-------+-------+-------|
+
+** 作業
+- [[https://www.youtube.com/watch?v=vCB_0cFQr5o][First Unique Character in a String]]
+這是C++的source code demo
 #+begin_src cpp -r -n :results output :exports both
 #include <iostream>
 using namespace std;
@@ -10,6 +86,7 @@ int main(){
     int n[10000];
     int p;
     int q;
+    // 註解：for 迴圈
     for(int i=0;i<x;i++){
         for(int j=0;j<y;j++){
             p=100*i+j;

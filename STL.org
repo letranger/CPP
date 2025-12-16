@@ -185,6 +185,7 @@ bool comp(int p, int q) {
 #+end_src
 
 * upper_bound
+
 * lower_bound
 ** 寫法
 lower_bound(aryt0, arytn, k): 以 binary search 找到第一個>=k 的元素

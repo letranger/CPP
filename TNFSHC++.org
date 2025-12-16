@@ -1619,6 +1619,7 @@ int main() {
 * TODO Recursion
 :PROPERTIES:
 :CUSTOM_ID: cpp_functions
+:ID:       b84b594d-e1ba-4ac0-b09f-f2bf4dff3c80
 :END:
 當一支function在自己的程式碼中又呼叫自己,會發生什麼事??
 #+begin_src cpp -r -n :results output :exports both
@@ -1674,6 +1675,7 @@ int main() {
 * TODO Struct
 :PROPERTIES:
 :CUSTOM_ID: cpp_struct
+:ID:       090a0f44-7ffa-4065-9835-4b90200903ad
 :END:
 結構 (structure) 是一種複合型別 (derived data type)，用來表達由多個屬性組成的型別，而這些屬性可以是基本型別或是另一個複合型別所組成。[fn:8] [fn:9]
 #+begin_src cpp -r -n :results output :exports both
@@ -1701,6 +1703,9 @@ int main() {
 #+RESULTS:
 
 * TODO STL
+:PROPERTIES:
+:ID:       18ed6cb8-e3f7-4ded-b958-1a1a2a723ae8
+:END:
 
 * Footnotes
 

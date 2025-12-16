@@ -5,7 +5,7 @@
 #+INCLUDE: ../pdf.org
 #+EXCLUDE_TAGS: noexport
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../css/muse.css" />
-
+#+HTML_HEAD_EXTRA: <script src="../css/copy_code.js"></script>
 #+begin_export html
 <a href="https://hits.sh/letranger.github.io/CPP/BasicC++.html/"><img align="right" alt="Hits" src="https://hits.sh/letranger.github.io/CPP/BasicC++.html.svg?style=plastic"/></a>
 #+end_export
@@ -203,7 +203,28 @@ int main() {
 : Hello world
 : 半徑：3
 : 圓面積：28.27
+*** float v.s. double
+在 C++ 中，使用 printf() 函數輸出 double 或 float 變數時，可以使用格式化字符串指定輸出的格式。對於 float 和 double 變數，常用的格式化符號是 %f 或 %lf。
+- %f：用於輸出 float 或 double 型別的變數。
+- %lf：雖然在 C 語言中 %lf 是用來輸出 double 的格式，但在 C++ 的 printf() 函數中，%f 和 %lf 是等效的，因為 printf() 不區分 float 和 double，它們都會被轉換為 double 進行處理。
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
 
+int main() {
+    float a = 3.14159f;
+    double b = 2.718281828459;
+
+    // 使用 printf() 輸出 float 和 double
+    printf("float 變數 a = %f\n", a);
+    printf("double 變數 b = %f\n", b);
+
+    // 限制小數點後兩位
+    printf("float 變數 a (兩位小數) = %.2f\n", a);
+    printf("double 變數 b (兩位小數) = %.2f\n", b);
+
+    return 0;
+}
+#+end_src
 ** 跳脫字元
 如果你試過利用 C++來輸出下列這段話：
 #+begin_verse
@@ -473,7 +494,7 @@ area = ((up + bt) * height / 2) * 10;
 此處須留意，小刮號可以層層相叠，但不能像數學式那樣最內層為小括號、然後是中刮號、大刮號...
 
 *** 進階運算
-C++也提供一些較複雜的數學運算如開根號、log、或是sin、cos等，但使用時必須include函式庫(math.h)
+C++也提供一些較複雜的數學運算如開根號、log、或是 sin、cos 等，但使用時必須 include 函式庫(math.h)
 - 開根號
 #+begin_src cpp -r -n :results output :exports both
 #include <iostream>
@@ -799,7 +820,6 @@ int main() {
 #+begin_src cpp -r -n :eval no
 for (初始值; 條件式; 更新值) 程式碼;
 #+end_src
-
 ** 語法 2 (要重複一行以上程式碼時)
 #+begin_src cpp -r -n :eval no
 for (初始值; 條件式; 更新值){
@@ -810,7 +830,6 @@ for (初始值; 條件式; 更新值){
 #+end_src
 
 *初始值* 是進入迴圈一開始會執行的動作，而 *更新值* 則是執行完每次的迴圈要執行的動作，至於重複的次數則取決於 *條件式* 是否成立，只要 *條件式* 一直成立(其計算結果為 true)，則持續重複執行程式碼；所以要利用 *更新值* 來逐步修正，讓條件值有機會傳回 false。
-
 ** 範例
 #+begin_src cpp -r -n :results output :exports both
 #include <iostream>
@@ -818,7 +837,7 @@ using namespace std;
 
 int main() {
     for (int i = 1; i < 10; i++) { (ref:fori1)
-        cout << "3 * " << i << " =  << 3*i << "endl;  (ref:fori2)
+        cout << "3 * " << i << " = "  << 3*i << endl;  (ref:fori2)
     }
     return 0; (ref:return)
 }
@@ -841,21 +860,19 @@ int main() {
 3. 若 *條作式* 成立，則執行第[[(fori2)]]行，輸出一行結果
 4. 執行 *更新值* i++; ( 即 i=i+1; )將迴圈變數的值逐步加大，使其有機會違反 *條件式* (即結束迴圈)
 5. 跳至 2. 的位置重複本步
-
 ** 練習
 1) 輸入 n，輸出所有小於 n 的偶數．
 2) 輸入 n，輸出所有小於 n 且可被 17 整除的數．
 3) 輸入一數 N，輸出 1+2..+N
-
 ** 旗標變數
 :PROPERTIES:
 :CUSTOM_ID: flag_variable
 :END:
-有時我們希望能在迴圈的過程中判斷「某事是否曾發生過」，例如，「是否曾發現某數的因數？」、「連續輸入N個分數，判斷這N個分數中是否至少有一科不及格？」這是我們的思考方式就要稍做轉變。
+有時我們希望能在迴圈的過程中判斷「某事是否曾發生過」，例如，「是否曾發現某數的因數？」、「連續輸入 N 個分數，判斷這 N 個分數中是否至少有一科不及格？」這是我們的思考方式就要稍做轉變。
 *** 例題
-小明買了N張單碼彩卷，問是否全部摃龜，若這N張彩卷中至少有一張中奬(號碼=77)，則輸出"NOT BAD"，否則輸出"QQ"。
-*** 想法1
-面上述要求，for迴圈的初學者可能會想在for中直接判斷中奬與否，如下:
+小明買了 N 張單碼彩卷，問是否全部摃龜，若這 N 張彩卷中至少有一張中奬(號碼=77)，則輸出"NOT BAD"，否則輸出"QQ"。
+*** 想法 1
+面上述要求，for 迴圈的初學者可能會想在 for 中直接判斷中奬與否，如下:
 #+begin_src cpp -r -n :results output :exports both :cmdline < for-in.txt
 #include <iostream>
 using namespace std;
@@ -878,9 +895,9 @@ int main() {
 : QQ
 : NOT BAD
 : QQ
-由上述結果可以發現，這並不是正確答案，很顯然應該把輸出判斷放在for的後面，那，要如何做到這點呢？
-*** 想法2
-另一種做法是，我們可以在for裡去計算中奬的次數，等到全部輸入完畢後，最後再統計一共有幾張中奬，這樣就可以解決上述問題：
+由上述結果可以發現，這並不是正確答案，很顯然應該把輸出判斷放在 for 的後面，那，要如何做到這點呢？
+*** 想法 2
+另一種做法是，我們可以在 for 裡去計算中奬的次數，等到全部輸入完畢後，最後再統計一共有幾張中奬，這樣就可以解決上述問題：
 #+begin_src cpp -r -n :results output :exports both :cmdline < for-in.txt
 #include <iostream>
 using namespace std;
@@ -905,11 +922,11 @@ int main() {
 
 #+RESULTS:
 : NOT BAD
-回顧一下這個做法，其實我們會發現我們到最後根本不在乎有幾張彩卷中奬，我們只在乎有沒有中過奬，即，對我們而言，numOfWins其實只有兩種值:
+回顧一下這個做法，其實我們會發現我們到最後根本不在乎有幾張彩卷中奬，我們只在乎有沒有中過奬，即，對我們而言，numOfWins 其實只有兩種值:
 - 0
-- 大於0
-既然如此，其實以boolean變數來表示它會更為恰當。
-*** 想法3
+- 大於 0
+既然如此，其實以 boolean 變數來表示它會更為恰當。
+*** 想法 3
 #+begin_src cpp -r -n :results output :exports both :cmdline < for-in.txt
 #include <iostream>
 using namespace std;
@@ -934,7 +951,7 @@ int main() {
 
 #+RESULTS:
 : NOT BAD
-這裡的iWin就是典型的Flag variable。
+這裡的 iWin 就是典型的 Flag variable。
 ** 作業 :noexport:
 *** 鞭在手，問天下誰是英雄？
 **** 應俱備能力
@@ -1207,12 +1224,17 @@ for (i = 0; i < 5; i++) {
 - 先輸入全班人數 N，接下來輸入 N 位學生的成績，存入一維陣列中，計算總分、平均。已知學生人數不超過 50 人。執行畫面需如下所示：
 [[file:images/array-3.jpg]]
 - 輸出上例中全班人數最高分之分數。
+- 可以直接複製貼上以下的測資
+#+begin_src shell -r :results output :exports both
+5
+85 53 94 38 80
+#+end_src
 ** 其他類型的陣列
 #+begin_src cpp -r -n :results output :exports both
 char ascii[5] = {'A', 'B', 'C', 'D', 'E'}; //字元陣列
 bool flag[5] = {false, true, false, true, false};
 #+end_src
-** 更方便的 for for array
+** 更方便的 for array
 C++ 11 提供了 for range 語法，可用於循序走訪陣列的任務
 #+begin_src cpp -r -n :results output :exports both
 #include <iostream>
@@ -1233,7 +1255,28 @@ int main() {
 #+RESULTS:
 : 0 1 2 3 4
 ** index 為何由 0 開始?
-陣列索引值由 0 開始不是沒有原因的，陣列名稱儲存了陣列記憶體的首個位置的位址，而索引值表示陣列元素是相對於陣列首個記憶體位址的位移量（offset），位移的量與資料型態長度有關，如果是 int 整數，每次位移時是一個 int 整數的長度，例如在上例中 number[0] 索引值為 0 時，表示位移量為 0，自然就是指第一個元素，而 number[9] 就是指相對於首個元素的位移量為 9。[fn:9]
+陣列索引值由 0 開始不是沒有原因的，陣列名稱儲存了陣列記憶體的首個位置的位址，我們可以由底下的程式碼看出陣列開頭的位址：
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+
+int main() {
+    int number[5] = {0, 1, 2, 3, 4};
+
+    cout << begin(number) << endl;
+
+    return 0;
+}
+#+end_src
+
+#+RESULTS:
+: 0x7ffee990a920
+
+此時，索引值表示陣列元素是相對於陣列首個記憶體位址的位移量（offset），位移的量與資料型態長度有關，如果是 int 整數，每次位移時是一個 int 整數的長度，例如在上例中 number[0] 索引值為 0 時，表示位移量為 0，自然就是指第一個元素，而 number[9] 就是指相對於首個元素的位移量為 9。[fn:9]
+
+- 觀察程式執行結果，你有看出來一個 int 會佔用多大的空間嗎？
+- 請你複製這段程式碼，將 int 改為 double，再看看一個 double 會佔用多少空間？
+- 你要如何測試 char, boolean 的佔用空間？
 
 #+begin_src cpp -r -n :results output :exports both
 #include <iostream>
@@ -1407,13 +1450,151 @@ int main() {
 :PROPERTIES:
 :CUSTOM_ID: cpp_string
 :END:
+** ASCII Code
+ASCII(American Standard Code for Information Interchange) 碼是電腦用來表示字母、數字、符號的編碼系統
+#+CAPTION: ASCII-1
+#+LABEL:fig:Labl
+#+name: fig:Name
+#+ATTR_LATEX: :width 300
+#+ATTR_ORG: :width 300
+#+ATTR_HTML: :width 500
+[[file:images/01_ascii.png]]
+在上圖中，我們可以看到每個字元對應的 ASCII 編號，例如大寫字母 A 的 ASCII 編號為 65，小寫字母 a 的 ASCII 編號為 97，數字 0 的 ASCII 編號為 48，空白字元(space)的 ASCII 編號為 32，換行字元(new line)的 ASCII 編號為 10，NULL 字元的 ASCII 編號為 0。
+
+這個表告訴我們，電腦內部是以數字來表示字元的，而我們在程式中看到的字元只是電腦將這些數字轉換成我們熟悉的符號而已。
+
+在 C++ 中，可以用 char 型態來儲存字元，例如：
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+char ch = 'A';
+int main() {
+  cout << "ch 的值為 " << ch << endl;
+  return 0;
+}
+#+end_src
+
+#+RESULTS:
+: ch 的值為 A
+
+又因為字元在電腦內部是以數字來表示的，所以我們也可以用 int 型態來儲存字元的 ASCII 編號，例如：
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+int main() {
+  int ch = 65;
+  cout << "ch 的值為 " << (char)ch << endl;
+  return 0;
+}
+#+end_src
+
+#+RESULTS:
+: ch 的值為 A
+
+那麼，如何將字元轉換成 ASCII 編號呢？我們可以將 char 型態的變數強制轉型(cast)成 int 型態，例如：
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+int main() {
+  char ch = 'A';
+  int ascii = (int)ch;
+  cout << "ch 的 ASCII 編號為 " << ascii << endl;
+  return 0;
+}
+#+end_src
+
+#+RESULTS:
+: ch 的 ASCII 編號為 65
+
+或者，我們也可以直接將 char 型態的變數指定給 int 型態的變數，例如：
+,#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+int main() {
+  char ch = 'A';
+  int ascii = ch;
+  cout << "ch 的 ASCII 編號為 " << ascii << endl;
+  return 0;
+}
+#+end_src
+
+#+RESULTS:
+: ch 的 ASCII 編號為 65
+現在，你應該了解為什麼字元可以用數字來表示了吧！
+** 字元運算
+由於在電腦內部字元是以數字來表示的，所以我們可以對字元進行數學運算，例如：
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+int main() {
+  char ch = 'A';
+  ch = ch + 1;
+  cout << "ch 的值為 " << ch << endl;
+  return 0;
+}
+#+end_src
+#+RESULTS:
+: ch 的值為 B
+在上述程式中，我們將字元 A 的 ASCII 編號 65 加上 1，得到 66，然後再將 66 轉換回字元，得到 B。
+
+又例如：
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+int main() {
+  char ch = 'a';
+  ch = ch - 32;
+  cout << "ch 的值為 " << ch << endl;
+  return 0;
+}
+#+end_src
+
+#+RESULTS:
+: ch 的值為 A
+
+另外，我們也可以用字元來進行比較運算，例如：
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+int main() {
+  char ch1 = 'A';
+  char ch2 = 'B';
+  if (ch1 < ch2) {
+    cout << ch1 << " 小於 " << ch2 << endl;
+  } else {
+    cout << ch1 << " 不小於 " << ch2 << endl;
+  }
+  return 0;
+}
+#+end_src
+
+#+RESULTS:
+: A 小於 B
+
+或者，我們也可以用來判斷某個字元是否為特定範圍內的字元，例如：
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+int main() {
+  char ch = 'G';
+  if (ch >= 'A' && ch <= 'Z') {
+    cout << ch << " 是大寫字母" << endl;
+  } else {
+    cout << ch << " 不是大寫字母" << endl;
+  }
+  return 0;
+}
+#+end_src
+
+#+RESULTS:
+: G 是大寫字母
 ** 字串與字元陣列
 - 字串(string)由一個一個的字元(char)組成，如"Hello world"、"TNFSH403"
-- 在C++裡，可以用 char[ ] 或 string 儲存字串
+- 在 C++裡，可以用 char[ ] 或 string 儲存字串
 ** 儲存結構
-- 在下列程式中，字元陣列name1與字串name2的內容一模一樣，長度均為5個字元，但不管是以字元陣列(name1)或是以字串(name2)來儲存這五個字元，最後都有一個代表字串結尾的隱藏字元'\0'來告訴電腦這個字串到此為止。
-- '\0'的ASCII編號為0，是NULL、空集合的意思
-- 這個'\0'不會被輸出，也不被算在字元陣列或是字串長度裡，所以不論是以strlen()或是length()都只看到長度為5。
+- 在下列程式中，字元陣列 name1 與字串 name2 的內容一模一樣，長度均為 5 個字元，但不管是以字元陣列(name1)或是以字串(name2)來儲存這五個字元，最後都有一個代表字串結尾的隱藏字元'\0'來告訴電腦這個字串到此為止。
+- '\0'的 ASCII 編號為 0，是 NULL、空集合的意思
+- 這個'\0'不會被輸出，也不被算在字元陣列或是字串長度裡，所以不論是以 strlen()或是 length()都只看到長度為 5。
 #+begin_src cpp -r -n :results output :exports both
 #include<iostream>
 #include<string>
@@ -1437,13 +1618,13 @@ int main()
 #+RESULTS:
 : TNFSH: 5
 : TNFSH: 5
-: name1的第三個字元: F
-: name2的第三個字元: F
-:  
-:  
+: name1 的第三個字元: F
+: name2 的第三個字元: F
+: �
+: �
 ** 宣告
 - 宣告一個空的字元陣列要先告知預計會有幾個字元，字串則不用。
-- 如下例，雖然lastName輸入的字元不到不到20個，但cin會在最後面補上'\0'，所以在cout時就只會輸出到'\0'前面的字元
+- 如下例，雖然 lastName 輸入的字元不到不到 20 個，但 cin 會在最後面補上'\0'，所以在 cout 時就只會輸出到'\0'前面的字元
 #+begin_src cpp -r -n :results output :exports both :cmdline < stringIn.txt
 #include<iostream>
 using namespace std;
@@ -1464,8 +1645,8 @@ int main()
 : Your name is James, Yen
 ** 輸入
 *** scanf()
-- C語言的輸入方式，用 scanf 讀取字串時，遇到空白字元便會結束。
-- 需include stdio.h
+- C 語言的輸入方式，用 scanf 讀取字串時，遇到空白字元便會結束。
+- 需 include stdio.h
 #+begin_src C -r -n :results output :exports both :cmdline < stringIn.txt
 #include <stdio.h>
 int main() {
@@ -1478,7 +1659,7 @@ int main() {
 #+RESULTS:
 : Your name: James
 *** cin
-既可以讀字元，又可以讀字串。遇到空白字元或Enter便會結束。
+既可以讀字元，又可以讀字串。遇到空白字元或 Enter 便會結束。
 #+begin_src cpp -r -n :results output :exports both :cmdline < stringIn.txt
 #include <iostream>
 using namespace std;
@@ -1492,8 +1673,8 @@ int main() {
 #+RESULTS:
 : Welcome, James, Yen
 *** cin.getline()
-- 可讀入空白，遇到Enter就結束輸入，需要include <string>
-- getline 函式使用兩個用逗號分隔的引數。第一個argument是要儲存字串的陣列的名稱。第二個argument是陣列的大小。當 cin.getline 語句執行時，cin 讀取的字元數將比該數字少一個，為 null 終止符留出空間。
+- 可讀入空白，遇到 Enter 就結束輸入，需要 include <string>
+- getline 函式使用兩個用逗號分隔的引數。第一個 argument 是要儲存字串的陣列的名稱。第二個 argument 是陣列的大小。當 cin.getline 語句執行時，cin 讀取的字元數將比該數字少一個，為 null 終止符留出空間。
 #+begin_src cpp -r -n :results output :exports both :cmdline < strIn.txt
 #include <iostream>
 #include <string>
@@ -1510,7 +1691,7 @@ int main() {
 : Tainan First Senior High Scho
 
 *** getline(cin, str)
-可以讀入空白，遇到Enter就結束輸入，需要include <string>
+可以讀入空白，遇到 Enter 就結束輸入，需要 include <string>
 #+begin_src cpp -r -n :results output :exports both :cmdline < strIn.txt
 #include <iostream>
 #include <string>
@@ -1525,7 +1706,7 @@ int main() {
 #+RESULTS:
 : Tainan First Senior High School
 *** gets(str)
-可以讀入空白，遇到Enter就結束輸入。
+可以讀入空白，遇到 Enter 就結束輸入。
 #+begin_src cpp -r -n :results output :exports both :cmdline < strIn.txt
 #include <iostream>
 using namespace std;
@@ -1548,20 +1729,20 @@ int main() {
 :PROPERTIES:
 :CUSTOM_ID: cpp_functions
 :END:
-將具有特定功能或經常重複使用的程式碼段落包裝成1個小單元，就稱之為function(函式)。使用function的好處：
-1. 分割程式成為1個個的小模組，方便開發分工。
+將具有特定功能或經常重複使用的程式碼段落包裝成 1 個小單元，就稱之為 function(函式)。使用 function 的好處：
+1. 分割程式成為 1 個個的小模組，方便開發分工。
 2. 程式碼可重複使用。
 3. 程式可讀性高，且除錯或修改方便。
 ** function declaration
-*** function的宣告語法
+*** function 的宣告語法
 #+begin_src cpp -r -n :results output :exports both
 傳回值的型態  function的名稱(參數1類別 參數1名稱, 參數2類別 參數2名稱, 參數3類別 參數3名稱, ...) {
     計算結果
     return 結果
 }
 #+end_src
-*** function的宣告方式
-**** 方式一:  直接將宣告與function內容一併寫出,置於main之前
+*** function 的宣告方式
+**** 方式一:  直接將宣告與 function 內容一併寫出,置於 main 之前
 #+begin_src cpp -r -n :results output :exports both
 int add(int m,int n)
 {
@@ -1576,7 +1757,7 @@ void main()
 }
 
 #+end_src
-**** 方式二: 先在main之前宣告,再將function實際內容置於main後面
+**** 方式二: 先在 main 之前宣告,再將 function 實際內容置於 main 後面
 #+begin_src cpp -r -n :results output :exports both
 int add(int, int);
 void main()
@@ -1592,13 +1773,13 @@ int add(int m,int n)
 }
 #+end_src
 ** 課堂練習
-1. 定義一function max(int a, int b, int c): 該function有三個argument，傳出最大項，例：
+1. 定義一 function max(int a, int b, int c): 該 function 有三個 argument，傳出最大項，例：
    cout << max(3, 5, 2) << endl;
-2. 定義一function sos(double a, double b): 該參數有兩個argument，輸出其平方和，例：
+2. 定義一 function sos(double a, double b): 該參數有兩個 argument，輸出其平方和，例：
    cout << sos(4.5, 5.7) << endl;
 ** 引數 (Argument) vs. 參數 (Parameter)
-- argument: 呼叫者傳給function的變數，如下例的a, b
-- parameter: function用來接住呼叫者傳進來的變數，如下例的x, y
+- argument: 呼叫者傳給 function 的變數，如下例的 a, b
+- parameter: function 用來接住呼叫者傳進來的變數，如下例的 x, y
 #+begin_src cpp -r -n :results output :exports both
 #include <iostream>
 using namespace std;
@@ -1616,11 +1797,11 @@ int main() {
 #+RESULTS:
 : 30
 ** void
-void的字面意思是“無型別”，void* 則為“無型別指標”，void *可以指向任何型別的資料。
-void真正發揮的作用在於：
-- 對函式返回的限定；有些函式並不傳回值，這些函式必須宣告為void函式。
+void 的字面意思是“無型別”，void* 則為“無型別指標”，void *可以指向任何型別的資料。
+void 真正發揮的作用在於：
+- 對函式返回的限定；有些函式並不傳回值，這些函式必須宣告為 void 函式。
 - 對函式引數的限定。
-*** 不傳回值的function
+*** 不傳回值的 function
 #+begin_src cpp -r -n :results output :exports both
 #include <iostream>
 using namespace std;
@@ -1636,7 +1817,7 @@ int main() {
 
 #+RESULTS:
 : Hi
-*** 沒有parameter也不傳回值的的function
+*** 沒有 parameter 也不傳回值的的 function
 #+begin_src cpp -r -n :results output :exports both
 #include <iostream>
 using namespace std;
@@ -1651,9 +1832,9 @@ int main() {
 
 #+RESULTS:
 : 我就是閒
-*** 沒有parameter v.s. parameter為void
-- c: parameter為void表示不能有parameter，你硬傳argument進去都會出現error；parameter留空表示可以有很多個也可以沒有
-- c++: parameter為void或沒有都表示不能有，你硬要傳pargument進去都是error
+*** 沒有 parameter v.s. parameter 為 void
+- c: parameter 為 void 表示不能有 parameter，你硬傳 argument 進去都會出現 error；parameter 留空表示可以有很多個也可以沒有
+- c++: parameter 為 void 或沒有都表示不能有，你硬要傳 pargument 進去都是 error
 #+begin_src cpp -r -n :results output :exports both
 #include <stdio.h>
 using namespace std;
@@ -1675,7 +1856,7 @@ int main() {
 :CUSTOM_ID: cpp_functions
 :ID:       a7a7bfd1-478a-4da0-b2d7-157bba36933f
 :END:
-當一支function在自己的程式碼中又呼叫自己,會發生什麼事??
+當一支 function 在自己的程式碼中又呼叫自己,會發生什麼事??
 #+begin_src cpp -r -n :results output :exports both
 #include
 #include <iostream>

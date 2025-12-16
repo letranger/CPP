@@ -4,6 +4,7 @@
 #+OPTIONS: toc:2 ^:nil num:5
 #+PROPERTY: header-args :eval never-export
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../css/muse.css" />
+#+HTML_HEAD_EXTRA: <script src="../css/copy_code.js"></script>
 #+EXCLUDE_TAGS: noexport
 #+latex:\newpage
 #+begin_export html
@@ -25,7 +26,6 @@
 - [[https://www.geeksforgeeks.org/array-strings-c-3-different-ways-create/][Array of Strings in C++ (5 Different Ways to Create)]]
 *** C
 #+begin_src c -r -n :results output :exports both
-
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
