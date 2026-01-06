@@ -1386,7 +1386,6 @@ int main() {
 
 #+RESULTS:
 : 8,11,13,30,100,
-
 *** find
 #+begin_src cpp -r -n :results output :exports both
 #include <algorithm>
@@ -1416,35 +1415,136 @@ int main() {
     reverse(begin(number), end(number));
 }
 #+end_src
-** 2d array
-*** initialization
+
+* 排序
+:PROPERTIES:
+:CUSTOM_ID: cpp_sort_algorithm
+:END:
+陣列(array)是用來儲存大量資料的結構，儲存資料的目的之一是為了日後能方便的找到所需的資料，然而，若資料是雜亂無章的排列，則搜尋起來就會相當沒有效率。
+
+想像一個情境，你有一疊沒有排序的名片，當你想找某個人的名片時，你只能一張一張的翻閱，直到找到為止，這樣的搜尋方式稱為「線性搜尋(linear search)」，其時間複雜度為 O(n)，也就是說，若有 n 張名片，最壞的情況下你可能要翻閱 n 張名片才能找到目標（換句話說，你要找的名片可能是最後一張），或者，你全部找完後才發現根本沒有你要找的名片。
+
+為了提升搜尋效率，我們可以先將名片依照某種規則排序，例如依照姓名的字母順序排列，這樣當我們要找某個人的名片時，就可以利用「二分搜尋(binary search)」的方式來進行搜尋，其時間複雜度為 O(log n)，也就是說，若有 n 張名片，最壞的情況下你只需要翻閱 log n 張名片就能找到目標（log n 是以 2 為底的對數函數）。
+
+然而，要進行二分搜尋的前提是資料必須是已排序的，這就引出了排序演算法的需求。
+
+排序演算法有很多種，常見的有以下幾種：
+- 氣泡排序(Bubble Sort)
+- 選擇排序(Selection Sort)
+- 插入排序(Insertion Sort)
+- 快速排序(Quick Sort)
+- 合併排序(Merge Sort)
+每種排序演算法都有其優缺點，選擇適合的排序演算法取決於資料的特性以及應用場景。
+
+** 氣泡排序(Bubble Sort)
+氣泡排序是一種簡單但效率較低的排序演算法，其基本思想是 ** 反覆比較相鄰的元素** ，若順序錯誤則交換位置，直到整個陣列有序為止。
+*** 第一輪比較
+假設有一個陣列 [5, 2, 9, 1, 5, 6]，我們想以氣泡排序將其排序，第一輪的步驟如下：
+1. 比較第一對元素 5 和 2，因為 5 > 2，交換位置，陣列變為 [2, 5, 9, 1, 5, 6]
+2. 比較第二對元素 5 和 9，因為 5 < 9，不交換位置，陣列保持不變
+3. 比較第三對元素 9 和 1，因為 9 > 1，交換位置，陣列變為 [2, 5, 1, 9, 5, 6]
+4. 比較第四對元素 9 和 5，因為 9 > 5，交換位置，陣列變為 [2, 5, 1, 5, 9, 6]
+5. 比較第五對元素 9 和 6，因為 9 > 6，交換位置，陣列變為 [2, 5, 1, 5, 6, 9]
+6. 重複上述步驟，直到整個陣列
+
+看到了嗎？全部有6個元素，所以第一輪需要比較5次，比完第一輪後，最大的元素 9 已經被移到最後一個位置。
+
+上面第一輪的比較過程可以用如下的程式碼來實現：
 #+begin_src cpp -r -n :results output :exports both
 #include <iostream>
 using namespace std;
 int main() {
-    int i, j;
-    float grad[3][5];
-    memset(grad, 0, sizeof(grad));
+    int arr[] = {5, 2, 9, 1, 5, 6};
+    int n = sizeof(arr) / sizeof(arr[0]);
 
-    for (i = 0; i < 3; i++) {
-        for (j = 0; j < 5; j++) {
-            cout << grad[i][j] << ", ";
+    // 第一輪比較
+    for (int i = 0; i < n - 1; i++) {
+        if (arr[i] > arr[i + 1]) {
+            // 交換位置
+            int temp = arr[i];
+            arr[i] = arr[i + 1];
+            arr[i + 1] = temp;
         }
-        cout << endl;
     }
 
-    int x[5] = {0};
-    for (i = 0; i < 5; i++) {
-        cout << x[i];
+    // 輸出結果
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
     }
+    cout << endl;
+
+    return 0;
 }
 #+end_src
 
 #+RESULTS:
-: 0, 0, 0, 0, 0,
-: 0, 0, 0, 0, 0,
-: 0, 0, 0, 0, 0,
-: 00000
+: 2 5 1 5 6 9
+*** 第二輪比較
+接下來進行第二輪比較，因為最大的元素已經在最後一個位置，所以我們只剩下前五個元素需要比較，步驟如下：
+1. 比較第一對元素 2 和 5，因為 2 < 5，不交換位置，陣列保持不變
+2. 比較第二對元素 5 和 1，因為 5 > 1，交換位置，陣列變為 [2, 1, 5, 5, 6, 9]
+3. 比較第三對元素 5 和 5，因為 5 == 5，不交換位置，陣列保持不變
+4. 比較第四對元素 5 和 6，因為 5 < 6，不交換位置，陣列保持不變
+上述第二輪的比較過程可以用如下的程式碼來實現：
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+int main() {
+    int arr[] = {2, 5, 1, 5, 6, 9}; // 這裡的陣列是第一輪比較後的結果
+    int n = sizeof(arr) / sizeof(arr[0]);
+    // 第二輪比較
+    for (int i = 0; i < n - 2; i++) {
+        if (arr[i] > arr[i + 1]) {
+            // 交換位置
+            int temp = arr[i];
+            arr[i] = arr[i + 1];
+            arr[i + 1] = temp;
+        }
+    }
+    // 輸出結果
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+    return 0;
+}
+#+end_src
+
+#+RESULTS:
+: 2 1 5 5 6 9
+*** 完整程式碼
+將上述兩輪比較的程式碼結合起來，我們可以得到完整的bubble sort 程式碼如下：
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+int main() {
+    int arr[] = {5, 2, 9, 1, 5, 6};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    // 氣泡排序
+    for (int j = 0; j < n - 1; j++) { // 外層迴圈控制比較輪數
+        for (int i = 0; i < n - 1 - j; i++) { // 內層迴圈進行比較
+            if (arr[i] > arr[i + 1]) {
+                // 交換位置
+                int temp = arr[i];
+                arr[i] = arr[i + 1];
+                arr[i + 1] = temp;
+            }
+        }
+    }
+
+    // 輸出結果
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+#+end_src
+
+#+RESULTS:
+: 1 2 5 5 6 9
 
 * String
 :PROPERTIES:
@@ -1595,9 +1695,12 @@ int main() {
 - 在下列程式中，字元陣列 name1 與字串 name2 的內容一模一樣，長度均為 5 個字元，但不管是以字元陣列(name1)或是以字串(name2)來儲存這五個字元，最後都有一個代表字串結尾的隱藏字元'\0'來告訴電腦這個字串到此為止。
 - '\0'的 ASCII 編號為 0，是 NULL、空集合的意思
 - 這個'\0'不會被輸出，也不被算在字元陣列或是字串長度裡，所以不論是以 strlen()或是 length()都只看到長度為 5。
+- 要留意的是，對C++來說，name1 與 name2 是兩種不同的資料型態，name1 為 char 陣列，而 name2 為 string 型態，所以在存取字元時，兩者的語法也有所不同。
+- 另，在C++中，strlen()需要 include <cstring>，而 length()需要 include <string>
+- 在C中，strlen()則需要 include <string.h>
 #+begin_src cpp -r -n :results output :exports both
 #include<iostream>
-#include<string>
+#include<cstring>
 using namespace std;
 
 int main()
@@ -1618,10 +1721,10 @@ int main()
 #+RESULTS:
 : TNFSH: 5
 : TNFSH: 5
-: name1 的第三個字元: F
-: name2 的第三個字元: F
-: �
-: �
+: name1的第三個字元: F
+: name2的第三個字元: F
+:  
+:  
 ** 宣告
 - 宣告一個空的字元陣列要先告知預計會有幾個字元，字串則不用。
 - 如下例，雖然 lastName 輸入的字元不到不到 20 個，但 cin 會在最後面補上'\0'，所以在 cout 時就只會輸出到'\0'前面的字元
@@ -1689,7 +1792,6 @@ int main() {
 
 #+RESULTS:
 : Tainan First Senior High Scho
-
 *** getline(cin, str)
 可以讀入空白，遇到 Enter 就結束輸入，需要 include <string>
 #+begin_src cpp -r -n :results output :exports both :cmdline < strIn.txt
@@ -1720,136 +1822,372 @@ int main() {
 
 #+RESULTS:
 : Tainan First Senior High School
-** 輸出
 ** 進階閱讀
 - [[https://openhome.cc/Gossip/CppGossip/string1.html][字元陣列與字串]]
 - [[https://www.796t.com/article.php?id=13952][C++ cin.getline及getline()用法詳解]]
 
-* Function
-:PROPERTIES:
-:CUSTOM_ID: cpp_functions
-:END:
-將具有特定功能或經常重複使用的程式碼段落包裝成 1 個小單元，就稱之為 function(函式)。使用 function 的好處：
-1. 分割程式成為 1 個個的小模組，方便開發分工。
-2. 程式碼可重複使用。
-3. 程式可讀性高，且除錯或修改方便。
-** function declaration
-*** function 的宣告語法
+* 二維陣列
+在現實生活中，常會遇到需要以表格方式來儲存資料的情況，例如學生成績單、公司員工資料表等，這些資料通常是以二維的方式來呈現。例如以下是一個全班成績表格，全班共有5位學生，每位學生有3科成績:
+| 姓名 | 國文 | 英文 | 數學 |
+|------+------+------+------|
+| 張三 |   85 |   90 |   78 |
+| 李四 |   88 |   76 |   95 |
+| 王五 |   92 |   89 |   84 |
+| 趙六 |   75 |   80 |   70 |
+| 孫七 |   90 |   85 |   88 |
+如果你只會使用一維陣列來儲存這些資料，那你大概有兩種方法來儲存這些資料：
+1. 使用多個一維陣列來儲存每一科的成績，例如:
 #+begin_src cpp -r -n :results output :exports both
-傳回值的型態  function的名稱(參數1類別 參數1名稱, 參數2類別 參數2名稱, 參數3類別 參數3名稱, ...) {
-    計算結果
-    return 結果
-}
+int chinese[5] = {85, 88, 92, 75, 90};
+int english[5] = {90, 76, 89, 80, 85};
+int math[5]    = {78, 95, 84, 70, 88};
 #+end_src
-*** function 的宣告方式
-**** 方式一:  直接將宣告與 function 內容一併寫出,置於 main 之前
+2. 使用5個一維陣列來儲存每位學生的成績，例如:
 #+begin_src cpp -r -n :results output :exports both
-int add(int m,int n)
-{
-    return m+n;
-}
-void main()
-{
-    int a,b;
-    cin >> a;
-    cin >> b;
-    cout << a << "+" << b << "=" << add(a,b);
-}
-
+int student1[3] = {85, 90, 78};
+int student2[3] = {88, 76, 95};
+int student3[3] = {92, 89, 84};
+int student4[3] = {75, 80, 70};
+int student5[3] = {90, 85, 88};
 #+end_src
-**** 方式二: 先在 main 之前宣告,再將 function 實際內容置於 main 後面
+3. 或者，你也可以使用一維陣列來儲存所有的成績，然後透過計算索引值來存取每個學生的成績，例如:
 #+begin_src cpp -r -n :results output :exports both
-int add(int, int);
-void main()
-{
-    int a,b;
-    cin >> a;
-    cin >> b;
-    cout << a << "+" << b << "=" << add(a,b);
-}
-int add(int m,int n)
-{
-    return m+n;
-}
-#+end_src
-** 課堂練習
-1. 定義一 function max(int a, int b, int c): 該 function 有三個 argument，傳出最大項，例：
-   cout << max(3, 5, 2) << endl;
-2. 定義一 function sos(double a, double b): 該參數有兩個 argument，輸出其平方和，例：
-   cout << sos(4.5, 5.7) << endl;
-** 引數 (Argument) vs. 參數 (Parameter)
-- argument: 呼叫者傳給 function 的變數，如下例的 a, b
-- parameter: function 用來接住呼叫者傳進來的變數，如下例的 x, y
-#+begin_src cpp -r -n :results output :exports both
-#include <iostream>
-using namespace std;
-int mySum(int x, int y) {
-    return x+y;
-}
-
-int main() {
-    int a = 10, b = 20;
-    cout << mySum(a, b) << endl;
-}
-
+int scores[15] = {85, 90, 78, 88, 76, 95, 92, 89, 84, 75, 80, 70, 90, 85, 88};
+// 存取第一位學生的國文成績
+int student1_chinese = scores[0];
+// 存取第二位學生的英文成績
+int student2_english = scores[5];
 #+end_src
 
-#+RESULTS:
-: 30
-** void
-void 的字面意思是“無型別”，void* 則為“無型別指標”，void *可以指向任何型別的資料。
-void 真正發揮的作用在於：
-- 對函式返回的限定；有些函式並不傳回值，這些函式必須宣告為 void 函式。
-- 對函式引數的限定。
-*** 不傳回值的 function
+但是，我想你會發現，以上這些方法都不是很方便，尤其是當學生人數或科目數量增加時，程式碼會變得非常複雜且難以維護。為了解決這個問題，C++ 提供了二維陣列(array)來處理這類資料，其宣告方式如下：
+
+#+begin_src cpp -r -n :results output :exports both
+資料型態 名稱[列數][行數];
+#+end_src
+例如:
+#+begin_src cpp -r -n :results output :exports both
+int score[3][5]; // 宣告 3 列 5 行的整
+#+end_src
+
+** 二維陣列的存取
+有了二維陣列的宣告方式後，我們就可以使用兩個索引值來存取陣列中的元素了，第一個索引值表示列(row)，第二個索引值表示行(column)，例如:
+#+begin_src cpp -r -n :results output :exports both
+score[0][0] = 85; // 第一列第一行, 即張三的國文成績
+score[0][1] = 90; // 第一列第二行, 即張三的英文成績
+score[0][2] = 78; // 第一列第三行, 即張三的數學成績
+score[1][0] = 88; // 第二列第一行, 即李四的國文成績
+score[1][1] = 76; // 第二列第二行, 即李四的英文成績
+score[1][2] = 95; // 第二列第三行, 即李四的數學成績
+#+end_src
+當然，除了逐一指定外，我們也可以在宣告二維陣列時，同時指定初值，例如:
+#+begin_src cpp -r -n :results output :exports both
+int score[5][3] = {
+    {85, 90, 78}, // 張三
+    {88, 76, 95}, // 李四
+    {92, 89, 84}, // 王五
+    {75, 80, 70}, // 趙六
+    {90, 85, 88}  // 孫七
+};
+#+end_src
+或者，更多的時候，我們其實會透過cin 來讀取二維陣列的值，例如:
 #+begin_src cpp -r -n :results output :exports both
 #include <iostream>
 using namespace std;
-void sayHi(string yourName) {
-    cout << "Hi";
-}
-
 int main() {
-    string name = "TNFSH";
-    sayHi(name);
+    int score[5][3];
+    cin >> score[0][0] >> score[0][1] >> score[0][2]; // 讀入張三的成績
+    cin >> score[1][0] >> score[1][1] >> score[1][2]; // 讀入李四的成績
+    cin >> score[2][0] >> score[2][1] >> score[2][2]; // 讀入王五的成績
+    cin >> score[3][0] >> score[3][1] >> score[3][2]; // 讀入趙六的成績
+    cin >> score[4][0] >> score[4][1] >> score[4][2]; // 讀入孫七的成績
+    return 0;
 }
 #+end_src
-
-#+RESULTS:
-: Hi
-*** 沒有 parameter 也不傳回值的的 function
+而每個人的成績其實可以用一個迴圈來讀取，例如:
 #+begin_src cpp -r -n :results output :exports both
 #include <iostream>
 using namespace std;
-void foo(void) {
-    cout << "我就是閒\n";
+int main() {
+    int score[5][3];
+    for (int i = 0; i < 3; i++) {
+        cin >> score[0][i]; // 讀入張三的成績
+    }
+    for (int i = 0; i < 3; i++) {
+        cin >> score[1][i]; // 讀入李四的成績
+    }
+    for (int i = 0; i < 3; i++) {
+        cin >> score[2][i]; // 讀入王五的成績
+    }
+    for (int i = 0; i < 3; i++) {
+        cin >> score[3][i]; // 讀入趙六的成績
+    }
+    for (int i = 0; i < 3; i++) {
+        cin >> score[4][i]; // 讀入孫七的成績
+    }
+    return 0;
+}
+#+end_src
+看到這裡,我想，剛學完巢狀迴圈的你，應該已經想到可以用巢狀迴圈來讀取二維陣列的值了吧！沒錯，就是這樣：
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+int main() {
+    int score[5][3];
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 3; j++) {
+            cin >> score[i][j];
+        }
+    }
+    return 0;
 }
 
+#+end_src
+** 輸出二維陣列
+輸出二維陣列的方式與輸入類似，我們也可以使用同樣的巢狀迴圈來輸出二維陣列的值，例如:
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
 int main() {
-    foo();
+    int score[5][3] = {
+        {85, 90, 78}, // 張三
+        {88, 76, 95}, // 李四
+        {92, 89, 84}, // 王五
+        {75, 80, 70}, // 趙六
+        {90, 85, 88}  // 孫七
+    };
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 3; j++) {
+            cout << score[i][j] << " ";
+        }
+        cout << endl;
+    }
+    return 0;
 }
 #+end_src
 
 #+RESULTS:
-: 我就是閒
-*** 沒有 parameter v.s. parameter 為 void
-- c: parameter 為 void 表示不能有 parameter，你硬傳 argument 進去都會出現 error；parameter 留空表示可以有很多個也可以沒有
-- c++: parameter 為 void 或沒有都表示不能有，你硬要傳 pargument 進去都是 error
+: 85 90 78
+: 88 76 95
+: 92 89 84
+: 75 80 70
+: 90 85 88
+** 其他的基本操作
+*** 計算每位學生的總分與平均
 #+begin_src cpp -r -n :results output :exports both
-#include <stdio.h>
+#include <iostream>
 using namespace std;
-void foo(void) {
-}
-
-void bar() {
-
-}
-
 int main() {
-    foo(1);
-    bar(1);
+    int score[5][3] = {
+        {85, 90, 78}, // 張三
+        {88, 76, 95}, // 李四
+        {92, 89, 84}, // 王五
+        {75, 80, 70}, // 趙六
+        {90, 85, 88}  // 孫七
+    };
+    for (int i = 0; i < 5; i++) {
+        int total = 0;
+        for (int j = 0; j < 3; j++) {
+            total += score[i][j];
+        }
+        double average = total / 3.0;
+        cout << "學生 " << i + 1 << " 的總分為 " <<  total << "，平均為 " << average << endl;
+    }
+    return 0;
 }
 #+end_src
+#+RESULTS:
+: 學生 1 的總分為 253，平均為 84.3333
+: 學生 2 的總分為 259，平均為 86.3333
+: 學生 3 的總分為 265，平均為 88.3333
+: 學生 4 的總分為 225，平均為 75
+: 學生 5 的總分為 263，平均為 87.6667
+
+這種方式是直接讀入分數後進行計算，但是如果你想把總分或平圴存起來(也許之後你還會用到，例如要找全班最高分或是進行排名)，那要怎麼做呢？
+*** 儲存每位學生的總分與平均: Solution #1
+第一種方式是使用兩個一維陣列來分別儲存每位學生的總分與平均，例如:
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+int main() {
+    int score[5][3] = {
+        {85, 90, 78}, // 張三
+        {88, 76, 95}, // 李四
+        {92, 89, 84}, // 王五
+        {75, 80, 70}, // 趙六
+        {90, 85, 88}  // 孫七
+    };
+    int total[5];      // 用來儲存每位學生的總分
+    double average[5]; // 用來儲存每位學生的平均
+    for (int i = 0; i < 5; i++) {
+        total[i] = 0;
+        for (int j = 0; j < 3; j++) {
+            total[i] += score[i][j];
+        }
+        average[i] = total[i] / 3.0;
+    }
+    // 輸出每位學生的總分與平均
+    for (int i = 0; i < 5; i++) {
+        cout << "學生 " << i + 1 << " 的總分為 " << total[i] << "，平均為 " << average[i] << endl;
+    }
+    return 0;
+}
+#+end_src
+*** 儲存每位學生的總分與平均: Solution #2
+其實，我們也可以善用二維陣列的特性，直接在原本的二維陣列中，增加兩個欄位來分別儲存每位學生的總分與平均，例如將原本如下的資料表：
+| 姓名 | 國文 | 英文 | 數學 |
+|------+------+------+------|
+| 張三 |   85 |   90 |   78 |
+| 李四 |   88 |   76 |   95 |
+| 王五 |   92 |   89 |   84 |
+| 趙六 |   75 |   80 |   70 |
+| 孫七 |   90 |   85 |   88 |
+改為：
+| 姓名 | 國文 | 英文 | 數學 | 總分 | 平均 |
+|------+------+------+------|------|------|
+| 張三 |   85 |   90 |   78 |      |
+| 李四 |   88 |   76 |   95 |      |
+| 王五 |   92 |   89 |   84 |      |
+| 趙六 |   75 |   80 |   70 |      |
+| 孫七 |   90 |   85 |   88 |      |
+然後在程式中，我們可以這樣做:
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+int main() {
+    int score[5][5] = {
+        {85, 90, 78, 0, 0}, // 張三
+        {88, 76, 95, 0, 0}, // 李四
+        {92, 89, 84, 0, 0}, // 王五
+        {75, 80, 70, 0, 0}, // 趙六
+        {90, 85, 88, 0, 0}  // 孫七
+    };
+    for (int i = 0; i < 5; i++) {
+        score[i][3] = 0; // 初始化總分欄位
+        for (int j = 0; j < 3; j++) {
+            score[i][3] += score[i][j]; // 計算總分
+        }
+        score[i][4] = score[i][3] / 3.0; //
+        // 計算平均
+    }
+    // 輸出每位學生的總分與平均
+    for (int i = 0; i < 5; i++) {
+        cout << "學生 " << i + 1 << " 的總分為 " << score[i][3] << "，平均為 " << score[i][4] << endl;
+    }
+    return 0;
+}
+#+end_src
+
+** 關於二維陣列的排序
+假設全班成績表如下:
+| 座號 | 國文 | 英文 | 數學 |
+|------+------+------+------|
+| 1  |   85 |   90 |   78 |
+| 2  |   88 |   76 |   95 |
+| 3  |   92 |   89 |   84 |
+| 4    |   75 |   80 |   70 |
+| 5  |   90 |   85 |   88 |
+我們想要依照每位學生的總分來進行排序，該怎麼做呢？我們可以使用類似泡沫排序法(bubble sort)的方式來進行排序，例如:
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+int main() {
+    int score[5][5] = {
+        {1, 85, 90, 78, 0}, // 座號1
+        {2, 88, 76, 95, 0}, // 座號2
+        {3, 92, 89, 84, 0}, // 座號3
+        {4, 75, 80, 70, 0}, // 座號4
+        {5, 90, 85, 88, 0}  // 座號5
+    };
+    // 計算每位學生的總分並存入第四欄
+    for (int i = 0; i < 5; i++) {
+        score[i][4] = score[i][1] + score[i][2] +
+                        score[i][3];
+    }
+    // 依照總分進行排序
+    for (int i = 0; i < 5 - 1; i++)
+    {
+        for (int j = 0; j < 5 - i - 1; j++) {
+            if (score[j][3] > score[j + 1][3]) {
+                // 這裡是唯一和之前學過的泡沫排序法不同的地方
+                // 因為我們是排序二維陣列，所以需要交換整列的資料
+                // 所以我們使用一個內層迴圈來交換每一欄的資料
+                // 當然，你也可以不用fotm來交換，只要用暫存變數來交換每一欄的資料也可以
+                for (int k = 0; k < 4; k++) {
+                    int temp = score[j][k];
+                    score[j][k] = score[j + 1][k];
+                    score[j + 1][k] = temp;
+                }
+            }
+        }
+    }
+    // 輸出排序後的合部成績表
+    cout << "座號\t國文\t數學\t英文\t總分" << endl;
+    for (int i = 0; i < 5; i++) {
+        cout << score[i][0] << "\t"
+             << score[i][1] << "\t"
+             << score[i][2] << "\t"
+              << score[i][3] << "\t"
+              << score[i][4] << endl;
+    }
+    return 0;
+}
+#+end_src
+
+#+RESULTS:
+: 座號	國文	數學	英文	總分
+: 4	75	80	70	253
+: 1	85	90	78	259
+: 3	92	89	84	265
+: 5	90	85	88	225
+: 2	88	76	95	263
+
+** 進階排序
+如果，我們需要的排序結果長的像這樣(依座號排，中間插入一個名次欄位):
+| 座號 | 國文 | 英文 | 數學 | 名次 |
+|------+------+------+------+------|
+|    1 |   85 |   90 |   78 |    3 |
+|    2 |   88 |   76 |   95 |    5 |
+|    3 |   92 |   89 |   84 |    1 |
+|    4 |   75 |   80 |   70 |    4 |
+|    5 |   90 |   85 |   88 |    2 |
+|------+------+------+------+------|
+我們該怎麼做呢？我們可以先依照總分進行排序，然後再依照座號進行排序，例如:
+1. 先把總分存入第五欄
+   | 座號 | 國文 | 英文 | 數學 | 總分 |
+   |------+------+------+------+------|
+   |    1 |   85 |   90 |   78 |  253 |
+   |    2 |   88 |   76 |   95 |  259 |
+   |    3 |   92 |   89 |   84 |  265 |
+   |    4 |   75 |   80 |   70 |  225 |
+   |    5 |   90 |   85 |   88 |  263 |
+   |------+------+------+------+------|
+2. 依照總分進行排序(由高到低)
+   | 座號 | 國文 | 英文 | 數學 | 總分 |
+   |------+------+------+------+------|
+   |    3 |   92 |   89 |   84 |  265 |
+   |    5 |   90 |   85 |   88 |  263 |
+   |    2 |   88 |   76 |   95 |  259 |
+   |    1 |   85 |   90 |   78 |  253 |
+   |    4 |   75 |   80 |   70 |  225 |
+   |------+------+------+------+------|
+3. 加入一個名次欄位(以for迴圈手動填入名次
+   | 座號 | 國文 | 英文 | 數學 | 總分 | 名次 |
+   |------+------+------+------+------+------|
+   |    3 |   92 |   89 |   84 |  265 |    1 |
+   |    5 |   90 |   85 |   88 |  263 |    2 |
+   |    2 |   88 |   76 |   95 |  259 |    3 |
+   |    1 |   85 |   90 |   78 |  253 |    4 |
+   |    4 |   75 |   80 |   70 |  225 |    5 |
+   |------+------+------+------+------+------|
+4. 再依照座號進行排序
+   | 座號 | 國文 | 英文 | 數學 | 總分 | 名次 |
+   |------+------+------+------+------+------|
+   |    1 |   85 |   90 |   78 |  253 |    4 |
+   |    2 |   88 |   76 |   95 |  259 |    3 |
+   |    3 |   92 |   89 |   84 |  265 |    1 |
+   |    4 |   75 |   80 |   70 |  225 |    5 |
+   |    5 |   90 |   85 |   88 |  263 |    2 |
+   |------+------+------+------+------+------|
 
 * TODO Recursion
 :PROPERTIES:
