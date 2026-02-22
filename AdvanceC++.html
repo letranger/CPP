@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-04-28 Mon 20:04 -->
+<!-- 2026-02-22 Sun 14:34 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Advance C/C++</title>
@@ -203,73 +203,263 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org2c0827f">1. Sort</a></li>
-<li><a href="#orgd71ade4">2. String</a>
+<li><a href="#org6e5e4c4">1. Sort</a>
 <ul>
-<li><a href="#org340e682">2.1. 教學資源</a></li>
-<li><a href="#org879f7d5">2.2. 作業</a></li>
+<li><a href="#org47203aa">1.1. Bubble Sort (氣泡排序)</a></li>
+<li><a href="#org82559ef">1.2. Selection Sort (選擇排序)</a></li>
+<li><a href="#org65180a9">1.3. Insertion Sort (插入排序)</a></li>
+<li><a href="#org334bc8d">1.4. 三種排序法比較</a></li>
 </ul>
 </li>
-<li><a href="#org108293d">3. 2D Array</a>
+<li><a href="#org48127c9">2. String</a>
 <ul>
-<li><a href="#org4b548ac">3.1. Array of string</a></li>
+<li><a href="#org67b87df">2.1. 教學資源</a></li>
+<li><a href="#orge6e5f4a">2.2. 作業</a></li>
 </ul>
 </li>
-<li><a href="#orgd309188">4. Variable</a>
+<li><a href="#orgcd386e3">3. 2D Array</a>
 <ul>
-<li><a href="#org62bb80c">4.1. Global v.s. Local</a></li>
+<li><a href="#orgf68409d">3.1. Array of string</a></li>
 </ul>
 </li>
-<li><a href="#orgd3272b0">5. Function</a>
+<li><a href="#orgcb04940">4. Variable</a>
 <ul>
-<li><a href="#org1423062">5.1. Argument</a></li>
-<li><a href="#orgfcf9a3c">5.2. Recursion</a></li>
+<li><a href="#org096e536">4.1. Global v.s. Local</a></li>
 </ul>
 </li>
-<li><a href="#org64d4100">6. 指標Pointer</a>
+<li><a href="#orgad21dbb">5. Function</a>
 <ul>
-<li><a href="#org749556f">6.1. 指標陣列</a></li>
+<li><a href="#orgdd9330b">5.1. Argument</a></li>
+<li><a href="#orgfb5479e">5.2. Recursion</a></li>
 </ul>
 </li>
-<li><a href="#orgd2043b4">7. 資料結構</a>
+<li><a href="#org20bb6f7">6. 指標Pointer</a>
 <ul>
-<li><a href="#org6e4fc75">7.1. Array</a></li>
-<li><a href="#org6fa785e">7.2. Stack</a></li>
-<li><a href="#org8a31ca7">7.3. Queue</a></li>
-<li><a href="#org579eaa4">7.4. Vector: 強化版的陣列</a></li>
+<li><a href="#orgcc0b95d">6.1. 指標陣列</a></li>
 </ul>
 </li>
-<li><a href="#org791496e">8. 演算法</a>
+<li><a href="#org1304ba1">7. 資料結構</a>
 <ul>
-<li><a href="#org681d950">8.1. 回溯法(Backtracking)</a></li>
-<li><a href="#org2316fac">8.2. 隨機演算法</a></li>
+<li><a href="#org0537d59">7.1. Array</a></li>
+<li><a href="#org5817b18">7.2. Stack</a></li>
+<li><a href="#org6a0e5b6">7.3. Queue</a></li>
+<li><a href="#org04e38ff">7.4. Vector: 強化版的陣列</a></li>
 </ul>
 </li>
-<li><a href="#org0a3c53b">9. LeeCode</a></li>
-<li><a href="#orgbefe151">10. Dynamic programming</a></li>
-<li><a href="#orgf912c86">11. Page Infos</a></li>
+<li><a href="#orge99d601">8. 演算法</a>
+<ul>
+<li><a href="#orge14208f">8.1. 回溯法(Backtracking)</a></li>
+<li><a href="#org96b9e03">8.2. 隨機演算法</a></li>
+</ul>
+</li>
+<li><a href="#org78be59c">9. LeeCode</a></li>
+<li><a href="#org4b53d26">10. Dynamic programming</a></li>
+<li><a href="#org61bd73f">11. Page Infos</a></li>
 </ul>
 </div>
 </div>
 <a href="https://hits.sh/letranger.github.io/CPP/AdvanceC++.html/"><img align="right" oalt="Hits" src="https://hits.sh/letranger.github.io/CPP/AdvanceC++.html.svg?style=plastic"/></a>
-<div id="outline-container-org2c0827f" class="outline-2">
-<h2 id="org2c0827f"><span class="section-number-2">1.</span> Sort</h2>
+<div id="outline-container-org6e5e4c4" class="outline-2">
+<h2 id="org6e5e4c4"><span class="section-number-2">1.</span> Sort</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+排序(Sorting)是將一組資料依照特定的順序重新排列的過程，是程式設計中最基礎也最重要的演算法之一。<br />
+</p>
+</div>
+<div id="outline-container-org47203aa" class="outline-3">
+<h3 id="org47203aa"><span class="section-number-3">1.1.</span> Bubble Sort (氣泡排序)</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+氣泡排序的概念很簡單：反覆比較相鄰的兩個元素，如果順序不對就交換，就像水中的氣泡一樣，較大的元素會逐漸「浮」到陣列的尾端。<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span class="linenr"> 1: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;iostream&gt;</span>
+<span class="linenr"> 2: </span><span style="color: #51afef;">using</span> <span style="color: #51afef;">namespace</span> <span style="color: #a9a1e1;">std</span>;
+<span class="linenr"> 3: </span>
+<span class="linenr"> 4: </span><span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span>() {
+<span class="linenr"> 5: </span>    <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">arr</span>[] = {64, 34, 25, 12, 22, 11, 90};
+<span class="linenr"> 6: </span>    <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">n</span> = 7;
+<span class="linenr"> 7: </span>
+<span class="linenr"> 8: </span>    <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Bubble Sort
+<span class="linenr"> 9: </span></span>    <span style="color: #51afef;">for</span> (<span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">i</span> = 0; i &lt; n - 1; i++) {       <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#20849;&#38656; n-1 &#36650;
+<span class="linenr">10: </span></span>        <span style="color: #51afef;">for</span> (<span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">j</span> = 0; j &lt; n - 1 - i; j++) { <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#27599;&#36650;&#23569;&#27604;&#19968;&#27425;
+<span class="linenr">11: </span></span>            <span style="color: #51afef;">if</span> (arr[j] &gt; arr[j + 1]) {
+<span class="linenr">12: </span>                <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#20132;&#25563;
+<span class="linenr">13: </span></span>                <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">temp</span> = arr[j];
+<span class="linenr">14: </span>                arr[j] = arr[j + 1];
+<span class="linenr">15: </span>                arr[j + 1] = temp;
+<span class="linenr">16: </span>            }
+<span class="linenr">17: </span>        }
+<span class="linenr">18: </span>    }
+<span class="linenr">19: </span>
+<span class="linenr">20: </span>    cout &lt;&lt; <span style="color: #98be65;">"&#25490;&#24207;&#32080;&#26524;: "</span>;
+<span class="linenr">21: </span>    <span style="color: #51afef;">for</span> (<span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">i</span> = 0; i &lt; n; i++)
+<span class="linenr">22: </span>        cout &lt;&lt; arr[i] &lt;&lt; <span style="color: #98be65;">" "</span>;
+<span class="linenr">23: </span>    cout &lt;&lt; endl;
+<span class="linenr">24: </span>    <span style="color: #51afef;">return</span> 0;
+<span class="linenr">25: </span>}
+</pre>
 </div>
 
-<div id="outline-container-orgd71ade4" class="outline-2">
-<h2 id="orgd71ade4"><span class="section-number-2">2.</span> String</h2>
+<ul class="org-ul">
+<li>時間複雜度：O(n²)<br /></li>
+<li>空間複雜度：O(1)<br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org82559ef" class="outline-3">
+<h3 id="org82559ef"><span class="section-number-3">1.2.</span> Selection Sort (選擇排序)</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+選擇排序的想法是：每一輪從未排序的部分中找出最小值，放到已排序部分的尾端。<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span class="linenr"> 1: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;iostream&gt;</span>
+<span class="linenr"> 2: </span><span style="color: #51afef;">using</span> <span style="color: #51afef;">namespace</span> <span style="color: #a9a1e1;">std</span>;
+<span class="linenr"> 3: </span>
+<span class="linenr"> 4: </span><span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span>() {
+<span class="linenr"> 5: </span>    <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">arr</span>[] = {64, 25, 12, 22, 11};
+<span class="linenr"> 6: </span>    <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">n</span> = 5;
+<span class="linenr"> 7: </span>
+<span class="linenr"> 8: </span>    <span style="color: #51afef;">for</span> (<span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">i</span> = 0; i &lt; n - 1; i++) {
+<span class="linenr"> 9: </span>        <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">minIdx</span> = i;  <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#20551;&#35373;&#30446;&#21069;&#20301;&#32622;&#28858;&#26368;&#23567;&#20540;
+<span class="linenr">10: </span></span>        <span style="color: #51afef;">for</span> (<span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">j</span> = i + 1; j &lt; n; j++) {
+<span class="linenr">11: </span>            <span style="color: #51afef;">if</span> (arr[j] &lt; arr[minIdx])
+<span class="linenr">12: </span>                minIdx = j;  <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#35352;&#37636;&#26356;&#23567;&#20540;&#30340;&#20301;&#32622;
+<span class="linenr">13: </span></span>        }
+<span class="linenr">14: </span>        <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#23559;&#26368;&#23567;&#20540;&#20132;&#25563;&#21040;&#27491;&#30906;&#20301;&#32622;
+<span class="linenr">15: </span></span>        <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">temp</span> = arr[i];
+<span class="linenr">16: </span>        arr[i] = arr[minIdx];
+<span class="linenr">17: </span>        arr[minIdx] = temp;
+<span class="linenr">18: </span>    }
+<span class="linenr">19: </span>
+<span class="linenr">20: </span>    cout &lt;&lt; <span style="color: #98be65;">"&#25490;&#24207;&#32080;&#26524;: "</span>;
+<span class="linenr">21: </span>    <span style="color: #51afef;">for</span> (<span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">i</span> = 0; i &lt; n; i++)
+<span class="linenr">22: </span>        cout &lt;&lt; arr[i] &lt;&lt; <span style="color: #98be65;">" "</span>;
+<span class="linenr">23: </span>    cout &lt;&lt; endl;
+<span class="linenr">24: </span>    <span style="color: #51afef;">return</span> 0;
+<span class="linenr">25: </span>}
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>時間複雜度：O(n²)<br /></li>
+<li>空間複雜度：O(1)<br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org65180a9" class="outline-3">
+<h3 id="org65180a9"><span class="section-number-3">1.3.</span> Insertion Sort (插入排序)</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+插入排序的概念類似於打撲克牌時整理手牌的方式：從第二張牌開始，將每張牌插入到前面已排序部分的正確位置。<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span class="linenr"> 1: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;iostream&gt;</span>
+<span class="linenr"> 2: </span><span style="color: #51afef;">using</span> <span style="color: #51afef;">namespace</span> <span style="color: #a9a1e1;">std</span>;
+<span class="linenr"> 3: </span>
+<span class="linenr"> 4: </span><span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span>() {
+<span class="linenr"> 5: </span>    <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">arr</span>[] = {12, 11, 13, 5, 6};
+<span class="linenr"> 6: </span>    <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">n</span> = 5;
+<span class="linenr"> 7: </span>
+<span class="linenr"> 8: </span>    <span style="color: #51afef;">for</span> (<span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">i</span> = 1; i &lt; n; i++) {
+<span class="linenr"> 9: </span>        <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">key</span> = arr[i];  <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#35201;&#25554;&#20837;&#30340;&#20803;&#32032;
+<span class="linenr">10: </span></span>        <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">j</span> = i - 1;
+<span class="linenr">11: </span>        <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#23559;&#27604; key &#22823;&#30340;&#20803;&#32032;&#24448;&#24460;&#31227;
+<span class="linenr">12: </span></span>        <span style="color: #51afef;">while</span> (j &gt;= 0 &amp;&amp; arr[j] &gt; key) {
+<span class="linenr">13: </span>            arr[j + 1] = arr[j];
+<span class="linenr">14: </span>            j--;
+<span class="linenr">15: </span>        }
+<span class="linenr">16: </span>        arr[j + 1] = key;  <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#25554;&#20837;&#27491;&#30906;&#20301;&#32622;
+<span class="linenr">17: </span></span>    }
+<span class="linenr">18: </span>
+<span class="linenr">19: </span>    cout &lt;&lt; <span style="color: #98be65;">"&#25490;&#24207;&#32080;&#26524;: "</span>;
+<span class="linenr">20: </span>    <span style="color: #51afef;">for</span> (<span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">i</span> = 0; i &lt; n; i++)
+<span class="linenr">21: </span>        cout &lt;&lt; arr[i] &lt;&lt; <span style="color: #98be65;">" "</span>;
+<span class="linenr">22: </span>    cout &lt;&lt; endl;
+<span class="linenr">23: </span>    <span style="color: #51afef;">return</span> 0;
+<span class="linenr">24: </span>}
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>時間複雜度：O(n²)，但對於近乎排序好的資料效率很高<br /></li>
+<li>空間複雜度：O(1)<br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org334bc8d" class="outline-3">
+<h3 id="org334bc8d"><span class="section-number-3">1.4.</span> 三種排序法比較</h3>
+<div class="outline-text-3" id="text-1-4">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">排序法</th>
+<th scope="col" class="org-left">最佳</th>
+<th scope="col" class="org-left">平均</th>
+<th scope="col" class="org-left">最差</th>
+<th scope="col" class="org-left">穩定性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Bubble</td>
+<td class="org-left">O(n)</td>
+<td class="org-left">O(n²)</td>
+<td class="org-left">O(n²)</td>
+<td class="org-left">穩定</td>
+</tr>
+
+<tr>
+<td class="org-left">Selection</td>
+<td class="org-left">O(n²)</td>
+<td class="org-left">O(n²)</td>
+<td class="org-left">O(n²)</td>
+<td class="org-left">不穩定</td>
+</tr>
+
+<tr>
+<td class="org-left">Insertion</td>
+<td class="org-left">O(n)</td>
+<td class="org-left">O(n²)</td>
+<td class="org-left">O(n²)</td>
+<td class="org-left">穩定</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="outline-container-org48127c9" class="outline-2">
+<h2 id="org48127c9"><span class="section-number-2">2.</span> String</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org340e682" class="outline-3">
-<h3 id="org340e682"><span class="section-number-3">2.1.</span> 教學資源</h3>
+<div id="outline-container-org67b87df" class="outline-3">
+<h3 id="org67b87df"><span class="section-number-3">2.1.</span> 教學資源</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li><a href="https://www.itread01.com/content/1550376181.html">如何求C語言字串長度（strlen函式和sizeof關鍵字）</a><br /></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org879f7d5" class="outline-3">
-<h3 id="org879f7d5"><span class="section-number-3">2.2.</span> 作業</h3>
+<div id="outline-container-orge6e5f4a" class="outline-3">
+<h3 id="orge6e5f4a"><span class="section-number-3">2.2.</span> 作業</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li><a href="https://www.youtube.com/watch?v=vCB_0cFQr5o">First Unique Character in a String</a><br /></li>
@@ -277,47 +467,47 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org108293d" class="outline-2">
-<h2 id="org108293d"><span class="section-number-2">3.</span> 2D Array</h2>
+<div id="outline-container-orgcd386e3" class="outline-2">
+<h2 id="orgcd386e3"><span class="section-number-2">3.</span> 2D Array</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org4b548ac" class="outline-3">
-<h3 id="org4b548ac"><span class="section-number-3">3.1.</span> Array of string</h3>
+<div id="outline-container-orgf68409d" class="outline-3">
+<h3 id="orgf68409d"><span class="section-number-3">3.1.</span> Array of string</h3>
 <div class="outline-text-3" id="text-3-1">
 </div>
 <ol class="org-ol">
-<li><a id="org7d73943"></a>CPP<br />
+<li><a id="org374d4f9"></a>CPP<br />
 <div class="outline-text-4" id="text-3-1-1">
 <ul class="org-ul">
 <li><a href="https://www.geeksforgeeks.org/array-strings-c-3-different-ways-create/">Array of Strings in C++ (5 Different Ways to Create)</a><br /></li>
 </ul>
 </div>
 </li>
-<li><a id="org892d223"></a>C<br />
+<li><a id="org098af72"></a>C<br />
 <div class="outline-text-4" id="text-3-1-2">
 <div class="org-src-container">
 <pre class="src src-c"><span class="linenr"> 1: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;stdio.h&gt;</span>
 <span class="linenr"> 2: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;string.h&gt;</span>
 <span class="linenr"> 3: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;stdlib.h&gt;</span>
 <span class="linenr"> 4: </span><span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span>(<span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">argc</span>, <span style="color: #51afef;">const</span> <span style="color: #ECBE7B;">char</span> * <span style="color: #dcaeea;">argv</span>[]) {
-<span class="linenr"> 5: </span>    <span style="color: #5B6268;">// </span><span style="color: #5B6268;">insert code here...</span>
-<span class="linenr"> 6: </span>    <span style="color: #ECBE7B;">char</span>  <span style="color: #dcaeea;">poker</span>[<span style="color: #da8548; font-weight: bold;">53</span>][<span style="color: #da8548; font-weight: bold;">5</span>];
-<span class="linenr"> 7: </span>    <span style="color: #ECBE7B;">char</span> <span style="color: #dcaeea;">m</span>[<span style="color: #da8548; font-weight: bold;">4</span>] = {<span style="color: #98be65;">'A'</span>,<span style="color: #98be65;">'B'</span>,<span style="color: #98be65;">'C'</span>,<span style="color: #98be65;">'D'</span>};
-<span class="linenr"> 8: </span>    <span style="color: #ECBE7B;">char</span> <span style="color: #dcaeea;">tmp</span>[<span style="color: #da8548; font-weight: bold;">5</span>];
+<span class="linenr"> 5: </span>    <span style="color: #5B6268;">// </span><span style="color: #5B6268;">insert code here...
+<span class="linenr"> 6: </span></span>    <span style="color: #ECBE7B;">char</span>  <span style="color: #dcaeea;">poker</span>[53][5];
+<span class="linenr"> 7: </span>    <span style="color: #ECBE7B;">char</span> <span style="color: #dcaeea;">m</span>[4] = {<span style="color: #98be65;">'A'</span>,<span style="color: #98be65;">'B'</span>,<span style="color: #98be65;">'C'</span>,<span style="color: #98be65;">'D'</span>};
+<span class="linenr"> 8: </span>    <span style="color: #ECBE7B;">char</span> <span style="color: #dcaeea;">tmp</span>[5];
 <span class="linenr"> 9: </span>    <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">i</span>, <span style="color: #dcaeea;">j</span>, <span style="color: #dcaeea;">k</span>;
-<span class="linenr">10: </span>    <span style="color: #51afef;">for</span> (i = <span style="color: #da8548; font-weight: bold;">0</span>; i &lt; <span style="color: #da8548; font-weight: bold;">4</span>; i++) {
-<span class="linenr">11: </span>        <span style="color: #51afef;">for</span> (j = <span style="color: #da8548; font-weight: bold;">0</span>; j &lt; <span style="color: #da8548; font-weight: bold;">13</span>; j++) {
-<span class="linenr">12: </span>            k = <span style="color: #da8548; font-weight: bold;">13</span> * i + j;
-<span class="linenr">13: </span>            sprintf(tmp, <span style="color: #98be65;">"%d%c"</span>, j+<span style="color: #da8548; font-weight: bold;">1</span>, m[i]);
-<span class="linenr">14: </span>            <span style="color: #5B6268;">//</span><span style="color: #5B6268;">printf("%d: %s\n", k, tmp);</span>
-<span class="linenr">15: </span>            strcpy(poker[k], tmp);
+<span class="linenr">10: </span>    <span style="color: #51afef;">for</span> (i = 0; i &lt; 4; i++) {
+<span class="linenr">11: </span>        <span style="color: #51afef;">for</span> (j = 0; j &lt; 13; j++) {
+<span class="linenr">12: </span>            k = 13 * i + j;
+<span class="linenr">13: </span>            sprintf(tmp, <span style="color: #98be65;">"%d%c"</span>, j+1, m[i]);
+<span class="linenr">14: </span>            <span style="color: #5B6268;">//</span><span style="color: #5B6268;">printf("%d: %s\n", k, tmp);
+<span class="linenr">15: </span></span>            strcpy(poker[k], tmp);
 <span class="linenr">16: </span>        }
 <span class="linenr">17: </span>    }
-<span class="linenr">18: </span>    <span style="color: #51afef;">for</span> (i = <span style="color: #da8548; font-weight: bold;">0</span>; i &lt; <span style="color: #da8548; font-weight: bold;">52</span>; i++) {
+<span class="linenr">18: </span>    <span style="color: #51afef;">for</span> (i = 0; i &lt; 52; i++) {
 <span class="linenr">19: </span>        printf(<span style="color: #98be65;">"%s\n"</span>, poker[i]);
 <span class="linenr">20: </span>    }
 <span class="linenr">21: </span>
-<span class="linenr">22: </span>    <span style="color: #51afef;">return</span> <span style="color: #da8548; font-weight: bold;">0</span>;
+<span class="linenr">22: </span>    <span style="color: #51afef;">return</span> 0;
 <span class="linenr">23: </span>}
 <span class="linenr">24: </span>
 </pre>
@@ -327,24 +517,84 @@
 </ol>
 </div>
 </div>
-<div id="outline-container-orgd309188" class="outline-2">
-<h2 id="orgd309188"><span class="section-number-2">4.</span> Variable</h2>
+<div id="outline-container-orgcb04940" class="outline-2">
+<h2 id="orgcb04940"><span class="section-number-2">4.</span> Variable</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org62bb80c" class="outline-3">
-<h3 id="org62bb80c"><span class="section-number-3">4.1.</span> Global v.s. Local</h3>
+<div id="outline-container-org096e536" class="outline-3">
+<h3 id="org096e536"><span class="section-number-3">4.1.</span> Global v.s. Local</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+在 C/C++ 中，變數依照宣告的位置不同，可分為全域變數(Global Variable)和區域變數(Local Variable)，兩者的生命週期與可見範圍(scope)截然不同。<br />
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="orgfd00686"></a>Global Variable (全域變數)<br />
+<div class="outline-text-4" id="text-4-1-1">
+<p>
+宣告在所有函式之外的變數，程式中任何函式都可以存取。<br />
+</p>
+</div>
+</li>
+<li><a id="orgb34e044"></a>Local Variable (區域變數)<br />
+<div class="outline-text-4" id="text-4-1-2">
+<p>
+宣告在函式或區塊（大括號 {} ）內的變數，只在該區塊內有效。<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span class="linenr"> 1: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;iostream&gt;</span>
+<span class="linenr"> 2: </span><span style="color: #51afef;">using</span> <span style="color: #51afef;">namespace</span> <span style="color: #a9a1e1;">std</span>;
+<span class="linenr"> 3: </span>
+<span class="linenr"> 4: </span><span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">globalVar</span> = 100;  <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#20840;&#22495;&#35722;&#25976;&#65292;&#25152;&#26377;&#20989;&#24335;&#37117;&#33021;&#23384;&#21462;
+<span class="linenr"> 5: </span></span>
+<span class="linenr"> 6: </span><span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">showValues</span>() {
+<span class="linenr"> 7: </span>    <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">localVar</span> = 50;  <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#21312;&#22495;&#35722;&#25976;&#65292;&#21482;&#22312;&#27492;&#20989;&#24335;&#20839;&#26377;&#25928;
+<span class="linenr"> 8: </span></span>    cout &lt;&lt; <span style="color: #98be65;">"&#22312; showValues() &#20013;&#65306;"</span> &lt;&lt; endl;
+<span class="linenr"> 9: </span>    cout &lt;&lt; <span style="color: #98be65;">"  globalVar = "</span> &lt;&lt; globalVar &lt;&lt; endl;
+<span class="linenr">10: </span>    cout &lt;&lt; <span style="color: #98be65;">"  localVar = "</span> &lt;&lt; localVar &lt;&lt; endl;
+<span class="linenr">11: </span>}
+<span class="linenr">12: </span>
+<span class="linenr">13: </span><span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span>() {
+<span class="linenr">14: </span>    <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">localVar</span> = 200;  <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#27492; localVar &#33287; showValues() &#20013;&#30340;&#19981;&#21516;
+<span class="linenr">15: </span></span>
+<span class="linenr">16: </span>    cout &lt;&lt; <span style="color: #98be65;">"&#22312; main() &#20013;&#65306;"</span> &lt;&lt; endl;
+<span class="linenr">17: </span>    cout &lt;&lt; <span style="color: #98be65;">"  globalVar = "</span> &lt;&lt; globalVar &lt;&lt; endl;
+<span class="linenr">18: </span>    cout &lt;&lt; <span style="color: #98be65;">"  localVar = "</span> &lt;&lt; localVar &lt;&lt; endl;
+<span class="linenr">19: </span>
+<span class="linenr">20: </span>    showValues();
+<span class="linenr">21: </span>
+<span class="linenr">22: </span>    globalVar = 999;  <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#20462;&#25913;&#20840;&#22495;&#35722;&#25976;
+<span class="linenr">23: </span></span>    cout &lt;&lt; <span style="color: #98be65;">"&#20462;&#25913;&#24460; globalVar = "</span> &lt;&lt; globalVar &lt;&lt; endl;
+<span class="linenr">24: </span>
+<span class="linenr">25: </span>    <span style="color: #51afef;">return</span> 0;
+<span class="linenr">26: </span>}
+</pre>
 </div>
 </div>
-<div id="outline-container-orgd3272b0" class="outline-2">
-<h2 id="orgd3272b0"><span class="section-number-2">5.</span> Function</h2>
+</li>
+<li><a id="orgf8c9bda"></a>注意事項<br />
+<div class="outline-text-4" id="text-4-1-3">
+<ul class="org-ul">
+<li>全域變數若未初始化，預設值為 0；區域變數若未初始化，其值為不確定(garbage value)<br /></li>
+<li>當全域變數和區域變數同名時，在函式內會優先使用區域變數（區域變數會遮蔽全域變數）<br /></li>
+<li>過度使用全域變數會讓程式難以維護與除錯，應盡量使用區域變數<br /></li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgad21dbb" class="outline-2">
+<h2 id="orgad21dbb"><span class="section-number-2">5.</span> Function</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-org1423062" class="outline-3">
-<h3 id="org1423062"><span class="section-number-3">5.1.</span> Argument</h3>
+<div id="outline-container-orgdd9330b" class="outline-3">
+<h3 id="orgdd9330b"><span class="section-number-3">5.1.</span> Argument</h3>
 <div class="outline-text-3" id="text-5-1">
 </div>
 <ol class="org-ol">
-<li><a id="org669bad1"></a>passing array<br />
+<li><a id="org772d918"></a>passing array<br />
 <div class="outline-text-4" id="text-5-1-1">
 <ul class="org-ul">
 <li><a href="https://www.youtube.com/watch?v=BggprNmXZGg">【C 語言入門】19.1 - 在函式間傳遞陣列</a><br /></li>
@@ -353,16 +603,117 @@
 </li>
 </ol>
 </div>
-<div id="outline-container-orgfcf9a3c" class="outline-3">
-<h3 id="orgfcf9a3c"><span class="section-number-3">5.2.</span> Recursion</h3>
+<div id="outline-container-orgfb5479e" class="outline-3">
+<h3 id="orgfb5479e"><span class="section-number-3">5.2.</span> Recursion</h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+遞迴(Recursion)是指函式在執行過程中呼叫自己本身的技巧。每一個遞迴函式都需要具備兩個要素：<br />
+</p>
+<ol class="org-ol">
+<li>*終止條件(Base Case)*：讓遞迴停止的條件，否則會無窮呼叫導致程式崩潰<br /></li>
+<li>*遞迴呼叫(Recursive Case)*：函式呼叫自己，但問題規模必須逐漸縮小<br /></li>
+</ol>
+</div>
+<ol class="org-ol">
+<li><a id="org27cd329"></a>階乘 (Factorial)<br />
+<div class="outline-text-4" id="text-5-2-1">
+<p>
+n! = n × (n-1) × (n-2) × &#x2026; × 1，例如 5! = 5 × 4 × 3 × 2 × 1 = 120。<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span class="linenr"> 1: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;iostream&gt;</span>
+<span class="linenr"> 2: </span><span style="color: #51afef;">using</span> <span style="color: #51afef;">namespace</span> <span style="color: #a9a1e1;">std</span>;
+<span class="linenr"> 3: </span>
+<span class="linenr"> 4: </span><span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">factorial</span>(<span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">n</span>) {
+<span class="linenr"> 5: </span>    <span style="color: #51afef;">if</span> (n &lt;= 1)       <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Base Case&#65306;0! = 1, 1! = 1
+<span class="linenr"> 6: </span></span>        <span style="color: #51afef;">return</span> 1;
+<span class="linenr"> 7: </span>    <span style="color: #51afef;">return</span> n * factorial(n - 1);  <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Recursive Case
+<span class="linenr"> 8: </span></span>}
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span><span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span>() {
+<span class="linenr">11: </span>    <span style="color: #51afef;">for</span> (<span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">i</span> = 0; i &lt;= 10; i++)
+<span class="linenr">12: </span>        cout &lt;&lt; i &lt;&lt; <span style="color: #98be65;">"! = "</span> &lt;&lt; factorial(i) &lt;&lt; endl;
+<span class="linenr">13: </span>    <span style="color: #51afef;">return</span> 0;
+<span class="linenr">14: </span>}
+</pre>
 </div>
 </div>
-<div id="outline-container-org64d4100" class="outline-2">
-<h2 id="org64d4100"><span class="section-number-2">6.</span> 指標Pointer</h2>
+</li>
+<li><a id="orgfb5db1c"></a>費氏數列 (Fibonacci)<br />
+<div class="outline-text-4" id="text-5-2-2">
+<p>
+費氏數列的定義為：F(0)=0, F(1)=1, F(n)=F(n-1)+F(n-2)。<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span class="linenr"> 1: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;iostream&gt;</span>
+<span class="linenr"> 2: </span><span style="color: #51afef;">using</span> <span style="color: #51afef;">namespace</span> <span style="color: #a9a1e1;">std</span>;
+<span class="linenr"> 3: </span>
+<span class="linenr"> 4: </span><span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">fibonacci</span>(<span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">n</span>) {
+<span class="linenr"> 5: </span>    <span style="color: #51afef;">if</span> (n == 0) <span style="color: #51afef;">return</span> 0;  <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Base Case
+<span class="linenr"> 6: </span></span>    <span style="color: #51afef;">if</span> (n == 1) <span style="color: #51afef;">return</span> 1;  <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Base Case
+<span class="linenr"> 7: </span></span>    <span style="color: #51afef;">return</span> fibonacci(n - 1) + fibonacci(n - 2);  <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Recursive Case
+<span class="linenr"> 8: </span></span>}
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span><span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span>() {
+<span class="linenr">11: </span>    cout &lt;&lt; <span style="color: #98be65;">"&#36027;&#27663;&#25976;&#21015;&#21069; 15 &#38917;&#65306;"</span> &lt;&lt; endl;
+<span class="linenr">12: </span>    <span style="color: #51afef;">for</span> (<span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">i</span> = 0; i &lt; 15; i++)
+<span class="linenr">13: </span>        cout &lt;&lt; <span style="color: #98be65;">"F("</span> &lt;&lt; i &lt;&lt; <span style="color: #98be65;">") = "</span> &lt;&lt; fibonacci(i) &lt;&lt; endl;
+<span class="linenr">14: </span>    <span style="color: #51afef;">return</span> 0;
+<span class="linenr">15: </span>}
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org7c2800f"></a>河乃乃塔 (Tower of Hanoi)<br />
+<div class="outline-text-4" id="text-5-2-3">
+<p>
+經典的遞迴問題：將 n 個盤子從 A 柱移動到 C 柱，過程中可借助 B 柱，且大盤不可放在小盤上方。<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span class="linenr"> 1: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;iostream&gt;</span>
+<span class="linenr"> 2: </span><span style="color: #51afef;">using</span> <span style="color: #51afef;">namespace</span> <span style="color: #a9a1e1;">std</span>;
+<span class="linenr"> 3: </span>
+<span class="linenr"> 4: </span><span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">hanoi</span>(<span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">n</span>, <span style="color: #ECBE7B;">char</span> <span style="color: #dcaeea;">from</span>, <span style="color: #ECBE7B;">char</span> <span style="color: #dcaeea;">to</span>, <span style="color: #ECBE7B;">char</span> <span style="color: #dcaeea;">aux</span>) {
+<span class="linenr"> 5: </span>    <span style="color: #51afef;">if</span> (n == 1) {
+<span class="linenr"> 6: </span>        cout &lt;&lt; <span style="color: #98be65;">"&#23559;&#30436;&#23376; 1 &#24478; "</span> &lt;&lt; from &lt;&lt; <span style="color: #98be65;">" &#31227;&#21040; "</span> &lt;&lt; to &lt;&lt; endl;
+<span class="linenr"> 7: </span>        <span style="color: #51afef;">return</span>;
+<span class="linenr"> 8: </span>    }
+<span class="linenr"> 9: </span>    hanoi(n - 1, from, aux, to);   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#20808;&#23559;&#19978;&#26041; n-1 &#20491;&#30436;&#23376;&#31227;&#21040;&#36628;&#21161;&#26609;
+<span class="linenr">10: </span></span>    cout &lt;&lt; <span style="color: #98be65;">"&#23559;&#30436;&#23376; "</span> &lt;&lt; n &lt;&lt; <span style="color: #98be65;">" &#24478; "</span> &lt;&lt; from &lt;&lt; <span style="color: #98be65;">" &#31227;&#21040; "</span> &lt;&lt; to &lt;&lt; endl;
+<span class="linenr">11: </span>    hanoi(n - 1, aux, to, from);   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#20877;&#23559; n-1 &#20491;&#30436;&#23376;&#24478;&#36628;&#21161;&#26609;&#31227;&#21040;&#30446;&#27161;&#26609;
+<span class="linenr">12: </span></span>}
+<span class="linenr">13: </span>
+<span class="linenr">14: </span><span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span>() {
+<span class="linenr">15: </span>    <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">n</span> = 3;
+<span class="linenr">16: </span>    cout &lt;&lt; n &lt;&lt; <span style="color: #98be65;">" &#20491;&#30436;&#23376;&#30340;&#27827;&#20035;&#20035;&#22612;&#27493;&#39519;&#65306;"</span> &lt;&lt; endl;
+<span class="linenr">17: </span>    hanoi(n, <span style="color: #98be65;">'A'</span>, <span style="color: #98be65;">'C'</span>, <span style="color: #98be65;">'B'</span>);
+<span class="linenr">18: </span>    <span style="color: #51afef;">return</span> 0;
+<span class="linenr">19: </span>}
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orgb38a66f"></a>遞迴 vs. 迴圈<br />
+<div class="outline-text-4" id="text-5-2-4">
+<ul class="org-ul">
+<li>遞迴程式碼通常較簡潔易讀，但每次呼叫會佔用 stack 記憶體，層數過深會導致 stack overflow<br /></li>
+<li>迴圈效率通常較高，不會有 stack overflow 的問題<br /></li>
+<li>許多遞迴問題都可以改寫為迴圈版本<br /></li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org20bb6f7" class="outline-2">
+<h2 id="org20bb6f7"><span class="section-number-2">6.</span> 指標Pointer</h2>
 <div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-org749556f" class="outline-3">
-<h3 id="org749556f"><span class="section-number-3">6.1.</span> 指標陣列</h3>
+<div id="outline-container-orgcc0b95d" class="outline-3">
+<h3 id="orgcc0b95d"><span class="section-number-3">6.1.</span> 指標陣列</h3>
 <div class="outline-text-3" id="text-6-1">
 <ul class="org-ul">
 <li><a href="https://www.youtube.com/watch?v=U2YvpfE58cM">【C 語言入門】23.2 - 指標與陣列</a><br /></li>
@@ -371,12 +722,12 @@
 </div>
 </div>
 </div>
-<div id="outline-container-orgd2043b4" class="outline-2">
-<h2 id="orgd2043b4"><span class="section-number-2">7.</span> 資料結構</h2>
+<div id="outline-container-org1304ba1" class="outline-2">
+<h2 id="org1304ba1"><span class="section-number-2">7.</span> 資料結構</h2>
 <div class="outline-text-2" id="text-7">
 </div>
-<div id="outline-container-org6e4fc75" class="outline-3">
-<h3 id="org6e4fc75"><span class="section-number-3">7.1.</span> Array</h3>
+<div id="outline-container-org0537d59" class="outline-3">
+<h3 id="org0537d59"><span class="section-number-3">7.1.</span> Array</h3>
 <div class="outline-text-3" id="text-7-1">
 <ul class="org-ul">
 <li>Find 2&rsquo;s complement: <a href="https://www.youtube.com/watch?v=cDCWZ-9ugYM">https://www.youtube.com/watch?v=cDCWZ-9ugYM</a><br /></li>
@@ -384,14 +735,217 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org6fa785e" class="outline-3">
-<h3 id="org6fa785e"><span class="section-number-3">7.2.</span> Stack</h3>
+<div id="outline-container-org5817b18" class="outline-3">
+<h3 id="org5817b18"><span class="section-number-3">7.2.</span> Stack</h3>
+<div class="outline-text-3" id="text-7-2">
+<p>
+Stack（堆疊）是一種後進先出（LIFO, Last In First Out）的資料結構，就像疊盤子一樣，最後放上去的盤子會最先被拿走。<br />
+</p>
+
+<p>
+Stack 的基本操作：<br />
+</p>
+<ul class="org-ul">
+<li>*push*：將元素放入堆疊頂端<br /></li>
+<li>*pop*：移除堆疊頂端的元素<br /></li>
+<li>*top*：查看堆疊頂端的元素（不移除）<br /></li>
+<li>*empty*：檢查堆疊是否為空<br /></li>
+</ul>
 </div>
-<div id="outline-container-org8a31ca7" class="outline-3">
-<h3 id="org8a31ca7"><span class="section-number-3">7.3.</span> Queue</h3>
+<ol class="org-ol">
+<li><a id="org3d9d905"></a>用陣列實作 Stack<br />
+<div class="outline-text-4" id="text-7-2-1">
+<div class="org-src-container">
+<pre class="src src-cpp"><span class="linenr"> 1: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;iostream&gt;</span>
+<span class="linenr"> 2: </span><span style="color: #51afef;">using</span> <span style="color: #51afef;">namespace</span> <span style="color: #a9a1e1;">std</span>;
+<span class="linenr"> 3: </span>
+<span class="linenr"> 4: </span><span style="color: #51afef;">const</span> <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">MAX_SIZE</span> = 100;
+<span class="linenr"> 5: </span><span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">stack</span>[MAX_SIZE];
+<span class="linenr"> 6: </span><span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">topIdx</span> = -1;  <span style="color: #5B6268;">// </span><span style="color: #5B6268;">-1 &#34920;&#31034;&#31354;&#22534;&#30090;
+<span class="linenr"> 7: </span></span>
+<span class="linenr"> 8: </span><span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">push</span>(<span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">val</span>) {
+<span class="linenr"> 9: </span>    <span style="color: #51afef;">if</span> (topIdx &gt;= MAX_SIZE - 1) {
+<span class="linenr">10: </span>        cout &lt;&lt; <span style="color: #98be65;">"Stack Overflow!"</span> &lt;&lt; endl;
+<span class="linenr">11: </span>        <span style="color: #51afef;">return</span>;
+<span class="linenr">12: </span>    }
+<span class="linenr">13: </span>    <span style="color: #ECBE7B;">stack</span>[++topIdx] = val;
+<span class="linenr">14: </span>}
+<span class="linenr">15: </span>
+<span class="linenr">16: </span><span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">pop</span>() {
+<span class="linenr">17: </span>    <span style="color: #51afef;">if</span> (topIdx &lt; 0) {
+<span class="linenr">18: </span>        cout &lt;&lt; <span style="color: #98be65;">"Stack Underflow!"</span> &lt;&lt; endl;
+<span class="linenr">19: </span>        <span style="color: #51afef;">return</span>;
+<span class="linenr">20: </span>    }
+<span class="linenr">21: </span>    topIdx--;
+<span class="linenr">22: </span>}
+<span class="linenr">23: </span>
+<span class="linenr">24: </span><span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">top</span>() {
+<span class="linenr">25: </span>    <span style="color: #51afef;">return</span> stack[topIdx];
+<span class="linenr">26: </span>}
+<span class="linenr">27: </span>
+<span class="linenr">28: </span><span style="color: #ECBE7B;">bool</span> <span style="color: #c678dd;">empty</span>() {
+<span class="linenr">29: </span>    <span style="color: #51afef;">return</span> topIdx &lt; 0;
+<span class="linenr">30: </span>}
+<span class="linenr">31: </span>
+<span class="linenr">32: </span><span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span>() {
+<span class="linenr">33: </span>    push(10);
+<span class="linenr">34: </span>    push(20);
+<span class="linenr">35: </span>    push(30);
+<span class="linenr">36: </span>    cout &lt;&lt; <span style="color: #98be65;">"&#38914;&#31471;&#20803;&#32032;: "</span> &lt;&lt; top() &lt;&lt; endl;  <span style="color: #5B6268;">// </span><span style="color: #5B6268;">30
+<span class="linenr">37: </span></span>
+<span class="linenr">38: </span>    pop();
+<span class="linenr">39: </span>    cout &lt;&lt; <span style="color: #98be65;">"pop &#24460;&#38914;&#31471;&#20803;&#32032;: "</span> &lt;&lt; top() &lt;&lt; endl;  <span style="color: #5B6268;">// </span><span style="color: #5B6268;">20
+<span class="linenr">40: </span></span>
+<span class="linenr">41: </span>    pop();
+<span class="linenr">42: </span>    pop();
+<span class="linenr">43: </span>    cout &lt;&lt; <span style="color: #98be65;">"Stack &#26159;&#21542;&#28858;&#31354;: "</span> &lt;&lt; (empty() ? <span style="color: #98be65;">"&#26159;"</span> : <span style="color: #98be65;">"&#21542;"</span>) &lt;&lt; endl;
+<span class="linenr">44: </span>    <span style="color: #51afef;">return</span> 0;
+<span class="linenr">45: </span>}
+</pre>
 </div>
-<div id="outline-container-org579eaa4" class="outline-3">
-<h3 id="org579eaa4"><span class="section-number-3">7.4.</span> Vector: 強化版的陣列</h3>
+</div>
+</li>
+<li><a id="org54838e7"></a>使用 C++ STL 的 stack<br />
+<div class="outline-text-4" id="text-7-2-2">
+<div class="org-src-container">
+<pre class="src src-cpp"><span class="linenr"> 1: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;iostream&gt;</span>
+<span class="linenr"> 2: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;stack&gt;</span>
+<span class="linenr"> 3: </span><span style="color: #51afef;">using</span> <span style="color: #51afef;">namespace</span> <span style="color: #a9a1e1;">std</span>;
+<span class="linenr"> 4: </span>
+<span class="linenr"> 5: </span><span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span>() {
+<span class="linenr"> 6: </span>    <span style="color: #ECBE7B;">stack</span>&lt;<span style="color: #ECBE7B;">int</span>&gt; <span style="color: #dcaeea;">s</span>;
+<span class="linenr"> 7: </span>    s.push(10);
+<span class="linenr"> 8: </span>    s.push(20);
+<span class="linenr"> 9: </span>    s.push(30);
+<span class="linenr">10: </span>
+<span class="linenr">11: </span>    cout &lt;&lt; <span style="color: #98be65;">"&#38914;&#31471;: "</span> &lt;&lt; s.top() &lt;&lt; endl;
+<span class="linenr">12: </span>    s.pop();
+<span class="linenr">13: </span>    cout &lt;&lt; <span style="color: #98be65;">"pop &#24460;&#38914;&#31471;: "</span> &lt;&lt; s.top() &lt;&lt; endl;
+<span class="linenr">14: </span>    cout &lt;&lt; <span style="color: #98be65;">"&#22823;&#23567;: "</span> &lt;&lt; s.size() &lt;&lt; endl;
+<span class="linenr">15: </span>    <span style="color: #51afef;">return</span> 0;
+<span class="linenr">16: </span>}
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orgfe893b9"></a>Stack 的應用<br />
+<div class="outline-text-4" id="text-7-2-3">
+<ul class="org-ul">
+<li>括號配對檢查<br /></li>
+<li>運算式求值（中序轉後序）<br /></li>
+<li>函式呼叫的 call stack<br /></li>
+<li>瀏覽器的上一頁功能（Back）<br /></li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-org6a0e5b6" class="outline-3">
+<h3 id="org6a0e5b6"><span class="section-number-3">7.3.</span> Queue</h3>
+<div class="outline-text-3" id="text-7-3">
+<p>
+Queue（佇列）是一種先進先出（FIFO, First In First Out）的資料結構，就像排隊買東西一樣，先排的人先服務。<br />
+</p>
+
+<p>
+Queue 的基本操作：<br />
+</p>
+<ul class="org-ul">
+<li>*enqueue（push）*：將元素加入佇列尾端<br /></li>
+<li>*dequeue（pop）*：移除佇列前端的元素<br /></li>
+<li>*front*：查看佇列前端的元素<br /></li>
+<li>*empty*：檢查佇列是否為空<br /></li>
+</ul>
+</div>
+<ol class="org-ol">
+<li><a id="orgef003ce"></a>用陣列實作 Queue<br />
+<div class="outline-text-4" id="text-7-3-1">
+<div class="org-src-container">
+<pre class="src src-cpp"><span class="linenr"> 1: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;iostream&gt;</span>
+<span class="linenr"> 2: </span><span style="color: #51afef;">using</span> <span style="color: #51afef;">namespace</span> <span style="color: #a9a1e1;">std</span>;
+<span class="linenr"> 3: </span>
+<span class="linenr"> 4: </span><span style="color: #51afef;">const</span> <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">MAX_SIZE</span> = 100;
+<span class="linenr"> 5: </span><span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">queue</span>[MAX_SIZE];
+<span class="linenr"> 6: </span><span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">frontIdx</span> = 0, <span style="color: #dcaeea;">rearIdx</span> = 0;
+<span class="linenr"> 7: </span>
+<span class="linenr"> 8: </span><span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">enqueue</span>(<span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">val</span>) {
+<span class="linenr"> 9: </span>    <span style="color: #51afef;">if</span> (rearIdx &gt;= MAX_SIZE) {
+<span class="linenr">10: </span>        cout &lt;&lt; <span style="color: #98be65;">"Queue &#24050;&#28415;!"</span> &lt;&lt; endl;
+<span class="linenr">11: </span>        <span style="color: #51afef;">return</span>;
+<span class="linenr">12: </span>    }
+<span class="linenr">13: </span>    <span style="color: #ECBE7B;">queue</span>[rearIdx++] = val;
+<span class="linenr">14: </span>}
+<span class="linenr">15: </span>
+<span class="linenr">16: </span><span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">dequeue</span>() {
+<span class="linenr">17: </span>    <span style="color: #51afef;">if</span> (frontIdx &gt;= rearIdx) {
+<span class="linenr">18: </span>        cout &lt;&lt; <span style="color: #98be65;">"Queue &#28858;&#31354;!"</span> &lt;&lt; endl;
+<span class="linenr">19: </span>        <span style="color: #51afef;">return</span>;
+<span class="linenr">20: </span>    }
+<span class="linenr">21: </span>    frontIdx++;
+<span class="linenr">22: </span>}
+<span class="linenr">23: </span>
+<span class="linenr">24: </span><span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">front</span>() {
+<span class="linenr">25: </span>    <span style="color: #51afef;">return</span> queue[frontIdx];
+<span class="linenr">26: </span>}
+<span class="linenr">27: </span>
+<span class="linenr">28: </span><span style="color: #ECBE7B;">bool</span> <span style="color: #c678dd;">empty</span>() {
+<span class="linenr">29: </span>    <span style="color: #51afef;">return</span> frontIdx &gt;= rearIdx;
+<span class="linenr">30: </span>}
+<span class="linenr">31: </span>
+<span class="linenr">32: </span><span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span>() {
+<span class="linenr">33: </span>    enqueue(10);
+<span class="linenr">34: </span>    enqueue(20);
+<span class="linenr">35: </span>    enqueue(30);
+<span class="linenr">36: </span>    cout &lt;&lt; <span style="color: #98be65;">"&#21069;&#31471;&#20803;&#32032;: "</span> &lt;&lt; front() &lt;&lt; endl;  <span style="color: #5B6268;">// </span><span style="color: #5B6268;">10
+<span class="linenr">37: </span></span>
+<span class="linenr">38: </span>    dequeue();
+<span class="linenr">39: </span>    cout &lt;&lt; <span style="color: #98be65;">"dequeue &#24460;&#21069;&#31471;&#20803;&#32032;: "</span> &lt;&lt; front() &lt;&lt; endl;  <span style="color: #5B6268;">// </span><span style="color: #5B6268;">20
+<span class="linenr">40: </span></span>
+<span class="linenr">41: </span>    cout &lt;&lt; <span style="color: #98be65;">"Queue &#26159;&#21542;&#28858;&#31354;: "</span> &lt;&lt; (empty() ? <span style="color: #98be65;">"&#26159;"</span> : <span style="color: #98be65;">"&#21542;"</span>) &lt;&lt; endl;
+<span class="linenr">42: </span>    <span style="color: #51afef;">return</span> 0;
+<span class="linenr">43: </span>}
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org8627466"></a>使用 C++ STL 的 queue<br />
+<div class="outline-text-4" id="text-7-3-2">
+<div class="org-src-container">
+<pre class="src src-cpp"><span class="linenr"> 1: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;iostream&gt;</span>
+<span class="linenr"> 2: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;queue&gt;</span>
+<span class="linenr"> 3: </span><span style="color: #51afef;">using</span> <span style="color: #51afef;">namespace</span> <span style="color: #a9a1e1;">std</span>;
+<span class="linenr"> 4: </span>
+<span class="linenr"> 5: </span><span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span>() {
+<span class="linenr"> 6: </span>    <span style="color: #ECBE7B;">queue</span>&lt;<span style="color: #ECBE7B;">int</span>&gt; <span style="color: #dcaeea;">q</span>;
+<span class="linenr"> 7: </span>    q.push(10);
+<span class="linenr"> 8: </span>    q.push(20);
+<span class="linenr"> 9: </span>    q.push(30);
+<span class="linenr">10: </span>
+<span class="linenr">11: </span>    cout &lt;&lt; <span style="color: #98be65;">"&#21069;&#31471;: "</span> &lt;&lt; q.front() &lt;&lt; endl;
+<span class="linenr">12: </span>    cout &lt;&lt; <span style="color: #98be65;">"&#23614;&#31471;: "</span> &lt;&lt; q.back() &lt;&lt; endl;
+<span class="linenr">13: </span>    q.pop();
+<span class="linenr">14: </span>    cout &lt;&lt; <span style="color: #98be65;">"pop &#24460;&#21069;&#31471;: "</span> &lt;&lt; q.front() &lt;&lt; endl;
+<span class="linenr">15: </span>    cout &lt;&lt; <span style="color: #98be65;">"&#22823;&#23567;: "</span> &lt;&lt; q.size() &lt;&lt; endl;
+<span class="linenr">16: </span>    <span style="color: #51afef;">return</span> 0;
+<span class="linenr">17: </span>}
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orgf1b8de2"></a>Queue 的應用<br />
+<div class="outline-text-4" id="text-7-3-3">
+<ul class="org-ul">
+<li>作業系統的工作排程（CPU scheduling）<br /></li>
+<li>印表機列印佇列<br /></li>
+<li>廣度優先搜尋（BFS）<br /></li>
+<li>訊息傳遞系統<br /></li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-org04e38ff" class="outline-3">
+<h3 id="org04e38ff"><span class="section-number-3">7.4.</span> Vector: 強化版的陣列</h3>
 <div class="outline-text-3" id="text-7-4">
 <ul class="org-ul">
 <li><a href="https://mropengate.blogspot.com/2015/07/cc-vector-stl.html"> C/C++ - Vector (STL) 用法與心得完全攻略 </a><br /></li>
@@ -399,20 +953,20 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org791496e" class="outline-2">
-<h2 id="org791496e"><span class="section-number-2">8.</span> 演算法</h2>
+<div id="outline-container-orge99d601" class="outline-2">
+<h2 id="orge99d601"><span class="section-number-2">8.</span> 演算法</h2>
 <div class="outline-text-2" id="text-8">
 </div>
-<div id="outline-container-org681d950" class="outline-3">
-<h3 id="org681d950"><span class="section-number-3">8.1.</span> 回溯法(Backtracking)</h3>
+<div id="outline-container-orge14208f" class="outline-3">
+<h3 id="orge14208f"><span class="section-number-3">8.1.</span> 回溯法(Backtracking)</h3>
 <div class="outline-text-3" id="text-8-1">
 <ul class="org-ul">
 <li><a href="https://www.youtube.com/watch?v=nrHTtjkYEyQ">【C++ 資料結構與演算法】回溯法 (backtracking)</a><br /></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org2316fac" class="outline-3">
-<h3 id="org2316fac"><span class="section-number-3">8.2.</span> 隨機演算法</h3>
+<div id="outline-container-org96b9e03" class="outline-3">
+<h3 id="org96b9e03"><span class="section-number-3">8.2.</span> 隨機演算法</h3>
 <div class="outline-text-3" id="text-8-2">
 <ul class="org-ul">
 <li><a href="https://www.youtube.com/watch?v=vdGqFJWAIMg">Majority Element</a><br /></li>
@@ -420,8 +974,8 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org0a3c53b" class="outline-2">
-<h2 id="org0a3c53b"><span class="section-number-2">9.</span> LeeCode</h2>
+<div id="outline-container-org78be59c" class="outline-2">
+<h2 id="org78be59c"><span class="section-number-2">9.</span> LeeCode</h2>
 <div class="outline-text-2" id="text-9">
 <ul class="org-ul">
 <li><a href="https://www.youtube.com/watch?v=vdGqFJWAIMg">【C 語言的 LeetCode 五月挑戰】第六天 (Majority Element)</a><br />
@@ -449,16 +1003,16 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgbefe151" class="outline-2">
-<h2 id="orgbefe151"><span class="section-number-2">10.</span> Dynamic programming</h2>
+<div id="outline-container-org4b53d26" class="outline-2">
+<h2 id="org4b53d26"><span class="section-number-2">10.</span> Dynamic programming</h2>
 <div class="outline-text-2" id="text-10">
 <ul class="org-ul">
 <li><a href="https://www.youtube.com/watch?v=oBt53YbR9Kk">Dynamic Programming - Learn to Solve Algorithmic Problems &amp; Coding Challenges</a><br /></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf912c86" class="outline-2">
-<h2 id="orgf912c86"><span class="section-number-2">11.</span> Page Infos</h2>
+<div id="outline-container-org61bd73f" class="outline-2">
+<h2 id="org61bd73f"><span class="section-number-2">11.</span> Page Infos</h2>
 <div class="outline-text-2" id="text-11">
 <footer class="footer">
     <a href="https://hits.sh/letranger.github.io/PythonCourse/PythonBasic.html/"><img alt="Hits" src="https://hits.sh/letranger.github.io/PythonCourse/PythonBasic.html.svg?style=plastic"/></a>
@@ -468,7 +1022,7 @@
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Yung-Chin Yen</p>
-<p class="date">Created: 2025-04-28 Mon 20:04</p>
+<p class="date">Created: 2026-02-22 Sun 14:34</p>
 </div>
 </body>
 </html>
