@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>Bubble Sort 教學動畫</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Helvetica Neue", "PingFang TC", "Microsoft JhengHei", sans-serif;
+    background: #f5f7fa;
+    color: #2c3e50;
+    margin: 0;
+    padding: 20px;
+  }
+  h1 { text-align: center; color: #2c3e50; }
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .panel {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  .panel h2 {
+    margin-top: 0;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 8px;
+    color: #3498db;
+  }
+  /* Code panel */
+  pre.code {
+    background: #2d2d2d;
+    color: #f0f0f0;
+    padding: 15px;
+    border-radius: 6px;
+    font-family: "Fira Code", "Consolas", monospace;
+    font-size: 14px;
+    line-height: 1.8;
+    margin: 0;
+    overflow-x: auto;
+  }
+  pre.code .line {
+    display: block;
+    padding: 2px 8px;
+    border-radius: 3px;
+    transition: background 0.3s;
+  }
+  pre.code .line.active {
+    background: #f1c40f;
+    color: #2c3e50;
+    font-weight: bold;
+  }
+  pre.code .ln {
+    display: inline-block;
+    width: 25px;
+    color: #888;
+    user-select: none;
+  }
+  .kw { color: #ff79c6; }
+  .ty { color: #8be9fd; }
+  .fn { color: #50fa7b; }
+  .nm { color: #f8f8f2; }
+  .op { color: #ff79c6; }
+  .nu { color: #bd93f9; }
+  .cm { color: #6272a4; font-style: italic; }
+
+  /* Animation panel */
+  .roundInfo {
+    background: #eaf4fd;
+    border-left: 4px solid #3498db;
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+  .roundInfo b {
+    color: #e74c3c;
+    font-family: monospace;
+    font-size: 17px;
+  }
+  .bars {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 310px;
+    gap: 10px;
+    padding: 10px 10px 35px 10px;
+    background: #ecf0f1;
+    border-radius: 8px;
+  }
+  .barWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+  .bar {
+    width: 60px;
+    background: linear-gradient(180deg, #3498db, #2980b9);
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    padding-top: 8px;
+    border-radius: 6px 6px 0 0;
+    transition: all 0.5s ease;
+    position: relative;
+  }
+  .jLabel {
+    position: absolute;
+    bottom: -28px;
+    font-family: monospace;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: #e67e22;
+    color: white;
+    white-space: nowrap;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  .jLabel.jp1 { background: #d35400; }
+  .bar.compare { background: linear-gradient(180deg, #f39c12, #e67e22); }
+  .bar.swap { background: linear-gradient(180deg, #e74c3c, #c0392b); }
+  .bar.sorted { background: linear-gradient(180deg, #27ae60, #1e8449); }
+
+  .status {
+    margin-top: 15px;
+    padding: 12px;
+    background: #fef9e7;
+    border-left: 4px solid #f1c40f;
+    border-radius: 4px;
+    font-size: 15px;
+    min-height: 50px;
+  }
+  .vars {
+    margin-top: 10px;
+    font-family: monospace;
+    font-size: 14px;
+    color: #555;
+  }
+  .vars span {
+    display: inline-block;
+    background: #ecf0f1;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-right: 8px;
+  }
+  .vars span b { color: #e74c3c; }
+
+  /* Controls */
+  .controls {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 15px;
+  }
+  button {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 22px;
+    margin: 0 6px;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  button:hover { background: #2980b9; }
+  button:disabled { background: #bdc3c7; cursor: not-allowed; }
+  button.reset { background: #95a5a6; }
+  button.reset:hover { background: #7f8c8d; }
+  button.play { background: #27ae60; }
+  button.play:hover { background: #1e8449; }
+
+  .speed {
+    display: inline-block;
+    margin-left: 15px;
+    font-size: 14px;
+  }
+  .speed input { vertical-align: middle; }
+
+  .legend {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: 13px;
+    color: #555;
+  }
+  .legend span {
+    display: inline-block;
+    padding: 3px 10px;
+    margin: 0 5px;
+    border-radius: 4px;
+    color: white;
+  }
+</style>
+</head>
+<body>
+
+<h1>🫧 Bubble Sort 氣泡排序教學動畫</h1>
+
+<div class="container">
+
+  <!-- Code Panel -->
+  <div class="panel">
+    <h2>📜 程式碼</h2>
+    <pre class="code" id="code"><span class="line" data-l="1"><span class="ln">1</span> <span class="kw">void</span> <span class="fn">bubbleSort</span>(<span class="kw">int</span> a[], <span class="kw">int</span> n) {  <span class="cm">// 傳入陣列 a 和元素個數 n</span></span><span class="line" data-l="2"><span class="ln">2</span>   <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">0</span>; i &lt; n<span class="op">-</span><span class="nu">1</span>; i<span class="op">++</span>) {  <span class="cm">// 外層：共要跑 n-1 輪</span></span><span class="line" data-l="3"><span class="ln">3</span>     <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nu">0</span>; j &lt; n<span class="op">-</span><span class="nu">1</span><span class="op">-</span>i; j<span class="op">++</span>) {  <span class="cm">// 內層：每輪比較相鄰兩數</span></span><span class="line" data-l="4"><span class="ln">4</span>       <span class="kw">if</span> (a[j] &gt; a[j<span class="op">+</span><span class="nu">1</span>]) {  <span class="cm">// 若左邊比右邊大就要交換</span></span><span class="line" data-l="5"><span class="ln">5</span>         <span class="kw">int</span> tmp = a[j];      <span class="cm">// 暫存左邊的值</span></span><span class="line" data-l="6"><span class="ln">6</span>         a[j] = a[j<span class="op">+</span><span class="nu">1</span>];     <span class="cm">// 右邊較小，搬到左邊</span></span><span class="line" data-l="7"><span class="ln">7</span>         a[j<span class="op">+</span><span class="nu">1</span>] = tmp;       <span class="cm">// 暫存的較大值放到右邊</span></span><span class="line" data-l="8"><span class="ln">8</span>       }  <span class="cm">// 交換結束</span></span><span class="line" data-l="9"><span class="ln">9</span>     }  <span class="cm">// 內層結束：最大的數已冒泡到本輪最右</span></span><span class="line" data-l="10"><span class="ln">10</span>   }  <span class="cm">// 外層結束</span></span><span class="line" data-l="11"><span class="ln">11</span> }  <span class="cm">// 排序完成，a[] 由小到大</span></span></pre>
+
+    <div class="vars" id="vars">
+      <span>i = <b>-</b></span>
+      <span>j = <b>-</b></span>
+      <span>a[j] = <b>-</b></span>
+      <span>a[j+1] = <b>-</b></span>
+    </div>
+  </div>
+
+  <!-- Animation Panel -->
+  <div class="panel">
+    <h2>🎬 排序動畫</h2>
+    <div class="roundInfo" id="roundInfo">
+      <div class="roundLine">第 <b id="roundI">-</b> 輪 (i = <b id="iVal">-</b>)</div>
+      <div class="roundLine">目前比較陣列中第 <b id="jVal">-</b> 和第 <b id="jVal1">-</b> 個元素</div>
+    </div>
+    <div class="bars" id="bars"></div>
+    <div class="status" id="status">點擊「下一步」或「自動播放」開始示範。</div>
+  </div>
+
+  <!-- Controls -->
+  <div class="controls">
+    <button class="reset" onclick="reset()">🔄 重新生成</button>
+    <button onclick="step()" id="stepBtn">▶ 下一步</button>
+    <button class="play" onclick="toggleAuto()" id="playBtn">⏯ 自動播放</button>
+    <label class="speed">速度：
+      <input type="range" id="speed" min="200" max="2000" value="900" step="100">
+      <span id="speedVal">0.9 秒</span>
+    </label>
+  </div>
+
+  <div class="legend">
+    <span style="background:#3498db">未排序</span>
+    <span style="background:#e67e22">比較中</span>
+    <span style="background:#c0392b">交換中</span>
+    <span style="background:#1e8449">已排序</span>
+  </div>
+
+</div>
+
+<script>
+let arr = [];
+let steps = [];
+let stepIdx = 0;
+let autoTimer = null;
+
+const barsEl = document.getElementById('bars');
+const statusEl = document.getElementById('status');
+const varsEl = document.getElementById('vars');
+const speedEl = document.getElementById('speed');
+const speedVal = document.getElementById('speedVal');
+const playBtn = document.getElementById('playBtn');
+const stepBtn = document.getElementById('stepBtn');
+
+speedEl.addEventListener('input', () => {
+  speedVal.textContent = (speedEl.value/1000).toFixed(1) + ' 秒';
+});
+
+function genArray() {
+  arr = [];
+  for (let k = 0; k < 5; k++) arr.push(Math.floor(Math.random()*90)+10);
+}
+
+// Pre-compute all animation steps
+function buildSteps() {
+  steps = [];
+  const a = [...arr];
+  const n = a.length;
+  const sorted = new Set();
+
+  steps.push({line:1, arr:[...a], msg:'函式開始，輸入陣列：['+a.join(', ')+']', sorted:new Set()});
+
+  for (let i = 0; i < n-1; i++) {
+    steps.push({line:2, i, arr:[...a], msg:`外層迴圈：第 ${i+1} 輪開始 (i = ${i})`, sorted:new Set(sorted)});
+    for (let j = 0; j < n-1-i; j++) {
+      steps.push({line:3, i, j, arr:[...a], msg:`內層迴圈：j = ${j}，準備比較 a[${j}] 和 a[${j+1}]`, sorted:new Set(sorted)});
+      steps.push({line:4, i, j, arr:[...a], compare:[j, j+1], msg:`比較 a[${j}]=${a[j]} 和 a[${j+1}]=${a[j+1]}`, sorted:new Set(sorted)});
+      if (a[j] > a[j+1]) {
+        steps.push({line:5, i, j, arr:[...a], compare:[j, j+1], msg:`${a[j]} > ${a[j+1]}，需要交換！把 a[${j}] 存到 tmp`, sorted:new Set(sorted)});
+        steps.push({line:6, i, j, arr:[...a], swap:[j, j+1], msg:`a[${j}] ← a[${j+1}]，把較小的放到左邊`, sorted:new Set(sorted)});
+        steps.push({line:7, i, j, arr:[...a], swap:[j, j+1], msg:`a[${j+1}] ← tmp，把較大的放到右邊`, sorted:new Set(sorted)});
+        // perform swap
+        [a[j], a[j+1]] = [a[j+1], a[j]];
+        steps.push({line:8, i, j, arr:[...a], msg:`交換完成！陣列：[${a.join(', ')}]`, sorted:new Set(sorted)});
+      } else {
+        steps.push({line:8, i, j, arr:[...a], msg:`${a[j]} ≤ ${a[j+1]}，不需要交換`, sorted:new Set(sorted)});
+      }
+    }
+    sorted.add(n-1-i);
+    steps.push({line:10, i, arr:[...a], msg:`第 ${i+1} 輪結束，最大的數已經「冒泡」到位置 ${n-1-i}`, sorted:new Set(sorted)});
+  }
+  sorted.add(0);
+  steps.push({line:11, arr:[...a], msg:'🎉 排序完成！結果：['+a.join(', ')+']', sorted:new Set(sorted)});
+}
+
+function renderBars(state) {
+  barsEl.innerHTML = '';
+  const max = Math.max(...state.arr);
+  state.arr.forEach((v, idx) => {
+    const wrap = document.createElement('div');
+    wrap.className = 'barWrap';
+    const b = document.createElement('div');
+    b.className = 'bar';
+    b.style.height = (40 + (v/max)*220) + 'px';
+    b.textContent = v;
+    if (state.sorted && state.sorted.has(idx)) b.classList.add('sorted');
+    if (state.compare && state.compare.includes(idx)) b.classList.add('compare');
+    if (state.swap && state.swap.includes(idx)) b.classList.add('swap');
+    wrap.appendChild(b);
+    if (state.j !== undefined) {
+      if (idx === state.j) {
+        const lab = document.createElement('div');
+        lab.className = 'jLabel';
+        lab.textContent = 'j';
+        wrap.appendChild(lab);
+      } else if (idx === state.j + 1) {
+        const lab = document.createElement('div');
+        lab.className = 'jLabel jp1';
+        lab.textContent = 'j+1';
+        wrap.appendChild(lab);
+      }
+    }
+    barsEl.appendChild(wrap);
+  });
+}
+
+function highlightLine(n) {
+  document.querySelectorAll('.code .line').forEach(el => el.classList.remove('active'));
+  if (n) {
+    const el = document.querySelector(`.code .line[data-l="${n}"]`);
+    if (el) el.classList.add('active');
+  }
+}
+
+function updateVars(state) {
+  const i = state.i !== undefined ? state.i : '-';
+  const j = state.j !== undefined ? state.j : '-';
+  const aj = (state.j !== undefined) ? state.arr[state.j] : '-';
+  const aj1 = (state.j !== undefined && state.j+1 < state.arr.length) ? state.arr[state.j+1] : '-';
+  varsEl.innerHTML = `<span>i = <b>${i}</b></span><span>j = <b>${j}</b></span><span>a[j] = <b>${aj}</b></span><span>a[j+1] = <b>${aj1}</b></span>`;
+}
+
+function showStep(idx) {
+  const s = steps[idx];
+  renderBars(s);
+  highlightLine(s.line);
+  statusEl.textContent = s.msg;
+  updateVars(s);
+  updateRoundInfo(s);
+}
+
+function updateRoundInfo(s) {
+  document.getElementById('roundI').textContent = (s.i !== undefined) ? (s.i + 1) : '-';
+  document.getElementById('iVal').textContent = (s.i !== undefined) ? s.i : '-';
+  if (s.j !== undefined) {
+    document.getElementById('jVal').textContent = s.j + 1;
+    document.getElementById('jVal1').textContent = s.j + 2;
+  } else {
+    document.getElementById('jVal').textContent = '-';
+    document.getElementById('jVal1').textContent = '-';
+  }
+}
+
+function step() {
+  if (stepIdx >= steps.length) return;
+  showStep(stepIdx);
+  stepIdx++;
+  if (stepIdx >= steps.length) {
+    stepBtn.disabled = true;
+    stopAuto();
+  }
+}
+
+function toggleAuto() {
+  if (autoTimer) stopAuto();
+  else startAuto();
+}
+
+function startAuto() {
+  if (stepIdx >= steps.length) return;
+  playBtn.textContent = '⏸ 暫停';
+  autoTimer = setInterval(step, parseInt(speedEl.value));
+}
+
+function stopAuto() {
+  clearInterval(autoTimer);
+  autoTimer = null;
+  playBtn.textContent = '⏯ 自動播放';
+}
+
+function reset() {
+  stopAuto();
+  genArray();
+  buildSteps();
+  stepIdx = 0;
+  stepBtn.disabled = false;
+  highlightLine(null);
+  renderBars({arr, sorted:new Set()});
+  statusEl.textContent = '已生成新陣列：[' + arr.join(', ') + ']。點擊「下一步」或「自動播放」開始示範。';
+  updateVars({});
+  updateRoundInfo({});
+}
+
+reset();
+</script>
+
+</body>
+</html>
