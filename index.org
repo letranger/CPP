@@ -1,0 +1,30 @@
+#+TITLE: TNFSH C/C++
+#+SUBTITLE: TNFSH CPP教材
+#+OPTIONS: toc:nil ^:nil num:nil
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../css/muse.css" />
+#+begin_export html
+<a href="https://hits.sh/letranger.github.io/CPP/index.html/"><img align="right" alt="Hits" src="https://hits.sh/letranger.github.io/CPP/index.html.svg?style=plastic"/></a>
+#+end_export
+
+* 課程教材
+依建議學習順序排列：
+1. [[file:BasicC++.org][Basic C/C++]] ：C/C++ 基礎：變數、輸出入、運算子、if、迴圈、陣列、字串、函式、struct
+2. [[file:AdvanceC++.org][Advanced C/C++]] ：進階主題：排序、字串處理、指標、動態記憶體、Stack/Queue、遞迴與 DP
+3. [[file:STL.org][STL]] ：vector、sort、lower_bound、map、set、priority_queue 與複雜度估算
+
+* 教學網（Moodle/VPL）
+- [[file:vpl.org][作業上傳/評分失效可能解決方案]]
+
+* 線上練習平台
+- [[https://zerojudge.tw/][ZeroJudge]] ：中文線上解題系統，APCS 歷屆題
+- [[https://apcs.csie.ntnu.edu.tw/][APCS 大學程式設計先修檢測]]
+- [[https://leetcode.com/][LeetCode]]
+
+* 參考資源
+- [[https://www.facebook.com/groups/359446638362710/][APCS實作題檢測]]
+- [[https://emanlaicepsa.github.io/][從零開始的演算法競賽入門教學]]
+- [[https://zerojudge.tw/][https://zerojudge.tw/]]
+- [[https://cppreference.com/][cppreference]] ：C/C++ 標準函式庫權威參考
+- [[https://openhome.cc/Gossip/CppGossip/][OpenHome.cc C++ Gossip]]
+- [[https://www.onlinegdb.com/][OnlineGDB]] ：免安裝線上編譯器
+- [[https://godbolt.org/][Compiler Explorer]] ：觀察編譯器產生的組合語言

@@ -10,29 +10,25 @@
 https://hackmd.io/@sa072686/20TT_STL
 使用原因：方便、不會出錯
 
-** Stack/Queue
-** SORT
-** lower_bound v.s. upper_bound
-
-
 * 比賽時間估算
 ** 先計算 O(N)，再看題目給的 N 範圍，例如：
-complexity 為 \(N^2\) ，\(1 \le N \le 3000\) ，則最糟的狀況為 \(3000^2=9000000\)
-- < 100 萬: 一定會過
-- 100~1000 萬: 應該會過
-- 1000 ~ 5000 萬: 有機會
-- > 5000 萬: 不可能過
+complexity 為 \(N^2\) ，\(1 \le N \le 3000\) ，則最糟的狀況為 \(3000^2=9 \times 10^6\)
+現代評測機每秒約可執行 \(10^7 \sim 10^8\) 次簡單運算（視運算內容與常數而定），概略準則：
+- < \(10^7\) : 一定會過
+- \(10^7 \sim 10^8\) : 應該會過
+- \(10^8 \sim 5 \times 10^8\) : 有機會，取決於常數與評測機速度
+- > \(10^9\) : 幾乎不可能過
 ** 反向推論，也可以由 N 的範圍來回推應該要寫出 \(O(N^2)\) 或是 \(O(N)\) 的解決
 
 * 兩類 STL
 ** function
 如 reverse，放在 algorithm
-#+begin_src cpp -r -n :results output :exports both
+#+begin_src cpp :eval no
 #include <algorithm>
 #+end_src
 ** container
 如 vector，放在 vector
-#+begin_src cpp -r -n :results output :exports both
+#+begin_src cpp :eval no
 #include <vector>
 #+end_src
 STL 的變數在宣告後會有初始化的動作，所以不像一般的 C/C++變數，宣告後沒有初值
@@ -44,11 +40,18 @@ STL 的變數在宣告後會有初始化的動作，所以不像一般的 C/C++�
 常用來解決 graph 的問題
 大小動態調整，在宣告時可以節省記憶體空間
 vector 容量不足時會以倍數擴容（倍率由實作決定，常見 1.5~2 倍），使 push_back 攤銷 O(1)
+** 宣告與初始化
+#+begin_src cpp :eval no
+vector<int> v;           // 空的 vector
+vector<int> v(n);        // n 個元素，全部是 0
+vector<int> v(n, 7);     // n 個元素，全部是 7
+vector<int> v = {1, 2, 3};  // C++11 起可用初始化列表
+#+end_src
 ** resize()
 v.resize(長度[,預設])
 - 長度小於原始的 v，則刪掉後面的
 - 長度大於原始的 v,則多出來的值可以指定[預設]，或是省略，若為數值，則預設為 0
-#+begin_src cpp -r -n :results output :exports both
+#+begin_src cpp :eval no
 #include <vector>
 vector<int> v;
 v.resize(長度[,預設])
@@ -58,34 +61,39 @@ v.resize(長度[,預設])
 ** v.pop_back()
 ** v.size()
 為 function，回傳 size_t（無號整數，64 位元平台為 64-bit），
-在 c++中，若拿 unsigned long 去和有號負整數做運算，可能會 overflow，解決方式是先將之轉為整數
+size_t 是無號的，和有號整數混合運算時要小心：建議先轉成 int，如 ~int n = v.size();~ 或 ~(int)v.size()~
+經典陷阱：當 v 是空的時，=v.size() - 1= 不是 -1，而是無號迴繞後的天文數字，拿它當迴圈上限會爆炸
 ** v.emplace_back(value)
 C++ 11 後，performance 較 push_back 好，因為 push_back(value) 做的是複製 value 的動作
 compile 時要指定 -std=c++11（g++ 現今預設已是 C++14 以上，通常不必再指定）
 ** v[i]
 ** 多維 vector
-#+begin_src cpp -r -n :results output :exports both
-vector<int> v[100];
-vector< vector<int> > v;
+#+begin_src cpp :eval no
+vector<int> v[100];        // 100 個 vector 組成的陣列（鄰接串列常用）
+vector< vector<int> > v;   // 二維 vector
 
-// 宣告一個3*4的vector
+// 宣告一個 3*4 的二維 vector，兩種寫法：
+// (1) 先 resize 外層再逐列 resize
 vector< vector<int> > x;
 x.resize(3);
-for (int i = 0; i < x.size(); i++) {
+for (int i = 0; i < (int)x.size(); i++) {
     x[i].resize(4);
 }
+// (2) 建構時直接給大小（較簡潔，建議用這種）
+vector<vector<int>> y(3, vector<int>(4));  // 3 列 4 行，全部是 0
 #+end_src
+C++11 起 =vector<vector<int>>= 連續兩個 =>= 中間不必再留空白
 
 * vector 少用的 operator: find, insert, erase
 這些動作都會讓 vector 去逐一改變所有元素的位置，速度會很慢，複雜度為 O(N)
 例如，若有某題要求做刪除 vector 中的 N 個元素，其複雜度就會變成 \(O(N^2)\)
 比較好的做法是：開一個新的 vector，再逐一把需要的元素放到新的 vector 中
-find 也是 O(N)，如果只是要找一次，可以自己寫 for，如果要找很多次，可以先 SORT 再去做 binary
+find 也是 O(N)，如果只是要找一次，可以自己寫 for；如果要找很多次，可以先 SORT 再用 binary_search 或 lower_bound（見後）
 
 * iterator
 用來代替 pointer，可視為專用於 STL 裡 container 的 pointer
 ** 遍歷
-#+begin_src cpp -r -n :results output :exports both
+#+begin_src cpp :eval no
 for (vector<int>::iterator it=v.begin(); it!=v.end(); ++it)
 {
     cout << *it << "\n";
@@ -105,7 +113,7 @@ int main() {
     for (vector<int>::iterator it=x.begin(); it!=x.end(); ++it) {
         cout << *it << endl;
     }
-    for (int i=0; i < x.size(); i++) {
+    for (int i=0; i < (int)x.size(); i++) {
         cout << x[i] << endl;
     }
     return 0;
@@ -125,25 +133,75 @@ int main() {
 -11
 8765
 #+end_example
+** range-based for（建議寫法）
+C++11 起可以用 range-based for 遍歷，比 iterator 簡潔得多，是現在的主流寫法：
+#+begin_src cpp -r -n :results output :exports both
+#include <vector>
+#include <iostream>
+using namespace std;
+int main() {
+    vector<int> x = {3, 28, 9, -11, 8765};
+    for (auto v : x)
+        cout << v << endl;
+}
+#+end_src
+
+#+RESULTS:
+#+begin_example
+3
+28
+9
+-11
+8765
+#+end_example
+- =auto= 讓編譯器自動推斷型別
+- 若要在迴圈中修改元素，寫 =for (auto &v : x)= （傳 reference）
+- 元素較大（如 string、vector）時也建議用 =auto &= 避免複製
 
 * vector v.s. array
 因為 STL 的 assign 為 copy，所以
 若要把 vector 當參數傳進 function，則應傳 reference
-#+begin_src cpp -r -n :results output :exports both
+#+begin_src cpp :eval no
 void f(vector<int> &v)
 #+end_src
 string 也是標準函式庫的容器（basic_string<char>），同樣是值語意複製
+
+* pair
+把兩個值綁在一起的小工具，競程超常用（座標、值+索引、成績+姓名……）
+- 用 =.first= 、 =.second= 取出兩個成員
+- pair 之間的比較：先比 first，first 相同再比 second，所以 =vector<pair>= 排序後自然是「先依 first、再依 second」
+#+begin_src cpp -r -n :results output :exports both
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <iostream>
+using namespace std;
+int main() {
+    vector<pair<int, string>> v;
+    v.push_back({170, "Amy"});   // C++11 起可用 {} 直接建 pair
+    v.push_back({165, "Bob"});
+    v.push_back({170, "Cat"});
+    sort(v.begin(), v.end());    // 先比身高，再比名字
+    for (auto &p : v)
+        cout << p.first << " " << p.second << endl;
+}
+#+end_src
+
+#+RESULTS:
+: 165 Bob
+: 170 Amy
+: 170 Cat
 
 * SORT
 intro sort: \(O(n \log n)\) ，quick sort+某些功能，使其最差狀況不那麼差
 預設由小排到大
 sort(ary, ary+n); // [0, n) 左閉右開
-- 不要用 operator<，儘量用 function
+- 需要自訂順序時，建議另外寫一個 comp 函式（或 lambda）傳給 sort，而不是去重載自訂型別的 operator<
 sort(ary, ary+n, comp);
 ** comp
-有兩類，一種用在 container
+comp 可以是一般函式，也可以是 C++11 的 lambda（見下一節）
 - example
-#+begin_src cpp -r -n :results output :exports both
+#+begin_src cpp :eval no
 // 由大排到小
 bool comp(int p, int q) {
     if (p > q)
@@ -153,8 +211,8 @@ bool comp(int p, int q) {
 // 在 main() 中：
 sort(v.begin(), v.end(), comp);
 #+end_src
-function comp 的撰寫要非常小心，要保證 p,q 兩者反過來後絕對不會 return true，否則 SORT 會出現 run time error，典型的例子是:
-#+begin_src cpp -r -n :results output :exports both
+function comp 的撰寫要非常小心，要保證 p,q 兩者反過來後絕對不會 return true（術語叫 strict weak ordering），否則 SORT 會出現 run time error，典型的例子是:
+#+begin_src cpp :eval no
 // 由大排到小
 bool comp(int p, int q) {
     if (p >= q) // p, q對調後有可能也成立
@@ -164,6 +222,24 @@ bool comp(int p, int q) {
 // 在 main() 中：
 sort(v.begin(), v.end(), comp);
 #+end_src
+** lambda 寫法
+C++11 起可以把 comp 直接寫在 sort 裡面，不用另外命名一個函式，競程很常用：
+#+begin_src cpp -r -n :results output :exports both
+#include <vector>
+#include <algorithm>
+#include <iostream>
+using namespace std;
+int main() {
+    vector<int> v = {3, 7, 1, 9, 4};
+    sort(v.begin(), v.end(), [](int a, int b) { return a > b; });  // 由大排到小
+    for (auto x : v)
+        cout << x << " ";
+    cout << endl;
+}
+#+end_src
+
+#+RESULTS:
+: 9 7 4 3 1
 ** stable / unstable
 sort 本身為 unstable，若需要 stable 則可 stable_sort()
 ** 對一份 ary 做不同版本的 sort
@@ -176,7 +252,7 @@ sort 本身為 unstable，若需要 stable 則可 stable_sort()
 |---------+---+---+---+---+---|
 如此就可以有很多種 P，可以進行不同的 sort，如由大到小、由小到大.....
 此時的 comp 要寫為:
-#+begin_src cpp -r -n :results output :exports both
+#+begin_src cpp :eval no
 bool comp(int p, int q) {
     if (A[p] < A[q])
         return true;
@@ -184,7 +260,7 @@ bool comp(int p, int q) {
 }
 #+end_src
 若 A 的原始順序為排隊的先後，A的元素代表等級，如果讓等級高的人先得到服務，等級一樣的人則依排隊順序，則其 comp 寫法為：
-#+begin_src cpp -r -n :results output :exports both
+#+begin_src cpp :eval no
 bool comp(int p, int q) {
     if (A[p] != A[q])
         return A[p] > A[q];
@@ -192,11 +268,10 @@ bool comp(int p, int q) {
 }
 #+end_src
 
-* upper_bound
-
 * lower_bound
 ** 寫法
 lower_bound(ary, ary+n, k): 以 binary search 找到第一個>=k 的元素
+用在 vector 上則寫 lower_bound(v.begin(), v.end(), k)
 ** 先決條件
 - 要有 operator<
 - 要能 random access，使其複雜度為 \(\log_2 n\)
@@ -205,8 +280,68 @@ lower_bound(ary, ary+n, k): 以 binary search 找到第一個>=k 的元素
 ** 注意：
 lower_bound 只需要資料已排序即可使用，與數值範圍大小無關；「數字範圍很大（如 \(10^9\) ）會超時」指的是開一個以數值當索引的桶陣列（值域陣列）的做法，那是桶陣列的限制，不是 lower_bound 的限制
 
+* upper_bound
+upper_bound(ary, ary+n, k): 以 binary search 找到第一個 >k 的元素（lower_bound 是 >=k，upper_bound 是 >k）
+兩者相減就是 k 在已排序陣列中出現的次數，這是最經典的搭配用法：
+#+begin_src cpp -r -n :results output :exports both
+#include <algorithm>
+#include <iostream>
+using namespace std;
+int main() {
+    int ary[] = {1, 3, 3, 3, 5, 7};
+    int n = 6, k = 3;
+    cout << lower_bound(ary, ary+n, k) - ary << endl;  // 第一個 >=3 的位置
+    cout << upper_bound(ary, ary+n, k) - ary << endl;  // 第一個 >3 的位置
+    cout << upper_bound(ary, ary+n, k) - lower_bound(ary, ary+n, k) << endl;  // 3 出現的次數
+}
+#+end_src
+
+#+RESULTS:
+: 1
+: 4
+: 3
+回傳的是 iterator（指標），減去起點 ary（或 v.begin()）才是索引值
+
+* algorithm 常用函式
+除了 sort 和 lower_bound/upper_bound，algorithm（及 numeric）還有一些比賽常用的函式：
+| 函式                          | 功能               | 複雜度   | 標頭      |
+|-------------------------------+--------------------+----------+-----------|
+| max_element(b, e)             | 回傳最大值的位置   | O(N)     | algorithm |
+| min_element(b, e)             | 回傳最小值的位置   | O(N)     | algorithm |
+| count(b, e, k)                | k 出現幾次         | O(N)     | algorithm |
+| reverse(b, e)                 | 反轉               | O(N)     | algorithm |
+| swap(a, b)                    | 交換兩個變數       | O(1)     | algorithm |
+| binary_search(b, e, k)        | k 是否存在(需排序) | O(log N) | algorithm |
+| accumulate(b, e, 初值)        | 總和               | O(N)     | numeric   |
+b, e 分別代表起點與終點（如 v.begin(), v.end() 或 ary, ary+n）
+注意 max_element/min_element 回傳的是 iterator，要取值記得加 =*=
+#+begin_src cpp -r -n :results output :exports both
+#include <algorithm>
+#include <numeric>
+#include <vector>
+#include <iostream>
+using namespace std;
+int main() {
+    vector<int> v = {3, 7, 1, 9, 4};
+    cout << *max_element(v.begin(), v.end()) << endl;
+    cout << *min_element(v.begin(), v.end()) << endl;
+    cout << count(v.begin(), v.end(), 7) << endl;
+    cout << accumulate(v.begin(), v.end(), 0) << endl;
+    reverse(v.begin(), v.end());
+    for (auto x : v) cout << x << " ";
+    cout << endl;
+}
+#+end_src
+
+#+RESULTS:
+: 9
+: 1
+: 1
+: 24
+: 4 9 1 7 3
+
 * map
-mapping 之意，即 python 的 dict，其底層為紅黑樹，任何查詢刪除時間為 O(log n)，且常數因子較大
+mapping 之意，功能類似 python 的 dict，但底層不同：map 是紅黑樹，任何查詢刪除時間為 O(log n)，且常數因子較大（python 的 dict 是雜湊表，比較接近後面介紹的 unordered_map）
 因為是紅黑樹，所以其實 map 隨時都在依 key 排序
 ** 語法
 map<K, V>
@@ -218,7 +353,7 @@ int main() {
     map<string, int> m;
     m["apple"] = 3;
     cout << m["apple"] << "\n";
-    cout << m["banana"] << "\n"; //會變成第二個元素
+    cout << m["banana"] << "\n"; // 用 [] 存取不存在的 key，會自動插入一個預設值 0 的元素
     cout << m.size() << endl;
 }
 
@@ -246,10 +381,33 @@ int main() {
 }
 
 #+end_src
+** 遍歷 map
+C++17 起可用 structured bindings 直接把 key/value 拆開，走訪順序就是 key 的排序順序：
+#+begin_src cpp -r -n :results output :exports both
+#include <map>
+#include <string>
+#include <iostream>
+using namespace std;
+int main() {
+    map<string, int> m;
+    m["apple"] = 3;
+    m["banana"] = 7;
+    m["cherry"] = 5;
+    for (auto& [key, value] : m)
+        cout << key << ": " << value << endl;
+}
+#+end_src
+
+#+RESULTS:
+: apple: 3
+: banana: 7
+: cherry: 5
+C++11 的寫法則是 =for (auto &p : m)= ，再用 =p.first= / =p.second= 取 key/value
 ** 也可以用來實作 array
 例如，若 a[i] = x，想由值 x 反查索引 i，可以記 m[x] = i
 ** 不排序的 map
-unordered_map, C++11 後支援，查詢的速度比 map 快到 3,4 倍
+unordered_map, C++11 後支援，底層是雜湊表，平均查詢 O(1)，速度比 map 快到 3,4 倍
+但注意：最壞情況是 O(n)（雜湊碰撞），且不會依 key 排序；競程中有些題目會出針對雜湊的極端測資
 ** map in map
 和多數的 container 一樣，map 裡的元素也可以是 map
 
@@ -277,16 +435,55 @@ int main() {
 : 1
 : 20
 
+* stack 與 queue
+AdvanceC++ 教材中示範過用陣列手刻 stack/queue，STL 已內建現成的：
+- stack：後進先出（LIFO），=push()= / =top()= / =pop()= / =empty()=
+- queue：先進先出（FIFO），=push()= / =front()= / =pop()= / =empty()=
+#+begin_src cpp -r -n :results output :exports both
+#include <stack>
+#include <queue>
+#include <iostream>
+using namespace std;
+int main() {
+    stack<int> st;
+    st.push(1); st.push(2); st.push(3);
+    while (!st.empty()) { cout << st.top() << " "; st.pop(); }
+    cout << endl;
+    queue<int> qu;
+    qu.push(1); qu.push(2); qu.push(3);
+    while (!qu.empty()) { cout << qu.front() << " "; qu.pop(); }
+    cout << endl;
+}
+#+end_src
+
+#+RESULTS:
+: 3 2 1
+: 1 2 3
+注意 =pop()= 只移除元素、不回傳值，要先用 =top()= / =front()= 取值再 pop
+
 * priority_queue
-底層實作為 heap，適合只關心極端值的應用
+底層實作為 heap，適合只關心極端值（最大/最小）的應用
+push 和 pop 都是 O(log n)，top 是 O(1)
 ** 用法
+預設是 max-heap（top 是最大值）；要 min-heap 則多給兩個 template 參數：
 #+begin_src cpp -r -n :results output :exports both
 #include <queue>
 #include <iostream>
 using namespace std;
 int main() {
-    priority_queue<int> pq;
+    priority_queue<int> pq;  // max-heap，top 是最大值
+    pq.push(5); pq.push(1); pq.push(8);
+    while (!pq.empty()) { cout << pq.top() << " "; pq.pop(); }
+    cout << endl;
+    priority_queue<int, vector<int>, greater<int>> minpq;  // min-heap，top 是最小值
+    minpq.push(5); minpq.push(1); minpq.push(8);
+    while (!minpq.empty()) { cout << minpq.top() << " "; minpq.pop(); }
+    cout << endl;
 }
 #+end_src
+
+#+RESULTS:
+: 8 5 1
+: 1 5 8
 ** 使用時機
-最短路徑都會用到，否則用 for-for 會 TLE
+最短路徑（Dijkstra）都會用到：每次要取出「目前距離最小」的點，用 priority_queue 可以把 \(O(V^2)\) 的作法降到 \(O(E \log V)\) ；若改用雙層 for 逐一找最小值，資料一大就會 TLE
