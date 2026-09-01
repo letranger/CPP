@@ -1,0 +1,10 @@
+.DS_Store
+.idea
+*.log
+*.lst
+*.tex
+*.glo
+tmp/
+
+
+.aider*

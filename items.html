@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-08-31 Mon 11:46 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Items</title>
+<meta name="author" content="Yung-Chin Yen" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Items
+<br />
+<span class="subtitle">TNFSH CPP教材</span>
+</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org383ac33">1. if/for</a>
+<ul>
+<li><a href="#org6e8fc79">1.1. 題目一：進階版兔子偷菜：飢餓值的挑戰！（整數版）</a>
+<ul>
+<li><a href="#org63e4537">1.1.1. 應俱備能力</a></li>
+<li><a href="#orgf91218f">1.1.2. 程式要求說明</a></li>
+</ul>
+</li>
+<li><a href="#orgdec9d40">1.2. 題目二：宇宙探險：星際能量的收集挑戰（整數版）</a>
+<ul>
+<li><a href="#org7668b7b">1.2.1. Maximum number of files: 1</a></li>
+<li><a href="#orgb8d492f">1.2.2. Type of work: Individual work</a></li>
+<li><a href="#org6287ba4">1.2.3. Grade settings:</a></li>
+<li><a href="#org9015c38">1.2.4. 應俱備能力</a></li>
+<li><a href="#org28f9a28">1.2.5. 程式要求說明</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org4fda6d0">2. tmp</a></li>
+</ul>
+</div>
+</div>
+<a href="https://hits.sh/letranger.github.io/CPP/items.html/"><img align="right" alt="Hits" src="https://hits.sh/letranger.github.io/CPP/items.html.svg"/></a>
+<div id="outline-container-org383ac33" class="outline-2">
+<h2 id="org383ac33"><span class="section-number-2">1.</span> if/for</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org6e8fc79" class="outline-3">
+<h3 id="org6e8fc79"><span class="section-number-3">1.1.</span> 題目一：進階版兔子偷菜：飢餓值的挑戰！（整數版）</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-org63e4537" class="outline-4">
+<h4 id="org63e4537"><span class="section-number-4">1.1.1.</span> 應俱備能力</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<ul class="org-ul">
+<li>基本條件判斷 (if-else)</li>
+<li>迴圈結構</li>
+<li>數學運算</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf91218f" class="outline-4">
+<h4 id="orgf91218f"><span class="section-number-4">1.1.2.</span> 程式要求說明</h4>
+<div class="outline-text-4" id="text-1-1-2">
+</div>
+<ol class="org-ol">
+<li><a id="orgb28e7f2"></a>背景故事<br />
+<div class="outline-text-5" id="text-1-1-2-1">
+<p>
+農夫老王發現兔子們偷菜的行動會受到天氣變化的影響，天氣狀況以整數代碼表示。學生們需要幫助農夫計算每次偷菜所造成的蔬菜損失。
+</p>
+
+<p>
+每次偷菜的效率由兔子的「飢餓值」 `h`、偷菜次數 `t` 和天氣狀況 `w`（整數）決定：
+</p>
+
+<ul class="org-ul">
+<li>當 `w = 1` 代表「晴天」，且 `h &gt; 5`，兔子的偷菜效率會提升，損失點數為：
+<ul class="org-ul">
+<li>第 `i` 次偷菜的損失點數為：`h * (i + h)<sup>3</sup>` 顆蔬菜。</li>
+</ul></li>
+
+<li>當 `w = 2` 代表「下雨天」，且 `h &lt;= 5`，兔子會選擇休息，當次偷菜不造成任何損失。</li>
+
+<li>其他情況下，損失點數為：
+<ul class="org-ul">
+<li>第 `i` 次偷菜的損失點數為：`h * (i + h)<sup>2</sup>` 顆蔬菜。</li>
+</ul></li>
+</ul>
+</div>
+</li>
+<li><a id="orgd5f1c46"></a>輸入<br />
+<div class="outline-text-5" id="text-1-1-2-2">
+<ul class="org-ul">
+<li>讀入兔子的飢餓值 `h`、偷菜次數 `t`，以及天氣狀況 `w`（1 代表晴天，2 代表下雨天，3 代表陰天）。</li>
+</ul>
+</div>
+</li>
+<li><a id="org941d82a"></a>輸出<br />
+<div class="outline-text-5" id="text-1-1-2-3">
+<ul class="org-ul">
+<li>輸出每次偷菜所造成的蔬菜損失或休息狀況。</li>
+</ul>
+</div>
+</li>
+<li><a id="org07f0c35"></a>解答<br />
+<div class="outline-text-5" id="text-1-1-2-4">
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;iostream&gt;</span>
+
+<span style="color: #51afef;">using</span> <span style="color: #51afef;">namespace</span> <span style="color: #a9a1e1;">std</span>;
+
+<span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span>() {
+    <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">h</span>, <span style="color: #dcaeea;">t</span>, <span style="color: #dcaeea;">w</span>;
+
+    cout &lt;&lt; <span style="color: #98be65;">"Enter hunger level (h), number of heists (t), and weather condition (w): "</span>;
+    cin &gt;&gt; h &gt;&gt; t &gt;&gt; w;
+
+    <span style="color: #51afef;">for</span> (<span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">i</span> = 1; i &lt;= t; i++) {
+        <span style="color: #51afef;">if</span> (w == 1 &amp;&amp; h &gt; 5) {
+            <span style="color: #ECBE7B;">long</span> <span style="color: #ECBE7B;">long</span> <span style="color: #dcaeea;">loss</span> = h * (i + h) * (i + h) * (i + h);
+            cout &lt;&lt; <span style="color: #98be65;">"Heist "</span> &lt;&lt; i &lt;&lt; <span style="color: #98be65;">" caused a loss of: "</span> &lt;&lt; loss &lt;&lt; <span style="color: #98be65;">" vegetables"</span> &lt;&lt; endl;
+        } <span style="color: #51afef;">else</span> <span style="color: #51afef;">if</span> (w == 2 &amp;&amp; h &lt;= 5) {
+            cout &lt;&lt; <span style="color: #98be65;">"Heist "</span> &lt;&lt; i &lt;&lt; <span style="color: #98be65;">": Rabbit chose to rest, no vegetables lost."</span> &lt;&lt; endl;
+        } <span style="color: #51afef;">else</span> {
+            <span style="color: #ECBE7B;">long</span> <span style="color: #ECBE7B;">long</span> <span style="color: #dcaeea;">loss</span> = h * (i + h) * (i + h);
+            cout &lt;&lt; <span style="color: #98be65;">"Heist "</span> &lt;&lt; i &lt;&lt; <span style="color: #98be65;">" caused a loss of: "</span> &lt;&lt; loss &lt;&lt; <span style="color: #98be65;">" vegetables"</span> &lt;&lt; endl;
+        }
+    }
+
+    <span style="color: #51afef;">return</span> 0;
+}
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org9297207"></a>測試資料<br />
+<div class="outline-text-5" id="text-1-1-2-5">
+<ol class="org-ol">
+<li><p>
+**輸入**：`h = 6, t = 3, w = 1`
+**輸出**：
+</p>
+<pre class="example" id="org265b06e">
+   Heist 1 caused a loss of: 2058 vegetables
+   Heist 2 caused a loss of: 3888 vegetables
+   Heist 3 caused a loss of: 6318 vegetables
+</pre></li>
+
+<li><p>
+**輸入**：`h = 4, t = 3, w = 2`
+**輸出**：
+</p>
+<pre class="example" id="org2f107c5">
+   Heist 1: Rabbit chose to rest, no vegetables lost.
+   Heist 2: Rabbit chose to rest, no vegetables lost.
+   Heist 3: Rabbit chose to rest, no vegetables lost.
+</pre></li>
+
+<li><p>
+**輸入**：`h = 3, t = 2, w = 3`
+**輸出**：
+</p>
+<pre class="example" id="orgbc9e6f2">
+   Heist 1 caused a loss of: 108 vegetables
+   Heist 2 caused a loss of: 180 vegetables
+</pre></li>
+
+<li><p>
+**輸入**：`h = 5, t = 4, w = 2`
+**輸出**：
+</p>
+<pre class="example" id="org524b1dd">
+   Heist 1: Rabbit chose to rest, no vegetables lost.
+   Heist 2: Rabbit chose to rest, no vegetables lost.
+   Heist 3: Rabbit chose to rest, no vegetables lost.
+   Heist 4: Rabbit chose to rest, no vegetables lost.
+</pre></li>
+
+<li><p>
+**輸入**：`h = 7, t = 3, w = 1`
+**輸出**：
+</p>
+<pre class="example" id="orgec49897">
+   Heist 1 caused a loss of: 3375 vegetables
+   Heist 2 caused a loss of: 5488 vegetables
+   Heist 3 caused a loss of: 8000 vegetables
+</pre></li>
+</ol>
+<p>
+```
+</p>
+
+<p>
+這樣的呈現使用了 Org-mode 格式，並且修改了題目的描述以適應整數代碼的設定。接下來，我將進行第二題的修改。
+</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgdec9d40" class="outline-3">
+<h3 id="orgdec9d40"><span class="section-number-3">1.2.</span> 題目二：宇宙探險：星際能量的收集挑戰（整數版）</h3>
+<div class="outline-text-3" id="text-1-2">
+</div>
+<div id="outline-container-org7668b7b" class="outline-4">
+<h4 id="org7668b7b"><span class="section-number-4">1.2.1.</span> Maximum number of files: 1</h4>
+</div>
+<div id="outline-container-orgb8d492f" class="outline-4">
+<h4 id="orgb8d492f"><span class="section-number-4">1.2.2.</span> Type of work: Individual work</h4>
+</div>
+<div id="outline-container-org6287ba4" class="outline-4">
+<h4 id="org6287ba4"><span class="section-number-4">1.2.3.</span> Grade settings:</h4>
+<div class="outline-text-4" id="text-1-2-3">
+<ul class="org-ul">
+<li>Maximum grade: 100</li>
+<li>Run: Yes</li>
+<li>Debug: Yes</li>
+<li>Evaluate: Yes</li>
+<li>Evaluate just on submission: Yes</li>
+<li>Automatic grade: Yes</li>
+<li>Maximum memory used: 128 MiB</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9015c38" class="outline-4">
+<h4 id="org9015c38"><span class="section-number-4">1.2.4.</span> 應俱備能力</h4>
+<div class="outline-text-4" id="text-1-2-4">
+<ul class="org-ul">
+<li>基本條件判斷 (if-else)</li>
+<li>迴圈結構</li>
+<li>數學運算</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org28f9a28" class="outline-4">
+<h4 id="org28f9a28"><span class="section-number-4">1.2.5.</span> 程式要求說明</h4>
+<div class="outline-text-4" id="text-1-2-5">
+</div>
+<ol class="org-ol">
+<li><a id="orgb476156"></a>背景故事<br />
+<div class="outline-text-5" id="text-1-2-5-1">
+<p>
+在未來的宇宙探索中，星際探險隊需要穿梭於不同星系，為能源匱乏的地球尋找新的能量源。每位探險員擁有自己的能量收集裝置，這些裝置的能量收集效率取決於探險員的「探索值」 `e` 和當地的星系環境 `g`。星系環境以整數代碼表示，每次收集任務的能量收集量也會隨探索次數增加而變化。
+</p>
+
+<p>
+每次能量收集任務的效率由探險員的探索值 `e`、任務次數 `c` 以及星系環境 `g`（整數）決定：
+</p>
+
+<ul class="org-ul">
+<li>當 `g = 1` 代表「超新星爆發」，且 `e &gt; 7`，能量收集效率將極大增強，收集量為：
+<ul class="org-ul">
+<li>第 `i` 次收集的能量量為：`e * (i + e)<sup>3</sup>` 單位。</li>
+</ul></li>
+
+<li>當 `g = 2` 代表「黑洞」，且 `e &lt;= 4`，探險員將選擇停止收集以避免危險，此次收集不會產生任何能量。</li>
+
+<li>其他情況下，能量收集量為：
+<ul class="org-ul">
+<li>第 `i` 次收集的能量量為：`e * (i + e)<sup>2</sup>` 單位。</li>
+</ul></li>
+</ul>
+</div>
+</li>
+<li><a id="orgfc4d92c"></a>輸入<br />
+<div class="outline-text-5" id="text-1-2-5-2">
+<ul class="org-ul">
+<li>讀入探險員的探索值 `e`、收集次數 `c`，以及星系環境 `g`（1 代表超新星爆發，2 代表黑洞，3 代表普通星系）。</li>
+</ul>
+</div>
+</li>
+<li><a id="orgad55288"></a>輸出<br />
+<div class="outline-text-5" id="text-1-2-5-3">
+<ul class="org-ul">
+<li>輸出每次能量收集的量或停止收集的狀況。</li>
+</ul>
+</div>
+</li>
+<li><a id="org351639f"></a>解答<br />
+<div class="outline-text-5" id="text-1-2-5-4">
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">&lt;iostream&gt;</span>
+
+<span style="color: #51afef;">using</span> <span style="color: #51afef;">namespace</span> <span style="color: #a9a1e1;">std</span>;
+
+<span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span>() {
+    <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">e</span>, <span style="color: #dcaeea;">c</span>, <span style="color: #dcaeea;">g</span>;
+
+    cout &lt;&lt; <span style="color: #98be65;">"Enter explorer value (e), number of collections (c), and galaxy environment (g): "</span>;
+    cin &gt;&gt; e &gt;&gt; c &gt;&gt; g;
+
+    <span style="color: #51afef;">for</span> (<span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">i</span> = 1; i &lt;= c; i++) {
+        <span style="color: #51afef;">if</span> (g == 1 &amp;&amp; e &gt; 7) {
+            <span style="color: #ECBE7B;">long</span> <span style="color: #ECBE7B;">long</span> <span style="color: #dcaeea;">energy</span> = e * (i + e) * (i + e) * (i + e);
+            cout &lt;&lt; <span style="color: #98be65;">"Collection "</span> &lt;&lt; i &lt;&lt; <span style="color: #98be65;">" gathered: "</span> &lt;&lt; energy &lt;&lt; <span style="color: #98be65;">" energy units"</span> &lt;&lt; endl;
+        } <span style="color: #51afef;">else</span> <span style="color: #51afef;">if</span> (g == 2 &amp;&amp; e &lt;= 4) {
+            cout &lt;&lt; <span style="color: #98be65;">"Collection "</span> &lt;&lt; i &lt;&lt; <span style="color: #98be65;">": Explorer chose to stop collecting, no energy gathered."</span> &lt;&lt; endl;
+        } <span style="color: #51afef;">else</span> {
+            <span style="color: #ECBE7B;">long</span> <span style="color: #ECBE7B;">long</span> <span style="color: #dcaeea;">energy</span> = e * (i + e) * (i + e);
+            cout &lt;&lt; <span style="color: #98be65;">"Collection "</span> &lt;&lt; i &lt;&lt; <span style="color: #98be65;">" gathered: "</span> &lt;&lt; energy &lt;&lt; <span style="color: #98be65;">" energy units"</span> &lt;&lt; endl;
+        }
+    }
+
+    <span style="color: #51afef;">return</span> 0;
+}
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orgdbdab76"></a>測試資料<br />
+<div class="outline-text-5" id="text-1-2-5-5">
+<ol class="org-ol">
+<li><p>
+**輸入**：`e = 8, c = 3, g = 1`
+**輸出**：
+</p>
+<pre class="example" id="orga313393">
+   Collection 1 gathered: 4096 energy units
+   Collection 2 gathered: 5832 energy units
+   Collection 3 gathered: 8000 energy units
+</pre></li>
+
+<li><p>
+**輸入**：`e = 3, c = 2, g = 2`
+**輸出**：
+</p>
+<pre class="example" id="org7135075">
+   Collection 1: Explorer chose to stop collecting, no energy gathered.
+   Collection 2: Explorer chose to stop collecting, no energy gathered.
+</pre></li>
+
+<li><p>
+**輸入**：`e = 5, c = 4, g = 1`
+**輸出**：
+</p>
+<pre class="example" id="org716f422">
+   Collection 1 gathered: 500 energy units
+   Collection 2 gathered: 864 energy units
+   Collection 3 gathered: 1378 energy units
+   Collection 4 gathered: 1944 energy units
+</pre></li>
+
+<li><p>
+**輸入**：`e = 9, c = 2, g = 1`
+**輸出**：
+</p>
+<pre class="example" id="org888f6f2">
+   Collection 1 gathered: 5832 energy units
+   Collection 2 gathered: 9261 energy units
+</pre></li>
+
+<li><p>
+**輸入**：`e = 4, c = 3, g = 2`
+**輸出**：
+</p>
+<pre class="example" id="org49dc0a3">
+   Collection 1: Explorer chose to stop collecting, no energy gathered.
+   Collection 2: Explorer chose to stop collecting, no energy gathered.
+   Collection 3: Explorer chose to stop collecting, no energy gathered.
+</pre></li>
+</ol>
+<p>
+```
+</p>
+
+<p>
+這樣的版本使用了整數代碼來代表星系環境，並將題目描述和測試資料一併做了調整，使得題目更適合沒有學過字串的學生。希望這些修改符合您的需求！
+</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-org4fda6d0" class="outline-2">
+<h2 id="org4fda6d0"><span class="section-number-2">2.</span> tmp</h2>
+<div class="outline-text-2" id="text-2">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #51afef;">use-package</span> helm-tramp
+  <span style="color: #c678dd;">:config</span>
+  (<span style="color: #51afef;">setq</span> <span style="color: #dcaeea;">tramp-default-method</span> <span style="color: #98be65;">"ssh"</span>)
+  (<span style="color: #51afef;">setq</span> <span style="color: #dcaeea;">make-backup-files</span> nil)
+  (<span style="color: #51afef;">setq</span> <span style="color: #dcaeea;">create-lockfiles</span> nil)
+  (<span style="color: #51afef;">setq</span> <span style="color: #dcaeea;">helm-tramp-custom-connections</span> <span style="color: #51afef;">'</span>(/ssh:root@moodle.tnfsh.tn.edu.tw:/var/www/html/login/index.php
+                                        /ssh:yyc@ai.tnfsh.tn.edu.tw:/
+                                        /ssh:root@moodle.tnfsh.tn.edu.tw:/var/www/html/config.php
+                                        /ssh:letranger@moodle.tnfsh.tn.edu.tw:/etc/httpd/conf.d/pagespeed.conf
+                                        /ssh:letranger@moodle.tnfsh.tn.edu.tw:/etc/httpd/conf/httpd.conf
+                                        /ssh:letranger@skyoj.tnfsh.tn.edu.tw:/var/www/html/sky/
+                                        /ssh:codeupload@192.168.7.242:/home/codeupload/uploads/tnfsh_sky/problem/
+                                        /ssh:root@moodle.tnfsh.tn.edu.tw:/var/www/html/mod/vpl/jail/default_scripts/vpl_evaluate.cpp
+                                        /ssh:letranger@192.168.16.40:/
+                                        /ssh:letranger@192.168.16.233:/Users/letranger/
+                                        /ssh:letranger@192.168.16.41:/
+                                        /ssh:letranger@192.168.16.42:/
+                                        /ssh:letranger@192.168.16.43:/
+                                        /ssh:letranger@192.168.16.44:/
+                                        /ssh:letranger@192.168.16.60:/
+                                        /sftp:boss@162.241.226.175:/))
+  (<span style="color: #a9a1e1;">add-hook</span> <span style="color: #51afef;">'</span><span style="color: #dcaeea;">helm-tramp-pre-command-hook</span> <span style="color: #51afef;">'</span>(lambda ()
+                                            (<span style="color: #dcaeea;">projectile-mode</span> 0)))
+  (<span style="color: #a9a1e1;">add-hook</span> <span style="color: #51afef;">'</span><span style="color: #dcaeea;">helm-tramp-quit-hook</span> <span style="color: #51afef;">'</span>(lambda ()
+                                     (<span style="color: #dcaeea;">projectile-mode</span> 1)))
+)
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Yung-Chin Yen</p>
+<p class="date">Created: 2026-08-31 Mon 11:46</p>
+</div>
+</body>
+</html>

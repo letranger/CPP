@@ -1,0 +1,887 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-01-28 Sat 15:18 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>STL</title>
+<meta name="author" content="Yung Chin, Yen" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">STL</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org910b46d">1. STL (Standard Template Library)</a>
+<ul>
+<li><a href="#orgd26cc52">1.1. Stack/Queue</a></li>
+<li><a href="#orgb090f51">1.2. SORT</a></li>
+<li><a href="#org8192899">1.3. lower<sub>bound</sub> v.s. upper<sub>bound</sub></a></li>
+</ul>
+</li>
+<li><a href="#org568885f">2. 比賽時間估算</a>
+<ul>
+<li><a href="#org2105b73">2.1. 先計算 O(N)，再看題目給的 N 範圍，例如：</a></li>
+<li><a href="#org651fda9">2.2. 反向推論，也可以由 N 的範園來回推應該要寫出\[O(N^2)\]或是\[O(N)\]的解決</a></li>
+</ul>
+</li>
+<li><a href="#org00c18e7">3. 兩類 STL</a>
+<ul>
+<li><a href="#org88b3155">3.1. function</a></li>
+<li><a href="#org647437e">3.2. container</a></li>
+</ul>
+</li>
+<li><a href="#org4965bfe">4. vector</a>
+<ul>
+<li><a href="#orgf5e7bbb">4.1. resize()</a></li>
+<li><a href="#org9c19e11">4.2. v. push<sub>back</sub>()</a></li>
+<li><a href="#orga89ccf4">4.3. v.pop<sub>back</sub>()</a></li>
+<li><a href="#org47b0fcc">4.4. v.size()</a></li>
+<li><a href="#orgb1ffe0c">4.5. v.emplace<sub>back</sub>(value)</a></li>
+<li><a href="#org3f27d87">4.6. v[i]</a></li>
+<li><a href="#org297ff92">4.7. 多維 vector</a></li>
+</ul>
+</li>
+<li><a href="#org4a651c6">5. vector 少用的 operator: find, insert, erase</a></li>
+<li><a href="#org2a05210">6. iterator</a>
+<ul>
+<li><a href="#org98475b1">6.1. 遍歷</a></li>
+</ul>
+</li>
+<li><a href="#org58449dc">7. vector v.s. array</a></li>
+<li><a href="#org0b0c8c1">8. SORT</a>
+<ul>
+<li><a href="#orgfdabd68">8.1. comp</a></li>
+<li><a href="#org0928feb">8.2. stable / unstable</a></li>
+<li><a href="#org43f7b12">8.3. 對一份 ary 做不同版本的 sort</a></li>
+</ul>
+</li>
+<li><a href="#org97f8145">9. upper<sub>bound</sub></a></li>
+<li><a href="#org7b23b78">10. lower<sub>bound</sub></a>
+<ul>
+<li><a href="#org0a75067">10.1. 寫法</a></li>
+<li><a href="#orgc0513ff">10.2. 先決條件</a></li>
+<li><a href="#org78c5b0d">10.3. 限制：</a></li>
+</ul>
+</li>
+<li><a href="#org348203f">11. map</a>
+<ul>
+<li><a href="#org91e5f0b">11.1. 語法</a></li>
+<li><a href="#orgc14e1d9">11.2. 也可以用來實作 array</a></li>
+<li><a href="#org5d5e9f5">11.3. 不排序的 map</a></li>
+<li><a href="#org406dc31">11.4. map in map</a></li>
+</ul>
+</li>
+<li><a href="#org17f1835">12. set</a>
+<ul>
+<li><a href="#org3eb88c2">12.1. 用法</a></li>
+</ul>
+</li>
+<li><a href="#org1f7709f">13. priority<sub>queue</sub></a>
+<ul>
+<li><a href="#orga22898e">13.1. 用法</a></li>
+<li><a href="#orgf97362a">13.2. 使用時機</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org910b46d" class="outline-2">
+<h2 id="org910b46d"><span class="section-number-2">1.</span> STL (Standard Template Library)</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+<a href="https://hackmd.io/@sa072686/20TT_STL">https://hackmd.io/@sa072686/20TT_STL</a>
+使用原因：方便、不會出錯
+</p>
+</div>
+
+<div id="outline-container-orgd26cc52" class="outline-3">
+<h3 id="orgd26cc52"><span class="section-number-3">1.1.</span> Stack/Queue</h3>
+</div>
+<div id="outline-container-orgb090f51" class="outline-3">
+<h3 id="orgb090f51"><span class="section-number-3">1.2.</span> SORT</h3>
+</div>
+<div id="outline-container-org8192899" class="outline-3">
+<h3 id="org8192899"><span class="section-number-3">1.3.</span> lower<sub>bound</sub> v.s. upper<sub>bound</sub></h3>
+</div>
+</div>
+
+
+<div id="outline-container-org568885f" class="outline-2">
+<h2 id="org568885f"><span class="section-number-2">2.</span> 比賽時間估算</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org2105b73" class="outline-3">
+<h3 id="org2105b73"><span class="section-number-3">2.1.</span> 先計算 O(N)，再看題目給的 N 範圍，例如：</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+complexity 為\[N^2\]，\[1<=N<=3000\]，則最糟的狀況為\[3000^2=9000000\]
+</p>
+<ul class="org-ul">
+<li>&lt; 100 萬: 一定會過</li>
+<li>100~1000 萬: 應該會過</li>
+<li>1000 ~ 5000 萬: 有機會</li>
+<li>&gt; 5000 萬: 不可能過</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org651fda9" class="outline-3">
+<h3 id="org651fda9"><span class="section-number-3">2.2.</span> 反向推論，也可以由 N 的範園來回推應該要寫出\[O(N^2)\]或是\[O(N)\]的解決</h3>
+</div>
+</div>
+
+<div id="outline-container-org00c18e7" class="outline-2">
+<h2 id="org00c18e7"><span class="section-number-2">3.</span> 兩類 STL</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org88b3155" class="outline-3">
+<h3 id="org88b3155"><span class="section-number-3">3.1.</span> function</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+如 reverse，放在 algorithm
+</p>
+<div class="org-src-container">
+<pre class="src src-cpp"><span class="linenr">1: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #51afef;">&lt;</span><span style="color: #98be65;">algorithm</span><span style="color: #51afef;">&gt;</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org647437e" class="outline-3">
+<h3 id="org647437e"><span class="section-number-3">3.2.</span> container</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+如 vector，放在 vector
+</p>
+<div class="org-src-container">
+<pre class="src src-cpp"><span class="linenr">1: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #51afef;">&lt;</span><span style="color: #98be65;">vector</span><span style="color: #51afef;">&gt;</span>
+</pre>
+</div>
+
+<p>
+STL 的變數在宣告後會有初始化的動作，所以不像一般的 C/C++變數，宣告後沒有初值
+所有的 container，其 assign 都是 value reference，也就是另外再複製一份到新的變數
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org4965bfe" class="outline-2">
+<h2 id="org4965bfe"><span class="section-number-2">4.</span> vector</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+預設為空的，可視為隨時可改變大小的陣列
+常用來解決 graph 的問題
+大小動態調整，在宣告時可以節省記憶體空間
+vector 初始化時，若要求 N 個空間，其實會向系統要 2*N 個空間，如此可以保證後面的 push 不用調整空間
+</p>
+</div>
+<div id="outline-container-orgf5e7bbb" class="outline-3">
+<h3 id="orgf5e7bbb"><span class="section-number-3">4.1.</span> resize()</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+v.resize(長度[,預設])
+</p>
+<ul class="org-ul">
+<li>長度小於原始的 v，則刪掉後面的</li>
+<li>長度大於原始的 v,則多出來的值可以指定[預設]，或是省略，若為數值，則預設為 0</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-cpp"><span class="linenr">1: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #51afef;">&lt;</span><span style="color: #98be65;">vector</span><span style="color: #51afef;">&gt;</span>
+<span class="linenr">2: </span><span style="color: #ECBE7B;">vector</span><span style="color: #51afef;">&lt;</span><span style="color: #ECBE7B;">int</span><span style="color: #51afef;">&gt;</span> <span style="color: #dcaeea;">v</span>;
+<span class="linenr">3: </span>v.resize<span style="color: #51afef;">(</span>&#38263;&#24230;<span style="color: #c678dd;">[</span>,&#38928;&#35373;<span style="color: #c678dd;">]</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9c19e11" class="outline-3">
+<h3 id="org9c19e11"><span class="section-number-3">4.2.</span> v. push<sub>back</sub>()</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+加到 vector 的最後面，因為每次改變只調整一格，複雜度為 O(N)，平均複雜度為 O(1)
+</p>
+</div>
+</div>
+<div id="outline-container-orga89ccf4" class="outline-3">
+<h3 id="orga89ccf4"><span class="section-number-3">4.3.</span> v.pop<sub>back</sub>()</h3>
+</div>
+<div id="outline-container-org47b0fcc" class="outline-3">
+<h3 id="org47b0fcc"><span class="section-number-3">4.4.</span> v.size()</h3>
+<div class="outline-text-3" id="text-4-4">
+<p>
+為 function, type 為 unsigned long，32bit 無號整數，
+在 c++中，若拿 unsigned long 去和有號負整數做運算，可能會 overflow，解決方式是先將之轉為整數
+</p>
+</div>
+</div>
+<div id="outline-container-orgb1ffe0c" class="outline-3">
+<h3 id="orgb1ffe0c"><span class="section-number-3">4.5.</span> v.emplace<sub>back</sub>(value)</h3>
+<div class="outline-text-3" id="text-4-5">
+<p>
+C++ 11 後，performace 較 push<sub>back</sub> 好，因為 push<sub>back</sub>(value）做的是複製 value 的動作
+compile 時要指定-stl==C++11
+</p>
+</div>
+</div>
+<div id="outline-container-org3f27d87" class="outline-3">
+<h3 id="org3f27d87"><span class="section-number-3">4.6.</span> v[i]</h3>
+</div>
+<div id="outline-container-org297ff92" class="outline-3">
+<h3 id="org297ff92"><span class="section-number-3">4.7.</span> 多維 vector</h3>
+<div class="outline-text-3" id="text-4-7">
+<div class="org-src-container">
+<pre class="src src-cpp"><span class="linenr">1: </span><span style="color: #ECBE7B;">vector</span><span style="color: #51afef;">&lt;</span><span style="color: #ECBE7B;">int</span><span style="color: #51afef;">&gt;</span> <span style="color: #dcaeea;">v</span><span style="color: #51afef;">[</span><span style="color: #da8548; font-weight: bold;">100</span><span style="color: #51afef;">]</span>;
+<span class="linenr">2: </span><span style="color: #ECBE7B;">vector</span><span style="color: #51afef;">&lt;</span> <span style="color: #ECBE7B;">vector</span><span style="color: #c678dd;">&lt;</span><span style="color: #ECBE7B;">int</span><span style="color: #c678dd;">&gt;</span> <span style="color: #51afef;">&gt;</span> <span style="color: #dcaeea;">v</span>;
+<span class="linenr">3: </span>
+<span class="linenr">4: </span><span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#23459;&#21578;&#19968;&#20491;3*4&#30340;vector</span>
+<span class="linenr">5: </span><span style="color: #ECBE7B;">vector</span><span style="color: #51afef;">&lt;</span> <span style="color: #ECBE7B;">vectro</span><span style="color: #c678dd;">&lt;</span><span style="color: #ECBE7B;">int</span><span style="color: #c678dd;">&gt;</span> <span style="color: #51afef;">&gt;</span> <span style="color: #dcaeea;">x</span>;
+<span class="linenr">6: </span>x.resize<span style="color: #51afef;">(</span><span style="color: #da8548; font-weight: bold;">3</span><span style="color: #51afef;">)</span>;
+<span class="linenr">7: </span><span style="color: #51afef;">for</span> <span style="color: #51afef;">(</span><span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">i</span> = <span style="color: #da8548; font-weight: bold;">0</span>; i &lt; x.size<span style="color: #c678dd;">()</span>; i++<span style="color: #51afef;">)</span> <span style="color: #51afef;">{</span>
+<span class="linenr">8: </span>    x<span style="color: #c678dd;">[</span>i<span style="color: #c678dd;">]</span>.resize<span style="color: #c678dd;">(</span><span style="color: #da8548; font-weight: bold;">4</span><span style="color: #c678dd;">)</span>;
+<span class="linenr">9: </span><span style="color: #51afef;">}</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4a651c6" class="outline-2">
+<h2 id="org4a651c6"><span class="section-number-2">5.</span> vector 少用的 operator: find, insert, erase</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+這些動作都會讓 vector 去逐一改變所有元素的位置，速度會很慢，複雜度為 O(N)
+例如，若有某題要求做刪除 vector 中的 N 個元素，其複雜度就會變成\[O(N^2)\]
+比較好的做法是：開一個新的 vector，再逐一把需要的元素放到新的 vector 中
+find 也是 O(N)，如果只是要找一次，可以自己寫 for，如果要找很多次，可以先 SORT 再去做 binary
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2a05210" class="outline-2">
+<h2 id="org2a05210"><span class="section-number-2">6.</span> iterator</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+用來代替 pointer，可視為專用於 STL 裡 container 的 pointer
+</p>
+</div>
+<div id="outline-container-org98475b1" class="outline-3">
+<h3 id="org98475b1"><span class="section-number-3">6.1.</span> 遍歷</h3>
+<div class="outline-text-3" id="text-6-1">
+<div class="org-src-container">
+<pre class="src src-cpp"><span class="linenr">1: </span><span style="color: #51afef;">for</span> <span style="color: #51afef;">(</span><span style="color: #a9a1e1;">vector</span><span style="color: #c678dd;">&lt;</span><span style="color: #ECBE7B;">int</span><span style="color: #c678dd;">&gt;</span>::<span style="color: #ECBE7B;">iterator</span> <span style="color: #dcaeea;">it</span>=v.begin<span style="color: #c678dd;">()</span>; it!=v.end<span style="color: #c678dd;">()</span>; ++it<span style="color: #51afef;">)</span>
+<span class="linenr">2: </span><span style="color: #51afef;">{</span>
+<span class="linenr">3: </span>    cout &lt;&lt; *it &lt;&lt; <span style="color: #98be65;">"\n"</span>;
+<span class="linenr">4: </span><span style="color: #51afef;">}</span>
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span class="linenr"> 1: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #51afef;">&lt;</span><span style="color: #98be65;">vector</span><span style="color: #51afef;">&gt;</span>
+<span class="linenr"> 2: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #51afef;">&lt;</span><span style="color: #98be65;">iostream</span><span style="color: #51afef;">&gt;</span>
+<span class="linenr"> 3: </span><span style="color: #51afef;">using</span> <span style="color: #51afef;">namespace</span> <span style="color: #a9a1e1;">std</span>;
+<span class="linenr"> 4: </span><span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span><span style="color: #51afef;">()</span> <span style="color: #51afef;">{</span>
+<span class="linenr"> 5: </span>    <span style="color: #ECBE7B;">vector</span><span style="color: #c678dd;">&lt;</span><span style="color: #ECBE7B;">int</span><span style="color: #c678dd;">&gt;</span> <span style="color: #dcaeea;">x</span>;
+<span class="linenr"> 6: </span>    x.push_back<span style="color: #c678dd;">(</span><span style="color: #da8548; font-weight: bold;">3</span><span style="color: #c678dd;">)</span>;
+<span class="linenr"> 7: </span>    x.push_back<span style="color: #c678dd;">(</span><span style="color: #da8548; font-weight: bold;">28</span><span style="color: #c678dd;">)</span>;
+<span class="linenr"> 8: </span>    x.push_back<span style="color: #c678dd;">(</span><span style="color: #da8548; font-weight: bold;">9</span><span style="color: #c678dd;">)</span>;
+<span class="linenr"> 9: </span>    x.push_back<span style="color: #c678dd;">(</span>-<span style="color: #da8548; font-weight: bold;">11</span><span style="color: #c678dd;">)</span>;
+<span class="linenr">10: </span>    x.push_back<span style="color: #c678dd;">(</span><span style="color: #da8548; font-weight: bold;">8765</span><span style="color: #c678dd;">)</span>;
+<span class="linenr">11: </span>    <span style="color: #51afef;">for</span> <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">vector</span><span style="color: #98be65;">&lt;</span><span style="color: #ECBE7B;">int</span><span style="color: #98be65;">&gt;</span>::<span style="color: #ECBE7B;">iterator</span> <span style="color: #dcaeea;">it</span>=x.begin<span style="color: #98be65;">()</span>; it!=x.end<span style="color: #98be65;">()</span>; ++it<span style="color: #c678dd;">)</span> <span style="color: #c678dd;">{</span>
+<span class="linenr">12: </span>        cout &lt;&lt; *it &lt;&lt; endl;
+<span class="linenr">13: </span>    <span style="color: #c678dd;">}</span>
+<span class="linenr">14: </span>    <span style="color: #51afef;">for</span> <span style="color: #c678dd;">(</span><span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">i</span>=<span style="color: #da8548; font-weight: bold;">0</span>; i &lt; x.size<span style="color: #98be65;">()</span>; i++<span style="color: #c678dd;">)</span> <span style="color: #c678dd;">{</span>
+<span class="linenr">15: </span>        cout &lt;&lt; x<span style="color: #98be65;">[</span>i<span style="color: #98be65;">]</span> &lt;&lt; endl;
+<span class="linenr">16: </span>    <span style="color: #c678dd;">}</span>
+<span class="linenr">17: </span>    <span style="color: #51afef;">return</span> <span style="color: #da8548; font-weight: bold;">0</span>;
+<span class="linenr">18: </span><span style="color: #51afef;">}</span>
+</pre>
+</div>
+
+<pre class="example" id="orgcc3c531">
+3
+28
+9
+-11
+8765
+3
+28
+9
+-11
+8765
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org58449dc" class="outline-2">
+<h2 id="org58449dc"><span class="section-number-2">7.</span> vector v.s. array</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+因為 STL 的 assign 為 copy，所以
+若要把 vector 當參數傳進 function，則應傳 reference
+</p>
+<div class="org-src-container">
+<pre class="src src-cpp"><span class="linenr">1: </span><span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">f</span><span style="color: #51afef;">(</span><span style="color: #ECBE7B;">vector</span><span style="color: #c678dd;">&lt;</span><span style="color: #ECBE7B;">int</span><span style="color: #c678dd;">&gt;</span> &amp;<span style="color: #dcaeea;">v</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+
+<p>
+string 也是 STL，應是基於 vector 的實作
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0b0c8c1" class="outline-2">
+<h2 id="org0b0c8c1"><span class="section-number-2">8.</span> SORT</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+intro sort: \[O(nlogn)\]quick sort+某些功能，使其最差狀況不那麼差
+預設由小排到大
+sort(aryt0, arytn); // [0, n) 左閉右開
+</p>
+<ul class="org-ul">
+<li>不要用 operator&lt;，儘量用 function</li>
+</ul>
+<p>
+sort(ary, arytn, comp);
+</p>
+</div>
+<div id="outline-container-orgfdabd68" class="outline-3">
+<h3 id="orgfdabd68"><span class="section-number-3">8.1.</span> comp</h3>
+<div class="outline-text-3" id="text-8-1">
+<p>
+有兩類，一種用在 container
+</p>
+<ul class="org-ul">
+<li>example</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-cpp"><span class="linenr">1: </span>sort<span style="color: #51afef;">(</span>v.begin, v.end<span style="color: #c678dd;">()</span><span style="color: #51afef;">)</span>;
+<span class="linenr">2: </span><span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#30001;&#22823;&#25490;&#21040;&#23567;</span>
+<span class="linenr">3: </span><span style="color: #ECBE7B;">bool</span> <span style="color: #c678dd;">comp</span><span style="color: #51afef;">(</span><span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">p</span>, <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">q</span><span style="color: #51afef;">)</span> <span style="color: #51afef;">{</span>
+<span class="linenr">4: </span>    <span style="color: #51afef;">if</span> <span style="color: #c678dd;">(</span>p &gt; q<span style="color: #c678dd;">)</span>
+<span class="linenr">5: </span>        <span style="color: #51afef;">return</span> <span style="color: #a9a1e1;">true</span>;
+<span class="linenr">6: </span>    <span style="color: #51afef;">return</span> <span style="color: #a9a1e1;">false</span>;
+<span class="linenr">7: </span><span style="color: #51afef;">}</span>
+</pre>
+</div>
+
+<p>
+function comp 的撰寫要非常小心，要保證 p,q 兩者反過來後絕對不會 return true，否則 SORT 會出現 run time error，典型的例子是:
+</p>
+<div class="org-src-container">
+<pre class="src src-cpp"><span class="linenr">1: </span>sort<span style="color: #51afef;">(</span>v.begin, v.end<span style="color: #c678dd;">()</span><span style="color: #51afef;">)</span>;
+<span class="linenr">2: </span><span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#30001;&#22823;&#25490;&#21040;&#23567;</span>
+<span class="linenr">3: </span><span style="color: #ECBE7B;">bool</span> <span style="color: #c678dd;">comp</span><span style="color: #51afef;">(</span><span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">p</span>, <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">q</span><span style="color: #51afef;">)</span> <span style="color: #51afef;">{</span>
+<span class="linenr">4: </span>    <span style="color: #51afef;">if</span> <span style="color: #c678dd;">(</span>p &gt;= q<span style="color: #c678dd;">)</span> <span style="color: #5B6268;">// </span><span style="color: #5B6268;">p, q&#23565;&#35519;&#24460;&#26377;&#21487;&#33021;&#20063;&#25104;&#31435;</span>
+<span class="linenr">5: </span>        <span style="color: #51afef;">return</span> <span style="color: #a9a1e1;">true</span>;
+<span class="linenr">6: </span>    <span style="color: #51afef;">return</span> <span style="color: #a9a1e1;">false</span>;
+<span class="linenr">7: </span><span style="color: #51afef;">}</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0928feb" class="outline-3">
+<h3 id="org0928feb"><span class="section-number-3">8.2.</span> stable / unstable</h3>
+<div class="outline-text-3" id="text-8-2">
+<p>
+sort 本身為 unstable，若需要 stable 則可 stable<sub>sort</sub>()
+</p>
+</div>
+</div>
+<div id="outline-container-org43f7b12" class="outline-3">
+<h3 id="org43f7b12"><span class="section-number-3">8.3.</span> 對一份 ary 做不同版本的 sort</h3>
+<div class="outline-text-3" id="text-8-3">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">陣列</th>
+<th scope="col" class="org-right">0</th>
+<th scope="col" class="org-right">1</th>
+<th scope="col" class="org-right">2</th>
+<th scope="col" class="org-right">3</th>
+<th scope="col" class="org-right">4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">A</td>
+<td class="org-right">3</td>
+<td class="org-right">7</td>
+<td class="org-right">5</td>
+<td class="org-right">6</td>
+<td class="org-right">4</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">P(原始)</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">2</td>
+<td class="org-right">3</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-left">P(排序)</td>
+<td class="org-right">0</td>
+<td class="org-right">4</td>
+<td class="org-right">2</td>
+<td class="org-right">3</td>
+<td class="org-right">1</td>
+</tr>
+</tbody>
+</table>
+<p>
+如此就可以有很多種 P，可以進行不同的 sort，如由大到小、由小到大&#x2026;..
+此時的 comp 要寫為:
+</p>
+<div class="org-src-container">
+<pre class="src src-cpp"><span class="linenr">1: </span><span style="color: #ECBE7B;">bool</span> <span style="color: #c678dd;">comp</span><span style="color: #51afef;">(</span><span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">p</span>, <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">q</span><span style="color: #51afef;">)</span> <span style="color: #51afef;">{</span>
+<span class="linenr">2: </span>    <span style="color: #51afef;">if</span> <span style="color: #c678dd;">(</span>A<span style="color: #98be65;">[</span>p<span style="color: #98be65;">]</span> &gt; A<span style="color: #98be65;">[</span>q<span style="color: #98be65;">]</span><span style="color: #c678dd;">)</span> 
+<span class="linenr">3: </span>        <span style="color: #51afef;">return</span> <span style="color: #a9a1e1;">true</span>;
+<span class="linenr">4: </span>    <span style="color: #51afef;">return</span> <span style="color: #a9a1e1;">false</span>;
+<span class="linenr">5: </span><span style="color: #51afef;">}</span>
+</pre>
+</div>
+
+<p>
+若 A 的原始順序為排隊的先後，A的元素代表等級，如果讓等級高的人先得到服務，等級一樣的人則依排隊順序，則其 comp 寫法為：
+</p>
+<div class="org-src-container">
+<pre class="src src-cpp"><span class="linenr">1: </span><span style="color: #ECBE7B;">bool</span> <span style="color: #c678dd;">comp</span><span style="color: #51afef;">(</span><span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">p</span>, <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">q</span><span style="color: #51afef;">)</span> <span style="color: #51afef;">{</span>
+<span class="linenr">2: </span>    <span style="color: #51afef;">if</span> <span style="color: #c678dd;">(</span>A<span style="color: #98be65;">[</span>p<span style="color: #98be65;">]</span> != A<span style="color: #98be65;">[</span>q<span style="color: #98be65;">]</span><span style="color: #c678dd;">)</span>
+<span class="linenr">3: </span>        <span style="color: #51afef;">return</span> A<span style="color: #c678dd;">[</span>p<span style="color: #c678dd;">]</span> &gt; A<span style="color: #c678dd;">[</span>q<span style="color: #c678dd;">]</span>;
+<span class="linenr">4: </span>    <span style="color: #51afef;">return</span> p &lt; q;
+<span class="linenr">5: </span><span style="color: #51afef;">}</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org97f8145" class="outline-2">
+<h2 id="org97f8145"><span class="section-number-2">9.</span> upper<sub>bound</sub></h2>
+</div>
+
+<div id="outline-container-org7b23b78" class="outline-2">
+<h2 id="org7b23b78"><span class="section-number-2">10.</span> lower<sub>bound</sub></h2>
+<div class="outline-text-2" id="text-10">
+</div>
+<div id="outline-container-org0a75067" class="outline-3">
+<h3 id="org0a75067"><span class="section-number-3">10.1.</span> 寫法</h3>
+<div class="outline-text-3" id="text-10-1">
+<p>
+lower<sub>bound</sub>(aryt0, arytn, k): 以 binary search 找到第一個&gt;=k 的元素
+</p>
+</div>
+</div>
+<div id="outline-container-orgc0513ff" class="outline-3">
+<h3 id="orgc0513ff"><span class="section-number-3">10.2.</span> 先決條件</h3>
+<div class="outline-text-3" id="text-10-2">
+<ul class="org-ul">
+<li>要有 operator&lt;</li>
+<li>要能 random access，使其複雜度為\[log_2n\]</li>
+<li>partitioned by k: 要能找到一個 i，可以把 ary 分切成兩半(即 sorted)
+即，存在 i, 0&lt;=i&lt;n, 對 j&lt;i 可找到 ary[j]&lt;k，對 j&gt;=i，可找到 ary[j]&gt;=k</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org78c5b0d" class="outline-3">
+<h3 id="org78c5b0d"><span class="section-number-3">10.3.</span> 限制：</h3>
+<div class="outline-text-3" id="text-10-3">
+<p>
+不能完全取代 binary search，如果數字範圍很大(\[10^9\])，則光是建一個這麼大的陣列就會超過時間和空間限制
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org348203f" class="outline-2">
+<h2 id="org348203f"><span class="section-number-2">11.</span> map</h2>
+<div class="outline-text-2" id="text-11">
+<p>
+mapping 之意，即 python 的 dict，其底層為紅黑樹，任何查詢刪除時間為 logn，雖為常數，但其常數很大
+因為是紅黑樹，所以其實 map 隨時都在依 key 排序
+</p>
+</div>
+<div id="outline-container-org91e5f0b" class="outline-3">
+<h3 id="org91e5f0b"><span class="section-number-3">11.1.</span> 語法</h3>
+<div class="outline-text-3" id="text-11-1">
+<p>
+map&lt;K, V&gt;
+</p>
+<div class="org-src-container">
+<pre class="src src-cpp"><span class="linenr"> 1: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #51afef;">&lt;</span><span style="color: #98be65;">map</span><span style="color: #51afef;">&gt;</span>
+<span class="linenr"> 2: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #51afef;">&lt;</span><span style="color: #98be65;">iostream</span><span style="color: #51afef;">&gt;</span>
+<span class="linenr"> 3: </span><span style="color: #51afef;">using</span> <span style="color: #51afef;">namespace</span> <span style="color: #a9a1e1;">std</span>;
+<span class="linenr"> 4: </span><span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span><span style="color: #51afef;">()</span> <span style="color: #51afef;">{</span>
+<span class="linenr"> 5: </span>    <span style="color: #ECBE7B;">map</span><span style="color: #c678dd;">&lt;</span><span style="color: #ECBE7B;">string</span>, <span style="color: #ECBE7B;">int</span><span style="color: #c678dd;">&gt;</span> <span style="color: #dcaeea;">m</span>;
+<span class="linenr"> 6: </span>    m<span style="color: #c678dd;">[</span><span style="color: #98be65;">"apple"</span><span style="color: #c678dd;">]</span> = <span style="color: #da8548; font-weight: bold;">3</span>;
+<span class="linenr"> 7: </span>    cout &lt;&lt; m<span style="color: #c678dd;">[</span><span style="color: #98be65;">"apple"</span><span style="color: #c678dd;">]</span> &lt;&lt; <span style="color: #98be65;">"\n"</span>;
+<span class="linenr"> 8: </span>    cout &lt;&lt; m<span style="color: #c678dd;">[</span><span style="color: #98be65;">"banana"</span><span style="color: #c678dd;">]</span> &lt;&lt; <span style="color: #98be65;">"\n"</span>; <span style="color: #5B6268;">//</span><span style="color: #5B6268;">&#26371;&#35722;&#25104;&#31532;&#20108;&#20491;&#20803;&#32032;</span>
+<span class="linenr"> 9: </span>    cout &lt;&lt; m.size<span style="color: #c678dd;">()</span> &lt;&lt; endl;
+<span class="linenr">10: </span><span style="color: #51afef;">}</span>
+<span class="linenr">11: </span>
+</pre>
+</div>
+
+<pre class="example">
+3
+0
+2
+</pre>
+
+<p>
+若只是想搜尋元素而不想如上例新增，則可以用 find()
+</p>
+<div class="org-src-container">
+<pre class="src src-cpp"><span class="linenr"> 1: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #51afef;">&lt;</span><span style="color: #98be65;">map</span><span style="color: #51afef;">&gt;</span>
+<span class="linenr"> 2: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #51afef;">&lt;</span><span style="color: #98be65;">iostream</span><span style="color: #51afef;">&gt;</span>
+<span class="linenr"> 3: </span><span style="color: #51afef;">using</span> <span style="color: #51afef;">namespace</span> <span style="color: #a9a1e1;">std</span>;
+<span class="linenr"> 4: </span><span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span><span style="color: #51afef;">()</span> <span style="color: #51afef;">{</span>
+<span class="linenr"> 5: </span>    <span style="color: #ECBE7B;">map</span><span style="color: #c678dd;">&lt;</span><span style="color: #ECBE7B;">string</span>, <span style="color: #ECBE7B;">int</span><span style="color: #c678dd;">&gt;</span> <span style="color: #dcaeea;">m</span>;
+<span class="linenr"> 6: </span>    m<span style="color: #c678dd;">[</span><span style="color: #98be65;">"apple"</span><span style="color: #c678dd;">]</span> = <span style="color: #da8548; font-weight: bold;">3</span>;
+<span class="linenr"> 7: </span>    <span style="color: #a9a1e1;">map</span><span style="color: #c678dd;">&lt;</span><span style="color: #ECBE7B;">string</span>, <span style="color: #ECBE7B;">int</span><span style="color: #c678dd;">&gt;</span>::<span style="color: #ECBE7B;">iterator</span> <span style="color: #dcaeea;">it</span> = m.find<span style="color: #c678dd;">(</span><span style="color: #98be65;">"abc"</span><span style="color: #c678dd;">)</span>;
+<span class="linenr"> 8: </span>    <span style="color: #51afef;">if</span> <span style="color: #c678dd;">(</span>it == m.end<span style="color: #98be65;">()</span><span style="color: #c678dd;">)</span>
+<span class="linenr"> 9: </span>        cout &lt;&lt; <span style="color: #98be65;">"not found\n"</span>;
+<span class="linenr">10: </span>    <span style="color: #51afef;">else</span>
+<span class="linenr">11: </span>        cout &lt;&lt; it-&gt;first &lt;&lt; <span style="color: #98be65;">":"</span> &lt;&lt; it-&gt;second &lt;&lt; <span style="color: #98be65;">"\n"</span>;
+<span class="linenr">12: </span>    <span style="color: #5B6268;">// </span><span style="color: #5B6268;">it-&gt;first: KEY</span>
+<span class="linenr">13: </span>    <span style="color: #5B6268;">// </span><span style="color: #5B6268;">it-&gt;second: VALUE</span>
+<span class="linenr">14: </span><span style="color: #51afef;">}</span>
+<span class="linenr">15: </span>
+</pre>
+</div>
+
+<pre class="example">
+not found
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgc14e1d9" class="outline-3">
+<h3 id="orgc14e1d9"><span class="section-number-3">11.2.</span> 也可以用來實作 array</h3>
+<div class="outline-text-3" id="text-11-2">
+<p>
+例如，想要實作 a[i] = a，可以寫為 m[ai] = i
+</p>
+</div>
+</div>
+<div id="outline-container-org5d5e9f5" class="outline-3">
+<h3 id="org5d5e9f5"><span class="section-number-3">11.3.</span> 不排序的 map</h3>
+<div class="outline-text-3" id="text-11-3">
+<p>
+unordered<sub>map</sub>, C++11 後支援，查詢的速度比 map 快到 3,4 倍
+</p>
+</div>
+</div>
+<div id="outline-container-org406dc31" class="outline-3">
+<h3 id="org406dc31"><span class="section-number-3">11.4.</span> map in map</h3>
+<div class="outline-text-3" id="text-11-4">
+<p>
+和多數的 container 一樣，map 裡的元素也可以是 map
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org17f1835" class="outline-2">
+<h2 id="org17f1835"><span class="section-number-2">12.</span> set</h2>
+<div class="outline-text-2" id="text-12">
+<p>
+不會重複的 element，放入重複元素會被忽略掉，底層也是紅黑樹，複雜度為 log n
+</p>
+</div>
+<div id="outline-container-org3eb88c2" class="outline-3">
+<h3 id="org3eb88c2"><span class="section-number-3">12.1.</span> 用法</h3>
+<div class="outline-text-3" id="text-12-1">
+<div class="org-src-container">
+<pre class="src src-cpp"><span class="linenr"> 1: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #51afef;">&lt;</span><span style="color: #98be65;">set</span><span style="color: #51afef;">&gt;</span>
+<span class="linenr"> 2: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #51afef;">&lt;</span><span style="color: #98be65;">iostream</span><span style="color: #51afef;">&gt;</span>
+<span class="linenr"> 3: </span><span style="color: #51afef;">using</span> <span style="color: #51afef;">namespace</span> <span style="color: #a9a1e1;">std</span>;
+<span class="linenr"> 4: </span><span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span><span style="color: #51afef;">()</span> <span style="color: #51afef;">{</span>
+<span class="linenr"> 5: </span>    <span style="color: #ECBE7B;">set</span><span style="color: #c678dd;">&lt;</span><span style="color: #ECBE7B;">int</span><span style="color: #c678dd;">&gt;</span> <span style="color: #dcaeea;">se</span>;
+<span class="linenr"> 6: </span>    se.insert<span style="color: #c678dd;">(</span><span style="color: #da8548; font-weight: bold;">5</span><span style="color: #c678dd;">)</span>;
+<span class="linenr"> 7: </span>    se.insert<span style="color: #c678dd;">(</span><span style="color: #da8548; font-weight: bold;">20</span><span style="color: #c678dd;">)</span>;
+<span class="linenr"> 8: </span>    se.insert<span style="color: #c678dd;">(</span><span style="color: #da8548; font-weight: bold;">6</span><span style="color: #c678dd;">)</span>;
+<span class="linenr"> 9: </span>    se.insert<span style="color: #c678dd;">(</span><span style="color: #da8548; font-weight: bold;">90</span><span style="color: #c678dd;">)</span>;
+<span class="linenr">10: </span>    se.insert<span style="color: #c678dd;">(</span><span style="color: #da8548; font-weight: bold;">6</span><span style="color: #c678dd;">)</span>;
+<span class="linenr">11: </span>    se.erase<span style="color: #c678dd;">(</span><span style="color: #da8548; font-weight: bold;">5</span><span style="color: #c678dd;">)</span>;
+<span class="linenr">12: </span>    cout &lt;&lt; se.count<span style="color: #c678dd;">(</span><span style="color: #da8548; font-weight: bold;">6</span><span style="color: #c678dd;">)</span> &lt;&lt; endl;
+<span class="linenr">13: </span>    cout &lt;&lt; se.lower_bound<span style="color: #c678dd;">(</span><span style="color: #da8548; font-weight: bold;">7</span><span style="color: #c678dd;">)</span> &lt;&lt; endl;
+<span class="linenr">14: </span><span style="color: #51afef;">}</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1f7709f" class="outline-2">
+<h2 id="org1f7709f"><span class="section-number-2">13.</span> priority<sub>queue</sub></h2>
+<div class="outline-text-2" id="text-13">
+<p>
+底層實作為 heap，適合只關心極端值的應用
+</p>
+</div>
+<div id="outline-container-orga22898e" class="outline-3">
+<h3 id="orga22898e"><span class="section-number-3">13.1.</span> 用法</h3>
+<div class="outline-text-3" id="text-13-1">
+<div class="org-src-container">
+<pre class="src src-cpp"><span class="linenr">1: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #51afef;">&lt;</span><span style="color: #98be65;">set</span><span style="color: #51afef;">&gt;</span>
+<span class="linenr">2: </span><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #51afef;">&lt;</span><span style="color: #98be65;">iostream</span><span style="color: #51afef;">&gt;</span>
+<span class="linenr">3: </span><span style="color: #51afef;">using</span> <span style="color: #51afef;">namespace</span> <span style="color: #a9a1e1;">std</span>;
+<span class="linenr">4: </span><span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span><span style="color: #51afef;">()</span> <span style="color: #51afef;">{</span>
+<span class="linenr">5: </span>    <span style="color: #ECBE7B;">priority_queue</span><span style="color: #c678dd;">&lt;</span><span style="color: #ECBE7B;">int</span><span style="color: #c678dd;">&gt;</span> <span style="color: #dcaeea;">pq</span>;
+<span class="linenr">6: </span><span style="color: #51afef;">}</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf97362a" class="outline-3">
+<h3 id="orgf97362a"><span class="section-number-3">13.2.</span> 使用時機</h3>
+<div class="outline-text-3" id="text-13-2">
+<p>
+最短路徑都會用到，否則用 for-for 會TLE
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Yung Chin, Yen</p>
+<p class="date">Created: 2023-01-28 Sat 15:18</p>
+</div>
+</body>
+</html>

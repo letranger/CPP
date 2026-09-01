@@ -1,4 +1,10 @@
 #+TITLE: STL
+#+SUBTITLE: TNFSH CPP教材
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../css/muse.css" />
+#+begin_export html
+<a href="https://hits.sh/letranger.github.io/CPP/STL.html/"><img align="right" alt="Hits" src="https://hits.sh/letranger.github.io/CPP/STL.html.svg"/></a>
+#+end_export
+
 
 * STL (Standard Template Library)
 https://hackmd.io/@sa072686/20TT_STL
@@ -11,12 +17,12 @@ https://hackmd.io/@sa072686/20TT_STL
 
 * 比賽時間估算
 ** 先計算 O(N)，再看題目給的 N 範圍，例如：
-complexity 為$$N^2$$，$$1<=N<=3000$$，則最糟的狀況為$$3000^2=9000000$$
+complexity 為 \(N^2\) ，\(1 \le N \le 3000\) ，則最糟的狀況為 \(3000^2=9000000\)
 - < 100 萬: 一定會過
 - 100~1000 萬: 應該會過
 - 1000 ~ 5000 萬: 有機會
 - > 5000 萬: 不可能過
-** 反向推論，也可以由 N 的範園來回推應該要寫出$$O(N^2)$$或是$$O(N)$$的解決
+** 反向推論，也可以由 N 的範圍來回推應該要寫出 \(O(N^2)\) 或是 \(O(N)\) 的解決
 
 * 兩類 STL
 ** function
@@ -30,14 +36,14 @@ complexity 為$$N^2$$，$$1<=N<=3000$$，則最糟的狀況為$$3000^2=9000000$$
 #include <vector>
 #+end_src
 STL 的變數在宣告後會有初始化的動作，所以不像一般的 C/C++變數，宣告後沒有初值
-所有的 container，其 assign 都是 value reference，也就是另外再複製一份到新的變數
+所有的 container，其 assign 都是複製（value semantics，值語意），也就是另外再複製一份到新的變數
 
 
 * vector
 預設為空的，可視為隨時可改變大小的陣列
 常用來解決 graph 的問題
 大小動態調整，在宣告時可以節省記憶體空間
-vector 初始化時，若要求 N 個空間，其實會向系統要 2*N 個空間，如此可以保證後面的 push 不用調整空間
+vector 容量不足時會以倍數擴容（倍率由實作決定，常見 1.5~2 倍），使 push_back 攤銷 O(1)
 ** resize()
 v.resize(長度[,預設])
 - 長度小於原始的 v，則刪掉後面的
@@ -47,15 +53,15 @@ v.resize(長度[,預設])
 vector<int> v;
 v.resize(長度[,預設])
 #+end_src
-** v. push_back()
-加到 vector 的最後面，因為每次改變只調整一格，複雜度為 O(N)，平均複雜度為 O(1)
+** v.push_back()
+加到 vector 的最後面，平時 O(1)；容量不足需重新配置並搬移時為 O(N)；攤銷（amortized）後為 O(1)
 ** v.pop_back()
 ** v.size()
-為 function, type 為 unsigned long，32bit 無號整數，
+為 function，回傳 size_t（無號整數，64 位元平台為 64-bit），
 在 c++中，若拿 unsigned long 去和有號負整數做運算，可能會 overflow，解決方式是先將之轉為整數
 ** v.emplace_back(value)
-C++ 11 後，performace 較 push_back 好，因為 push_back(value）做的是複製 value 的動作
-compile 時要指定-stl==C++11
+C++ 11 後，performance 較 push_back 好，因為 push_back(value) 做的是複製 value 的動作
+compile 時要指定 -std=c++11（g++ 現今預設已是 C++14 以上，通常不必再指定）
 ** v[i]
 ** 多維 vector
 #+begin_src cpp -r -n :results output :exports both
@@ -63,7 +69,7 @@ vector<int> v[100];
 vector< vector<int> > v;
 
 // 宣告一個3*4的vector
-vector< vectro<int> > x;
+vector< vector<int> > x;
 x.resize(3);
 for (int i = 0; i < x.size(); i++) {
     x[i].resize(4);
@@ -72,7 +78,7 @@ for (int i = 0; i < x.size(); i++) {
 
 * vector 少用的 operator: find, insert, erase
 這些動作都會讓 vector 去逐一改變所有元素的位置，速度會很慢，複雜度為 O(N)
-例如，若有某題要求做刪除 vector 中的 N 個元素，其複雜度就會變成$$O(N^2)$$
+例如，若有某題要求做刪除 vector 中的 N 個元素，其複雜度就會變成 \(O(N^2)\)
 比較好的做法是：開一個新的 vector，再逐一把需要的元素放到新的 vector 中
 find 也是 O(N)，如果只是要找一次，可以自己寫 for，如果要找很多次，可以先 SORT 再去做 binary
 
@@ -126,35 +132,37 @@ int main() {
 #+begin_src cpp -r -n :results output :exports both
 void f(vector<int> &v)
 #+end_src
-string 也是 STL，應是基於 vector 的實作
+string 也是標準函式庫的容器（basic_string<char>），同樣是值語意複製
 
 * SORT
-intro sort: $$O(nlogn)$$quick sort+某些功能，使其最差狀況不那麼差
+intro sort: \(O(n \log n)\) ，quick sort+某些功能，使其最差狀況不那麼差
 預設由小排到大
-sort(aryt0, arytn); // [0, n) 左閉右開
+sort(ary, ary+n); // [0, n) 左閉右開
 - 不要用 operator<，儘量用 function
-sort(ary, arytn, comp);
+sort(ary, ary+n, comp);
 ** comp
 有兩類，一種用在 container
 - example
 #+begin_src cpp -r -n :results output :exports both
-sort(v.begin, v.end());
 // 由大排到小
 bool comp(int p, int q) {
     if (p > q)
         return true;
     return false;
 }
+// 在 main() 中：
+sort(v.begin(), v.end(), comp);
 #+end_src
 function comp 的撰寫要非常小心，要保證 p,q 兩者反過來後絕對不會 return true，否則 SORT 會出現 run time error，典型的例子是:
 #+begin_src cpp -r -n :results output :exports both
-sort(v.begin, v.end());
 // 由大排到小
 bool comp(int p, int q) {
     if (p >= q) // p, q對調後有可能也成立
         return true;
     return false;
 }
+// 在 main() 中：
+sort(v.begin(), v.end(), comp);
 #+end_src
 ** stable / unstable
 sort 本身為 unstable，若需要 stable 則可 stable_sort()
@@ -170,7 +178,7 @@ sort 本身為 unstable，若需要 stable 則可 stable_sort()
 此時的 comp 要寫為:
 #+begin_src cpp -r -n :results output :exports both
 bool comp(int p, int q) {
-    if (A[p] > A[q]) 
+    if (A[p] < A[q])
         return true;
     return false;
 }
@@ -188,17 +196,17 @@ bool comp(int p, int q) {
 
 * lower_bound
 ** 寫法
-lower_bound(aryt0, arytn, k): 以 binary search 找到第一個>=k 的元素
+lower_bound(ary, ary+n, k): 以 binary search 找到第一個>=k 的元素
 ** 先決條件
 - 要有 operator<
-- 要能 random access，使其複雜度為$$log_2n$$
+- 要能 random access，使其複雜度為 \(\log_2 n\)
 - partitioned by k: 要能找到一個 i，可以把 ary 分切成兩半(即 sorted)
-  即，存在 i, 0<=i<n, 對 j<i 可找到 ary[j]<k，對 j>=i，可找到 ary[j]>=k
-** 限制：
-不能完全取代 binary search，如果數字範圍很大($$10^9$$)，則光是建一個這麼大的陣列就會超過時間和空間限制
+  即，存在 i, \(0 \le i < n\) ，對 j<i 可找到 ary[j]<k，對 j>=i，可找到 ary[j]>=k
+** 注意：
+lower_bound 只需要資料已排序即可使用，與數值範圍大小無關；「數字範圍很大（如 \(10^9\) ）會超時」指的是開一個以數值當索引的桶陣列（值域陣列）的做法，那是桶陣列的限制，不是 lower_bound 的限制
 
 * map
-mapping 之意，即 python 的 dict，其底層為紅黑樹，任何查詢刪除時間為 logn，雖為常數，但其常數很大
+mapping 之意，即 python 的 dict，其底層為紅黑樹，任何查詢刪除時間為 O(log n)，且常數因子較大
 因為是紅黑樹，所以其實 map 隨時都在依 key 排序
 ** 語法
 map<K, V>
@@ -239,7 +247,7 @@ int main() {
 
 #+end_src
 ** 也可以用來實作 array
-例如，想要實作 a[i] = a，可以寫為 m[ai] = i
+例如，若 a[i] = x，想由值 x 反查索引 i，可以記 m[x] = i
 ** 不排序的 map
 unordered_map, C++11 後支援，查詢的速度比 map 快到 3,4 倍
 ** map in map
@@ -261,17 +269,19 @@ int main() {
     se.insert(6);
     se.erase(5);
     cout << se.count(6) << endl;
-    cout << se.lower_bound(7) << endl;
+    cout << *se.lower_bound(7) << endl;
 }
 #+end_src
 
 #+RESULTS:
+: 1
+: 20
 
 * priority_queue
 底層實作為 heap，適合只關心極端值的應用
 ** 用法
 #+begin_src cpp -r -n :results output :exports both
-#include <set>
+#include <queue>
 #include <iostream>
 using namespace std;
 int main() {
@@ -279,4 +289,4 @@ int main() {
 }
 #+end_src
 ** 使用時機
-最短路徑都會用到，否則用 for-for 會TLE
+最短路徑都會用到，否則用 for-for 會 TLE

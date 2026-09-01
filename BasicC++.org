@@ -1,4 +1,5 @@
 #+Title: Basic Materials of C++
+#+SUBTITLE: TNFSH CPP教材
 #+OPTIONS: toc:2 ^:nil num:3
 #+TAGS: C++
 #+PROPERTY: header-args :eval never-export
@@ -10,25 +11,34 @@
 <a href="https://hits.sh/letranger.github.io/CPP/BasicC++.html/"><img align="right" alt="Hits" src="https://hits.sh/letranger.github.io/CPP/BasicC++.html.svg?style=plastic"/></a>
 #+end_export
 
-* Reasons Why You Should Learn Code in 2023
-1. Helping Others[fn:1]:
-   By learning how to code, you can use your skills to help people in your own unique way.
-   #+CAPTION: 口罩地圖
-   #+LABEL:fig:Labl
-   #+name: fig:Name
-   #+ATTR_LATEX: :width 300
-   #+ATTR_ORG: :width 300
-   #+ATTR_HTML: :width 400
-    [[file:images/Reasons_Why_You_Should_Learn_Code_in_2023/2023-11-26_17-01-05_2023-11-26_16-59-07.png]]
-2. In-Demand Skills
-   Many employers are increasingly looking for skilled coders who can develop software and applications that meet their needs. Not only does this create more job opportunities for coders, but it also gives them more power to negotiate salaries and perks.
-3. Higher Earning Potential
-   Coding skills are becoming more in-demand and sought after by employers, allowing those with coding skills to demand higher wages than those without.
-4. Increased Problem-Solving Skills
-   Learning to code is a great way to increase your problem-solving skills. Computer programming requires you to think logically, develop solutions, and solve complex problems. Plus, coding can help improve your ability to analyze and interpret data. This is useful for any type of work that requires interpreting large amounts of data, such as analytics or machine learning.
-5. Improved Communication Skills
-   Learning to code can drastically improve your communication skills. Being able to explain and communicate complex ideas in an effective and concise manner is a key skill in many industries. Moreover, coding provides you with a mental framework for breaking down and solving problems. This helps you learn how to think critically and analyze situations in order to come up with the best solution.
-資料來源[fn:1]: [[https://devcodecamp.com/2023/02/the-top-5-reasons-why-you-should-learn-code-in-2023/][The Top 5 Reasons Why You Should Learn Code in 2023]]
+* Reasons Why You Should Learn Code in 2026
+
+在 AI 快速發展的時代，很多人會問：「AI 都會寫程式了，為什麼還要學？」以下是幾個在 2026 年你仍然應該學習 coding 的理由：
+
+** AI 是乘數，不是替代品
+AI 會放大你現有的能力，但如果你的程式能力是零，乘數再大結果還是零。懂 coding 的人用 AI 如虎添翼，一個工程師搭配 AI 工具，能達到過去一整個團隊的產出；不懂的人則只能當旁觀者。
+
+** Vibe Coding 有其極限
+用自然語言請 AI 寫程式（所謂的 vibe coding）一開始看起來很方便，但一旦程式出錯需要 debug，不懂程式的人完全無法排查問題。能寫出程式的人很多，但能讓程式正確運作的人，才是真正有價值的。
+
+** 價值在於思考，不在於語法
+你的價值不在於會寫 for loop（AI 也會寫），而在於你能思考問題、設計架構、評估取捨、抓出錯誤。這些高層次的能力，只有透過實際學習 coding 才能培養。
+
+** AI 的崛起反而需要更多懂程式的人
+必須有人訓練、監督、維護 AI 系統。企業已經發現，不能只靠 AI 生成的程式碼來建構正式的產品，仍需要懂程式的人來把關品質與安全。
+
+** 培養邏輯思維與問題解決能力
+寫程式迫使你把模糊的問題拆解成明確的步驟，這種思維方式不只適用於程式設計，更能運用在生活中的各種挑戰。
+
+** 賦予你創造的自主權
+會寫程式就能親手打造自己想要的工具和應用，不必依賴別人、也不受限於現成方案。從無到有的創造過程，更能帶來直接的成就感。
+
+** 參考資料
+- [[https://zerotomastery.io/blog/should-I-learn-to-code/][Should I Learn to Code in 2026? Here’s 7 Reasons Why You Should]]
+- [[https://www.theknowledgeacademy.com/blog/what-are-the-benefits-of-coding-/][What are the Benefits of Coding in 2026?]]
+- [[https://www.linkedin.com/pulse/5-reasons-why-you-should-learn-programming-2026-levi-s-porto-molge/][5 Reasons Why You Should Learn Programming in 2026]]
+- [[https://algocademy.com/blog/why-learn-to-code-in-2026-the-case-has-actually-gotten-stronger/][Why Learn to Code in 2026? The Case Has Actually Gotten Stronger]]
+- [[https://www.geeksforgeeks.org/blogs/why-you-should-definitely-learn-coding-in-the-age-of-ai/][Why You Should Definitely Learn Coding in the Age of AI]]
 
 * 程式的編寫與執行
 :PROPERTIES:
@@ -52,7 +62,7 @@
 #+ATTR_HTML: :width 500
 [[file:images/程式的編寫與執行/2023-11-26_21-53-14_2023-11-26_21-48-06.png]]
 
-程式碼必須先經過 Preprocessing、Compilation、Linking 等步驟才能成為一支可以執行的執行檔(如 Windows 下的.exe 或是 MacOS 下的.app)。
+程式碼必須先經過 Preprocessing、Compilation、Linking 等步驟才能成為一支可以執行的執行檔(如 Windows 下的.exe 或是 macOS 下無副檔名的可執行檔)。
 
 ** 幾種寫程式的環境
 *** MacOS
@@ -61,7 +71,7 @@
 *** Windows
 **** DevC++
 - [[https://progressbar.tw/posts/7][[C語言] 01. Dev C++ 程式編輯器，大一理工學院新生惡夢的開始。]]
-- [[http://selfinquiring.hatenablog.com/entry/2016/03/18/204352][Nova的科學反主流學院　]]
+- [[https://selfinquiring.hatenablog.com/entry/2016/03/18/204352][Nova的科學反主流學院　]]
 **** Code::Blocks
 - [[https://blog.csdn.net/DongChengRong/article/details/78624068][安裝BlockCode]]
 - [[https://mks.tw/1053/cc-codeblocks-%E8%BC%95%E5%B7%A7%E7%9A%84%E6%95%B4%E5%90%88%E5%BC%8F%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83][[C/C++] Code::Blocks 輕巧的整合式開發環境]]
@@ -69,9 +79,9 @@
 - [[https://blog.csdn.net/HelloZEX/article/details/84029810][【VS】VS Code安装、配置、使用（windows10 64）]]
 - [[https://tw.alphacamp.co/blog/visual-studio-code-editor-tutorial-and-extensions][VSCode快速安裝教學，推薦常用外掛擴充套件]]
 *** 線上 coding 環境
-- [[http://cpp.sh/][cpp.sh]]
+- [[https://cpp.sh/][cpp.sh]]
 - [[https://www.jdoodle.com/online-compiler-c++/][JDOODLE]]
-- [[https://repl.it/languages/cpp][repl.it]]
+- [[https://replit.com/languages/cpp][Replit]]
 - [[https://code.sololearn.com/#cpp][SOLOLEARN]]
 
 #+LATEX:\newpage
@@ -99,7 +109,7 @@ C/C++的程式由許多的 function(函式)組成，function 的基本架構如�
 #+begin_src cpp :eval no
 傳回值類型 函式名稱() {
     函式內容
-    retrun 傳回值
+    return 傳回值
 }
 #+end_src
 前述程式中的第[[(main)]]行開始即為一名為 main 的 function，這也是 C/C++程式最主要的一支 function，程式被執行時，就由整支程式中找出名為 main 的 function 開始執行。之後我們的程式也將依序寫在這組大括號中。
@@ -107,10 +117,10 @@ C/C++的程式由許多的 function(函式)組成，function 的基本架構如�
 ** 標頭檔(Headers)
 上述程式中，第[[(header)]]行為標頭檔(Header)的引入，這裡告訴 Compiler 說我需要用到 iostream 這個 header，原因是程式的第[[(cout)]]行用到 cout 這個指令，而這個指令就被定義在 iostream 這個 header 中，其中的 io 即代表 input/output。
 
-往後如果用到其他函數，也需要 include 相關的 header，例如，如果需要用到數學的開根號函式 sqrt()，就需要 include math.h 這個 header，如下例中的第[[(header)]]行。
+往後如果用到其他函數，也需要 include 相關的 header，例如，如果需要用到數學的開根號函式 sqrt()，就需要 include cmath 這個 header，如下例中的第[[(header)]]行。
 #+begin_src cpp -r -n :results output :exports both
 #include <iostream>
-#include <math.h> (ref:header)
+#include <cmath> (ref:header)
 using namespace std;
 
 int main() (ref:main)
@@ -124,7 +134,7 @@ int main() (ref:main)
 #+RESULTS:
 : 10
 ** 命名空間(namespace)
-一支程式往往會用到許多的指令、函式、變數，不同單位所開發的程式也許會用到相同的名稱來為這些函式或變數命名，如此一來就可能導致名稱的衝突。舉個例子，在一年級新生中，有三個班級裡都有個叫*陳宜君*的同學，那麼我們怎麼區分這三位同學呢？一個方式在提及這些同學時在前面加上班級，如：一年三班的陳宜君。
+一支程式往往會用到許多的指令、函式、變數，不同單位所開發的程式也許會用到相同的名稱來為這些函式或變數命名，如此一來就可能導致名稱的衝突。舉個例子，在一年級新生中，有三個班級裡都有個叫 *陳宜君* 的同學，那麼我們怎麼區分這三位同學呢？一個方式在提及這些同學時在前面加上班級，如：一年三班的陳宜君。
 
 C++就提出這種方式來解決名稱可能衝突的問題，以下面程式為例：
 #+begin_src cpp -r -n :results output :exports both
@@ -160,7 +170,7 @@ int main() {
 :END:
 顧名思意，輸出是將資料輸出到某種設備（如螢幕、印表機...）, 常見的輸出指令有 cout、printf()、puts()、putchar()等。
 ** cout
-cout 為 iostream 這個類別(class)的 object[fn:3]，所以程式中若使用到 cout 就必須 include iostream。cout 可以將文字資料與變數資料列印在螢幕上，在語法上會使用<<作為文字與變數之間的連接工具，若要換行則使用"\n"或是關鍵字 endl[fn:4]。
+cout 是定義於 iostream 標頭檔中的 ostream 類別物件[fn:3]，所以程式中若使用到 cout 就必須 include iostream。cout 可以將文字資料與變數資料列印在螢幕上，在語法上會使用<<作為文字與變數之間的連接工具，若要換行則使用"\n"或是操縱子(manipulator) endl[fn:4]。
 
 如果要輸出的是文字資料，則應該在文字的前後各加上英文的雙引號(")，如下列程式的第[[(helloWorld)]]行，不同類型的數值資料間要以<<間隔。
 
@@ -184,12 +194,12 @@ int main() {
 :PROPERTIES:
 :CUSTOM_ID: cpp_printf
 :END:
-printf()為定義在 stdio.h 中的一個 function，所以若用到 printf()就要 include stdio.h。
+printf()為定義在 cstdio 中的一個 function，所以若用到 printf()就要 include cstdio。
 
 和 cout 一樣，printf()一樣是用來進行資料的輸出，只是在輸出時提供了更多的格式選定選項。基本的應用如下例，更複雜的應用則在介紹完變數(vairalbe)概念後再行說明。
 #+begin_src cpp -r -n :results output :exports both
 
-#include <stdio.h>
+#include <cstdio>
 using namespace std;
 int main() {
     printf("Hello world\n");
@@ -204,11 +214,12 @@ int main() {
 : 半徑：3
 : 圓面積：28.27
 *** float v.s. double
-在 C++ 中，使用 printf() 函數輸出 double 或 float 變數時，可以使用格式化字符串指定輸出的格式。對於 float 和 double 變數，常用的格式化符號是 %f 或 %lf。
+在 C++ 中，使用 printf() 函數輸出 double 或 float 變數時，可以使用格式字串指定輸出的格式。對於 float 和 double 變數，常用的格式化符號是 %f 或 %lf。
 - %f：用於輸出 float 或 double 型別的變數。
-- %lf：雖然在 C 語言中 %lf 是用來輸出 double 的格式，但在 C++ 的 printf() 函數中，%f 和 %lf 是等效的，因為 printf() 不區分 float 和 double，它們都會被轉換為 double 進行處理。
+- %lf：printf 中 %f 與 %lf 皆可輸出 double（C99 起兩者等價；float 引數會自動提升為 double）。
 #+begin_src cpp -r -n :results output :exports both
 #include <iostream>
+#include <cstdio>
 
 int main() {
     float a = 3.14159f;
@@ -286,10 +297,10 @@ A variable is a name given to a memory location. It is the basic unit of storage
 [[file:images/Variables-in-C-1.jpg]]
 
 C 語言的變數宣告語法如下：
-#+begin_src  :eval no
+#+begin_src cpp :eval no
 變數類型 變數名稱[=初值];
 #+end_src
-以下列程式為例，第[[(decInt)]]行宣告了一個名為 r 的整數型態(int)變數，這意謂著向記憶體要了塊足以儲存整數資料的空間，並將之命名為 r，並在第[[(assignInt)]]將整數 5 存入這個空間中，爾後只要在程式中提及 r，指的便是 5 這個值。這裡的等號運算子其作用為指定(assign)，即是將等號*右邊*的值存入等號*左邊*的變數(空間)中。
+以下列程式為例，第[[(decInt)]]行宣告了一個名為 r 的整數型態(int)變數，這意謂著向記憶體要了塊足以儲存整數資料的空間，並將之命名為 r，並在第[[(assignInt)]]將整數 5 存入這個空間中，爾後只要在程式中提及 r，指的便是 5 這個值。這裡的等號運算子其作用為指定(assign)，即是將等號 *右邊* 的值存入等號 *左邊* 的變數(空間)中。
 
 在第[[(decDouble)]]行宣告了一個名為 cirArea 的小數變數，接下來在第[[(assignDouble)]]行先計算出圓面積的值，再把這個值存入這個小數變數空間中。
 #+BEGIN_SRC C++ -n -r :results output :exports both
@@ -314,7 +325,6 @@ int main() {
 4. 大小寫有別(Case-Sensitive): a 與 A 為兩個不同的變數。
 5. 不可使用關鍵字(如 int, double, if, while...)。
 6. 底線開頭接大寫字母應保留給系統使用。
-更詳細的命名規範與建議可參閱：[[https://www.itread01.com/content/1541214186.html][C語言中變數名及函式名的命名規則與駝峰命名法]]。
 
 ** 變數類型
 :PROPERTIES:
@@ -334,7 +344,8 @@ int main() {
 *** 範例
 #+begin_src cpp -r -n :results output :exports both
 #include <iostream>
-#include <float.h>
+#include <cfloat>
+#include <climits>
 using namespace std;
 int main() {
     cout << INT_MIN << endl;
@@ -362,7 +373,7 @@ int main() {
 :CUSTOM_ID: cpp_input
 :END:
 
-** 變數的輪入
+** 變數的輸入
 前節提及變數的宣告、指定內容以及輸出變數，然而在程式內容中指定變數值實在很沒有彈性，我們可以透過輸入(cin)的方式將指定變數值的時機延後到程式執行時，由使用者來指定，例如：
 
 #+begin_src cpp -r -n :eval no
@@ -451,7 +462,7 @@ int main() {
 
 如同[[VarDec]]所述:
 #+begin_verse
-等號運算子其作用為指定(assign)，即是將等號*右邊*的值存入等號*左邊*的變數(空間)中
+等號運算子其作用為指定(assign)，即是將等號 *右邊* 的值存入等號 *左邊* 的變數(空間)中
 #+end_verse
 ，上述程式中的第[[(xx1)]]行是先求出 x+1 的值(4)，再將這個值存回變數 x 中，這個運算也可以第[[(xpp)]]取代；同理，程式中的第[[(xx3)]]行是先將 x 的值乘以 3，再把結果存回變數 x 中。
 
@@ -479,7 +490,7 @@ int main() {
 
 此處須留意的是第[[(xdy)]]行的值為整除的結果(得到商)，因為 x 與 y 均為整數，故此處的/為整除；此外，第[[(xmy)]]的%運算僅能用於 x 與 y 均為整數的狀況，在 C/C++中，小數不允許有取餘數的運算(python 可以)。
 
-數除運算也可以結合小括號來進行更複雜的運算，如：
+數值運算也可以結合小括號來進行更複雜的運算，如：
 #+begin_src cpp -r -n :eval no
 //...
 int t = 10;
@@ -491,15 +502,15 @@ area = ((up + bt) * height / 2) * 10;
 // ...
 #+end_src
 
-此處須留意，小刮號可以層層相叠，但不能像數學式那樣最內層為小括號、然後是中刮號、大刮號...
+此處須留意，小括號可以層層相疊，但不能像數學式那樣最內層為小括號、然後是中括號、大括號...
 
 *** 進階運算
-C++也提供一些較複雜的數學運算如開根號、log、或是 sin、cos 等，但使用時必須 include 函式庫(math.h)
+C++也提供一些較複雜的數學運算如開根號、log、或是 sin、cos 等，但使用時必須 include 函式庫(cmath)
 - 開根號
 #+begin_src cpp -r -n :results output :exports both
 #include <iostream>
-#include <stdio.h>
-#include <math.h> //一定要匯入
+#include <cstdio>
+#include <cmath> //一定要匯入
 using namespace std;
 
 int main() {
@@ -520,7 +531,7 @@ int main() {
 :PROPERTIES:
 :CUSTOM_ID: cpp_cond_operation
 :END:
-即，比較兩個值(或運算式)的結果，可的關係運算子如下：
+即，比較兩個值(或運算式)的結果，可用的關係運算子如下：
 | 關係運算子 | 意義                         | 使用範例 | 範例運算結果 |
 | ==                                                           | 等於                         | 1+1 == 2                                         |                                                                        1 |
 | !=                                                           | 不等於             | 3 != 4                                           |                                                                        1 |
@@ -580,7 +591,7 @@ int main() {
 : 0
 : 1
 
-如果數值運算，條件運算也結合小刮號進行更複雜的計算。
+如同數值運算，條件運算也可結合小括號進行更複雜的計算。
 
 * if 條件判斷
 :PROPERTIES:
@@ -773,7 +784,7 @@ int main() {
 - 當條件一成立，則執行程式碼一；
 - 若條件一不成立，則繼續判斷條件二，若條件二成立，則執行程式碼二；
 - 若條件二也不成立，則繼續判斷條件三...依此類推。
-- 最後的 else(第[[(else)]]行則可有可無，若有，則表示如果以上所有條件皆不成立，則執行程式碼 N。
+- 最後的 else(第[[(else)]]行)則可有可無，若有，則表示如果以上所有條件皆不成立，則執行程式碼 N。
 #+begin_src cpp :eval no
 if (條件一) {
     程式碼一;
@@ -870,9 +881,9 @@ int main() {
 :END:
 有時我們希望能在迴圈的過程中判斷「某事是否曾發生過」，例如，「是否曾發現某數的因數？」、「連續輸入 N 個分數，判斷這 N 個分數中是否至少有一科不及格？」這是我們的思考方式就要稍做轉變。
 *** 例題
-小明買了 N 張單碼彩卷，問是否全部摃龜，若這 N 張彩卷中至少有一張中奬(號碼=77)，則輸出"NOT BAD"，否則輸出"QQ"。
+小明買了 N 張單碼彩券，問是否全部摃龜，若這 N 張彩券中至少有一張中獎(號碼=77)，則輸出"NOT BAD"，否則輸出"QQ"。
 *** 想法 1
-面上述要求，for 迴圈的初學者可能會想在 for 中直接判斷中奬與否，如下:
+面上述要求，for 迴圈的初學者可能會想在 for 中直接判斷中獎與否，如下:
 #+begin_src cpp -r -n :results output :exports both :cmdline < for-in.txt
 #include <iostream>
 using namespace std;
@@ -897,7 +908,7 @@ int main() {
 : QQ
 由上述結果可以發現，這並不是正確答案，很顯然應該把輸出判斷放在 for 的後面，那，要如何做到這點呢？
 *** 想法 2
-另一種做法是，我們可以在 for 裡去計算中奬的次數，等到全部輸入完畢後，最後再統計一共有幾張中奬，這樣就可以解決上述問題：
+另一種做法是，我們可以在 for 裡去計算中獎的次數，等到全部輸入完畢後，最後再統計一共有幾張中獎，這樣就可以解決上述問題：
 #+begin_src cpp -r -n :results output :exports both :cmdline < for-in.txt
 #include <iostream>
 using namespace std;
@@ -922,7 +933,7 @@ int main() {
 
 #+RESULTS:
 : NOT BAD
-回顧一下這個做法，其實我們會發現我們到最後根本不在乎有幾張彩卷中奬，我們只在乎有沒有中過奬，即，對我們而言，numOfWins 其實只有兩種值:
+回顧一下這個做法，其實我們會發現我們到最後根本不在乎有幾張彩券中獎，我們只在乎有沒有中過獎，即，對我們而言，numOfWins 其實只有兩種值:
 - 0
 - 大於 0
 既然如此，其實以 boolean 變數來表示它會更為恰當。
@@ -958,8 +969,8 @@ int main() {
 基本迴圈結構
 **** 程式要求說明
 - 鞭有單、雙、軟、硬之分，其質有銅、鐵、鐵木、純木之別
-- 閃電五連鞕：源自金龍鞭法，而金龍鞭法原為為江南七怪中的老三、「馬王神」韓寶駒的成名絕技。其鞭法招式注重巧勁，練習時若用錯勁力，反而先傷己身。然江山代有才人出，金龍鞭法經揚名中國傳統武術圈的「渾元形意太極拳掌門人」馬保國改造後，化有形為無形，以人為鞭，達到「人即鞭、鞭即人、人鞭一體」之境，江湖人稱人鞭宗師。
-- 自從 5 月 17 日在一場名為「演武堂之江湖十六」的比賽中遭 50 歲的搏擊愛好者王慶民 3 次 KO 後，馬保國痛定思痛，閉關三日苦思五連鞕心法，出關後再創進階版的閃電 N 連鞭，此鞭法精妙之處在於可以連續叠加 N 層，猶如大海浪潮一波又一波，練至化境，龍吟之聲不斷，頗有與金龍之名相互呼應之勢。
+- 閃電五連鞭：源自金龍鞭法，而金龍鞭法原為江南七怪中的老三、「馬王神」韓寶駒的成名絕技。其鞭法招式注重巧勁，練習時若用錯勁力，反而先傷己身。然江山代有才人出，金龍鞭法經揚名中國傳統武術圈的「渾元形意太極拳掌門人」馬保國改造後，化有形為無形，以人為鞭，達到「人即鞭、鞭即人、人鞭一體」之境，江湖人稱人鞭宗師。
+- 自從 5 月 17 日在一場名為「演武堂之江湖十六」的比賽中遭 50 歲的搏擊愛好者王慶民 3 次 KO 後，馬保國痛定思痛，閉關三日苦思五連鞭心法，出關後再創進階版的閃電 N 連鞭，此鞭法精妙之處在於可以連續疊加 N 層，猶如大海浪潮一波又一波，練至化境，龍吟之聲不斷，頗有與金龍之名相互呼應之勢。
 - 此鞭法所能造成之殺傷力與使鞭之人功力有關，若使鞭人功力值為 m，則：
   + 第 1 鞭所能造成之殺傷力點數為 m*(1*m)^2 點；
   + 第 2 鞭所能造成之殺傷力點數為 m*(2*m)^2 點；
@@ -969,17 +980,13 @@ int main() {
 - 輸出：第 1 至 n 鞭所造成之傷害值
 **** 輸入/輸出範例
 - 輸入 1
-  10
-  190800
+  10 5
 - 輸出 1
-  1: 190801
-  2: 190802
-  3: 190803
-  4: 190804
-  5: 190805
-  6: 190806
-  7: 190807
-  8: 190808
+  1: 1000
+  2: 4000
+  3: 9000
+  4: 16000
+  5: 25000
 
 * Nested For Loop
 :PROPERTIES:
@@ -1072,13 +1079,13 @@ while 與 for 均為重複結構，比較起來，while 的語法結構更為簡
 *** 範例 1
 以 while 模擬 for loop
 #+begin_src cpp -r -n :results output :exports both
-##include <iostream>
+#include <iostream>
 using namespace std;
 int main(int argc, char *argv[]) {
-    int i;
+    int i = 1;
 
     while (i<= 5) {
-        cout << "This is a while test\n;"
+        cout << "This is a while test\n";
         i++;
     }
 
@@ -1086,7 +1093,7 @@ int main(int argc, char *argv[]) {
 }
 #+end_src
 *** 範例 2
-九九乘法表
+以 while 輸出 3 的乘法表(由 3*9 到 3*1)
 #+begin_src cpp -r -n :results output :exports both
 #include <iostream>
 using namespace std;
@@ -1112,11 +1119,11 @@ int main() {
 : 3 * 2 = 6
 : 3 * 1 = 3
 *** 課堂練習
-- 輸入一整數 n，輸出\(\)\(\sum{n}\)，以 while 完成。
+- 輸入一整數 n，輸出 \(\sum_{i=1}^{n} i\)，以 while 完成。
 
 ** 不固定次數的重複
 有些時候你想重覆執行某些動作，但是你又不確定會重覆多少次，典型的例子是輸入密碼，輸入錯誤後就應該重新輸入，作為系統設計者，你不會知道使用者會在第幾次輸入正確密碼，這就是 while 適合上場的時機....，例如:
-#+begin_src cpp -r -n :results output :exports both
+#+begin_src cpp -r -n :eval no
 輸入密碼;
 while(密碼錯誤)
 {
@@ -1125,11 +1132,11 @@ while(密碼錯誤)
 #+end_src
 *** 課堂練習
 - 系統登入檢查:模擬作業系統登入畫面，進行使用者密碼檢查，當輸入輸入正確密碼後秀出畫面，否則持續要求輸入密碼
-- \(n!\)的值為 1*2*3*....*n，請問 n 最大到多少時，\(n!\)的人值才會開始超過 200000 ？
+- \(n!\)的值為 1*2*3*....*n，請問 n 最大到多少時，\(n!\)的值才會開始超過 200000 ？
 
 ** Do ... while
 有些狀況下，重複的次數 *至少* 要發生一次才行，例如前節中的密碼檢查，使用者至少要先輸入一次密碼，接下來系統才能針對密碼進行驗證，此時，do..while 會是一個比較理想的重複架構，其語法如下：
-#+begin_src cpp -r -n :results output :exports both
+#+begin_src cpp -r -n :eval no
 do {
     輸入密碼
 } while (密碼錯誤);
@@ -1142,6 +1149,7 @@ do {
 :END:
 直至目前為止，我們學過宣告變數來儲存數值(int, double)，如果今天要計算全班資訊科成績平均(5 人)，也許我們可以用如下方式來計算:
 #+begin_src cpp -r -n :results output :exports both
+#include <iostream>
 int main(int argc, char *argv[]) {
     int cs1, cs2, cs3, cs4, cs5;
     std::cin >> cs1 >> cs2 >> cs3 >> cs4 >> cs5;
@@ -1149,7 +1157,7 @@ int main(int argc, char *argv[]) {
     double avg;
     avg = (cs1 + cs2 + cs3 + cs4 + cs5) / 5.0;
 
-    std::cout << avg << endl;
+    std::cout << avg << std::endl;
     return 0;
 }
 #+end_src
@@ -1159,25 +1167,26 @@ but....如果全班有 50 個人呢？如果是要求全校的成績分佈呢?
 各種程式語言為了因應這種大批資料的處理計算，都會有相對應的資料結構，C++的陣列(array)就是用來儲存大量資料的結構。
 ** 基本操作
 *** 宣告
-如果變數一樣，array 也要先宣告才能使用，其宣告方式如下：
-#+begin_src cpp -r -n :results output :exports both
+如同變數一樣，array 也要先宣告才能使用，其宣告方式如下：
+#+begin_src cpp -r -n :eval no
 資料型態 名稱[長度];
 #+end_src
 其中陣列長度必須為一編譯時期的常數，例如:
-#+begin_src cpp -r -n :results output :exports both
+#+begin_src cpp -r -n :eval no
 int number[10];    // 宣告 10 個元素的整數陣列
 double score[10];  // 宣告 10 個元素的浮點數陣列
 char ascii[10];    // 宣告 10 個元素的字元陣列
 #+end_src
 或是
-#+begin_src cpp -r -n :results output :exports both
+#+begin_src cpp -r -n :eval no
 int numOfStudent;
 cin >> numOfStudent; //先確認人數
 int score[numOfStudent];
 #+end_src
+註：此寫法（變長陣列 VLA）是 GCC/Clang 的延伸功能，並非標準 C++；正規做法是使用 vector。
 *** Assign value to Array
 *** assign
-#+begin_src cpp -r -n :results output :exports both
+#+begin_src cpp -r -n :eval no
 int sc[5];
 sc[0] = 51;
 sc[1] = 44;
@@ -1204,19 +1213,19 @@ sc[4] = 100;
 [[file:images/array.png]]
 
 如上所示，宣告一陣列 sc，每個 int 並列儲存於陣列中，以 index 值(0~4)做為存取依據，因為 index 值為連續整數，所以我們可以很方便的套用 for-loop 來存取陣列內容,例如：
-#+begin_src cpp -r -n :results output :exports both
-for (i = 0; i < 5; i++) {
+#+begin_src cpp -r -n :eval no
+for (int i = 0; i < 5; i++) {
     cout << sc[i] << endl;
 }
 #+end_src
 *** 宣告時順便指定陣列初值
-#+begin_src cpp -r -n :results output :exports both
+#+begin_src cpp -r -n :eval no
 int score[5] = {51, 44, 93, 20, 100};
 #+end_src
 *** cin
-#+begin_src cpp -r -n :results output :exports both
+#+begin_src cpp -r -n :eval no
 int sc[5];
-for (i = 0; i < 5; i++) {
+for (int i = 0; i < 5; i++) {
     cin >> sc[i];
 }
 #+end_src
@@ -1230,7 +1239,7 @@ for (i = 0; i < 5; i++) {
 85 53 94 38 80
 #+end_src
 ** 其他類型的陣列
-#+begin_src cpp -r -n :results output :exports both
+#+begin_src cpp -r -n :eval no
 char ascii[5] = {'A', 'B', 'C', 'D', 'E'}; //字元陣列
 bool flag[5] = {false, true, false, true, false};
 #+end_src
@@ -1272,11 +1281,11 @@ int main() {
 #+RESULTS:
 : 0x7ffee990a920
 
-此時，索引值表示陣列元素是相對於陣列首個記憶體位址的位移量（offset），位移的量與資料型態長度有關，如果是 int 整數，每次位移時是一個 int 整數的長度，例如在上例中 number[0] 索引值為 0 時，表示位移量為 0，自然就是指第一個元素，而 number[9] 就是指相對於首個元素的位移量為 9。[fn:9]
+此時，索引值表示陣列元素是相對於陣列首個記憶體位址的位移量（offset），位移的量與資料型態長度有關，如果是 int 整數，每次位移時是一個 int 整數的長度，例如在上例中 number[0] 索引值為 0 時，表示位移量為 0，自然就是指第一個元素，而 number[4] 就是指相對於首個元素的位移量為 4。[fn:9]
 
 - 觀察程式執行結果，你有看出來一個 int 會佔用多大的空間嗎？
 - 請你複製這段程式碼，將 int 改為 double，再看看一個 double 會佔用多少空間？
-- 你要如何測試 char, boolean 的佔用空間？
+- 你要如何測試 char, bool 的佔用空間？
 
 #+begin_src cpp -r -n :results output :exports both
 #include <iostream>
@@ -1301,7 +1310,7 @@ int main() {
 : 0x7ffee990a928: 2
 : 0x7ffee990a92c: 3
 : 0x7ffee990a930: 4
-上述程式中的 offset 為指標變數，其型代為 int*，代表記憶體的位址，若要取得該位址中的值，則以*offset 表示。若以圖形表示則為：
+上述程式中的 offset 為指標變數，其型態為 int*，代表記憶體的位址，若要取得該位址中的值，則以*offset 表示。若以圖形表示則為：
 #+BEGIN_SRC ditaa :file images/address.png :cmdline -E
 +-----------------+-------+
 |  Memory address | Value |
@@ -1327,26 +1336,26 @@ int main() {
 ** YES/NO for Array
 *** what you should not do with array
 對一般變數，我們可以用以下 assign 方式將其值 assign 給其他變數：
-#+begin_src cpp -r -n :results output :exports both
+#+begin_src cpp -r -n :eval no
 int a = 20;
 int b;
-b = 20;
+b = a; //合法!!
 #+end_src
 但是 array 不允許上述操作，如：
-#+begin_src cpp -r -n :results output :exports both
+#+begin_src cpp -r -n :eval no
 int ary1[5] = {0, 1, 3, 4, 5};
 int ary2[5];
 ary2 = ary1; //錯誤!!
 #+end_src
 如果要將某一陣列指定給另一個變數，只能透過迴圈逐一 assign:
-#+begin_src cpp -r -n :results output :exports both
+#+begin_src cpp -r -n :eval no
 int ary1[5] = {0, 1, 3, 4, 5};
 int ary2[5];
-for (i = 0; i < 5; i++) {
+for (int i = 0; i < 5; i++) {
     ary2[i] = ary1[i];
 }
 #+end_src
-*** what you can do with array:
+** Array Algorithm
 *** sort #1
 #+begin_src cpp -r -n :results output :exports both
 #include <algorithm>
@@ -1387,6 +1396,32 @@ int main() {
 #+RESULTS:
 : 8,11,13,30,100,
 *** find
+**** 基本用法
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+int main() {
+    int number[] = {30, 12, 55, 31, 98, 11};
+    cout << "輸入搜尋值：";
+    int search = 0;
+    cin >> search;
+    int foundIndex = -1;
+    for (int i = 0; i < 6; i++) {
+        if (number[i] == search) {
+            foundIndex = i;
+            break; //找到搜尋值，跳出迴圈
+        }
+    }
+    if (foundIndex != -1) { 
+        cout << "找到搜尋值，位於陣列索引 " << foundIndex << endl;
+    } else {
+        cout << "沒有找到搜尋值" << endl;
+    }
+}
+#+end_src
+    
+**** 進階用法
+這是 C++ 標準函式庫提供的 find 演算法，可以用來搜尋陣列中的元素，因為是進階用法，所以請自行領會，以下是範例程式碼：
 #+begin_src cpp -r -n :results output :exports both
 #include <algorithm>
 #include <iostream>
@@ -1399,11 +1434,14 @@ int main() {
     cin >> search;
 
     int* addr = find(begin(number), end(number), search);
-    cout << (addr != end(number) ? "找到" : "沒有")
-         << "搜尋值"
-         << endl;
+    if (addr != end(number)) {
+        cout << "找到搜尋值，位於陣列索引 " << (addr - begin(number)) << endl;
+    } else {
+        cout << "沒有找到搜尋值" << endl;
+    }
 }
 #+end_src
+可以稍微解讀一下上述程式碼，find 函式會回傳一個指標變數(addr)，如果搜尋值存在於陣列中，則 addr 會指向該元素的位址；如果搜尋值不存在於陣列中，則 addr 會等於 end(number)，因此我們可以透過比較 addr 與 end(number) 來判斷是否找到搜尋值。
 *** reverse
 #+begin_src cpp -r -n :results output :exports both
 #include <algorithm>
@@ -1436,8 +1474,12 @@ int main() {
 - 合併排序(Merge Sort)
 每種排序演算法都有其優缺點，選擇適合的排序演算法取決於資料的特性以及應用場景。
 
+雖然前面已經介紹了 C++ 標準函式庫中的 sort 函式，但了解基本的排序演算法仍然是很重要的，因為它們可以幫助我們理解排序的原理，並且在某些特定情況下，手動實現排序演算法可能會比使用標準函式庫更有效率。
+
+更重要的是：考試時，只會呼叫函式庫中的sort可能無法拿到任何分數，因為題目可能會要求你實作，然後把每個round的結果都印出來，這時候你就必須要自己實作排序演算法了。
+
 ** 氣泡排序(Bubble Sort)
-氣泡排序是一種簡單但效率較低的排序演算法，其基本思想是 ** 反覆比較相鄰的元素** ，若順序錯誤則交換位置，直到整個陣列有序為止。
+氣泡排序是一種簡單但效率較低的排序演算法，其基本思想是 *反覆比較相鄰的元素* ，若順序錯誤則交換位置，直到整個陣列有序為止。
 *** 第一輪比較
 假設有一個陣列 [5, 2, 9, 1, 5, 6]，我們想以氣泡排序將其排序，第一輪的步驟如下：
 1. 比較第一對元素 5 和 2，因為 5 > 2，交換位置，陣列變為 [2, 5, 9, 1, 5, 6]
@@ -1445,7 +1487,7 @@ int main() {
 3. 比較第三對元素 9 和 1，因為 9 > 1，交換位置，陣列變為 [2, 5, 1, 9, 5, 6]
 4. 比較第四對元素 9 和 5，因為 9 > 5，交換位置，陣列變為 [2, 5, 1, 5, 9, 6]
 5. 比較第五對元素 9 和 6，因為 9 > 6，交換位置，陣列變為 [2, 5, 1, 5, 6, 9]
-6. 重複上述步驟，直到整個陣列
+6. 重複上述步驟，直到整個陣列排序完成為止
 
 看到了嗎？全部有6個元素，所以第一輪需要比較5次，比完第一輪後，最大的元素 9 已經被移到最後一個位置。
 
@@ -1545,13 +1587,22 @@ int main() {
 
 #+RESULTS:
 : 1 2 5 5 6 9
+*** 動畫展示
+[[file:bubbleSort.html][Bubble Sort 互動動畫教學]]
 
 * String
 :PROPERTIES:
 :CUSTOM_ID: cpp_string
 :END:
-** ASCII Code
-ASCII(American Standard Code for Information Interchange) 碼是電腦用來表示字母、數字、符號的編碼系統
+在程式中，我們經常需要處理文字資料，例如姓名、地址、訊息等。在 C++ 中，處理文字有兩種方式：
+- *char 字元* ：儲存單一字元，如 'A'、'3'、'!'
+- *string 字串* ：儲存一串文字，如 "Hello world"、"TNFSH403"
+
+我們先從最基本的字元開始認識。
+
+** char 字元
+*** ASCII Code
+ASCII(American Standard Code for Information Interchange) 碼是電腦用來表示字母、數字、符號的編碼系統。
 #+CAPTION: ASCII-1
 #+LABEL:fig:Labl
 #+name: fig:Name
@@ -1563,193 +1614,122 @@ ASCII(American Standard Code for Information Interchange) 碼是電腦用來表�
 
 這個表告訴我們，電腦內部是以數字來表示字元的，而我們在程式中看到的字元只是電腦將這些數字轉換成我們熟悉的符號而已。
 
-在 C++ 中，可以用 char 型態來儲存字元，例如：
-#+begin_src cpp -r -n :results output :exports both
-#include <iostream>
-using namespace std;
-char ch = 'A';
-int main() {
-  cout << "ch 的值為 " << ch << endl;
-  return 0;
-}
-#+end_src
-
-#+RESULTS:
-: ch 的值為 A
-
-又因為字元在電腦內部是以數字來表示的，所以我們也可以用 int 型態來儲存字元的 ASCII 編號，例如：
+在 C++ 中，可以用 char 型態來儲存字元。由於字元本質上就是數字，因此 char 和 int 之間可以互相轉換：
 #+begin_src cpp -r -n :results output :exports both
 #include <iostream>
 using namespace std;
 int main() {
-  int ch = 65;
-  cout << "ch 的值為 " << (char)ch << endl;
-  return 0;
+    char ch = 'A';
+    cout << "字元: " << ch << endl;
+    cout << "ASCII 編號: " << (int)ch << endl;  // char 轉 int
+
+    int code = 66;
+    cout << "編號 66 對應的字元: " << (char)code << endl;  // int 轉 char
+    return 0;
 }
 #+end_src
 
 #+RESULTS:
-: ch 的值為 A
+: 字元: A
+: ASCII 編號: 65
+: 編號 66 對應的字元: B
 
-那麼，如何將字元轉換成 ASCII 編號呢？我們可以將 char 型態的變數強制轉型(cast)成 int 型態，例如：
-#+begin_src cpp -r -n :results output :exports both
-#include <iostream>
-using namespace std;
-int main() {
-  char ch = 'A';
-  int ascii = (int)ch;
-  cout << "ch 的 ASCII 編號為 " << ascii << endl;
-  return 0;
-}
-#+end_src
-
-#+RESULTS:
-: ch 的 ASCII 編號為 65
-
-或者，我們也可以直接將 char 型態的變數指定給 int 型態的變數，例如：
-,#+begin_src cpp -r -n :results output :exports both
-#include <iostream>
-using namespace std;
-int main() {
-  char ch = 'A';
-  int ascii = ch;
-  cout << "ch 的 ASCII 編號為 " << ascii << endl;
-  return 0;
-}
-#+end_src
-
-#+RESULTS:
-: ch 的 ASCII 編號為 65
-現在，你應該了解為什麼字元可以用數字來表示了吧！
-** 字元運算
+*** 字元運算
 由於在電腦內部字元是以數字來表示的，所以我們可以對字元進行數學運算，例如：
 #+begin_src cpp -r -n :results output :exports both
 #include <iostream>
 using namespace std;
 int main() {
-  char ch = 'A';
-  ch = ch + 1;
-  cout << "ch 的值為 " << ch << endl;
-  return 0;
-}
-#+end_src
-#+RESULTS:
-: ch 的值為 B
-在上述程式中，我們將字元 A 的 ASCII 編號 65 加上 1，得到 66，然後再將 66 轉換回字元，得到 B。
-
-又例如：
-#+begin_src cpp -r -n :results output :exports both
-#include <iostream>
-using namespace std;
-int main() {
-  char ch = 'a';
-  ch = ch - 32;
-  cout << "ch 的值為 " << ch << endl;
-  return 0;
+    char ch = 'A';
+    ch = ch + 1;      // 65 + 1 = 66，對應字元 'B'
+    cout << "A + 1 = " << ch << endl;
+    return 0;
 }
 #+end_src
 
 #+RESULTS:
-: ch 的值為 A
+: A + 1 = B
 
-另外，我們也可以用字元來進行比較運算，例如：
+利用這個特性，我們可以進行大小寫轉換。觀察 ASCII 表可以發現，大寫字母 A~Z 的編號為 65~90，小寫字母 a~z 的編號為 97~122，兩者之間差了 32。因此，我們可以用 ='a' - 'A'= 這個差值來轉換大小寫：
 #+begin_src cpp -r -n :results output :exports both
 #include <iostream>
 using namespace std;
 int main() {
-  char ch1 = 'A';
-  char ch2 = 'B';
-  if (ch1 < ch2) {
-    cout << ch1 << " 小於 " << ch2 << endl;
-  } else {
-    cout << ch1 << " 不小於 " << ch2 << endl;
-  }
-  return 0;
+    char lower = 'g';
+    // 小寫轉大寫：減去大小寫之間的差值
+    char upper = lower - 'a' + 'A';
+    cout << lower << " 轉大寫: " << upper << endl;
+
+    // 大寫轉小寫：加上大小寫之間的差值
+    char ch = 'D';
+    char low = ch - 'A' + 'a';
+    cout << ch << " 轉小寫: " << low << endl;
+    return 0;
+}
+#+end_src
+
+#+RESULTS:
+: g 轉大寫: G
+: D 轉小寫: d
+
+另外，我們也可以用字元來進行比較運算，因為比較的其實是 ASCII 編號的大小：
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+int main() {
+    char ch1 = 'A';  // ASCII 65
+    char ch2 = 'B';  // ASCII 66
+    if (ch1 < ch2) {
+        cout << ch1 << " 小於 " << ch2 << endl;
+    }
+
+    // 判斷某個字元是否為大寫字母
+    char ch = 'G';
+    if (ch >= 'A' && ch <= 'Z') {
+        cout << ch << " 是大寫字母" << endl;
+    }
+    return 0;
 }
 #+end_src
 
 #+RESULTS:
 : A 小於 B
+: G 是大寫字母
 
-或者，我們也可以用來判斷某個字元是否為特定範圍內的字元，例如：
+** string 字串
+*** 宣告與初始化
+字串(string)由一個一個的字元(char)組成。在 C++ 中，有兩種方式可以儲存字串：
+- =char[]= 字元陣列：C 語言的傳統寫法，需要事先決定陣列大小
+- =string= 型態：C++ 提供的字串型態，使用上更方便，不需要事先決定長度
+
 #+begin_src cpp -r -n :results output :exports both
 #include <iostream>
+#include <cstring>
 using namespace std;
 int main() {
-  char ch = 'G';
-  if (ch >= 'A' && ch <= 'Z') {
-    cout << ch << " 是大寫字母" << endl;
-  } else {
-    cout << ch << " 不是大寫字母" << endl;
-  }
-  return 0;
-}
-#+end_src
-
-#+RESULTS:
-: G 是大寫字母
-** 字串與字元陣列
-- 字串(string)由一個一個的字元(char)組成，如"Hello world"、"TNFSH403"
-- 在 C++裡，可以用 char[ ] 或 string 儲存字串
-** 儲存結構
-- 在下列程式中，字元陣列 name1 與字串 name2 的內容一模一樣，長度均為 5 個字元，但不管是以字元陣列(name1)或是以字串(name2)來儲存這五個字元，最後都有一個代表字串結尾的隱藏字元'\0'來告訴電腦這個字串到此為止。
-- '\0'的 ASCII 編號為 0，是 NULL、空集合的意思
-- 這個'\0'不會被輸出，也不被算在字元陣列或是字串長度裡，所以不論是以 strlen()或是 length()都只看到長度為 5。
-- 要留意的是，對C++來說，name1 與 name2 是兩種不同的資料型態，name1 為 char 陣列，而 name2 為 string 型態，所以在存取字元時，兩者的語法也有所不同。
-- 另，在C++中，strlen()需要 include <cstring>，而 length()需要 include <string>
-- 在C中，strlen()則需要 include <string.h>
-#+begin_src cpp -r -n :results output :exports both
-#include<iostream>
-#include<cstring>
-using namespace std;
-
-int main()
-{
+    // 方法1: 字元陣列（需指定大小，且結尾必須有 '\0'）
     char name1[6] = {'T', 'N', 'F', 'S', 'H', '\0'};
+
+    // 方法2: string（不需指定大小，使用更方便）
     string name2 = "TNFSH";
 
-    cout << name1 << ": " << strlen(name1) << endl;
-    cout << name2 << ": " << name2.length() << endl;
-    cout << "name1的第三個字元: " << name1[2] <<endl;
-    cout << "name2的第三個字元: " << name2[2] <<endl;
-    cout << name1[5] << endl;
-    cout << name2[5] << endl;
+    cout << name1 << ", 長度: " << strlen(name1) << endl;
+    cout << name2 << ", 長度: " << name2.length() << endl;
     return 0;
 }
 #+end_src
 
 #+RESULTS:
-: TNFSH: 5
-: TNFSH: 5
-: name1的第三個字元: F
-: name2的第三個字元: F
-:  
-:  
-** 宣告
-- 宣告一個空的字元陣列要先告知預計會有幾個字元，字串則不用。
-- 如下例，雖然 lastName 輸入的字元不到不到 20 個，但 cin 會在最後面補上'\0'，所以在 cout 時就只會輸出到'\0'前面的字元
-#+begin_src cpp -r -n :results output :exports both :cmdline < stringIn.txt
-#include<iostream>
-using namespace std;
+: TNFSH, 長度: 5
+: TNFSH, 長度: 5
 
-int main()
-{
-    char lastName[20];
-    string firstName;
+不管是以字元陣列或是 string 來儲存字串，最後都有一個代表字串結尾的隱藏字元 ='\0'= 來告訴電腦這個字串到此為止。 ='\0'= 的 ASCII 編號為 0，代表 NULL。這個 ='\0'= 不會被輸出，也不被算在字串長度裡。
 
-    cin >> lastName >> firstName;
-    cout << "Your name is " << lastName << ", "<< firstName << endl;
+要留意的是，對 C++ 來說，char[] 與 string 是兩種不同的資料型態。在 C++ 中，strlen() 需要 include <cstring>，而 length() 則是 string 型態內建的方法。一般而言，在 C++ 中建議優先使用 string，因為它更安全也更方便。
 
-    return 0;
-}
-#+end_src
-
-#+RESULTS:
-: Your name is James, Yen
-** 輸入
-*** scanf()
-- C 語言的輸入方式，用 scanf 讀取字串時，遇到空白字元便會結束。
-- 需 include stdio.h
+*** 字串輸入
+**** scanf()
+scanf 是 C 語言的輸入方式，在 C++ 中也可以使用，但需要 include <cstdio>。scanf 讀取字串時，遇到空白字元便會結束，且只能搭配 char[] 使用，不能搭配 string。
 #+begin_src C -r -n :results output :exports both :cmdline < stringIn.txt
 #include <stdio.h>
 int main() {
@@ -1761,39 +1741,24 @@ int main() {
 
 #+RESULTS:
 : Your name: James
-*** cin
-既可以讀字元，又可以讀字串。遇到空白字元或 Enter 便會結束。
+
+**** cin
+C++ 的標準輸入方式，既可以讀字元，又可以讀字串，也可以搭配 string 使用。和 scanf 一樣，遇到空白字元或 Enter 便會結束。
 #+begin_src cpp -r -n :results output :exports both :cmdline < stringIn.txt
 #include <iostream>
 using namespace std;
 int main() {
     string name1, name2;
     cin >> name1 >> name2;
-    cout << "Welcome, " << name1 <<  ", " << name2 << endl;
+    cout << "Welcome, " << name1 << ", " << name2 << endl;
 }
 #+end_src
 
 #+RESULTS:
 : Welcome, James, Yen
-*** cin.getline()
-- 可讀入空白，遇到 Enter 就結束輸入，需要 include <string>
-- getline 函式使用兩個用逗號分隔的引數。第一個 argument 是要儲存字串的陣列的名稱。第二個 argument 是陣列的大小。當 cin.getline 語句執行時，cin 讀取的字元數將比該數字少一個，為 null 終止符留出空間。
-#+begin_src cpp -r -n :results output :exports both :cmdline < strIn.txt
-#include <iostream>
-#include <string>
-using namespace std;
-int main() {
-    char school[30];
-    cin.getline(school, 30);
-    cout << school << endl;
-}
 
-#+end_src
-
-#+RESULTS:
-: Tainan First Senior High Scho
-*** getline(cin, str)
-可以讀入空白，遇到 Enter 就結束輸入，需要 include <string>
+**** getline(cin, str)
+如果要讀入包含空白的整行文字，可以使用 getline。它會讀到 Enter 為止，中間的空白也會保留。需要 include <string>。
 #+begin_src cpp -r -n :results output :exports both :cmdline < strIn.txt
 #include <iostream>
 #include <string>
@@ -1807,24 +1772,280 @@ int main() {
 
 #+RESULTS:
 : Tainan First Senior High School
-*** gets(str)
-可以讀入空白，遇到 Enter 就結束輸入。
+
+若使用 char[] 字元陣列，則改用 cin.getline()，需要多指定陣列大小作為第二個參數：
 #+begin_src cpp -r -n :results output :exports both :cmdline < strIn.txt
 #include <iostream>
 using namespace std;
 int main() {
-    //string school;
-    char school[30];
-    gets(school);
+    char school[50];
+    cin.getline(school, 50);
     cout << school << endl;
 }
 #+end_src
 
 #+RESULTS:
 : Tainan First Senior High School
+
+以下整理各種輸入方式的比較：
+| 方式              | 搭配型態 | 遇空白停止 | 語言   |
+|-------------------+----------+------------+--------|
+| scanf()           | char[]   | 是         | C      |
+| cin >>            | 兩者皆可 | 是         | C++    |
+| getline(cin, str) | string   | 否         | C++    |
+| cin.getline()     | char[]   | 否         | C++    |
+
+*** 常用操作
+以下介紹 string 型態最常用的操作，這些在解題時會經常用到。
+
+**** 長度
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+#include <string>
+using namespace std;
+int main() {
+    string s = "Hello";
+    cout << "長度: " << s.length() << endl;  // 也可以用 s.size()
+}
+#+end_src
+
+#+RESULTS:
+: 長度: 5
+
+***** 如果是 char[] 字元陣列，則需要 include <cstring>，並使用 strlen() 函式來取得長度：
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+#include <cstring>
+using namespace std;
+int main() {
+    char s[] = "Hello";
+    cout << "長度: " << strlen(s) << endl;
+}
+#+end_src
+
+#+RESULTS:
+: 長度: 5
+
+**** 字串串接
+用 =+= 可以將兩個字串接在一起：
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+#include <string>
+using namespace std;
+int main() {
+    string first = "Hello";
+    string second = "World";
+    string result = first + " " + second + "!";
+    cout << result << endl;
+}
+#+end_src
+
+#+RESULTS:
+: Hello World!
+
+***** 如果是 char[] 字元陣列，則需要 include <cstring>，並使用 strcat() 函式來串接字串：
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+#include <cstring>
+using namespace std;
+int main() {
+    char first[20] = "Hello";
+    char second[] = "World";
+    strcat(first, " "); // 先串接空格
+    strcat(first, second); // 再串接 second
+    cout << first << endl;
+}
+#+end_src
+
+#+RESULTS:
+: Hello World
+
+**** 字串比較
+string 可以直接用 ~==~ 、 ~!=~ 、 ~<~ 、 ~>~ 等運算子來比較，比較的依據是字典順序(lexicographic order)：
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+#include <string>
+using namespace std;
+int main() {
+    string a = "apple";
+    string b = "banana";
+    if (a < b) {
+        cout << a << " 排在 " << b << " 前面" << endl;
+    }
+    if (a == "apple") {
+        cout << "a 的內容是 apple" << endl;
+    }
+}
+#+end_src
+
+#+RESULTS:
+: apple 排在 banana 前面
+: a 的內容是 apple
+***** 如果是 char[] 字元陣列，則需要 include <cstring>，並使用 strcmp() 函式來比較字串：
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+#include <cstring>
+using namespace std;
+int main() {
+    char a[] = "apple";
+    char b[] = "banana";
+    if (strcmp(a, b) < 0) {
+        cout << a << " 排在 " << b << " 前面" << endl;
+    }
+    if (strcmp(a, "apple") == 0) {
+        cout << "a 的內容是 apple" << endl;
+    }
+}
+#+end_src
+
+#+RESULTS:
+: apple 排在 banana 前面
+: a 的內容是 apple
+
+**** 存取個別字元
+可以用 =[]= 存取字串中的個別字元，index 從 0 開始，和陣列一樣：
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+#include <string>
+using namespace std;
+int main() {
+    string s = "TNFSH";
+    cout << "第一個字元: " << s[0] << endl;
+    cout << "第三個字元: " << s[2] << endl;
+
+    // 也可以修改個別字元
+    s[0] = 'X';
+    cout << "修改後: " << s << endl;
+}
+#+end_src
+
+#+RESULTS:
+: 第一個字元: T
+: 第三個字元: F
+: 修改後: XNFSH
+***** 如果是 char[] 字元陣列，則同樣可以用 =[]= 存取個別字元：
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+int main() {
+    char s[] = "TNFSH";
+    cout << "第一個字元: " << s[0] << endl;
+    cout << "第三個字元: " << s[2] << endl;
+    // 也可以修改個別字元
+    s[0] = 'X';
+    cout << "修改後: " << s << endl;
+}
+#+end_src
+
+#+RESULTS:
+: 第一個字元: T
+: 第三個字元: F
+: 修改後: XNFSH
+
+**** 取子字串 substr()
+substr(起始位置, 長度) 可以從字串中取出一部分：
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+#include <string>
+using namespace std;
+int main() {
+    string s = "Hello World";
+    cout << s.substr(0, 5) << endl;   // 從 index 0 開始取 5 個字元
+    cout << s.substr(6) << endl;      // 從 index 6 開始取到結尾
+}
+#+end_src
+
+#+RESULTS:
+: Hello
+: World
+***** 如果是 char[] 字元陣列，則需要 include <cstring>，並使用 strncpy() 函式來取子字串：
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+#include <cstring>
+using namespace std;
+int main() {
+    char s[] = "Hello World";
+    char sub[20];
+    strncpy(sub, s, 5); // 從 s 的開頭複製
+    sub[5] = '\0'; // 記得加上結尾字元
+    cout << sub << endl;
+    strncpy(sub, s + 6, strlen(s) - 6); // 從 s 的 index 6 開始複製
+    sub[strlen(s) - 6] = '\0'; // 記得加上結尾字元
+    cout << sub << endl;
+}
+#+end_src
+
+#+RESULTS:
+: Hello
+: World
+
+**** 搜尋 find()
+find() 可以在字串中搜尋某個字元或子字串，找到則回傳起始位置(index)，找不到則回傳 =string::npos= ：
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+#include <string>
+using namespace std;
+int main() {
+    string s = "Hello World";
+
+    size_t pos = s.find("World");
+    if (pos != string::npos) {
+        cout << "找到 World，位置在 index " << pos << endl;
+    }
+
+    if (s.find("xyz") == string::npos) {
+        cout << "找不到 xyz" << endl;
+    }
+}
+#+end_src
+
+#+RESULTS:
+: 找到 World，位置在 index 6
+: 找不到 xyz
+***** 如果是 char[] 字元陣列，則需要 include <cstring>，並使用 strstr() 函式來搜尋子字串：
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+#include <cstring>
+using namespace std;
+int main() {
+    char s[] = "Hello World";
+    char* pos = strstr(s, "World");
+    if (pos != nullptr) {
+        cout << "找到 World，位置在 index " << (pos - s) << endl
+             << "找到的子字串: " << pos << endl;
+    }
+    if (strstr(s, "xyz") == nullptr) {
+        cout << "找不到 xyz" << endl;
+    }
+    return 0;
+}
+#+end_src
+
+#+RESULTS:
+: 找到 World，位置在 index 6
+: 找到的子字串: World
+: 找不到 xyz
+
+** 課堂練習
+*** A: 輸入一字串（不含空白），將所有小寫字母轉為大寫後輸出，非小寫字母則維持不變。
+**** 測資 1
+- 輸入: Hello
+- 輸出: HELLO
+**** 測資 2
+- 輸入: tnfsh403
+- 輸出: TNFSH403
+*** B: 輸入一字串（不含空白），判斷是否為回文(palindrome)，即正著讀和反著讀都一樣。
+**** 測資 1
+- 輸入: abcba
+- 輸出: 是回文
+**** 測資 2
+- 輸入: hello
+- 輸出: 不是回文
+
 ** 進階閱讀
 - [[https://openhome.cc/Gossip/CppGossip/string1.html][字元陣列與字串]]
-- [[https://www.796t.com/article.php?id=13952][C++ cin.getline及getline()用法詳解]]
+- [[https://en.cppreference.com/w/cpp/string/basic_string/getline][std::getline - cppreference.com]]
+- [[https://cplusplus.com/reference/string/string/][C++ string Reference]]
 
 * 二維陣列
 在現實生活中，常會遇到需要以表格方式來儲存資料的情況，例如學生成績單、公司員工資料表等，這些資料通常是以二維的方式來呈現。例如以下是一個全班成績表格，全班共有5位學生，每位學生有3科成績:
@@ -1837,13 +2058,13 @@ int main() {
 | 孫七 |   90 |   85 |   88 |
 如果你只會使用一維陣列來儲存這些資料，那你大概有兩種方法來儲存這些資料：
 1. 使用多個一維陣列來儲存每一科的成績，例如:
-#+begin_src cpp -r -n :results output :exports both
+#+begin_src cpp -r -n :eval no
 int chinese[5] = {85, 88, 92, 75, 90};
 int english[5] = {90, 76, 89, 80, 85};
 int math[5]    = {78, 95, 84, 70, 88};
 #+end_src
 2. 使用5個一維陣列來儲存每位學生的成績，例如:
-#+begin_src cpp -r -n :results output :exports both
+#+begin_src cpp -r -n :eval no
 int student1[3] = {85, 90, 78};
 int student2[3] = {88, 76, 95};
 int student3[3] = {92, 89, 84};
@@ -1851,7 +2072,7 @@ int student4[3] = {75, 80, 70};
 int student5[3] = {90, 85, 88};
 #+end_src
 3. 或者，你也可以使用一維陣列來儲存所有的成績，然後透過計算索引值來存取每個學生的成績，例如:
-#+begin_src cpp -r -n :results output :exports both
+#+begin_src cpp -r -n :eval no
 int scores[15] = {85, 90, 78, 88, 76, 95, 92, 89, 84, 75, 80, 70, 90, 85, 88};
 // 存取第一位學生的國文成績
 int student1_chinese = scores[0];
@@ -1861,17 +2082,17 @@ int student2_english = scores[5];
 
 但是，我想你會發現，以上這些方法都不是很方便，尤其是當學生人數或科目數量增加時，程式碼會變得非常複雜且難以維護。為了解決這個問題，C++ 提供了二維陣列(array)來處理這類資料，其宣告方式如下：
 
-#+begin_src cpp -r -n :results output :exports both
+#+begin_src cpp -r -n :eval no
 資料型態 名稱[列數][行數];
 #+end_src
 例如:
-#+begin_src cpp -r -n :results output :exports both
-int score[3][5]; // 宣告 3 列 5 行的整
+#+begin_src cpp -r -n :eval no
+int score[5][3]; // 宣告 5 列 3 行的整數陣列
 #+end_src
 
 ** 二維陣列的存取
 有了二維陣列的宣告方式後，我們就可以使用兩個索引值來存取陣列中的元素了，第一個索引值表示列(row)，第二個索引值表示行(column)，例如:
-#+begin_src cpp -r -n :results output :exports both
+#+begin_src cpp -r -n :eval no
 score[0][0] = 85; // 第一列第一行, 即張三的國文成績
 score[0][1] = 90; // 第一列第二行, 即張三的英文成績
 score[0][2] = 78; // 第一列第三行, 即張三的數學成績
@@ -1880,7 +2101,7 @@ score[1][1] = 76; // 第二列第二行, 即李四的英文成績
 score[1][2] = 95; // 第二列第三行, 即李四的數學成績
 #+end_src
 當然，除了逐一指定外，我們也可以在宣告二維陣列時，同時指定初值，例如:
-#+begin_src cpp -r -n :results output :exports both
+#+begin_src cpp -r -n :eval no
 int score[5][3] = {
     {85, 90, 78}, // 張三
     {88, 76, 95}, // 李四
@@ -2002,7 +2223,7 @@ int main() {
 : 學生 4 的總分為 225，平均為 75
 : 學生 5 的總分為 263，平均為 87.6667
 
-這種方式是直接讀入分數後進行計算，但是如果你想把總分或平圴存起來(也許之後你還會用到，例如要找全班最高分或是進行排名)，那要怎麼做呢？
+這種方式是直接讀入分數後進行計算，但是如果你想把總分或平均存起來(也許之後你還會用到，例如要找全班最高分或是進行排名)，那要怎麼做呢？
 *** 儲存每位學生的總分與平均: Solution #1
 第一種方式是使用兩個一維陣列來分別儲存每位學生的總分與平均，例如:
 #+begin_src cpp -r -n :results output :exports both
@@ -2043,12 +2264,12 @@ int main() {
 | 孫七 |   90 |   85 |   88 |
 改為：
 | 姓名 | 國文 | 英文 | 數學 | 總分 | 平均 |
-|------+------+------+------|------|------|
-| 張三 |   85 |   90 |   78 |      |
-| 李四 |   88 |   76 |   95 |      |
-| 王五 |   92 |   89 |   84 |      |
-| 趙六 |   75 |   80 |   70 |      |
-| 孫七 |   90 |   85 |   88 |      |
+|------+------+------+------+------+------|
+| 張三 |   85 |   90 |   78 |      |      |
+| 李四 |   88 |   76 |   95 |      |      |
+| 王五 |   92 |   89 |   84 |      |      |
+| 趙六 |   75 |   80 |   70 |      |      |
+| 孫七 |   90 |   85 |   88 |      |      |
 然後在程式中，我們可以這樣做:
 #+begin_src cpp -r -n :results output :exports both
 #include <iostream>
@@ -2076,6 +2297,7 @@ int main() {
     return 0;
 }
 #+end_src
+注意：平均存入 int 陣列會捨去小數，若需精確的平均值應使用 double 型態來儲存。
 
 ** 關於二維陣列的排序
 假設全班成績表如下:
@@ -2098,7 +2320,7 @@ int main() {
         {4, 75, 80, 70, 0}, // 座號4
         {5, 90, 85, 88, 0}  // 座號5
     };
-    // 計算每位學生的總分並存入第四欄
+    // 計算每位學生的總分並存入最後一欄(index 4，即第五欄)
     for (int i = 0; i < 5; i++) {
         score[i][4] = score[i][1] + score[i][2] +
                         score[i][3];
@@ -2107,12 +2329,12 @@ int main() {
     for (int i = 0; i < 5 - 1; i++)
     {
         for (int j = 0; j < 5 - i - 1; j++) {
-            if (score[j][3] > score[j + 1][3]) {
+            if (score[j][4] > score[j + 1][4]) {
                 // 這裡是唯一和之前學過的泡沫排序法不同的地方
                 // 因為我們是排序二維陣列，所以需要交換整列的資料
                 // 所以我們使用一個內層迴圈來交換每一欄的資料
-                // 當然，你也可以不用fotm來交換，只要用暫存變數來交換每一欄的資料也可以
-                for (int k = 0; k < 4; k++) {
+                // 當然，你也可以不用 for 迴圈，改以多個暫存變數逐欄交換也可以
+                for (int k = 0; k < 5; k++) {
                     int temp = score[j][k];
                     score[j][k] = score[j + 1][k];
                     score[j + 1][k] = temp;
@@ -2120,8 +2342,8 @@ int main() {
             }
         }
     }
-    // 輸出排序後的合部成績表
-    cout << "座號\t國文\t數學\t英文\t總分" << endl;
+    // 輸出排序後的全部成績表
+    cout << "座號\t國文\t英文\t數學\t總分" << endl;
     for (int i = 0; i < 5; i++) {
         cout << score[i][0] << "\t"
              << score[i][1] << "\t"
@@ -2134,12 +2356,12 @@ int main() {
 #+end_src
 
 #+RESULTS:
-: 座號	國文	數學	英文	總分
-: 4	75	80	70	253
-: 1	85	90	78	259
+: 座號	國文	英文	數學	總分
+: 4	75	80	70	225
+: 1	85	90	78	253
+: 2	88	76	95	259
+: 5	90	85	88	263
 : 3	92	89	84	265
-: 5	90	85	88	225
-: 2	88	76	95	263
 
 ** 進階排序
 如果，我們需要的排序結果長的像這樣(依座號排，中間插入一個名次欄位):
@@ -2170,7 +2392,7 @@ int main() {
    |    1 |   85 |   90 |   78 |  253 |
    |    4 |   75 |   80 |   70 |  225 |
    |------+------+------+------+------|
-3. 加入一個名次欄位(以for迴圈手動填入名次
+3. 加入一個名次欄位(以for迴圈手動填入名次)
    | 座號 | 國文 | 英文 | 數學 | 總分 | 名次 |
    |------+------+------+------+------+------|
    |    3 |   92 |   89 |   84 |  265 |    1 |
@@ -2189,100 +2411,829 @@ int main() {
    |    5 |   90 |   85 |   88 |  263 |    2 |
    |------+------+------+------+------+------|
 
-* TODO Recursion
+* Function
 :PROPERTIES:
-:CUSTOM_ID: cpp_functions
+:CUSTOM_ID: cpp_function
+:END:
+當一支程式越寫越長，常常會出現「同一段程式碼在不同地方一直重複出現」的情況。為了讓程式更簡潔、更好維護，我們可以把一段有特定功能的程式碼包裝起來，給它取一個名字，之後想用的時候只要呼叫這個名字就好，這就是 *function（函式）* 。
+
+事實上我們已經用過 function 了，例如 =main()= 就是一個 function，它是程式的進入點；而 =cout= 後面接的 =endl= 、或者像 =sqrt()= 這些也都是 function。本節要學的是如何「自己寫一個 function」。
+
+** 為什麼要寫 function？
+- *避免重複* ：相同的程式碼只要寫一次，需要的時候再呼叫
+- *讓 main() 更乾淨* ：把細節藏起來，main() 只負責「指揮」
+- *分工合作* ：每個 function 負責一件事，程式比較好讀也比較好除錯
+
+** 最簡單的 function
+先從一個沒有參數、也沒有回傳值的 function 開始：
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+void sayHello() {              // 定義一個叫做 sayHello 的 function
+    cout << "Hello!" << endl;
+    cout << "歡迎學 C++" << endl;
+}
+int main() {
+    sayHello();                // 呼叫 function
+    sayHello();                // 想用幾次就呼叫幾次
+    sayHello();
+}
+#+end_src
+
+#+RESULTS:
+: Hello!
+: 歡迎學 C++
+: Hello!
+: 歡迎學 C++
+: Hello!
+: 歡迎學 C++
+
+說明：
+- =void= 表示這個 function「不會回傳東西」
+- =sayHello= 是 function 的名字，命名規則和變數一樣
+- =()= 裡面放參數，目前是空的表示「不需要外部給資料」
+- =main()= 裡面寫 =sayHello();= 就會去執行 function 裡的程式碼
+
+** function 的基本結構
+#+begin_src cpp :eval no
+回傳值型態 function名稱(參數列) {
+    // 要做的事
+    return 回傳值;   // 如果回傳值型態是 void，這行可以省略
+}
+#+end_src
+
+** 加上參數
+參數(parameter)讓我們可以把資料「傳進去」給 function 處理。下面這支程式可以畫出任意長度的星號線：
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+void drawLine(int n) {          // n 是參數，由呼叫的人決定
+    for (int i = 0; i < n; i++) {
+        cout << "*";
+    }
+    cout << endl;
+}
+int main() {
+    drawLine(5);                // 印出 5 個星號
+    drawLine(10);               // 印出 10 個星號
+    drawLine(3);
+}
+#+end_src
+
+#+RESULTS:
+: *****
+: **********
+: ***
+
+也可以傳多個參數：
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+void printRectangle(int w, int h) {
+    for (int i = 0; i < h; i++) {
+        for (int j = 0; j < w; j++) {
+            cout << "*";
+        }
+        cout << endl;
+    }
+}
+int main() {
+    printRectangle(6, 3);       // 寬 6、高 3 的矩形
+}
+#+end_src
+
+#+RESULTS:
+: ******
+: ******
+: ******
+
+** 有回傳值的 function
+如果希望 function 「算出一個答案交回來」，就要設定回傳值型態，並用 =return= 把結果送回去。
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+int add(int a, int b) {         // 回傳值型態是 int
+    return a + b;               // 把 a+b 的結果交回去
+}
+int main() {
+    int x = add(3, 5);          // x 會得到 8
+    cout << "3 + 5 = " << x << endl;
+    cout << "10 + 20 = " << add(10, 20) << endl;  // 也可以直接用在 cout
+}
+#+end_src
+
+#+RESULTS:
+: 3 + 5 = 8
+: 10 + 20 = 30
+
+再看一個例子：判斷一個數是不是偶數
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+bool isEven(int n) {
+    return n % 2 == 0;
+}
+int main() {
+    for (int i = 1; i <= 6; i++) {
+        if (isEven(i)) {
+            cout << i << " 是偶數" << endl;
+        } else {
+            cout << i << " 是奇數" << endl;
+        }
+    }
+}
+#+end_src
+
+#+RESULTS:
+: 1 是奇數
+: 2 是偶數
+: 3 是奇數
+: 4 是偶數
+: 5 是奇數
+: 6 是偶數
+
+** function 呼叫的執行流程
+要進入下一節的遞迴之前，先弄清楚 function 「被呼叫」時到底發生了什麼事：
+
+1. 程式遇到 function 呼叫時，會「暫停」目前的工作
+2. 跳到該 function 裡面，從第一行開始執行
+3. 執行完(或遇到 =return=)後，把結果帶回原本的呼叫點
+4. 回到原本的位置繼續往下執行
+
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+int square(int n) {
+    cout << "  進入 square，n = " << n << endl;
+    int result = n * n;
+    cout << "  離開 square，回傳 " << result << endl;
+    return result;
+}
+int main() {
+    cout << "main 開始" << endl;
+    int a = square(4);
+    cout << "main 拿到 " << a << endl;
+    cout << "main 結束" << endl;
+}
+#+end_src
+
+#+RESULTS:
+: main 開始
+:   進入 square，n = 4
+:   離開 square，回傳 16
+: main 拿到 16
+: main 結束
+
+理解這個「跳進去、做完、回到原處」的流程非常重要。因為如果一個 function 在自己裡面又呼叫了自己，會發生什麼事？這就是下一節要談的 *遞迴(Recursion)* 。
+
+** 課堂練習
+1. 寫一個 function =int maxOf(int a, int b)= ，回傳兩數中較大者
+2. 寫一個 function =void printStars(int n)= ，印出 n 個星號(不換行)
+3. 寫一個 function =int sum(int n)= ，回傳 1+2+3+...+n 的總和(用 for 迴圈寫，下一節再用遞迴寫一次)
+
+* Recursion
+:PROPERTIES:
+:CUSTOM_ID: cpp_recursion
 :ID:       a7a7bfd1-478a-4da0-b2d7-157bba36933f
 :END:
-當一支 function 在自己的程式碼中又呼叫自己,會發生什麼事??
+遞迴(Recursion)是指一個 function 在自己的程式碼中呼叫自己的技巧。遞迴是一種非常強大的程式設計方法，許多問題用遞迴來解會比用迴圈來解更加直觀。
+
+** 無窮遞迴
+當一支 function 在自己的程式碼中又呼叫自己，會發生什麼事？
 #+begin_src cpp -r -n :results output :exports both
-#include
 #include <iostream>
 using namespace std;
 void selfcall(int n) {
     cout << n << endl;
-    selfcall( n );
+    selfcall(n);
 }
-main () {
-    int x=10;
+int main() {
+    int x = 10;
     selfcall(x);
 }
 #+end_src
 
-試著執行這支程式,驗證自己的想法,
+試著執行這支程式，你會發現程式不斷的輸出 10，永遠不會停下來，最終因為堆疊溢出(stack overflow)而當掉。這就是所謂的「無窮遞迴」，就像無窮迴圈一樣，是我們在寫程式時要避免的。
+
+再看另一個例子：
 #+begin_src cpp -r -n :results output :exports both
-#include
+#include <iostream>
 using namespace std;
 void selfcall(int n) {
     cout << n << endl;
-    selfcall(n+1);
+    selfcall(n + 1);
 }
-main ()
-{
-        int x=1;
-        selfcall(x);
+int main() {
+    int x = 1;
+    selfcall(x);
 }
 #+end_src
-** compute n!
-#+BEGIN_SRC C++
-#include <iostream>
-using namespace std;
-int n(int x) {
-    if (x==1) {
-        return 1;
+
+這支程式會不斷的輸出 1, 2, 3, 4, ...，同樣永遠不會停下來。
+
+** 遞迴的基本結構
+要讓遞迴正確運作，必須包含兩個要素：
+1. *終止條件(Base Case)* ：讓遞迴停下來的條件，沒有它遞迴就會無窮的執行下去
+2. *遞迴呼叫(Recursive Case)* ：function 呼叫自己，但參數必須朝向終止條件靠近
+
+#+begin_src cpp :eval no
+void recursive(參數) {
+    if (終止條件) {
+        // 直接回傳結果，不再呼叫自己
     } else {
-        return x*n(x-1);
+        // 呼叫自己，但參數要改變，逐步趨近終止條件
+        recursive(改變後的參數);
     }
 }
+#+end_src
 
-int main() {
-    int hi = 9;
-    cout << n(8) << endl;
+** 範例：倒數計時
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+void countdown(int n) {
+    if (n == 0) {           // 終止條件
+        cout << "發射!" << endl;
+    } else {
+        cout << n << endl;  // 處理當前步驟
+        countdown(n - 1);   // 遞迴呼叫，n 逐漸趨近 0
+    }
 }
-
-#+END_SRC
+int main() {
+    countdown(5);
+}
+#+end_src
 
 #+RESULTS:
-: 40320
+: 5
+: 4
+: 3
+: 2
+: 1
+: 發射!
 
-* TODO Struct
+** 範例：計算 n!
+階乘(factorial)的數學定義本身就是遞迴的：
+- 0! = 1（終止條件）
+- n! = n × (n-1)!（遞迴定義）
+
+例如：5! = 5 × 4! = 5 × 4 × 3! = 5 × 4 × 3 × 2! = 5 × 4 × 3 × 2 × 1! = 5 × 4 × 3 × 2 × 1 = 120
+
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+int factorial(int x) {
+    if (x <= 1) {        // 終止條件：0! = 1, 1! = 1
+        return 1;
+    } else {
+        return x * factorial(x - 1);  // 遞迴呼叫
+    }
+}
+int main() {
+    cout << "5! = " << factorial(5) << endl;
+    cout << "8! = " << factorial(8) << endl;
+}
+#+end_src
+
+#+RESULTS:
+: 5! = 120
+: 8! = 40320
+
+** 範例：費氏數列
+費氏數列(Fibonacci sequence)的定義如下：
+- F(0) = 0
+- F(1) = 1
+- F(n) = F(n-1) + F(n-2)，當 n >= 2
+
+也就是說，從第三項開始，每一項都是前兩項的和：0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...
+
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+int fib(int n) {
+    if (n == 0) return 0;       // 終止條件 1
+    if (n == 1) return 1;       // 終止條件 2
+    return fib(n - 1) + fib(n - 2);  // 遞迴呼叫
+}
+int main() {
+    for (int i = 0; i < 10; i++) {
+        cout << "F(" << i << ") = " << fib(i) << endl;
+    }
+}
+#+end_src
+
+#+RESULTS:
+#+begin_example
+F(0) = 0
+F(1) = 1
+F(2) = 1
+F(3) = 2
+F(4) = 3
+F(5) = 5
+F(6) = 8
+F(7) = 13
+F(8) = 21
+F(9) = 34
+#+end_example
+
+** 範例：輾轉相除法求最大公因數
+求兩數的最大公因數(GCD)可以用輾轉相除法：
+- 若 b == 0，則 GCD(a, b) = a
+- 否則，GCD(a, b) = GCD(b, a % b)
+
+例如：GCD(48, 18) = GCD(18, 12) = GCD(12, 6) = GCD(6, 0) = 6
+
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+int gcd(int a, int b) {
+    if (b == 0) return a;       // 終止條件
+    return gcd(b, a % b);       // 遞迴呼叫
+}
+int main() {
+    cout << "GCD(48, 18) = " << gcd(48, 18) << endl;
+    cout << "GCD(100, 75) = " << gcd(100, 75) << endl;
+}
+#+end_src
+
+#+RESULTS:
+: GCD(48, 18) = 6
+: GCD(100, 75) = 25
+
+** 課堂練習
+*** A: 用遞迴計算 1 + 2 + 3 + ... + n 的總和
+**** 測資 1
+- 輸入: 5
+- 輸出: 15
+**** 測資 2
+- 輸入: 100
+- 輸出: 5050
+*** B: 用遞迴計算 x 的 n 次方（x^n）
+**** 測資 1
+- 輸入: 2 10
+- 輸出: 1024
+**** 測資 2
+- 輸入: 3 5
+- 輸出: 243
+
+** 進階閱讀
+- [[https://openhome.cc/Gossip/AlgorithmGossip/CategoryRecursion.htm][遞迴]]
+- [[https://www.geeksforgeeks.org/introduction-to-recursion-2/][Introduction to Recursion]]
+
+* Struct
 :PROPERTIES:
 :CUSTOM_ID: cpp_struct
 :ID:       f388d8c0-171c-413c-86dc-e05840c0d378
 :END:
-結構 (structure) 是一種複合型別 (derived data type)，用來表達由多個屬性組成的型別，而這些屬性可以是基本型別或是另一個複合型別所組成。[fn:10] [fn:11]
+結構(structure)是一種複合型別(derived data type)，用來表達由多個屬性組成的型別，而這些屬性可以是基本型別或是另一個複合型別所組成。[fn:10] [fn:11]
+
+到目前為止，我們學過的變數只能儲存單一種類的資料，例如 int 只能存整數、char 只能存字元。但在現實生活中，一筆資料往往包含多種不同的屬性，例如一位學生的資料包含學號(int)、姓名(char[])、性別(char)、成績(float)等。如果用一般變數來儲存，我們就需要為每個屬性各自宣告一個變數，非常不方便。struct 就是為了解決這個問題而存在的。
+
+** 宣告
+struct 的宣告語法如下：
+#+begin_src cpp :eval no
+struct 結構名稱 {
+    資料型態 成員名稱1;
+    資料型態 成員名稱2;
+    ...
+};  // 注意這裡有分號
+#+end_src
+
+例如，定義一個學生結構：
+#+begin_src cpp :eval no
+struct student {
+    int id;         // 學號
+    char name[20];  // 姓名
+    char sex;       // 性別
+    float score;    // 成績
+};
+#+end_src
+
+** 使用
+宣告好 struct 後，就可以用它來建立變數，並以 =.= 來存取其中的成員：
 #+begin_src cpp -r -n :results output :exports both
 #include <iostream>
-#include <string.h>
+#include <cstring>
 using namespace std;
 
-struct student{ //名稱為student的結構
-    int id; //學號為整數型
-    char name[20]; //姓名為字元陣列
-    char sex; //性別為字元型
-    float score; //成績為浮點型
+struct student {
+    int id;
+    char name[20];
+    char sex;
+    float score;
 };
 
 int main() {
-    student s1, s2, s3;
+    student s1;
     s1.id = 90001;
-    strcpy(s1.name, "James, Yen");
-    s1.sex = 'F';
-    s1.score = 88.88;
-}
+    strcpy(s1.name, "James Yen");
+    s1.sex = 'M';
+    s1.score = 88.5;
 
+    cout << "學號: " << s1.id << endl;
+    cout << "姓名: " << s1.name << endl;
+    cout << "性別: " << s1.sex << endl;
+    cout << "成績: " << s1.score << endl;
+}
 #+end_src
 
 #+RESULTS:
+: 學號: 90001
+: 姓名: James Yen
+: 性別: M
+: 成績: 88.5
 
-* TODO STL
+** 初始化
+struct 也可以在宣告時直接指定初值，類似陣列的初始化方式：
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+using namespace std;
+
+struct point {
+    int x;
+    int y;
+};
+
+int main() {
+    point p1 = {3, 5};
+    point p2 = {10, 20};
+
+    cout << "p1 = (" << p1.x << ", " << p1.y << ")" << endl;
+    cout << "p2 = (" << p2.x << ", " << p2.y << ")" << endl;
+}
+#+end_src
+
+#+RESULTS:
+: p1 = (3, 5)
+: p2 = (10, 20)
+
+** struct 陣列
+當我們需要儲存多位學生的資料時，可以宣告一個 struct 的陣列：
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct student {
+    int id;
+    string name;
+    int score;
+};
+
+int main() {
+    student classA[3] = {
+        {1, "Alice", 85},
+        {2, "Bob", 92},
+        {3, "Charlie", 78}
+    };
+
+    // 輸出所有學生資料
+    for (int i = 0; i < 3; i++) {
+        cout << "座號: " << classA[i].id
+             << ", 姓名: " << classA[i].name
+             << ", 成績: " << classA[i].score << endl;
+    }
+
+    // 計算平均
+    int total = 0;
+    for (int i = 0; i < 3; i++) {
+        total += classA[i].score;
+    }
+    cout << "平均: " << total / 3.0 << endl;
+}
+#+end_src
+
+#+RESULTS:
+: 座號: 1, 姓名: Alice, 成績: 85
+: 座號: 2, 姓名: Bob, 成績: 92
+: 座號: 3, 姓名: Charlie, 成績: 78
+: 平均: 85
+
+** struct 作為 function 的參數
+struct 可以作為 function 的參數傳入，方便我們撰寫處理結構化資料的函式：
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct student {
+    int id;
+    string name;
+    int score;
+};
+
+void printStudent(student s) {
+    cout << "座號 " << s.id << ": " << s.name
+         << " (" << s.score << "分)" << endl;
+}
+
+int main() {
+    student s1 = {1, "Alice", 85};
+    student s2 = {2, "Bob", 92};
+    printStudent(s1);
+    printStudent(s2);
+}
+#+end_src
+
+#+RESULTS:
+: 座號 1: Alice (85分)
+: 座號 2: Bob (92分)
+
+** 課堂練習
+*** A: 定義一個 struct 用來表示一本書(包含書名、作者、價格)，輸入 3 本書的資料，找出最貴的書並輸出其書名與價格。
+**** 測資
+- 輸入:
+  #+begin_src text
+  C++Primer Stanley 980
+  Algorithm CLRS 1200
+  CleanCode Robert 650
+  #+end_src
+- 輸出: 最貴的書: Algorithm, 價格: 1200
+*** B: 定義一個 struct 用來表示一個座標點(x, y)，輸入兩個座標點，計算兩點間的距離。
+**** 測資
+- 輸入: 0 0 3 4
+- 輸出: 5
+
+** 進階閱讀
+- [[https://michaelchen.tech/c-programming/struct/][如何使用結構 (Struct)]]
+- [[https://kopu.chat/2017/05/30/c-%E8%AA%9E%E8%A8%80%EF%BC%9A%E7%B5%90%E6%A7%8B%EF%BC%88struct%EF%BC%89%E8%87%AA%E8%A8%82%E4%B8%8D%E5%90%8C%E8%B3%87%E6%96%99%E5%9E%8B%E6%85%8B%E7%B6%81%E4%B8%80%E8%B5%B7/][C 語言：結構（struct）自訂不同資料型態綁一起]]
+- [[https://www.geeksforgeeks.org/structures-in-cpp/][Structures in C++]]
+
+* STL
 :PROPERTIES:
+:CUSTOM_ID: cpp_stl
 :ID:       ff72b7cb-ab3e-418e-96d1-3bfe628d0868
 :END:
+STL(Standard Template Library)是 C++ 標準函式庫中的一部分，提供了許多現成的資料結構和演算法，讓我們不必從零開始實作，大幅提升開發效率。
+
+在前面的章節中，我們學過了 array（陣列），但 array 有個限制：宣告時就必須決定大小，無法在程式執行時動態調整。STL 提供了許多更靈活的資料結構來解決這類問題。
+
+** vector
+vector 是 STL 中最常用的容器，可以把它想像成一個「可以自動調整大小的陣列」。使用前需要 include <vector>。
+*** 宣告與基本操作
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+#include <vector>
+using namespace std;
+int main() {
+    // 宣告一個空的 int vector
+    vector<int> v;
+
+    // 用 push_back 在最後面加入元素
+    v.push_back(10);
+    v.push_back(20);
+    v.push_back(30);
+
+    // 用 size() 取得目前有幾個元素
+    cout << "元素個數: " << v.size() << endl;
+
+    // 用 [] 存取元素，和陣列一樣
+    for (int i = 0; i < v.size(); i++) {
+        cout << v[i] << " ";
+    }
+    cout << endl;
+}
+#+end_src
+
+#+RESULTS:
+: 元素個數: 3
+: 10 20 30
+
+*** 初始化
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+#include <vector>
+using namespace std;
+int main() {
+    // 方法1: 直接給初值
+    vector<int> v1 = {5, 2, 9, 1, 6};
+
+    // 方法2: 宣告一個有 5 個元素的 vector，每個初值為 0
+    vector<int> v2(5, 0);
+
+    // 方法3: 宣告一個有 3 個元素的 vector，每個初值為 100
+    vector<int> v3(3, 100);
+
+    for (auto x : v1) cout << x << " ";
+    cout << endl;
+    for (auto x : v2) cout << x << " ";
+    cout << endl;
+    for (auto x : v3) cout << x << " ";
+    cout << endl;
+}
+#+end_src
+
+#+RESULTS:
+: 5 2 9 1 6
+: 0 0 0 0 0
+: 100 100 100
+
+*** 常用操作
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+#include <vector>
+using namespace std;
+int main() {
+    vector<int> v = {10, 20, 30, 40, 50};
+
+    cout << "第一個元素: " << v.front() << endl;
+    cout << "最後一個元素: " << v.back() << endl;
+    cout << "元素個數: " << v.size() << endl;
+
+    v.push_back(60);   // 在最後面加入 60
+    cout << "加入 60 後: ";
+    for (auto x : v) cout << x << " ";
+    cout << endl;
+
+    v.pop_back();       // 移除最後一個元素
+    cout << "移除最後一個後: ";
+    for (auto x : v) cout << x << " ";
+    cout << endl;
+
+    cout << "是否為空: " << (v.empty() ? "是" : "否") << endl;
+}
+#+end_src
+
+#+RESULTS:
+: 第一個元素: 10
+: 最後一個元素: 50
+: 元素個數: 5
+: 加入 60 後: 10 20 30 40 50 60
+: 移除最後一個後: 10 20 30 40 50
+: 是否為空: 否
+
+*** 搭配 sort 排序
+vector 可以直接使用 algorithm 中的 sort 來排序：
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+int main() {
+    vector<int> v = {30, 12, 55, 31, 98, 11};
+
+    // 由小到大排序
+    sort(v.begin(), v.end());
+    cout << "升冪: ";
+    for (auto x : v) cout << x << " ";
+    cout << endl;
+
+    // 由大到小排序
+    sort(v.begin(), v.end(), greater<int>());
+    cout << "降冪: ";
+    for (auto x : v) cout << x << " ";
+    cout << endl;
+}
+#+end_src
+
+#+RESULTS:
+: 升冪: 11 12 30 31 55 98
+: 降冪: 98 55 31 30 12 11
+
+** stack
+stack（堆疊）是一種「後進先出(LIFO, Last In First Out)」的資料結構，就像一疊盤子，最後放上去的會最先被拿走。使用前需要 include <stack>。
+
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+#include <stack>
+using namespace std;
+int main() {
+    stack<int> s;
+
+    // push: 放入元素
+    s.push(10);
+    s.push(20);
+    s.push(30);
+
+    cout << "最頂端的元素: " << s.top() << endl;
+    cout << "元素個數: " << s.size() << endl;
+
+    // pop: 移除最頂端的元素
+    s.pop();
+    cout << "pop 後最頂端的元素: " << s.top() << endl;
+
+    // 依序取出所有元素
+    cout << "依序取出: ";
+    while (!s.empty()) {
+        cout << s.top() << " ";
+        s.pop();
+    }
+    cout << endl;
+}
+#+end_src
+
+#+RESULTS:
+: 最頂端的元素: 30
+: 元素個數: 3
+: pop 後最頂端的元素: 20
+: 依序取出: 20 10
+
+** queue
+queue（佇列）是一種「先進先出(FIFO, First In First Out)」的資料結構，就像排隊一樣，先排的人先服務。使用前需要 include <queue>。
+
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+#include <queue>
+using namespace std;
+int main() {
+    queue<int> q;
+
+    // push: 從後面加入元素
+    q.push(10);
+    q.push(20);
+    q.push(30);
+
+    cout << "最前面的元素: " << q.front() << endl;
+    cout << "最後面的元素: " << q.back() << endl;
+    cout << "元素個數: " << q.size() << endl;
+
+    // pop: 移除最前面的元素
+    q.pop();
+    cout << "pop 後最前面的元素: " << q.front() << endl;
+
+    // 依序取出所有元素
+    cout << "依序取出: ";
+    while (!q.empty()) {
+        cout << q.front() << " ";
+        q.pop();
+    }
+    cout << endl;
+}
+#+end_src
+
+#+RESULTS:
+: 最前面的元素: 10
+: 最後面的元素: 30
+: 元素個數: 3
+: pop 後最前面的元素: 20
+: 依序取出: 20 30
+
+** map
+map 是一種「鍵值對(key-value pair)」的資料結構，可以用一個 key 來對應一個 value，類似查字典：用單字(key)來查詢它的意思(value)。使用前需要 include <map>。
+
+#+begin_src cpp -r -n :results output :exports both
+#include <iostream>
+#include <map>
+#include <string>
+using namespace std;
+int main() {
+    // 宣告一個 key 為 string、value 為 int 的 map
+    map<string, int> scores;
+
+    // 加入資料
+    scores["Alice"] = 85;
+    scores["Bob"] = 92;
+    scores["Charlie"] = 78;
+
+    // 查詢
+    cout << "Bob 的成績: " << scores["Bob"] << endl;
+
+    // 走訪所有資料（map 會自動依 key 排序）
+    for (auto& p : scores) {
+        cout << p.first << ": " << p.second << endl;
+    }
+
+    // 檢查某個 key 是否存在
+    if (scores.count("David") == 0) {
+        cout << "查無 David 的資料" << endl;
+    }
+}
+#+end_src
+
+#+RESULTS:
+: Bob 的成績: 92
+: Alice: 85
+: Bob: 92
+: Charlie: 78
+: 查無 David 的資料
+
+** 課堂練習
+*** A: 使用 vector 讀入 N 個整數，輸出最大值、最小值、平均值。
+**** 測資
+- 輸入:
+  #+begin_src text
+  5
+  85 53 94 38 80
+  #+end_src
+- 輸出:
+  #+begin_src text
+  最大值: 94
+  最小值: 38
+  平均值: 70
+  #+end_src
+*** B: 使用 stack 判斷一個字串的括號是否配對正確。
+**** 測資 1
+- 輸入: (()())
+- 輸出: 配對正確
+**** 測資 2
+- 輸入: ((())
+- 輸出: 配對錯誤
+
+** 進階閱讀
+- [[https://cplusplus.com/reference/stl/][C++ STL Reference]]
+- [[https://www.geeksforgeeks.org/the-c-standard-template-library-stl/][The C++ Standard Template Library (STL)]]
 
 * Footnotes
-
-[fn:1] [[https://devcodecamp.com/2023/02/the-top-5-reasons-why-you-should-learn-code-in-2023/][The Top 5 Reasons Why You Should Learn Code in 2023]]
 
 [fn:2] [[https://hackingcpp.com/cpp/lang/separate_compilation.html][hacking C++]]
 

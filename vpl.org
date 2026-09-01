@@ -1,14 +1,17 @@
 #+TITLE: 教學網作業上傳/評分失效可能解決方案
-#+OPTION: num:2
+#+SUBTITLE: TNFSH CPP教材
+#+OPTIONS: num:2
 #+LATEX:\newpage
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../css/muse.css" />
+#+begin_export html
+<a href="https://hits.sh/letranger.github.io/CPP/vpl.html/"><img align="right" alt="Hits" src="https://hits.sh/letranger.github.io/CPP/vpl.html.svg"/></a>
+#+end_export
+
 
 
 * 問題
 如果你在教學網上傳作業或評分時出現如下畫面
 #+CAPTION: 評分異常
-#+LABEL:fig:Labl
-#+name: fig:Name
 #+ATTR_LATEX: :width 500
 #+ATTR_ORG: :width 500
 #+ATTR_HTML: :width 700
@@ -19,19 +22,15 @@
 * 解決方法
 1. 打開以下這個網站：https://vpl.tnfsh.tn.edu.tw/OK，
 2. 接下來，你的瀏覽器可能會跟你抱怨這個網站不安全、這個連線有問題BALABALA....不同的瀏覽器會出現不同的抱怨文，以下依不同瀏覽器分別說明
-** 如果你用的瀏覽器是Firefix
+** 如果你用的瀏覽器是Firefox
 1. 你大概會看到這個
    #+CAPTION: Firefox-error
-   #+LABEL:fig:Labl
-   #+name: fig:Name
    #+ATTR_LATEX: :width 500
    #+ATTR_ORG: :width 500
    #+ATTR_HTML: :width 700
    [[file:images/2021-05-19_19-27-16.jpg]]
-2. 接下來請點選"進階"、再點選"接受風險並繼續
+2. 接下來請點選"進階"、再點選"接受風險並繼續"
    #+CAPTION: Firefox-Fixing
-   #+LABEL:fig:Labl
-   #+name: fig:Name
    #+ATTR_LATEX: :width 500
    #+ATTR_ORG: :width 500
    #+ATTR_HTML: :width 700
@@ -40,24 +39,18 @@
 ** 如果你用的瀏覽器是Chrome
 1. 你大概會看到這個
    #+CAPTION: Chrome-error
-   #+LABEL:fig:Labl
-   #+name: fig:Name
    #+ATTR_LATEX: :width 500
    #+ATTR_ORG: :width 500
    #+ATTR_HTML: :width 700
    [[file:images/2021-05-19_20-46-03.jpg]]
 2. 接下來請點選"進階"
    #+CAPTION: Chrome-Fixing
-   #+LABEL:fig:Labl
-   #+name: fig:Name
    #+ATTR_LATEX: :width 500
    #+ATTR_ORG: :width 500
    #+ATTR_HTML: :width 700
    [[file:images/2021-05-19_20-46-04.jpg]]
 3. 最後請點選"繼續前往 vpl.tnfsh.tn.edu.tw (不安全)"
    #+CAPTION: Chrome-Fixing
-   #+LABEL:fig:Labl
-   #+name: fig:Name
    #+ATTR_LATEX: :width 500
    #+ATTR_ORG: :width 500
    #+ATTR_HTML: :width 700
@@ -66,24 +59,18 @@
 ** 如果你用的瀏覽器是Microsoft Edge
 1. 你大概會看到這個
    #+CAPTION: Microsoft Edge error
-   #+LABEL:fig:Labl
-   #+name: fig:Name
    #+ATTR_LATEX: :width 500
    #+ATTR_ORG: :width 500
    #+ATTR_HTML: :width 700
    [[file:images/2021-05-19_20-40-53.jpg]]
 2. 接下來請點選"進階"
    #+CAPTION: Microsoft Edge Fixing
-   #+LABEL:fig:Labl
-   #+name: fig:Name
    #+ATTR_LATEX: :width 500
    #+ATTR_ORG: :width 500
    #+ATTR_HTML: :width 700
    [[file:images/2021-05-19_20-40-54.jpg]]
 3. 最後點選"繼續前往 vpl.tnfsh.tn.edu.tw (不安全)"
    #+CAPTION: Microsoft Edge Fixing
-   #+LABEL:fig:Labl
-   #+name: fig:Name
    #+ATTR_LATEX: :width 500
    #+ATTR_ORG: :width 500
    #+ATTR_HTML: :width 700
@@ -92,8 +79,6 @@
 ** OK
 沒出什麼意外的話，不管你是用什麼鬼瀏覽器，接下來你應該都會看到一個空白網頁，左上角有OK兩個字，代表一切搞定.....，接下來就再回到作業繳交的網頁再去評分吧.....
 #+CAPTION: OK
-#+LABEL:fig:Labl
-#+name: fig:Name
 #+ATTR_LATEX: :width 500
 #+ATTR_ORG: :width 500
 #+ATTR_HTML: :width 700
