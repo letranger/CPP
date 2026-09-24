@@ -1,5 +1,6 @@
 #+TITLE: 教學網作業上傳/評分失效可能解決方案
-#+SUBTITLE: TNFSH CPP教材
+#+AUTHOR: 顏永進
+#+SUBTITLE: TNFSH CPP教材 / 顏永進
 #+OPTIONS: num:2
 #+LATEX:\newpage
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../css/muse.css" />

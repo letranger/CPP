@@ -1,5 +1,6 @@
 #+title: Itembank
-#+SUBTITLE: TNFSH CPP教材
+#+AUTHOR: 顏永進
+#+SUBTITLE: TNFSH CPP教材 / 顏永進
 
 #+INCLUDE: ../pdf-m1.org
 #+TAGS: C++

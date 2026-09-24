@@ -1,5 +1,6 @@
 #+TITLE: Advanced C/C++
-#+SUBTITLE: TNFSH CPP教材
+#+AUTHOR: 顏永進
+#+SUBTITLE: TNFSH CPP教材 / 顏永進
 #+INCLUDE: ../pdf.org
 #+TAGS: C++
 #+OPTIONS: toc:2 ^:nil num:5

@@ -1,5 +1,6 @@
 #+Title: Basic Materials of C++
-#+SUBTITLE: TNFSH CPP教材
+#+AUTHOR: 顏永進
+#+SUBTITLE: TNFSH CPP教材 / 顏永進
 #+OPTIONS: toc:2 ^:nil num:3
 #+TAGS: C++
 #+PROPERTY: header-args :eval never-export

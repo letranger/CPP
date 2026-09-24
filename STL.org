@@ -1,5 +1,6 @@
 #+TITLE: STL
-#+SUBTITLE: TNFSH CPP教材
+#+AUTHOR: 顏永進
+#+SUBTITLE: TNFSH CPP教材 / 顏永進
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../css/muse.css" />
 #+begin_export html
 <a href="https://hits.sh/letranger.github.io/CPP/STL.html/"><img align="right" alt="Hits" src="https://hits.sh/letranger.github.io/CPP/STL.html.svg"/></a>

@@ -1,5 +1,6 @@
 #+TITLE: TNFSH C/C++
-#+SUBTITLE: TNFSH CPP教材
+#+AUTHOR: 顏永進
+#+SUBTITLE: TNFSH CPP教材 / 顏永進
 #+OPTIONS: toc:nil ^:nil num:nil
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../css/muse.css" />
 #+begin_export html
